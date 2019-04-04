@@ -1,0 +1,24 @@
+@mixin link {
+    color: $link;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+        color: $link-hover;
+    }
+    &:focus {
+        outline: thin dotted;
+    }
+
+    &.disabled,
+    &[disabled] {
+        color: darken(#FFF, 20%);
+        cursor: default;
+        pointer-events: none;
+    }
+}
+
+.link {
+    @include link;
+}

@@ -1,0 +1,1421 @@
+////
+/// _components.scss contains solely the mixin definitions for components.
+///
+/// + This file should not depend on styles.scss; we should be able to use
+///   include this file without including styles.scss.
+/// + This file should not generate any CSS on it's own; it should only contain
+///   mixin and/or function definitions.
+///
+////
+
+
+///
+/// ACCORDION
+///
+/// ACCORDION requires the accordion.plugin.js file. Call the ACCORDION
+/// function on your outer element (in our example we use an .accordion div).
+/// You can pass in optional plugin options. See the demo page for a list.
+/// Within the outer element class each accordion item requires a div wrapper.
+/// Within the div wrapper there is a .header class and a .content class.
+///
+///
+///
+/// @emmet .accordion>div>(.header{header}+.content>{lorem ipsum})
+/// @demo  demo/accordion.html
+///
+/// @example markup HTML
+///   <div class="accordion">
+///       <div>
+///           <div class="header">header</div>
+///           <div class="content">
+///               lorem ipsum
+///           </div>
+///       </div>
+///   </div>
+///
+/// @example javascript JavaScript
+///   $('.accordion').accordion({
+///       hiddenOnLoad: true,
+///       singleOpen: true
+///   });
+///
+
+@mixin accordion() {
+    > div {
+        &.open {
+            .header {
+                background: darken($lightgray, 5%);
+                &::after {
+                    @include fontawesome(900, "\f068");
+                }
+            }
+        }
+        &.close {
+            .header{
+                &::after {
+                    @include fontawesome(900, "\f067");
+                }
+            }
+        }
+        &.initially-hidden {
+            .content {
+                display: none;
+            }
+        }
+        .header {
+            background-color: $lightgray;
+            color: $plain-text;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: .5em;
+            padding: .5em 1em;
+            position: relative;
+            text-align: left;
+            width: 100%;
+            &:hover {
+                background-color: darken($lightgray, 5%);
+            }
+            &::after {
+                bottom: 0;
+                height: 1em;
+                margin: auto 0;
+                position: absolute;
+                right: 1em;
+                top: 0;
+                width: 1em;
+            }
+        }
+        .content {
+            padding: 1em 0;
+        }
+    }
+}
+
+
+///
+/// BACKGROUND VIDEO plays a video (without sound) in the background of an element.
+/// Increasing the parent’s ::before padding results in a larger height.
+///
+///
+///
+/// @emmet .backgroundvideo>(.mold>div>h1+p)+video>source[src]
+/// @demo demo/background-video.html
+///
+/// @example markup HTML
+///    <div class="backgroundvideo">
+///        <div class="mold">
+///            <div>
+///                <h1>
+///                    Imarc loves background videos
+///                </h1>
+///                <p>
+///                    Lorem ipsum dolor sit amet consectetur adipisicing elit fuga.
+///                </p>
+///            </div>
+///        </div>
+///         <video autoplay="autoplay" loop="loop" poster="../img/video_placeholder.jpg">
+///            <source src="../img/imarc_culture_video_1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+///            <source src="../img/imarc_culture_video_1.webmhd.webm" type='video/webm; codecs="vp8, vorbis"' />
+///        </video>
+///    </div>
+///
+
+@mixin backgroundvideo() {
+    align-items: center;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    .mold {
+        background-color: rgba(2255, 255, 255, 0.6);
+        padding: 2em;
+        text-align: center;
+        z-index: 2;
+    }
+    video {
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+    &::before {
+        content: "";
+        display: block;
+        padding-top: 30%;
+    }
+}
+
+
+///
+/// BREADCRUMBS provides basic breadcrumb styling, complete with
+/// fontawesome icons for separators. Many styles for BREADCRUMBS
+/// are cascading from our base styles.scss file.
+///
+///
+///
+/// @emmet nav.breadcrumbs>ul>li>a+li.active>a
+/// @demo demo/breadcrumbs.html
+///
+/// @example markup HTML
+///    <nav class="breadcrumbs">
+///       <ul>
+///           <li>
+///               <a href="">Item</a>
+///           </li>
+///           <li class="active">
+///               <a href="">Item</a>
+///           </li>
+///           <li>
+///               <a href="">Item</a>
+///           </li>
+///       </ul>
+///    </nav>
+///
+
+@mixin breadcrumbs() {
+    li:not(:last-child) a {
+        padding-right: 0;
+
+        &::after {
+            @include fontawesome(900, "\f105");
+            padding-left: 0.5rem;
+        }
+    }
+}
+
+
+///
+/// CAROUSEL uses Slick to create a carousel. It defaults to a rather
+/// basic, one-slide-at-a-time implementation with dots, but slick supports a
+/// good deal of configuration including showing multiple slides, breakpoints,
+/// syncing between slides, and plenty of javascript events and methods for
+/// integration.
+///
+/// The implementation on Boilerplate is using a CDN to provide
+///
+/// + slick.css
+/// + slick-theme.css
+/// + slick.min.js
+///
+/// See http://kenwheeler.github.io/slick/ for more information.
+///
+/// The carousel() mixin should be included on a parent element that contains
+/// one div per slide. No additional classes are necessary – the slick classes
+/// referenced are added dynamically by slick.
+///
+///
+/// @emmet .carousel>div*3>h2+p
+/// @demo demo/carousel.html
+///
+/// @example markup HTML
+///    <div class="carousel">
+///        <div>
+///            <h2>Headline</h2>
+///            <p>Lorem ipsum</p>
+///        </div>
+///    </div>
+///
+
+@mixin carousel() {
+    .slick-slide {
+        color: #FFF;
+        height: auto;
+        padding: 3rem;
+    }
+    .slick-prev,
+    .slick-next {
+        z-index: 1;
+    }
+    .slick-prev {
+        left: 2rem;
+    }
+    .slick-next {
+        right: 2rem;
+    }
+}
+
+
+///
+/// The COLUMNS mixin makes it so that immmediate child elements appear as
+/// columns. It assumes the use of < hr > elements to create visual gutters
+/// that are only visible while displayed as columns.
+///
+///
+/// @emmet .columns>div+(hr+div)*2
+/// @demo demo/columns.html
+///
+/// @example markup HTML
+///     <div class="columns">
+///         <div>
+///             <h2>A column</h2>
+///         </div>
+///         <hr />
+///         <div>
+///             <h2>Another column</h2>
+///        </div>
+///    </div>
+///
+
+@mixin columns() {
+    > hr {
+        border: 0;
+        display: none;
+    }
+    @include breakpoint(md) {
+        & {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+            > * {
+                display: table-cell;
+                vertical-align: top;
+            }
+            > hr {
+                display: table-cell;
+                width: 1rem;
+            }
+        }
+    }
+}
+
+
+///
+/// The DOSSIER mixin displays an individual’s biography and photograph.
+/// If the photo portion is omitted, the biography element flexes to
+/// fill the space.
+///
+/// @emmet .dossier>div>(.photo>img^.bio>h2{Lorem Ipsum}+p.title{Vice President}+p{Lorem20})
+/// @demo demo/dossier.html
+///
+/// @example markup HTML
+///        <div class="dossier">
+///            <div>
+///                <div class="photo">
+///                    <img src="../img/dossier-1.jpg" alt="Jane Doe" />
+///                </div>
+///                <div class="bio">
+///                    <h2>
+///                        Jane Doe
+///                    </h2>
+///                    <p class="title">
+///                        Executive Vice President of Operations
+///                    </p>
+///                    <p>
+///                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam quidem, soluta quisquam est velit praesentium ex, vero perspiciatis ad autem sapiente. Sed amet et voluptates, inventore corrupti quas assumenda nemo quibusdam magni officia ut, aperiam quo, quae! Eos, unde ea placeat ab earum molestias a veritatis architecto quas.
+///                    </p>
+///                    <p>
+///                        Magnam quidem, soluta quisquam est velit praesentium ex, vero perspiciatis ad autem sapiente. Sed amet et voluptates, inventore corrupti quas assumenda nemo quibusdam magni officia ut, aperiam quo quae! Eos unde ea placeat.
+///                    </p>
+///                </div>
+///            </div>
+///        </div>
+///
+///
+/// @param {measure}   $gutter     [2rem] - gutter between content and image
+/// @param {measure}   $photoWidth [25%]  - width of image
+/// @param {direction} $direction  [row]  - whether to put the images on the left or right
+///
+
+@mixin dossier($gutter: 2rem, $photoWidth: 25%, $direction: row) {
+    > * {
+        text-align: center;
+        .photo {
+            margin-bottom: 2rem;
+        }
+    }
+    @include breakpoint(md) {
+        > * {
+            display: flex;
+            flex-direction: $direction;
+            flex-wrap: nowrap;
+            margin-bottom: 4rem;
+            text-align: left;
+            .photo {
+                flex: 0 0 $photoWidth;
+                margin-bottom: 0;
+                margin-right: $gutter;
+                @if $direction == row-reverse {
+                    margin-left: $gutter;
+                    margin-right: 0;
+                }
+            }
+            .bio {
+                .title {
+                    color: $meta-text;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+
+///
+/// The DROPDOWN mixin allows for single-column dropdown menus. The mixin
+/// is called from the nav.primary element, not a list item.
+///
+/// @emmet nav.primary>ul>li>a{link name}+.dropdown>>ul>li>(a{link name})*3
+/// @demo demo/dropdown-simple.html
+///
+/// @example markup HTML
+///     <nav class="primary">
+///         <ul>
+///             <li>
+///                 <a href="">Maine</a>
+///                 <div class="dropdown">
+///                     <ul>
+///                         <li><a href="">Augusta</a></li>
+///                     </ul>
+///                 </div>
+///             </li>
+///         </ul>
+///     </nav>
+///
+
+@mixin dropdown() {
+    @media only screen and (max-width: map-get($breakpoints,lg) - 1px) { 
+        .dropdown,
+        i.fa {
+            display: none;
+        }
+    }
+    @include breakpoint(lg) {
+        i.fa {
+            display: inline-block;
+        }
+        .dropdown {
+            background-color: #2A2A2A;
+            color: #FFF;
+            display: block;
+            font-size: 1rem;
+            min-width: 260px;
+            opacity: 0;
+            padding: 2rem 0;
+            position: absolute;
+            top: 100%;
+            transition: opacity 300ms;
+            visibility: hidden;
+            z-index: 1;
+            ul {
+                display: block;
+            }
+            .menu {
+                > * {
+                    padding: 0 1rem;
+                }
+                li {
+                    margin-bottom: 0.4em;
+                }
+                a {
+                    color: #0C96DD;
+                }
+                a:hover,
+                a:focus {
+                    color: darken(#0C96DD, 10%);
+                }
+            }
+        }
+        .dropdown.open {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+
+///
+/// The DROPDOWN (mega) mixin allows for full-width mega dropdown
+/// menus. Call this mixin on a list item, not on nav.primary.
+/// Note that the simple dropdown component is a dependency of
+/// DROPDOWN (mega). The mega dropdown is positioned to header.primary
+/// instead of its parent list item.
+///
+/// @emmet nav.primary>ul>li.mega>a{link name}+.dropdown>.menu(div*3)
+/// @demo demo/dropdown-mega.html
+///
+/// @example markup HTML
+///     <nav class="primary">
+///         <ul>
+///             <li class="mega">
+///                 <a href="">Maine</a>
+///                 <div class="dropdown">
+///                     <div class="menu">
+///                         <div>
+///                             <ul>
+///                                 <li><a href="">Augusta</a></li>
+///                             </ul>
+///                         </div>
+///                     </div>
+///                 </div>
+///             </li>
+///         </ul>
+///     </nav>
+///
+
+@mixin dropdown-mega() {
+    position: static;
+    @include breakpoint(lg) {
+        .dropdown {
+            left: 0;
+            top: 100%;
+            width: 100%;
+            .menu {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 1168px;
+                > * {
+                    border-left: 1px solid #777;
+                    flex-basis: 0;
+                    flex-grow: 1;
+                    padding: 0 3rem;
+                }
+                > *:first-child {
+                    border-left: none;
+                    padding-left: 0;
+                }
+                > *:last-child {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
+
+
+///
+/// FEATURES holds three modules in one row. Powered by flexbox,
+/// this allows for a bottom alignment of an optional button. Use the
+/// `$gutter` variable to pass a preferred gutter width.
+///
+/// @emmet .features>(div>(.icon>img)+h4+p+a)*3
+/// @demo demo/features.html
+///
+/// @example markup HTML
+///    <div class="features">
+///        <div class="feature">
+///            <div class="icon"><img src="" alt=""></div>
+///            <h4></h4>
+///            <p></p>
+///            <a href=""></a>
+///        </div>
+///    </div>
+///
+/// @param {measure} $gutter [3rem] - gutter between features
+///
+
+@mixin features($gutter: 3rem) {
+    > * {
+        background-color: #EEE;
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2rem;
+        text-align: center;
+        img,
+        h3,
+        p {
+            margin-bottom: 1rem;
+        }
+        .button {
+            margin-bottom: 0;
+        }
+    }
+    @include breakpoint(lg) {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        > * {
+            display: flex;
+            flex: 1 0 0%;
+            flex-direction: column;
+            margin-left: $gutter;
+            margin-right: 0;
+            .button {
+                align-self: center;
+                margin-top: auto;
+            }
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+
+///
+/// GRID allows for the creation of a column-based grid 
+/// that can wrap or nowrap. It is lighter than FEATURES or TILES
+/// in that it contains no default styling on its contents.
+///
+/// @emmet .grid>(.grid-cell>p)*3
+/// @demo demo/grid.html
+///
+///
+/// @example markup HTML
+///    <div class="grid">
+///        <div class="grid-cell">
+///            <p>
+///                Hello world
+///            </p>
+///         </div>
+///        <div class="grid-cell">
+///            <p>
+///                Hello world
+///            </p>
+///         </div>
+///        <div class="grid-cell">
+///            <p>
+///                Hello world
+///            </p>
+///         </div>
+///     </div>
+///
+/// @param {direction} $align  [stretch] - align-items property
+/// @param {number}  $columns [3] - number of columns while min-width is $large
+/// @param {direction}  $flow [row wrap] - number of columns while min-width is $large
+/// @param {measure}  $gutter [1rem] - gutter between grid items
+/// @param {direction}  $justify [flex-start] - justify-content property
+
+
+@mixin grid($align: stretch, $columns: 3, $flow: row wrap, $gutter: 1rem, $justify: flex-start) {
+    .grid-cell {
+        margin-bottom: $gutter; 
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    @include breakpoint(md) {
+        align-items: $align;
+        display: flex;
+        flex-flow: $flow;
+        justify-content: $justify;
+        margin-left: -$gutter / 2;
+        margin-right: -$gutter / 2;
+        .grid-cell {
+            flex-basis: calc(50% - #{$gutter});
+            flex-shrink: 0;
+            margin-left: $gutter / 2;
+            margin-right: $gutter / 2;
+            max-width: calc(50% - #{$gutter});
+        }
+    }
+    @include breakpoint(lg) {
+        .grid-cell {
+            flex-basis: calc((100% / #{$columns}) - (#{$gutter}));
+            max-width: calc(50% - #{$gutter});
+        }
+    }
+}
+
+
+
+
+///
+/// LISTING shows a listing of entries. It includes an optional search form with filters.
+/// Remove the search form elements for a simple list.
+///
+/// @emmet .listing>(form>.search>(.text>label+input^.submit>label+input[type="submit"]))+p.guide{Showing 10 of 20}+ul>li>a>h2{Listing headline}+a.meta+div.summary>p{Lorem Ipsum}
+/// @demo demo/listing.html
+///
+///
+/// @example markup HTML
+///    <div class="listing">
+///        <form>
+///            <div class="search">
+///                <div class="text">
+///                    <label for="search">Search the website</label>
+///                    <input id="search" type="search" placeholder="Search using keywords (CSS tips, Amazon EC2)" />
+///                </div>
+///                <div class="submit">
+///                    <input type="submit" value="Search" />
+///                </div>
+///            </div>
+///            <div class="filters">
+///                <label>
+///                    <input type="checkbox"><span>case study</span>
+///                </label>
+///                <label>
+///                    <input type="checkbox"><span>event</span>
+///                </label>
+///            </div>
+///        </form>
+///        <p class="guide">
+///            Showing results 1–10 for <strong>responsive design</strong>
+///        </p>
+///        <ul>
+///            <li>
+///                <h2>
+///                    <a href="">Responsive Web Design roundup for 2016 | Imarc </a>
+///                </h2>
+///                <a class="meta" href="">http://imarc.com/blog/responsive-web-design</a>
+///                <div class="summary">
+///                    <p>
+///                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta obcaecati voluptatem facere alias nisi sint aliquid a deserunt nostrum explicabo. Ipsa dicta possimus ipsam dignissimos culpa maiores amet eaque! Natus.
+///                    </p>
+///                </div>
+///            </li>
+///         </ul>
+///     </div>
+///
+
+@mixin listing() {
+    margin-bottom: 2rem;
+    form {
+        .search {
+            display: flex;
+            label {
+                @include visuallyhidden;
+            }
+            .text {
+                flex-grow: 1;
+            }
+            .submit {
+                flex-basis: 120px;
+                flex-shrink: 0;
+            }
+            .submit input {
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .filters {
+            margin-bottom: 2rem;
+            label {
+                display: inline;
+            }
+            span {
+                background-color: darken($link, 20%);
+                border-radius: 0.5rem;
+                color: #fff;
+                display: inline-block;
+                margin: 0 0.5rem 0.5rem 0;
+                padding: 0.5rem 1rem;
+            }
+            input[type="checkbox"]:checked + span {
+                background-color: $link;
+            }
+            input[type="checkbox"] {
+                display: none;
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            border-top: 4px solid $border;
+            margin-bottom: 0;
+            padding: 2rem 0;
+            .meta {
+                display: block;
+                font-size: 0.9rem;
+                margin-bottom: 1em;
+            }
+            h2 + .meta {
+                margin-top: -1em;
+            }
+            .summary {
+                p:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+
+///
+/// The LOGIN mixin is a basic implementation of a login module that includes
+/// an email input, password input, submit button, forgot password link, and
+/// remember me checkbox.
+///
+/// @emmet .login>form>(div.text>label{Username}+input)+(div.password>label{Password}+input[type="password"])+div.actions>(.submit>button{Login})+(label>input[type="hidden"]+input[type="checkbox"])+a{Forgot Your Password?}
+/// @demo demo/login.html
+///
+/// @example markup HTML
+///       <div class="login">
+///           <form action="">
+///               <div class="text">
+///                   <label for="username">Username</label>
+///                   <input type="text" name="username" />
+///               </div>
+///               <div class="password">
+///                   <label for="password">Password</label>
+///                   <input type="password" name="password" />
+///               </div>
+///               <div class="actions">
+///                   <div class="submit">
+///                       <button type="submit">Login</button>
+///                   </div>
+///                   <label for="remember_me">
+///                       <input type="hidden" name="remember_me" value="no" />
+///                       <input type="checkbox" name="remember_me" value="yes" id="remember_me" />
+///                       Remember me
+///                   </label>
+///                   <a href="#">Forgot Your Password?</a>
+///               </div>
+///           </form>
+///       </div>
+///
+
+@mixin login() {
+    background-color: #EEE;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    padding: 3rem;
+    input {
+        &:focus {
+            box-shadow: 0 0 5px rgba(114, 164, 0, 0.7);
+        }
+    }
+    .submit {
+        text-align: center;
+    }
+    .actions {
+        text-align: center;
+
+    }
+    @include breakpoint(md) {
+        .actions {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+            > * {
+                margin: 0;
+                padding: 0;
+            }
+            label {
+                margin-left: 1em;
+            }
+            a {
+                display: block;
+                margin-left: auto;
+                text-align: right;
+            }
+        }
+    }
+}
+
+
+///
+/// The mobile navigation mixin is missing any kind of sass, docblock style
+/// documentation within _components.scss. Sorry.
+///
+/// @demo demo/mobile-navigation.html
+///
+
+@mixin mobileNavigation() {
+    background-color: $charcoal;
+    bottom: 0;
+    display: none;
+    height: 100%;
+    opacity: 0;
+    overflow-y: auto;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    transition: transform .25s;
+    width: 80%;
+    z-index: 1000;
+    &.left {
+        display: block;
+        left: 0;
+        right: auto;
+        transform: translateX(-100%);
+    }
+    &.right {
+        display: block;
+        left: auto;
+        right: 0;
+        transform: translateX(100%);
+    }
+    &.left.open, &.right.open {
+        transform: translateX(0);
+        transition: transform .25s;
+    }
+    &.init {
+        display: block;
+        opacity: 1;
+        .menu > div + div {
+            display: none
+        }
+    }
+    nav.utility {
+        ul li a {
+            padding: 0.75rem 0;
+        }
+    }
+    ul {
+        display: block;
+        padding-left: 0;
+    }
+    ul li {
+        align-items: center;
+        border-bottom: 1px solid lighten($charcoal, 10%);
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        margin-bottom: 0;
+        text-align: left;
+        a {
+            color: #fff;
+            display: block;
+            padding: 1rem 0;
+        }
+        a > i.fa {
+            display: none;
+        }
+        i.fa {
+            display: inline-block;
+        }
+
+    }
+    @include breakpoint(lg) {
+        &.open.left {
+            transform: translateX(-100%);
+        }
+        &.open.right {
+            transform: translateX(100%);
+        }
+    }
+}
+
+
+///
+/// PAGINATION provides a navigational unordered list of pages. Often used
+/// in conjunction of a LISTING component.
+///
+/// @emmet nav.pagination>ul>(li.previous>a{Previous})+(li*2>a)+(li.active>a)+(li*2>a)+li.next>a{Next}
+/// @demo demo/pagination.html
+///
+/// @example markup HTML
+///    <nav class="pagination">
+///        <ul>
+///            <li class="previous"><a href=""><span class="sr-only">Previous</span></a></li>
+///            <li><a href="">1</a></li>
+///            <li><a href="">2</a></li>
+///            <li class="active"><a href="">3</a></li>
+///            <li><a href="">4</a></li>
+///            <li><a href="">5</a></li>
+///            <li><a href="">6</a></li>
+///            <li class="next disabled"><a href=""><span class="sr-only">Next</span></a></li>
+///        </ul>
+///    </nav>
+///
+
+@mixin pagination() {
+    display: flex;
+    justify-content: center;
+    ul {
+        border: 1px solid $border;
+        border-radius: 2px;
+        display: flex;
+        justify-content: center;
+    }
+    li {
+        margin-bottom: 0;
+    }
+    a {
+        color: $link;
+        padding: 0.5rem 1rem;
+        position: relative;
+    }
+    li:not(:last-child) a {
+        border-right: 1px solid $border;
+    }
+    li.active a {
+        background-color: $brand-blue;
+        color: #fff;
+        cursor: default;
+        pointer-events: none;
+        &::before,
+        &::after {
+            background-color: $brand-blue;
+        }
+        &:hover {
+            color: #fff;
+            background-color: $link-hover;
+            &::before,
+            &::after {
+                background-color: $link-hover;
+            }
+        }
+    }
+    li.disabled a {
+        color: $border;
+        cursor: default;
+        pointer-events: none;
+    }
+    li.previous a {
+        &::before {
+            @include fontawesome(900, "\f100");
+        }
+    }
+    li.next a {
+        &::before {
+            @include fontawesome(900, "\f101");
+        }
+    }
+    li:hover:not(.active):not(.disabled) {
+        a {
+            background-color: $link;
+            color: #FFF;
+
+            &::before {
+                background-color: $link;
+                color: #FFF;
+            }
+        }
+    }
+}
+
+
+///
+/// PROGRESS provides a basic, pill-style progress nav bar like you
+/// might find as part of an ecommerce or registration process.
+///
+/// @emmet nav.progress>ul>(li.complete*2>a)+(li.active>a)+(li*2>a)
+/// @demo demo/progress.html
+///
+/// @example markup HTML
+///    <nav class="progress">
+///        <ul>
+///            <li class="complete"><a href="">Nav Item 1</a></li>
+///            <li class="complete"><a href="">Nav Item 2</a></li>
+///            <li class="active"><a href="">Nav Item 3</a></li>
+///            <li><a href="">Nav Item 4</a></li>
+///            <li><a href="">Nav Item 5</a></li>
+///            <li><a href="">Nav Item 6</a></li>
+///        </ul>
+///    </nav>
+///
+
+@mixin progress() {
+    ul {
+        border: 1px solid $border;
+        border-radius: 2px;
+        display: block;
+        width: 100%;
+    }
+    a {
+        padding: 0.5rem 1rem;
+        position: relative;
+        text-align: center;
+        &:hover {
+            color: $link-hover;
+        }
+    }
+    li:not(:last-child) a {
+        border-right: 1px solid $border;
+    }
+    li.active {
+        a {
+            background-color: $link;
+            color: #FFF;
+            cursor: default;
+            pointer-events: none;
+
+            &:hover {
+                background-color: $link-hover;
+                color: #FFF;
+            }
+        }
+    }
+    li.disabled a {
+        color: $border;
+        cursor: default;
+        pointer-events: none;
+    }
+    li:hover:not(.active,.disabled) a {
+        color: $link-hover;
+    }
+    li:not(:last-child) a {
+        border: 0;
+    }
+    li.complete a {
+        background-color: #FFF;
+        color: #ccc;
+        &::before {
+            background-color: #FFF;
+        }
+        &:hover {
+            color: $link;
+        }
+    }
+    @include breakpoint(md) {
+        ul {
+            display: flex;
+        }
+        li {
+            flex: 1 1 auto;
+            position: relative;
+        }
+        li:last-child a {
+            &::before {
+                display: none;
+            }
+        }
+        a {
+            &::after,
+            &::before {
+                border: 0 solid transparent;
+                border-bottom: 1.25rem solid rgba(0,0,0,0);
+                border-left: 1rem solid #FFF;
+                border-top: 1.25rem solid rgba(0,0,0,0);
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: 1;
+            }
+            &::after {
+                border-left-color: #FFF;
+            }
+            &::before {
+                border-left-color: darken($border, 10%);
+                margin-right: -1px;
+            }
+        }
+        li.active {
+            margin-left: -1rem;
+            z-index: 2;
+            &::before {
+                border-bottom: 1.25rem solid $link;
+                border-left: 1rem solid #FFF;
+                border-top: 1.25rem solid $link;
+                content: '';
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 2;
+            }
+            a {
+                &::after,
+                &::before {
+                    background-color: $link;
+                    border-bottom-color: #FFF;
+                    border-left-color: $link;
+                    border-top-color: #FFF;
+                }
+                &::before {
+                    margin-right: 0;
+                }
+            }
+            a:hover {
+                &::after,
+                &::before {
+                    background-color: $link-hover;
+                }
+            }
+        }
+    }
+}
+
+
+///
+/// The STICKY-ELEMENT component works with (sticky-element.plugin.js) to fix
+/// an element at a certain point in the viewport. Has options for offsets, duration,
+/// until, etc. It does not have a SASS mixin.
+///
+/// @emmet
+/// @demo demo/sticky-element.html
+///
+
+@mixin sticky-element() {}
+
+
+///
+/// The STICKY-HEADER mixin works with (sticky-header.plugin.js) to hide
+/// a site’s header.primary element as you scroll down page. The element
+/// reappears when the user scrolls up the page. This is
+/// responsive as the "top" value is dynamically set in the
+/// js based on the height of the header. Top padding is also added
+/// to the body dynamically via js so that the header doesn't overlap any
+/// content.
+///
+/// @emmet header.primary
+/// @demo demo/sticky-header.html
+///
+
+@mixin sticky-header() {
+    position: fixed;
+    top: 0;
+    transition: top 0.16s cubic-bezier(0, .40, .70, 1);
+    width: 100%;
+    z-index: 100;
+}
+
+
+///
+/// TABS allows for the showing and hiding of panels via an associated tab 
+/// navigation. By adding an optional data element (data-hash="#myHash") to 
+/// the li tags the javascript plugin will add the hash to the URL so users
+/// may bookmark the page and the page can reload open to that tab when the
+/// the url with the hash is loaded in the browser.
+///
+/// @emmet .tabs>(nav>ul>li*4)>.panel.active+(.panel*3)
+/// @demo demo/tabs.html
+///
+/// @example markup HTML
+///    <div class="tabs">
+///        <nav>
+///            <ul>
+///                <li class="active" data-hash="">Patriots</li>
+///                <li data-hash="#bruins">Bruins</li>
+///                <li data-hash="#celtics">Celtics</li>
+///            </ul>
+///        </nav>
+///        <div class="panel active">
+///            <p>
+///                The New England Patriots are a professional American
+///                football team based in the Greater Boston area.
+///            </p>
+///            <p>
+///                Since the arrival of head coach Bill Belichick in 2000,
+///                the Patriots have become one of the most successful teams.
+///            </p>
+///        </div>
+///        <div class="panel">
+///            <p>
+///                 The Boston Bruins are an American professional
+///                 ice hockey team based in Boston, Massachusetts.
+///            </p>
+///            <p>
+///                The Bruins have won six Stanley Cup championships,
+///                tied for fifth most of all-time with the Blackhawks.
+///            </p>
+///        </div>
+///    </div>
+///
+
+ @mixin tabs() {
+     position: relative;
+     nav {
+         border-bottom: 1px solid;
+         ul {
+             list-style: none;
+             margin-left: 20px;
+             padding: 0;
+             text-align: center;
+         }
+         li {
+             background-color: #CBBFB4;
+             border-top-left-radius: 4px;
+             border-top-right-radius: 4px;
+             cursor: pointer;
+             display: inline-block;
+             margin-bottom: 0;
+             margin-right: 0.5em;
+             padding: 0.5em 1em;
+         }
+         li.active {
+             background-color: #FFF;
+             border: 1px solid;
+             border-bottom: none;
+             position: relative;
+             &::after {
+                 background-color: #FFF;
+                 bottom: -1px;
+                 content: "";
+                 height: 1px;
+                 left: 0;
+                 position: absolute;
+                 width: 100%;
+             }
+         }
+     }
+     .panel {
+         display: none;
+         padding: 20px;
+     }
+     .panel.active {
+         display: inherit;
+     }
+     @include breakpoint(lg) {
+         nav ul {
+             margin-left: 20px;
+             text-align: left;
+         }
+     }
+ }
+
+///
+/// The TESTIMONIAL mixin is a basic implementation of a testimonial design.
+/// Add in an optional image wrapped in an element with a class of .asset.
+///
+/// @emmet div.testimonial.asset>div.container>(div>img)+blockquote+p
+/// @demo demo/testimonial.html
+///
+/// @param {measure} $gutterWidth [4rem] - gutter between asset and quote
+///
+/// @example markup HTML
+///    <div class="testimonial">
+///        <div class="container">
+///            <div class="wrapper">
+///                <div class="asset">
+///                    <img src="http://dummyimage.com/900x900/ff675b/fff.png&text=Company logo or headshot" alt="" />
+///                </div>
+///                <div>
+///                    <blockquote>
+///                        It was an honor to work with Imarc. They demonstrated, very early on, a true ability to understand our business and solve for our needs—create a new intranet site, one that would increase engagement and foster community. Imarc delivered incredible results, taking our former site to new heights. We couldn’t be happier with their work and subject matter expertise.
+///                    </blockquote>
+///                    <p>
+///                        – John Smith, Chief Marketing Officer, Acme Co
+///                    </p>
+///                </div>
+///            </div>
+///        </div>
+///    </div>
+///
+
+@mixin testimonial($gutterWidth: 4rem) {
+    background-color: $charcoal;
+    margin-bottom: 4rem;
+    padding: 4rem 0 4rem;
+    text-align: center;
+    .asset {
+        margin-bottom: 2rem;
+        img {
+            max-width: 280px;
+        }
+    }
+    blockquote {
+        border: none;
+        color: #fff;
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+        padding: 0 2.5rem;
+        position: relative;
+        &::before,
+        &::after {
+            color: $meta-text;
+            font-family: Georgia, serif;
+            font-size: 3.375rem;
+            position: absolute;
+        }
+        &::before {
+            content: "“";
+            left: 0;
+            line-height: 1;
+            top: 0;
+        }
+        &::after {
+            content: "”";
+            line-height: 0;
+            right: 0;
+            bottom: 0;
+        }
+        ~ p {
+            color: $meta-text;
+            font-size: 0.875rem;
+            margin-bottom: 0;
+            padding: 0 2.5rem;
+        }
+    }
+    @include breakpoint(lg) {
+        text-align: left;
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+        .asset {
+            flex-basis: 33%;
+            flex-shrink: 0;
+            margin-bottom: 0;
+            margin-right: $gutterWidth;
+            img {
+                max-width: 100%;
+            }
+        }
+        blockquote {
+            font-size: 1.5rem;
+            padding: 0 6rem;
+            &::before,
+            &::after {
+                font-size: 7rem;
+            }
+            ~ p {
+                font-size: 1rem;
+                padding: 0 6rem;
+            }
+        }
+    }
+}
+
+
+///
+/// TILES helps you create an equal-width column grid layout without the use of row wrappers.
+/// Tiles is similar to the Features component, except that TILES’ items can wrap.
+/// Powered by flexbox, you can pass in a $gutter width and $column amount. Note that the
+/// specified $column amount only is respected at the large breakpoint. Tiles will automatically
+/// two-up your items at the medium breakpoint, and stack them at the small breakpoint.
+///
+/// @emmet .tiles>(.tile>p{Lorem Ipsum})*2
+/// @demo demo/tiles.html
+///
+/// @example markup HTML
+///    <div class="tiles">
+///        <div class="tile">
+///            <div>
+///                <h4>One Great Headline</h4>
+///                <p>Lorem ipsum dolor</p>
+///            </div>
+///        </div>
+///        <div class="tile">
+///            <div>
+///                <h4>One Great Headline</h4>
+///                <p>Lorem ipsum dolor</p>
+///            </div>
+///        </div>
+///        <div class="tile">
+///            <div>
+///                <h4>One Great Headline</h4>
+///                <p>Lorem ipsum dolor</p>
+///            </div>
+///        </div>
+///    </div>
+///
+/// @param {measure} $gutter  [2rem] - vertical gutter between tiles
+/// @param {number}  $columns [4]    - number of columns while min-width is $large
+///
+
+@mixin tiles($gutter: 2rem, $columns: 4) {
+    > * {
+        background-color: #EEE;
+        margin-bottom: $gutter;
+        text-align: left;
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .tile > * {
+        padding: 2rem;
+    }
+    @include breakpoint(md) {
+        display: flex;
+        flex-flow: row wrap;
+        margin-left: -$gutter / 2;
+        margin-right: -$gutter / 2;
+        > * {
+            flex-basis: calc(50% - #{$gutter});
+            flex-shrink: 0;
+            margin-left: $gutter / 2;
+            margin-right: $gutter / 2;
+        }
+    }
+    @include breakpoint(lg) {
+        > * {
+            flex-basis: calc((100% / #{$columns}) - (#{$gutter}));
+        }
+    }
+}

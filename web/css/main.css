@@ -1,0 +1,462 @@
+html {
+  box-sizing: border-box;
+  background-color: #FFF;
+  color: #191919;
+  font-family: Arial, sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: 320px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  height: auto;
+}
+
+::-moz-selection {
+  background: #b2b2b2;
+}
+
+::selection {
+  background: #b2b2b2;
+}
+
+::-moz-selection {
+  background: #b2b2b2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+  line-height: 1.2;
+  margin: 0 0 0.6em;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 2.6rem;
+  }
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+@media screen and (min-width: 1024px) {
+  h2 {
+    font-size: 2.1rem;
+  }
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+@media screen and (min-width: 1024px) {
+  h3 {
+    font-size: 1.6rem;
+  }
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  h4 {
+    font-size: 1.25rem;
+  }
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  h5 {
+    font-size: 1.15rem;
+  }
+}
+
+p {
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+blockquote {
+  border-left: 1px solid #b2b2b2;
+  color: #727272;
+  font-style: italic;
+  margin-bottom: 2em;
+  padding-left: 1rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #727272;
+  display: block;
+  height: 0;
+  margin: 2em auto 3em;
+  width: 100%;
+}
+
+a {
+  color: #0C96DD;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: #EB7424;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a.disabled,
+a[disabled] {
+  color: #cccccc;
+  cursor: default;
+  pointer-events: none;
+}
+
+p,
+ol,
+ul,
+dl {
+  margin-bottom: 2rem;
+}
+
+ol,
+ul {
+  padding-left: 2rem;
+}
+
+ol li,
+ol dt,
+ol dd,
+ul li,
+ul dt,
+ul dd {
+  margin-bottom: 0.5em;
+}
+
+ul {
+  list-style: disc;
+}
+
+dt {
+  font-weight: bold;
+  padding-left: 0.5em;
+}
+
+pre {
+  background-color: #4A4A4A;
+  padding: 1em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+code {
+  color: #FBCE78;
+  font-family: "Consolas", monospace;
+  padding: 2px 4px;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+  margin: 0;
+}
+
+label {
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+fieldset .help {
+  color: #727272;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+input[type=date],
+input[type=datetime-local],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+input[type=week],
+textarea {
+  border: 1px solid #b2b2b2;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #191919;
+  display: block;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0.4rem 0.6rem;
+  width: 100%;
+}
+
+input[type=reset],
+input[type=search],
+input[type=text],
+input[type=submit] {
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+::-webkit-input-placeholder {
+  color: #4A4A4A;
+}
+
+::ms-input-placeholder {
+  color: #4A4A4A;
+}
+
+::-placeholder {
+  color: #4A4A4A;
+}
+
+select {
+  border: 1px solid #b2b2b2;
+  height: 2.4rem;
+  width: 100%;
+}
+
+textarea {
+  height: 8em;
+  overflow: auto;
+  resize: vertical;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  padding: 0;
+}
+
+a.button {
+  background-color: #0C96DD;
+  color: #FFF;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  padding: 0.4rem 1rem;
+  text-align: center;
+  vertical-align: top;
+  margin-bottom: 0;
+}
+
+a.button:hover,
+a.button:focus {
+  background-color: #EB7424;
+}
+
+a.button.disabled,
+a.button[disabled] {
+  background-color: #8c8c8c;
+  color: #cccccc;
+  pointer-events: none;
+}
+
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  background-color: #0C96DD;
+  color: #FFF;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  padding: 0.4rem 1rem;
+  text-align: center;
+  vertical-align: top;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus,
+input[type=button]:hover,
+input[type=button]:focus,
+input[type=reset]:hover,
+input[type=reset]:focus,
+input[type=submit]:hover,
+input[type=submit]:focus {
+  background-color: #EB7424;
+}
+
+button.disabled,
+button[disabled],
+input[type=button].disabled,
+input[type=button][disabled],
+input[type=reset].disabled,
+input[type=reset][disabled],
+input[type=submit].disabled,
+input[type=submit][disabled] {
+  background-color: #8c8c8c;
+  color: #cccccc;
+  pointer-events: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+table caption {
+  font-size: 0.9rem;
+  margin-bottom: 0.75em;
+}
+
+table td,
+table th {
+  padding: 0.5em 1em;
+  text-align: left;
+  vertical-align: top;
+}
+
+table th {
+  background-color: #191919;
+  color: #FFF;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+table td {
+  border: 1px solid #b2b2b2;
+}
+
+table tr:nth-child(even) td {
+  background-color: #F3F3F3;
+}
+
+@media print {
+  * {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  pre,
+  blockquote,
+  tr,
+  img,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+@page {
+    margin: 0.5cm;
+}
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+.alert {
+  background-color: whitesmoke;
+  font-size: 1.25rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.alert.-danger {
+  background-color: mistyrose;
+}
+
+.link {
+  color: #0C96DD;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+  color: #EB7424;
+}
+
+.link:focus {
+  outline: thin dotted;
+}
+
+.link.disabled,
+.link[disabled] {
+  color: #cccccc;
+  cursor: default;
+  pointer-events: none;
+}
+
+
+/*# sourceMappingURL=main.css.map*/

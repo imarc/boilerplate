@@ -1,0 +1,4 @@
+mix-manifest.json
+node_modules
+public/js
+public/css
