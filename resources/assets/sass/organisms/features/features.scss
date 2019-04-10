@@ -1,0 +1,49 @@
+///
+/// FEATURES holds three modules in one row. Powered by flexbox,
+/// this allows for a bottom alignment of an optional button. Use the
+/// `$gutter` variable to pass a preferred gutter width.
+///
+
+@mixin features($gutter: 3rem) {
+    > * {
+        background-color: #EEE;
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2rem;
+        text-align: center;
+        img,
+        h3,
+        p {
+            margin-bottom: 1rem;
+        }
+        .button {
+            margin-bottom: 0;
+        }
+    }
+    @include breakpoint(lg) {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        > * {
+            display: flex;
+            flex: 1 0 0%;
+            flex-direction: column;
+            margin-left: $gutter;
+            margin-right: 0;
+            .button {
+                align-self: center;
+                margin-top: auto;
+            }
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@if $use-boilerplate-classes {
+    .features {
+        @include features;
+    }
+}

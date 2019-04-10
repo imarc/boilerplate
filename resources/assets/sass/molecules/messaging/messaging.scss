@@ -1,0 +1,70 @@
+///
+/// messaging mixin
+///
+
+@mixin messaging {
+    margin-bottom: 2rem;
+    padding: 1em 3em;
+    position: relative;
+
+    p:last-of-type,
+    ul:last-of-type {
+        margin-bottom: 0;
+    }
+    a {
+        text-decoration: underline;
+    }
+    &::before {
+        @include fontawesome(900, $character: "");
+
+        content: "";
+        font-size: 1em;
+        left: 1em;
+        line-height: inherit;
+        position: absolute;
+        text-align: center;
+        top: 1em;
+        width: 1em;
+    }
+}
+
+@if $use-boilerplate-classes {
+    .success {
+        @include messaging;
+
+        background-color: $success;
+        &::before {
+            content: "\f00c";
+        }
+        a {
+            color: #FFF;
+        }
+        a:hover {
+            color: darken(#FFF, 15%);
+        }
+    }
+
+    .info {
+        @include messaging;
+
+        background-color: $info;
+        &::before {
+            content: "\f129";
+        }
+    }
+
+    .error {
+        @include messaging;
+
+        background-color: $error;
+        &::before {
+            content: "\f12a";
+        }
+        a {
+            color: $info;
+        }
+        a:hover {
+            color: darken($info, 15%);
+        }
+    }
+}

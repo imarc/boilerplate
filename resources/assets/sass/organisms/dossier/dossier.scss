@@ -1,0 +1,48 @@
+///
+/// The DOSSIER mixin displays an individual’s biography and photograph.
+/// If the photo portion is omitted, the biography element flexes to
+/// fill the space.
+///
+/// @param {measure}   $gutter     [2rem] - gutter between content and image
+/// @param {measure}   $photoWidth [25%]  - width of image
+/// @param {direction} $direction  [row]  - whether to put the images on the left or right
+///
+
+@mixin dossier($gutter: 2rem, $photoWidth: 25%, $direction: row) {
+    > * {
+        text-align: center;
+        .photo {
+            margin-bottom: 2rem;
+        }
+    }
+    @include breakpoint(md) {
+        > * {
+            display: flex;
+            flex-direction: $direction;
+            flex-wrap: nowrap;
+            margin-bottom: 4rem;
+            text-align: left;
+            .photo {
+                flex: 0 0 $photoWidth;
+                margin-bottom: 0;
+                margin-right: $gutter;
+                @if $direction == row-reverse {
+                    margin-left: $gutter;
+                    margin-right: 0;
+                }
+            }
+            .bio {
+                .title {
+                    color: $meta-text;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+@if $use-boilerplate-classes {
+    .dossier {
+        @include dossier;
+    }
+}

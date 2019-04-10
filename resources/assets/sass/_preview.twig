@@ -6,6 +6,14 @@
     <title>{{ _target.title }} ({{ _target.handle }}) - Pattery Library</title>
 
     <link rel="stylesheet" href="{{ '/css/main.css' }}">
+
+    <script defer src="/js/manifest.js"></script>
+    <script defer src="/js/vendor.js"></script>
+    <script defer src="/js/main.js"></script>
+
+    {% for script in _target.resources.assets if script.isJS %}
+        <script defer src="../raw/{{ _target.baseHandle }}/{{ script.base }}"></script>
+    {% endfor %}
 </head>
 <body>
     {{ yield }}

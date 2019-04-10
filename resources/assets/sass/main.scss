@@ -1,7 +1,11 @@
 
 @import "variables";
-@import "components";
 @import "mixins";
-@import "base";
+@import "components";
 
-@import "./@(atoms|molecules|organisms|templates|pages)/*/!(_)*.scss";
+@import "~slick-carousel/slick/slick-theme";
+@import "~slick-carousel/slick/slick";
+
+@import "./@(utilities|atoms|molecules|organisms|templates|pages)/*/!(_)*.scss";
+
+@import "base";

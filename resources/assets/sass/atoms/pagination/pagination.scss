@@ -1,0 +1,76 @@
+///
+/// PAGINATION provides a navigational unordered list of pages. Often used
+/// in conjunction of a LISTING component.
+///
+
+@mixin pagination() {
+    display: flex;
+    justify-content: center;
+    ul {
+        border: 1px solid $border;
+        border-radius: 2px;
+        display: flex;
+        justify-content: center;
+    }
+    li {
+        margin-bottom: 0;
+    }
+    a {
+        color: $link;
+        padding: 0.5rem 1rem;
+        position: relative;
+    }
+    li:not(:last-child) a {
+        border-right: 1px solid $border;
+    }
+    li.active a {
+        background-color: $brand-blue;
+        color: #fff;
+        cursor: default;
+        pointer-events: none;
+        &::before,
+        &::after {
+            background-color: $brand-blue;
+        }
+        &:hover {
+            color: #fff;
+            background-color: $link-hover;
+            &::before,
+            &::after {
+                background-color: $link-hover;
+            }
+        }
+    }
+    li.disabled a {
+        color: $border;
+        cursor: default;
+        pointer-events: none;
+    }
+    li.previous a {
+        &::before {
+            @include fontawesome(900, "\f100");
+        }
+    }
+    li.next a {
+        &::before {
+            @include fontawesome(900, "\f101");
+        }
+    }
+    li:hover:not(.active):not(.disabled) {
+        a {
+            background-color: $link;
+            color: #FFF;
+
+            &::before {
+                background-color: $link;
+                color: #FFF;
+            }
+        }
+    }
+}
+
+@if $use-boilerplate-classes {
+    .pagination {
+        @include pagination;
+    }
+}

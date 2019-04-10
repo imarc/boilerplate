@@ -19,6 +19,9 @@
     }
 }
 
-.link {
-    @include link;
+
+@if $use-boilerplate-classes {
+    .link {
+        @include link;
+    }
 }

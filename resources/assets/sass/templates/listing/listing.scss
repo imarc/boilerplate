@@ -1,0 +1,77 @@
+///
+/// LISTING shows a listing of entries. It includes an optional search form with filters.
+/// Remove the search form elements for a simple list.
+///
+
+@mixin listing() {
+    margin-bottom: 2rem;
+    form {
+        .search {
+            display: flex;
+            label {
+                @include visuallyhidden;
+            }
+            .text {
+                flex-grow: 1;
+            }
+            .submit {
+                flex-basis: 120px;
+                flex-shrink: 0;
+            }
+            .submit input {
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .filters {
+            margin-bottom: 2rem;
+            label {
+                display: inline;
+            }
+            span {
+                background-color: darken($link, 20%);
+                border-radius: 0.5rem;
+                color: #fff;
+                display: inline-block;
+                margin: 0 0.5rem 0.5rem 0;
+                padding: 0.5rem 1rem;
+            }
+            input[type="checkbox"]:checked + span {
+                background-color: $link;
+            }
+            input[type="checkbox"] {
+                display: none;
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            border-top: 4px solid $border;
+            margin-bottom: 0;
+            padding: 2rem 0;
+            .meta {
+                display: block;
+                font-size: 0.9rem;
+                margin-bottom: 1em;
+            }
+            h2 + .meta {
+                margin-top: -1em;
+            }
+            .summary {
+                p:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@if $use-boilerplate-classes {
+    .listing {
+        @include listing;
+    }
+}

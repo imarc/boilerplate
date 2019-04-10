@@ -1,0 +1,39 @@
+@mixin button {
+    background-color: $link;
+    color: #FFF;
+    display: inline-block;
+    font-family: $font-stack;
+    font-weight: bold;
+    padding: 0.4rem 1rem;
+    text-align: center;
+    vertical-align: top;
+
+    &:hover,
+    &:focus {
+        background-color: $link-hover;
+    }
+
+    &.disabled,
+    &[disabled] {
+        background-color: lighten($charcoal, 45%);
+        color: darken(#FFF, 20%);
+        pointer-events: none;
+    }
+}
+
+@if $use-boilerplate-classes {
+
+    a.button {
+        @include button;
+        margin-bottom: 0;
+    }
+
+    button,
+    input[type="button"],
+    input[type="reset"],
+    input[type="submit"] {
+        @include button;
+        border: none;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,44 @@
+///
+/// CAROUSEL uses Slick to create a carousel. It defaults to a rather
+/// basic, one-slide-at-a-time implementation with dots, but slick supports a
+/// good deal of configuration including showing multiple slides, breakpoints,
+/// syncing between slides, and plenty of javascript events and methods for
+/// integration.
+///
+/// The implementation on Boilerplate is using a CDN to provide
+///
+/// + slick.css
+/// + slick-theme.css
+/// + slick.min.js
+///
+/// See http://kenwheeler.github.io/slick/ for more information.
+///
+/// The carousel() mixin should be included on a parent element that contains
+/// one div per slide. No additional classes are necessary – the slick classes
+/// referenced are added dynamically by slick.
+///
+
+
+@mixin carousel() {
+    .slick-slide {
+        color: #FFF;
+        height: auto;
+        padding: 3rem;
+    }
+    .slick-prev,
+    .slick-next {
+        z-index: 1;
+    }
+    .slick-prev {
+        left: 2rem;
+    }
+    .slick-next {
+        right: 2rem;
+    }
+}
+
+@if $use-boilerplate-classes {
+    .carousel {
+        @include carousel;
+    }
+}

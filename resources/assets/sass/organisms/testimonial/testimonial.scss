@@ -1,0 +1,84 @@
+///
+/// The TESTIMONIAL mixin is a basic implementation of a testimonial design.
+/// Add in an optional image wrapped in an element with a class of .asset.
+///
+
+@mixin testimonial($gutterWidth: 4rem) {
+    background-color: $charcoal;
+    margin-bottom: 4rem;
+    padding: 4rem 0 4rem;
+    text-align: center;
+    .asset {
+        margin-bottom: 2rem;
+        img {
+            max-width: 280px;
+        }
+    }
+    blockquote {
+        border: none;
+        color: #fff;
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+        padding: 0 2.5rem;
+        position: relative;
+        &::before,
+        &::after {
+            color: $meta-text;
+            font-family: Georgia, serif;
+            font-size: 3.375rem;
+            position: absolute;
+        }
+        &::before {
+            content: "“";
+            left: 0;
+            line-height: 1;
+            top: 0;
+        }
+        &::after {
+            content: "”";
+            line-height: 0;
+            right: 0;
+            bottom: 0;
+        }
+        ~ p {
+            color: $meta-text;
+            font-size: 0.875rem;
+            margin-bottom: 0;
+            padding: 0 2.5rem;
+        }
+    }
+    @include breakpoint(lg) {
+        text-align: left;
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+        .asset {
+            flex-basis: 33%;
+            flex-shrink: 0;
+            margin-bottom: 0;
+            margin-right: $gutterWidth;
+            img {
+                max-width: 100%;
+            }
+        }
+        blockquote {
+            font-size: 1.5rem;
+            padding: 0 6rem;
+            &::before,
+            &::after {
+                font-size: 7rem;
+            }
+            ~ p {
+                font-size: 1rem;
+                padding: 0 6rem;
+            }
+        }
+    }
+}
+
+@if $use-boilerplate-classes {
+    .testimonial {
+        @include testimonial;
+    }
+}
