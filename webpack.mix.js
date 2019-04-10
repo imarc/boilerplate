@@ -27,6 +27,13 @@ mix.webpackConfig({
                 test: /\.scss$/,
                 loader: 'import-glob-loader',
             },
+            {
+                test: require.resolve('jquery'),
+                use: [{
+                    loader: 'expose-loader',
+                    options: '$',
+                }],
+            },
         ],
     },
 
@@ -52,6 +59,13 @@ mix.autoload({
 });
 
 // Asset Config
+
+mix.js('resources/assets/js/plugins/accordion.plugin.js', 'js/plugins');
+mix.js('resources/assets/js/plugins/stickyElement.plugin.js', 'js/plugins');
+mix.js('resources/assets/js/plugins/mobileNavigation.plugin.js', 'js/plugins');
+mix.js('resources/assets/js/plugins/stickyHeader.plugin.js', 'js/plugins');
+mix.js('resources/assets/js/plugins/dropdown.plugin.js', 'js/plugins');
+mix.js('resources/assets/js/plugins/tabs.plugin.js', 'js/plugins');
 
 mix.js('resources/assets/js/main.js', 'js')
 mix.sass('resources/assets/sass/main.scss', 'css', {
