@@ -21,6 +21,7 @@
 
 
 @if $use-boilerplate-classes {
+    a,
     .link {
         @include link;
     }
