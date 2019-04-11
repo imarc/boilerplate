@@ -1,0 +1,22 @@
+@mixin feature() {
+    background-color: #EEE;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    text-align: center;
+    img,
+    h3,
+    p {
+        margin-bottom: 1rem;
+    }
+    .button {
+        margin-bottom: 0;
+    }
+}
+
+@if $use-boilerplate-classes {
+    .feature {
+        @include feature;
+    }
+}

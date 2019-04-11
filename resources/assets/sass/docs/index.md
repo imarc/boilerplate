@@ -30,12 +30,12 @@ There's also a handful of Sass files within this folder itself:
 
 ### Quick Reference
 
-* **assets/<category>/<component-name>/<component-name>.scss**
-* **assets/<category>/<component-name>/<component-name>.twig**
-* **assets/<category>/<component-name>/README.md**
-* **assets/<category>/<component-name>/<component-name>[--<variant-name>].twig**
-* **assets/<category>/<component-name>/<component-name>.js**
-* **assets/<category>/<component-name>/<component-name>.config.json**
+* **assets/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.scss**
+* **assets/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.twig**
+* **assets/&lt;category&gt;/&lt;component-name&gt;/README.md**
+* **assets/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;[--&lt;variant-name&gt;].twig**
+* **assets/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.js**
+* **assets/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.config.json**
 
 ### Explanation
 
