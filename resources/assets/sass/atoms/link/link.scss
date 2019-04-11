@@ -24,4 +24,11 @@
     .link {
         @include link;
     }
+
+    button.link {
+        background: transparent;
+        padding: inherit;
+        text-align: inherit;
+        font-weight: inherit;
+    }
 }

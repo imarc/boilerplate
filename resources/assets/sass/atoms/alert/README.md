@@ -1,1 +1,0 @@
-Alert component testing doc

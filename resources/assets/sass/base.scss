@@ -255,21 +255,6 @@ input[type="radio"] {
     padding: 0;
 }
 
-a.button {
-    @include button;
-    margin-bottom: 0;
-}
-
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-    @include button;
-    border: none;
-    cursor: pointer;
-}
-
-
 ///
 /// = Tables =
 ///

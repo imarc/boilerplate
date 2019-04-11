@@ -25,6 +25,12 @@
             padding-left: 0.5rem;
         }
     }
+
+    li.active {
+        a {
+            color: $plain-text;
+        }
+    }
 }
 
 @if $use-boilerplate-classes {

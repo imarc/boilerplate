@@ -6,17 +6,21 @@
 @mixin pagination() {
     display: flex;
     justify-content: center;
+
     ul {
-        border: 1px solid $border;
+        padding-left: 0;
         border-radius: 2px;
+        border: 1px solid $border;
         display: flex;
         justify-content: center;
+        list-style: none;
     }
     li {
         margin-bottom: 0;
     }
     a {
         color: $link;
+        display: block;
         padding: 0.5rem 1rem;
         position: relative;
     }
