@@ -21,9 +21,8 @@ There's also a handful of Sass files within this folder itself:
 * **main.scss** - This is the root file that Boilerplate compiles to **main.css**. It just contains `@import` statements.
 * **variables.scss** - contains Sass variables.
 * **utilities.scss** - contains Sass utilities that are too simple to define standalone.
-* **base.scss** - TODO
-* **components.scss** - TODO
-* **mixins.scss** - TODO
+* **base.scss** - Base styles, such as typography.
+* **mixins.scss** - contains Sass mixins and functions that don't make sense to get their own folder.
 
 
 ## Component File Structure and Naming
