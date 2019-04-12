@@ -1,7 +1,12 @@
-Breadcrumbs
-===========
+Simple breadcrumbs.
 
-Below is an example of breadcrumbs.
+### Sass Mixin
+
+`@mixin breadcrumbs()`
+
+#### Parameters
+
+None.
 
 ### Emmet Shorthand
 
