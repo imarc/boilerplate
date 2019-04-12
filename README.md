@@ -1,12 +1,7 @@
-Imarc Boilerplate
-#################
+Imarc Boilerplate Components
+############################
 
-Boilerplate is a starter kit for front end development. Out of the box, it provides
-
-* A documented set of conventions for code naming and organization
-* A front end build system, built using Laravel Mix and Webpack
-* A component library, built using Fractal
-
+Boilerplate Components is a set of frontend components that can be used individually or as a group.
 
 Usage
 -----
