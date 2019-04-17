@@ -1,5 +1,5 @@
 Imarc Boilerplate Components
-############################
+============================
 
 Boilerplate Components is a set of frontend components that can be used individually or as a group.
 
