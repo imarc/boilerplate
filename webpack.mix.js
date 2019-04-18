@@ -60,16 +60,16 @@ mix.autoload({
 
 // Asset Config
 
-mix.js('resources/assets/js/plugins/accordion.plugin.js', 'js/plugins');
-mix.js('resources/assets/js/plugins/stickyElement.plugin.js', 'js/plugins');
-mix.js('resources/assets/js/plugins/mobileNavigation.plugin.js', 'js/plugins');
-mix.js('resources/assets/js/plugins/stickyHeader.plugin.js', 'js/plugins');
-mix.js('resources/assets/js/plugins/dropdown.plugin.js', 'js/plugins');
-mix.js('resources/assets/js/plugins/tabs.plugin.js', 'js/plugins');
+mix.js('resources/js/plugins/accordion.plugin.js', 'js/plugins');
+mix.js('resources/js/plugins/stickyElement.plugin.js', 'js/plugins');
+mix.js('resources/js/plugins/mobileNavigation.plugin.js', 'js/plugins');
+mix.js('resources/js/plugins/stickyHeader.plugin.js', 'js/plugins');
+mix.js('resources/js/plugins/dropdown.plugin.js', 'js/plugins');
+mix.js('resources/js/plugins/tabs.plugin.js', 'js/plugins');
 
-mix.js('resources/assets/js/main.js', 'js')
-mix.sass('resources/assets/sass/main.scss', 'css', {
-        includePaths: ['resources/assets/sass'],
+mix.js('resources/js/main.js', 'js')
+mix.sass('resources/styles/main.scss', 'css', {
+        includePaths: ['resources/styles'],
     });
 mix.extract();
 mix.sourceMaps();
