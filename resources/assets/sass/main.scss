@@ -5,7 +5,11 @@
 
 @import "~slick-carousel/slick/slick-theme";
 @import "~slick-carousel/slick/slick";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
 
-@import "./@(utilities|atoms|molecules|organisms|templates|pages)/*/!(_)*.scss";
+@import "./utilities/*/!(_)*.scss";
+@import "./@(atoms|molecules|organisms|templates|pages)/*/!(_)*.scss";
 
 @import "base";

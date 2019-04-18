@@ -52,9 +52,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .dropdown {
-        @include dropdown;
-    }
-}
