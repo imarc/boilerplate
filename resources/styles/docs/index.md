@@ -4,9 +4,9 @@ title: Project Conventions
 
 ## Folder Structure
 
-As front end development has become more complicated over the years, it's important to organize code into more than two or three large files. The convention in use on this project is based on [Atomic Design](#). All front end styles are within `resources/assets/sass/`.
+As front end development has become more complicated over the years, it's important to organize code into more than two or three large files. The convention in use on this project is based on [Atomic Design](#). All front end styles are within `resources/styles/`.
 
-Within `resources/assets/sass/`, there are the following subdirectories:
+Within `resources/styles/`, there are the following subdirectories:
 
 * **docs/** - contains project specific, front end documentation (such as this.)
 * **atoms/** - contains atoms, as described by Atomic Design.
@@ -29,12 +29,12 @@ There's also a handful of Sass files within this folder itself:
 
 ### Quick Reference
 
-* **assets/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.scss**
-* **assets/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.twig**
-* **assets/&lt;category&gt;/&lt;component-name&gt;/README.md**
-* **assets/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;[--&lt;variant-name&gt;].twig**
-* **assets/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.js**
-* **assets/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.config.json**
+* **styles/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.scss**
+* **styles/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.twig**
+* **styles/&lt;category&gt;/&lt;component-name&gt;/README.md**
+* **styles/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;[--&lt;variant-name&gt;].twig**
+* **styles/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.js**
+* **styles/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.config.json**
 
 ### Explanation
 
