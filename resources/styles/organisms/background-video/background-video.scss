@@ -2,21 +2,25 @@
 /// BACKGROUND VIDEO plays a video (without sound) in the background of an element.
 /// Increasing the parent’s ::before padding results in a larger height.
 ///
+/// $background
+///     Backdrop background color.
+///
 
-@mixin backgroundVideo() {
+@mixin backgroundVideo($background: rgba(255,255,255, 0.6)) {
     align-items: center;
     display: flex;
     height: auto;
     justify-content: center;
     overflow: hidden;
     position: relative;
-    .mold {
-        background-color: rgba(2255, 255, 255, 0.6);
+
+    &__backdrop {
+        background-color: $background;
         padding: 2em;
         text-align: center;
         z-index: 2;
     }
-    video {
+    &__video {
         left: 0;
         position: absolute;
         top: 0;

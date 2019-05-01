@@ -3,33 +3,36 @@
 /// fontawesome icons for separators. Many styles for BREADCRUMBS
 /// are cascading from our base styles.scss file.
 ///
+/// @active-color
+///     active link color; usually plain text.
+/// @icon and @icon-weight
+///     used for controlling the fontawesome icon used as a separator.
+///
 
-@mixin breadcrumbs() {
-    ul {
+@mixin breadcrumbs($active-color: $plain-text, $icon: "\f105", $icon-weight: 900) {
+    &__list {
         display: flex;
         list-style: none;
         margin: 0;
         padding-left: 0;
     }
 
-    a {
+    &__link {
         display: block;
         padding: 0 0.5rem;
     }
 
-    li:not(:last-child) a {
+    &__item:not(:last-child) &__link {
         padding-right: 0;
 
         &::after {
-            @include fontawesome(900, "\f105");
+            @include fontawesome($icon-weight, $icon);
             padding-left: 0.5rem;
         }
     }
 
-    li.active {
-        a {
-            color: $plain-text;
-        }
+    &__item.-active &__link {
+        color: $active-color;
     }
 }
 

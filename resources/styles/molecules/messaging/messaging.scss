@@ -1,23 +1,45 @@
 ///
-/// messaging mixin
+/// For messages to the user.
+///
+/// @character
+///     Font awesome character to show.
+/// @background
+///     Background color.
+/// @link-color
+///     Optionally override the default link color.
+/// @link-hover-color
+///     Optionally override the link hover color.
 ///
 
-@mixin messaging {
+@mixin messaging (
+    $character: "",
+    $background: $info,
+    $link-color: $link,
+    $link-hover-color: $link-hover
+) {
+    $b: &;
+    background-color: $background;
     margin-bottom: 2rem;
     padding: 1em 3em;
     position: relative;
 
-    p:last-of-type,
-    ul:last-of-type {
+    ol:last-child,
+    p:last-child,
+    ul:last-child {
         margin-bottom: 0;
     }
-    a {
-        text-decoration: underline;
-    }
-    &::before {
-        @include fontawesome(900, $character: "");
 
-        content: "";
+    a {
+        color: $link-color;
+        text-decoration: underline;
+
+        &:hover {
+            color: $link-hover-color;
+        }
+    }
+
+    &::before {
+        @include fontawesome(900, $character);
         font-size: 1em;
         left: 1em;
         line-height: inherit;
@@ -26,45 +48,42 @@
         top: 1em;
         width: 1em;
     }
+
+    &.-success {
+        background-color: $success;
+        color: $white;
+
+        &::before {
+            @include fontawesome(900, "\f00c");
+        }
+
+        a,
+        a:hover {
+            color: $white;
+        }
+    }
+    &.-info {
+        &::before {
+            @include fontawesome(900, "\f129");
+        }
+    }
+    &.-error {
+        background-color: $error;
+        color: $white;
+
+        &::before {
+            @include fontawesome(900, "\f12a");
+        }
+
+        a,
+        a:hover {
+            color: $white;
+        }
+    }
 }
 
 @if $use-boilerplate-classes {
-    .success {
+    .messaging {
         @include messaging;
-
-        background-color: $success;
-        &::before {
-            content: "\f00c";
-        }
-        a {
-            color: #FFF;
-        }
-        a:hover {
-            color: darken(#FFF, 15%);
-        }
-    }
-
-    .info {
-        @include messaging;
-
-        background-color: $info;
-        &::before {
-            content: "\f129";
-        }
-    }
-
-    .error {
-        @include messaging;
-
-        background-color: $error;
-        &::before {
-            content: "\f12a";
-        }
-        a {
-            color: $info;
-        }
-        a:hover {
-            color: darken($info, 15%);
-        }
     }
 }
