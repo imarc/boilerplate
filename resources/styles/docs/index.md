@@ -112,7 +112,7 @@ In this context, the `<a>` tag is simply being used as part of rich text, but we
 * headings (`<h1>` through `<h6>`) within news articles, and even
 * tables within blog articles.
 
-    In these instances - where you simply need to override the default styling for tags within rich text because of a parent component - it's okay to style to element within the block:
+In these instances - where you simply need to override the default styling for tags within rich text because of a parent component - it's okay to style to element within the block:
 
 ```
 .messaging.-success {
@@ -125,6 +125,9 @@ In this context, the `<a>` tag is simply being used as part of rich text, but we
 }
 ```
 
+#### Explanation
+
+The reason for this exception to better support styling generated HTML, such as CMS content, server messages, rich text API responses, etc.
 
 
 ## Sass Mixins and Functions
