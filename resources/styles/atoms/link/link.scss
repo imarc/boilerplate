@@ -1,6 +1,15 @@
-@mixin link {
+@mixin link (
+    $color: $link,
+    $hover-color: $link-hover,
+    $disabled-color: darken(#FFF, 20%)
+) {
+    background-color: transparent;
+    border: 0;
     color: $link;
     cursor: pointer;
+    display: inline;
+    line-height: normal;
+    padding: 0;
     text-decoration: none;
 
     &:hover,
@@ -11,7 +20,7 @@
         outline: thin dotted;
     }
 
-    &.disabled,
+    &.-disabled,
     &[disabled] {
         color: darken(#FFF, 20%);
         cursor: default;
@@ -21,15 +30,7 @@
 
 
 @if $use-boilerplate-classes {
-    a,
     .link {
         @include link;
-    }
-
-    button.link {
-        background: transparent;
-        padding: inherit;
-        text-align: inherit;
-        font-weight: inherit;
     }
 }

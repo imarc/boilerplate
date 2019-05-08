@@ -12,12 +12,12 @@
 @mixin tiles($gutter: 2rem, $columns: 4) {
     @include grid($columns: $columns, $gutter: $gutter, $selector: '> *');
 
-    > * {
+    &__tile {
         background-color: #EEE;
         text-align: left;
     }
 
-    .tile > * {
+    &__tileContent {
         padding: 2rem;
     }
 }

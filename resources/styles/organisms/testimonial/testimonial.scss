@@ -2,21 +2,36 @@
 /// The TESTIMONIAL mixin is a basic implementation of a testimonial design.
 /// Add in an optional image wrapped in an element with a class of .asset.
 ///
+/// $gutterWidth
+///     Contributes to gutter width between image and text.
+/// $background
+///     Background color.
+/// $text-color
+///     Text color.
+/// $attribution-text
+///     Attribution text color.
+///
 
-@mixin testimonial($gutterWidth: 4rem) {
-    background-color: $charcoal;
+@mixin testimonial (
+    $gutterWidth: 4rem,
+    $background: $charcoal,
+    $text-color: #fff,
+    $attribution-text: $meta-text
+) {
+    background-color: $background;
     margin-bottom: 4rem;
     padding: 4rem 0 4rem;
     text-align: center;
-    .asset {
+
+    &__asset {
         margin-bottom: 2rem;
-        img {
-            max-width: 280px;
-        }
     }
-    blockquote {
+    &__image {
+        max-width: 280px;
+    }
+    &__quote {
         border: none;
-        color: #fff;
+        color: $text-color;
         font-size: 1.125rem;
         margin-bottom: 1rem;
         padding: 0 2.5rem;
@@ -40,39 +55,40 @@
             right: 0;
             bottom: 0;
         }
-        ~ p {
-            color: $meta-text;
-            font-size: 0.875rem;
-            margin-bottom: 0;
-            padding: 0 2.5rem;
-        }
     }
+    &__attribution {
+        color: $attribution-text;
+        font-size: 0.875rem;
+        margin-bottom: 0;
+        padding: 0 2.5rem;
+    }
+
     @include breakpoint(lg) {
         text-align: left;
-        .wrapper {
+        &__row {
             display: flex;
             justify-content: space-between;
         }
-        .asset {
+        &__asset {
             flex-basis: 33%;
             flex-shrink: 0;
             margin-bottom: 0;
             margin-right: $gutterWidth;
-            img {
-                max-width: 100%;
-            }
         }
-        blockquote {
+        &__image {
+            max-width: 100%;
+        }
+        &__quote {
             font-size: 1.5rem;
             padding: 0 6rem;
             &::before,
             &::after {
                 font-size: 7rem;
             }
-            ~ p {
-                font-size: 1rem;
-                padding: 0 6rem;
-            }
+        }
+        &__attribution {
+            font-size: 1rem;
+            padding: 0 6rem;
         }
     }
 }

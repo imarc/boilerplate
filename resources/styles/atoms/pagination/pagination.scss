@@ -2,12 +2,29 @@
 /// PAGINATION provides a navigational unordered list of pages. Often used
 /// in conjunction of a LISTING component.
 ///
+/// $text-color
+///     Text color.
+/// $active-color
+///     Current page background color.
+/// $hover-color
+///     Hover color.
+/// $active-text-color
+///     Current page text color.
+/// $border
+///     Border color; also used for disabled text.
+///
 
-@mixin pagination() {
+@mixin pagination (
+    $text-color: $link,
+    $active-color: $brand-blue,
+    $hover-color: $link-hover,
+    $active-text-color: $white,
+    $border: $border,
+) {
     display: flex;
     justify-content: center;
 
-    ul {
+    &__list {
         padding-left: 0;
         border-radius: 2px;
         border: 1px solid $border;
@@ -15,60 +32,62 @@
         justify-content: center;
         list-style: none;
     }
-    li {
+    &__item {
         margin-bottom: 0;
     }
-    a {
-        color: $link;
+    &__link {
+        color: $text-color;
         display: block;
         padding: 0.5rem 1rem;
         position: relative;
     }
-    li:not(:last-child) a {
+    &__item:not(:last-child) &__link {
         border-right: 1px solid $border;
     }
-    li.active a {
-        background-color: $brand-blue;
-        color: #fff;
+    &__item.-active &__link {
+        background-color: $active-color;
+        color: $active-text-color;
         cursor: default;
         pointer-events: none;
+
         &::before,
         &::after {
-            background-color: $brand-blue;
+            background-color: $active-color;
         }
+
         &:hover {
-            color: #fff;
-            background-color: $link-hover;
+            background-color: $hover-color;
+            color: $active-text-color;
+
             &::before,
             &::after {
-                background-color: $link-hover;
+                background-color: $hover-color;
             }
         }
     }
-    li.disabled a {
+
+    &__item.-disabled &__link {
         color: $border;
         cursor: default;
         pointer-events: none;
     }
-    li.previous a {
+    &__item.-previous &__link {
         &::before {
             @include fontawesome(900, "\f100");
         }
     }
-    li.next a {
+    &__item.-next &__link {
         &::before {
             @include fontawesome(900, "\f101");
         }
     }
-    li:hover:not(.active):not(.disabled) {
-        a {
-            background-color: $link;
-            color: #FFF;
+    &__item:hover &__link {
+        background-color: $text-color;
+        color: $active-text-color;
 
-            &::before {
-                background-color: $link;
-                color: #FFF;
-            }
+        &::before {
+            background-color: $text-color;
+            color: $active-text-color;
         }
     }
 }

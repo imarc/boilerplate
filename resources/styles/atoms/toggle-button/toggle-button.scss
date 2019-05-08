@@ -1,0 +1,57 @@
+///
+/// A toggle button mixin.
+///
+/// $checked-color
+///     button color when checked
+/// $unchecked-color
+///     button color when unchecked
+/// $disabled-color
+///     button color when disabled
+///
+
+@mixin toggleButton(
+    $checked-color: $link,
+    $unchecked-color: darken($link, 20%),
+    $disabled-color: lighten($charcoal, 45%)
+) {
+    display: inline-block;
+
+    &__label {
+        background-color: darken($link, 20%);
+        border-radius: 0.5rem;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 0.5rem 0.5rem 0;
+        padding: 0.5rem 1rem;
+    }
+
+    &.-checked &__label,
+    &__checkbox:checked ~ &__label,
+    &__radio:checked ~ &__label {
+        background-color: $link;
+    }
+
+    &.-disabled {
+        cursor: default;
+    }
+
+    &.-disabled &__label,
+    &__checkbox[disabled] ~ &__label,
+    &__radio[disabled] ~ &__label {
+        background-color: $disabled-color;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    &__checkbox,
+    &__radio {
+        display: none;
+    }
+}
+
+@if $use-boilerplate-classes {
+    .toggleButton {
+        @include toggleButton;
+    }
+}
