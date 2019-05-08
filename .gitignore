@@ -1,4 +1,3 @@
 mix-manifest.json
 node_modules
-web/js
-web/css
+web
