@@ -1,6 +1,6 @@
 module.exports = {
     "collated": true,
-    "collator": (markup, item) => {
+    "collator": markup => {
         return `<hr>${markup}`;
     },
 }
