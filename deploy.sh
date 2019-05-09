@@ -1,9 +1,8 @@
 #!/bin/sh
 git worktree add web gh-pages
-export RESOURCE_ROOT=/boilerplate-compoents
 npm install
-npm run prod
-npm run fractal build
+RESOURCE_ROOT=/boilerplate-components npm run prod
+RESOURCE_ROOT=/boilerplate-components npm run fractal build
 
 cd web
 rm -f pattern-library/.git
