@@ -1,4 +1,5 @@
 #!/bin/sh
+rm -rf web
 git worktree add web gh-pages
 npm install
 RESOURCE_ROOT=/boilerplate-components npm run prod
