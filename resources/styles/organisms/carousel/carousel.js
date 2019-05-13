@@ -1,3 +1,5 @@
-$('.carousel').slick({
-    dots: true,
+$(function() {
+    $('.carousel').slick({
+        dots: true,
+    });
 });

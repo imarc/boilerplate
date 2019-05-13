@@ -1,3 +1,5 @@
-$('header.primary').stickyHeader();
-$('nav.primary').dropdown();
-$('.mobile').mobileNavigation();
+$(function() {
+    $('header.primary').stickyHeader();
+    $('nav.primary').dropdown();
+    $('.mobile').mobileNavigation();
+});

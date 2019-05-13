@@ -1,1 +1,3 @@
-$('.tabs').tabs();
+$(function() {
+    $('.tabs').tabs();
+});

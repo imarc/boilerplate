@@ -1,3 +1,5 @@
-$('.accordion').accordion({
-    singleOpen: false
+$(function() {
+    $('.accordion').accordion({
+        singleOpen: false
+    });
 });
