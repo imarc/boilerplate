@@ -1,5 +1,6 @@
 ---
-title: ABEM
+label: ABEM
+order: 2
 ---
 
 [ABEM](https://css-tricks.com/abem-useful-adaptation-bem/) is a variant of [BEM](http://getbem.com/). Both are targeting and naming conventions for CSS.
