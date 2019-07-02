@@ -1,5 +1,5 @@
-Imarc Boilerplate Components
-============================
+Imarc Boilerplate 4 Components 
+==============================
 
 This is a framework for frontend development. It includes
 
