@@ -23,3 +23,4 @@ fractal.docs.set("path", __dirname + "/resources/styles/docs");
 fractal.web.set("builder.dest", __dirname + "/web/pattern-library");
 fractal.web.set('builder.static.ignored', __dirname + "/web/pattern-library");
 fractal.web.set("static.path", __dirname + "/web");
+fractal.web.set('server.watch', true);
