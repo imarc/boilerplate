@@ -4,6 +4,13 @@ const Path = require("path");
 const consolidate = require("@frctl/consolidate");
 const fractal = module.exports = require("@frctl/fractal").create();
 const twig = require("twig");
+const mandelbrot = require("@frctl/mandelbrot");
+
+const theme = mandelbrot({
+    skin: "black",
+    panels: ["notes", "html", "resources"]
+});
+
 
 twig.extendFunction("prefix", path => Path.join(process.env.RESOURCE_ROOT || '/', path));
 
@@ -24,3 +31,4 @@ fractal.web.set("builder.dest", __dirname + "/web/pattern-library");
 fractal.web.set('builder.static.ignored', __dirname + "/web/pattern-library");
 fractal.web.set("static.path", __dirname + "/web");
 fractal.web.set('server.watch', true);
+fractal.web.theme(theme);
