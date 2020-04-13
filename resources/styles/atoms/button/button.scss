@@ -45,9 +45,3 @@
         pointer-events: none;
     }
 }
-
-@if $use-boilerplate-classes {
-    .button {
-        @include button;
-    }
-}

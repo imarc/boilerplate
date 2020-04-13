@@ -33,9 +33,3 @@
         padding-top: 30%;
     }
 }
-
-@if $use-boilerplate-classes {
-    .backgroundVideo {
-        @include backgroundVideo;
-    }
-}

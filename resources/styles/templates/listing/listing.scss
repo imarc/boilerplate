@@ -51,9 +51,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .listing {
-        @include listing;
-    }
-}

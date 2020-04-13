@@ -36,9 +36,3 @@
         right: 2rem;
     }
 }
-
-@if $use-boilerplate-classes {
-    .carousel {
-        @include carousel;
-    }
-}

@@ -21,9 +21,3 @@
         padding: 2rem;
     }
 }
-
-@if $use-boilerplate-classes {
-    .tiles {
-        @include tiles;
-    }
-}

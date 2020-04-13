@@ -38,9 +38,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .mega {
-        @include dropdown-mega;
-    }
-}

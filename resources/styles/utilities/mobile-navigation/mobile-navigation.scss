@@ -80,9 +80,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .mobile {
-        @include mobileNavigation;
-    }
-}

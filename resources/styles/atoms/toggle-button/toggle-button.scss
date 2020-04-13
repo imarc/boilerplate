@@ -49,9 +49,3 @@
         display: none;
     }
 }
-
-@if $use-boilerplate-classes {
-    .toggleButton {
-        @include toggleButton;
-    }
-}

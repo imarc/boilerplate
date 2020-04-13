@@ -39,9 +39,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .grid {
-        @include grid;
-    }
-}

@@ -55,9 +55,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .login {
-        @include login;
-    }
-}

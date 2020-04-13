@@ -25,9 +25,3 @@
         margin-top: auto;
     }
 }
-
-@if $use-boilerplate-classes {
-    .feature {
-        @include feature;
-    }
-}

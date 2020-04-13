@@ -10,9 +10,3 @@
     padding-right: $padding;
     position: relative;
 }
-
-@if $use-boilerplate-classes {
-    .container {
-        @include container;
-    }
-}

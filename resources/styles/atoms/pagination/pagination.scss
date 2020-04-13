@@ -91,9 +91,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .pagination {
-        @include pagination;
-    }
-}

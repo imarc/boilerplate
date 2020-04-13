@@ -35,9 +35,3 @@
         color: $active-color;
     }
 }
-
-@if $use-boilerplate-classes {
-    .breadcrumbs {
-        @include breadcrumbs;
-    }
-}

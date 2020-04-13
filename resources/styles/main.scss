@@ -1,4 +1,3 @@
-
 @import "variables";
 @import "mixins";
 @import "utilities";
@@ -13,3 +12,5 @@
 @import "./@(atoms|molecules|organisms|templates|pages)/*/!(_)*.scss";
 
 @import "base";
+
+@import "boilerplate-classes";

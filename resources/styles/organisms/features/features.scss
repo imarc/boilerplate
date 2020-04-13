@@ -25,9 +25,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .features {
-        @include features;
-    }
-}

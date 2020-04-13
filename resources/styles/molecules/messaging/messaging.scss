@@ -81,9 +81,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .messaging {
-        @include messaging;
-    }
-}

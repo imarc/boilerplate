@@ -40,9 +40,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .dossier {
-        @include dossier;
-    }
-}

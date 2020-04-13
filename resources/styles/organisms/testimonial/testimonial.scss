@@ -92,9 +92,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .testimonial {
-        @include testimonial;
-    }
-}

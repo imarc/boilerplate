@@ -58,9 +58,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .accordion {
-        @include accordion;
-    }
-}

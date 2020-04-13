@@ -132,9 +132,3 @@
         }
     }
 }
-
-@if $use-boilerplate-classes {
-    .progress {
-        @include progress;
-    }
-}
