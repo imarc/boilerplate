@@ -8,6 +8,7 @@ const mandelbrot = require("@frctl/mandelbrot");
 
 const theme = mandelbrot({
     skin: "black",
+    nav: ["docs", "components"],
     panels: ["notes", "html", "resources"]
 });
 
@@ -23,7 +24,7 @@ fractal.components.set("statuses.deprecated", {
     color: "#886600",
 });
 
-fractal.set("project.title", "Boilerplate");
+fractal.set("project.title", "Design System");
 fractal.components.set("default.context", {scripts: []});
 fractal.components.set("path", __dirname + "/resources/styles");
 fractal.docs.set("path", __dirname + "/resources/styles/docs");
