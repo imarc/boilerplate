@@ -72,8 +72,8 @@ mix.js('resources/js/plugins/tabs.plugin.js', 'js/plugins');
 
 mix.js('resources/js/main.js', 'js')
 mix.sass('resources/styles/main.scss', 'css', {
-        includePaths: ['resources/styles'],
-    });
+    sassOptions: { includePaths: ['resources/styles'] },
+});
 mix.extract();
 mix.sourceMaps();
 mix.version();
