@@ -1,5 +1,5 @@
 header.primary {
-    background-color: $charcoal;
+    background-color: $gray-900;
     position: relative;
 
 
@@ -24,10 +24,10 @@ header.primary {
             background-color: $link;
         }
         > .dropdown {
-            background-color: lighten($charcoal, 5%);
+            background-color: $gray-800;
             z-index: 1001;
             &.sub-menu {
-                background-color: lighten($charcoal, 10%);
+                background-color: $gray-700;
                 z-index: 1002;
             }
         }
@@ -87,7 +87,7 @@ header.primary {
             }
 
             li:hover a {
-                color: $brand-blue;
+                color: $primary;
             }
 
             > ul {
@@ -101,7 +101,7 @@ header.primary {
             li.active,
             li:hover {
                 a {
-                    color: lighten($charcoal, 55%);
+                    color: $gray-300;
                 }
             }
 

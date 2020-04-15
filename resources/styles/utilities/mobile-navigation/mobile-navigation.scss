@@ -6,7 +6,7 @@
 ///
 
 @mixin mobileNavigation() {
-    background-color: $charcoal;
+    background-color: $gray-900;
     bottom: 0;
     display: none;
     height: 100%;
@@ -52,7 +52,7 @@
     }
     ul li {
         align-items: center;
-        border-bottom: 1px solid lighten($charcoal, 10%);
+        border-bottom: 1px solid $gray-800;
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;

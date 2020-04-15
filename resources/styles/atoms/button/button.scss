@@ -17,7 +17,7 @@
     $color: $link,
     $text-color: $white,
     $hover-color: $link-hover,
-    $disabled-color: lighten($charcoal, 45%),
+    $disabled-color: $gray-400,
     $font-stack: $font-stack
 ) {
     background-color: $color;
@@ -40,8 +40,15 @@
 
     &.-disabled,
     &[disabled] {
-        background-color: lighten($charcoal, 45%);
-        color: darken(#FFF, 20%);
+        background-color: $disabled-color;
+        color: $gray-100;
         pointer-events: none;
+    }
+
+    @each $modifier, $color in $color-modifiers {
+        &.-#{$modifier} {
+            background-color: $color;
+            color: $white;
+        }
     }
 }

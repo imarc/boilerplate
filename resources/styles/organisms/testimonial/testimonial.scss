@@ -14,8 +14,8 @@
 
 @mixin testimonial (
     $gutterWidth: 4rem,
-    $background: $charcoal,
-    $text-color: #fff,
+    $background: $gray-900,
+    $text-color: $white,
     $attribution-text: $meta-text
 ) {
     background-color: $background;

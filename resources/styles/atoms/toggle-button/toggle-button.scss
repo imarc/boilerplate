@@ -12,7 +12,7 @@
 @mixin toggleButton(
     $checked-color: $link,
     $unchecked-color: darken($link, 20%),
-    $disabled-color: lighten($charcoal, 45%)
+    $disabled-color: $gray-400,
 ) {
     display: inline-block;
 

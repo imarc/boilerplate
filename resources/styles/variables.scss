@@ -12,44 +12,90 @@ $font-stack: Arial, sans-serif !default;
 
 
 ///
-/// We provide the color `$white`, `$lightgray`, `$gray`, `$darkgray`,
-/// `$charcoal` and `$black` for convienence.
+/// Color Scales
 ///
 
-$white:     #FFF !default;
-$lightgray: #DDD !default;
-$gray:      #808080 !default;
-$darkgray:  #4A4A4A !default;
-$charcoal:  #191919 !default;
-$black:     #000 !default;
+$white:    #ffffff !default;
+$gray-100: #dddddd !default;
+$gray-200: #c4c3c3 !default;
+$gray-300: #a6a6a6 !default;
+$gray-400: #8a8a89 !default;
+$gray-500: #717070 !default;
+$gray-600: #5b5a5a !default;
+$gray-700: #474646 !default;
+$gray-800: #343333 !default;
+$gray-900: #171716 !default;
+$black:    #000000 !default;
 
+$blue-100: #d0dfeb !default;
+$blue-200: #a8c8e0 !default;
+$blue-300: #6fadda !default;
+$blue-400: #1891d5 !default;
+$blue-500: #2e76a5 !default;
+$blue-600: #305f7f !default;
+$blue-700: #2c4960 !default;
+$blue-800: #243543 !default;
+$blue-900: #11171c !default;
 
-///
-/// The brand colors (name them the color)
-///
+$red-100: #f0d7d4 !default;
+$red-200: #eab8b1 !default;
+$red-300: #e49087 !default;
+$red-400: #dc655a !default;
+$red-500: #d13532 !default;
+$red-600: #a62e2a !default;
+$red-700: #7c2b26 !default;
+$red-800: #56231f !default;
+$red-900: #25120f !default;
 
-$brand-blue: #0C96DD !default;
-$brand-orange: #EB7424 !default;
+$green-100: #cee3c9 !default;
+$green-200: #a3cf97 !default;
+$green-300: #6db857 !default;
+$green-400: #479c2f !default;
+$green-500: #427e30 !default;
+$green-600: #3b652d !default;
+$green-700: #314e27 !default;
+$green-800: #26381f !default;
+$green-900: #12190f !default;
 
+$orange-100: #f5e2d6 !default;
+$orange-200: #f2c2a4 !default;
+$orange-300: #ef9964 !default;
+$orange-400: #e27126 !default;
+$orange-500: #b4602a !default;
+$orange-600: #8e5029 !default;
+$orange-700: #6d4025 !default;
+$orange-800: #50321f !default;
+$orange-900: #2a1c13 !default;
+
+$primary: $blue-400;
+$secondary: $orange-400;
 
 ///
 /// Messaging colors
 ///
 
-$success: #48AC2C !default;
-$error: #CE2A2A !default;
-$info: #DDD !default;
+$success: $green-400 !default;
+$error: $red-500 !default;
+$info: $gray-100 !default;
+
+$color-modifiers: (
+    error: $error,
+    info: $info,
+    primary: $primary,
+    secondary: $secondary,
+    success: $success,
+) !default;
 
 
 ///
 /// Applied colors
 ///
 
-$plain-text: $charcoal !default;
-$meta-text: lighten($charcoal, 35%) !default;
-$link: $brand-blue !default;
-$link-hover: $brand-orange !default;
-$border: lighten($charcoal, 60%) !default;
+$plain-text: $gray-900 !default;
+$meta-text: $gray-500 !default;
+$link: $primary !default;
+$link-hover: $secondary !default;
+$border: $gray-200 !default;
 
 
 ///
