@@ -1,3 +1,24 @@
+@use "variables";
+
+///
+/// color-modifiers mixin
+///
+
+@mixin -color-modifiers($modifiers: variables.$color-modifiers) {
+    @each $colors in $modifiers {
+        $label: nth($colors, 1);
+        $color: map-get(variables.$color-modifiers, $label);
+
+        @if length($colors) > 1 {
+            $color: nth($colors, 2);
+        }
+
+        &.-#{$label} {
+            @content($color);
+        }
+    }
+}
+
 ///
 /// grouping mixin
 ///
@@ -61,7 +82,7 @@
 ///
 
 @mixin breakpoint($bp, $rule: min-width) {
-    @media screen and (#{$rule}: map-get($breakpoints, $bp)) {
+    @media screen and (#{$rule}: map-get(variables.$breakpoints, $bp)) {
         @content;
     }
 }

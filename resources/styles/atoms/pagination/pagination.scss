@@ -13,13 +13,14 @@
 /// $border
 ///     Border color; also used for disabled text.
 ///
+@use "variables";
 
 @mixin pagination (
-    $text-color: $link,
-    $active-color: $primary,
-    $hover-color: $link-hover,
-    $active-text-color: $white,
-    $border: $border,
+    $text-color: variables.$link,
+    $active-color: variables.$primary,
+    $hover-color: variables.$link-hover,
+    $active-text-color: variables.$white,
+    $border: variables.$border,
 ) {
     display: flex;
     justify-content: center;

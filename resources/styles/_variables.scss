@@ -1,0 +1,92 @@
+///
+/// = Variables =
+///
+
+$gutter:    50px !default;
+
+///
+/// This is the default font stack.
+///
+
+$font-stack: Arial, sans-serif !default;
+
+
+///
+/// Color Scales
+///
+@use 'colors' as *;
+@forward 'colors';
+
+$primary: $aqua-200;
+$secondary: $blue-500;
+$danger: $red-400;
+$confirm: $green-300;
+
+///
+/// Messaging colors
+///
+
+$success: $green-300 !default;
+$warning: $yellow-300 !default;
+$error: $red-500 !default;
+$info: $gray-100 !default;
+$disabled: $gray-200 !default;
+
+$color-modifiers: (
+    primary: $primary,
+    secondary: $secondary,
+    danger: $danger,
+    confirm: $confirm,
+
+    success: $success,
+    warning: $warning,
+    error: $error,
+
+    info: $info,
+    disabled: $disabled,
+) !default;
+
+
+///
+/// Applied colors
+///
+
+$plain-text: $gray-900 !default;
+$meta-text: $gray-500 !default;
+$link: $primary !default;
+$link-hover: $secondary !default;
+$border: $gray-200 !default;
+
+
+///
+/// Social Network Colors
+///
+
+$facebook: #3664A2 !default;
+$twitter: #55ACEE !default;
+$linkedin: #0077B5 !default;
+$youtube: #CD201F !default;
+
+
+///
+/// Media Query Breakpoints
+///
+
+$breakpoints: (
+  md: 576px,
+  lg: 1024px,
+  xl: 1200px
+) !default;
+
+
+///
+/// Easings
+///
+
+$fadeEasing: cubic-bezier(0.22, 1, 0.36, 1);
+
+
+///
+/// If this is turned off, component mixins are included but not their CSS classnames.
+///
+$use-boilerplate-classes: true !default;

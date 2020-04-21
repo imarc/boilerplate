@@ -8,28 +8,60 @@
 /// $disabled-color
 ///     button color when disabled
 ///
+@use "variables";
 
 @mixin toggleButton(
-    $checked-color: $link,
-    $unchecked-color: darken($link, 20%),
-    $disabled-color: $gray-400,
+    $checked-color: variables.$aqua-200,
+    $unchecked-color: variables.$aqua-300,
+    $disabled-color: variables.$disabled
 ) {
     display: inline-block;
 
     &__label {
-        background-color: darken($link, 20%);
+        background-color: $unchecked-color;
         border-radius: 0.5rem;
         color: #fff;
         cursor: pointer;
-        display: inline-block;
-        margin: 0 0.5rem 0.5rem 0;
-        padding: 0.5rem 1rem;
+        display: flex;
+        margin: 0;
+        padding: 0.618em 1.618em .618em .618em;
+        user-select: none;
+
+        &::before {
+            background-color: variables.$white;
+            border-radius: 0.5rem;
+            color: rgba($checked-color, 0);
+            height: 1.5rem;
+            margin-right: .618em;
+            text-align: center;
+            width: 1.5rem;
+            transition: 200ms variables.$fadeEasing;
+        }
+    }
+
+    &__checkbox ~ &__label::before {
+        @include fontawesome($character: '\f00c');
+        line-height: 1.5;
+    }
+
+    &__radio ~ &__label::before {
+        @include fontawesome($character: '\f111');
+        border-radius: 2rem;
+        line-height: 1.5;
+    }
+
+    &__label:hover::before {
+        color: $checked-color;
     }
 
     &.-checked &__label,
     &__checkbox:checked ~ &__label,
     &__radio:checked ~ &__label {
-        background-color: $link;
+        background-color: $checked-color;
+
+        &::before {
+            color: $checked-color;
+        }
     }
 
     &.-disabled {

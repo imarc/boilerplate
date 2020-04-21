@@ -11,12 +11,13 @@
 /// $attribution-text
 ///     Attribution text color.
 ///
+@use "variables";
 
 @mixin testimonial (
     $gutterWidth: 4rem,
-    $background: $gray-900,
-    $text-color: $white,
-    $attribution-text: $meta-text
+    $background: variables.$gray-900,
+    $text-color: variables.$white,
+    $attribution-text: variables.$meta-text
 ) {
     background-color: $background;
     margin-bottom: 4rem;
@@ -38,7 +39,7 @@
         position: relative;
         &::before,
         &::after {
-            color: $meta-text;
+            color: $attribution-text;
             font-family: Georgia, serif;
             font-size: 3.375rem;
             position: absolute;

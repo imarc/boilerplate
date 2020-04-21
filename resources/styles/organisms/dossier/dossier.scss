@@ -7,6 +7,7 @@
 /// @param {measure}   $photoWidth [25%]  - width of image
 /// @param {direction} $direction  [row]  - whether to put the images on the left or right
 ///
+@use "variables";
 
 @mixin dossier($gutter: 2rem, $photoWidth: 25%, $direction: row) {
     > * {
@@ -33,7 +34,7 @@
             }
             .bio {
                 .title {
-                    color: $meta-text;
+                    color: variables.$meta-text;
                     text-transform: uppercase;
                 }
             }

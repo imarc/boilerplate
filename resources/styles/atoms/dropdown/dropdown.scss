@@ -2,9 +2,10 @@
 /// The DROPDOWN mixin allows for single-column dropdown menus. The mixin
 /// is called from the nav.primary element, not a list item.
 ///
-//
+@use "variables";
+
 @mixin dropdown() {
-    @media only screen and (max-width: map-get($breakpoints,lg) - 1px) {
+    @media only screen and (max-width: map-get(variables.$breakpoints,lg) - 1px) {
         .dropdown,
         i.fa {
             display: none;

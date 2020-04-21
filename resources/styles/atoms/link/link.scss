@@ -1,11 +1,13 @@
+@use "variables";
+
 @mixin link (
-    $color: $link,
-    $hover-color: $link-hover,
+    $color: variables.$link,
+    $hover-color: variables.$link-hover,
     $disabled-color: darken(#FFF, 20%)
 ) {
     background-color: transparent;
     border: 0;
-    color: $link;
+    color: $color;
     cursor: pointer;
     display: inline;
     line-height: normal;
@@ -14,7 +16,7 @@
 
     &:hover,
     &:active {
-        color: $link-hover;
+        color: $hover-color;
     }
     &:focus {
         outline: thin dotted;
@@ -22,7 +24,7 @@
 
     &.-disabled,
     &[disabled] {
-        color: darken(#FFF, 20%);
+        color: variables.$disabled;
         cursor: default;
         pointer-events: none;
     }

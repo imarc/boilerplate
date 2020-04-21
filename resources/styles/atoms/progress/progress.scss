@@ -2,6 +2,7 @@
 /// PROGRESS provides a basic, pill-style progress nav bar like you
 /// might find as part of an ecommerce or registration process.
 ///
+@use "variables" as *;
 
 @mixin progress() {
     ul {

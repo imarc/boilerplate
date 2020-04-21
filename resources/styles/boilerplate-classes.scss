@@ -1,11 +1,18 @@
+@use "variables" as *;
+
 @if $use-boilerplate-classes {
 
     // atoms
     .breadcrumbs {
-        @include breadcrumbs;
+        @include breadcrumbs($meta-text);
     }
     .button {
-        @include button;
+        @include button(
+            $gray-400,
+            $white,
+            $link-hover,
+            $font-stack
+        );
     }
     .link {
         @include link;

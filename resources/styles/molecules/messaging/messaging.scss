@@ -10,12 +10,13 @@
 /// @link-hover-color
 ///     Optionally override the link hover color.
 ///
+@use "variables";
 
 @mixin messaging (
     $character: "",
-    $background: $info,
-    $link-color: $link,
-    $link-hover-color: $link-hover
+    $background: variables.$info,
+    $link-color: variables.$link,
+    $link-hover-color: variables.$link-hover
 ) {
     $b: &;
     background-color: $background;
@@ -50,8 +51,8 @@
     }
 
     &.-success {
-        background-color: $success;
-        color: $white;
+        background-color: variables.$success;
+        color: variables.$white;
 
         &::before {
             @include fontawesome(900, "\f00c");
@@ -59,7 +60,7 @@
 
         a,
         a:hover {
-            color: $white;
+            color: variables.$white;
         }
     }
     &.-info {
@@ -68,8 +69,8 @@
         }
     }
     &.-error {
-        background-color: $error;
-        color: $white;
+        background-color: variables.$error;
+        color: variables.$white;
 
         &::before {
             @include fontawesome(900, "\f12a");
@@ -77,7 +78,7 @@
 
         a,
         a:hover {
-            color: $white;
+            color: variables.$white;
         }
     }
 }
