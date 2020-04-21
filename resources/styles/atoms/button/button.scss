@@ -16,7 +16,12 @@
 @use "variables";
 @use "utilities/contrast";
 
-@mixin button ($color, $text-color, $hover-color, $font-stack) {
+@mixin button (
+    $color: variables.$gray-400,
+    $text-color: variables.$white,
+    $hover-color: variables.$link-hover,
+    $font-stack: variables.$font-stack
+) {
     background-color: $color;
     border: none;
     color: $text-color;

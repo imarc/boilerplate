@@ -7,12 +7,7 @@
         @include breadcrumbs($meta-text);
     }
     .button {
-        @include button(
-            $gray-400,
-            $white,
-            $link-hover,
-            $font-stack
-        );
+        @include button;
     }
     .link {
         @include link;

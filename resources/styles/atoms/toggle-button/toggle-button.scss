@@ -17,67 +17,41 @@
 ) {
     display: inline-block;
 
+    &__input {
+        display: none;
+    }
+
     &__label {
+        @include button($color: $unchecked-color, $hover-color: $unchecked-color);
         background-color: $unchecked-color;
-        border-radius: 0.5rem;
-        color: #fff;
-        cursor: pointer;
-        display: flex;
-        margin: 0;
-        padding: 0.618em 1.618em .618em .618em;
-        user-select: none;
+        padding-left: 1em;
 
         &::before {
-            background-color: variables.$white;
-            border-radius: 0.5rem;
-            color: rgba($checked-color, 0);
-            height: 1.5rem;
+            @include fontawesome(900, '\f0c8');
+            width: 1em;
             margin-right: .618em;
-            text-align: center;
-            width: 1.5rem;
-            transition: 200ms variables.$fadeEasing;
         }
     }
 
-    &__checkbox ~ &__label::before {
-        @include fontawesome($character: '\f00c');
-        line-height: 1.5;
-    }
-
-    &__radio ~ &__label::before {
-        @include fontawesome($character: '\f111');
-        border-radius: 2rem;
-        line-height: 1.5;
-    }
-
-    &__label:hover::before {
-        color: $checked-color;
+    &.-radio &__label::before {
+        @include fontawesome(900, '\f111');
     }
 
     &.-checked &__label,
-    &__checkbox:checked ~ &__label,
-    &__radio:checked ~ &__label {
+    &__input:checked ~ &__label {
         background-color: $checked-color;
 
         &::before {
-            color: $checked-color;
+            @include fontawesome(900, '\f00c');
         }
     }
 
-    &.-disabled {
-        cursor: default;
-    }
+    &.-radio-checked &__label,
+    &.-radio &__input:checked ~ &__label {
+        background-color: $checked-color;
 
-    &.-disabled &__label,
-    &__checkbox[disabled] ~ &__label,
-    &__radio[disabled] ~ &__label {
-        background-color: $disabled-color;
-        cursor: default;
-        pointer-events: none;
-    }
-
-    &__checkbox,
-    &__radio {
-        display: none;
+        &::before {
+            @include fontawesome(400, '\f111');
+        }
     }
 }
