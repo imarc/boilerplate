@@ -7,8 +7,6 @@
 /// Within the outer element class each accordion item requires a div wrapper.
 /// Within the div wrapper there is a .header class and a .content class.
 ///
-@use "variables" as *;
-
 @mixin accordion() {
     > div {
         &.open {

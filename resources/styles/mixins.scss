@@ -1,55 +1,30 @@
 @use "variables";
 
-///
-/// color-modifiers mixin
-///
 
-@mixin -color-modifiers($modifiers: variables.$color-modifiers) {
-    @each $colors in $modifiers {
-        $label: nth($colors, 1);
-        $color: map-get(variables.$color-modifiers, $label);
-
-        @if length($colors) > 1 {
-            $color: nth($colors, 2);
+@mixin modifiers($map, $default-map) {
+    @each $pair in $map {
+        $label: nth($pair, 1);
+        $value: map-get($default-map, $label);
+        @if length($pair) > 1 {
+            $value: nth($pair, 2);
         }
 
         &.-#{$label} {
-            @content($color);
+            @content($value);
         }
     }
 }
 
-///
-/// grouping mixin
-///
-
-@mixin grouping {
-    &::before,
-    &::after {
-        content: "";
-        display: table;
+@mixin color-modifiers($colors: variables.$color-modifiers) {
+    @if content-exists() {
+        @include modifiers($colors, variables.$color-modifiers) using ($color) {
+            @content($color);
+        }
+    } @else {
+        @include modifiers($colors, variables.$color-modifiers) using ($color) {
+            color: $color;
+        }
     }
-    &::after {
-        clear: both;
-    }
-}
-
-
-///
-/// fontawesome mixin
-///
-
-@mixin fontawesome($weight: 400, $character: "") {
-    font: normal normal normal 1em unquote("/") 1 "Font Awesome 5 Free";
-    content: $character;
-    display: inline-block;
-    font-size: inherit;
-    font-weight: $weight;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    speak: none;
-    text-rendering: auto;
-    text-transform: none;
 }
 
 
@@ -72,7 +47,7 @@
 /// transition mixin
 ///
 
-@mixin transition($properties: all, $duration: 250ms, $easing: ease-in-out) {
+@mixin transition($properties: all, $duration: $fast, $easing: $ease-out-quint) {
     transition: $properties $duration $easing;
 }
 

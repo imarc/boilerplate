@@ -13,57 +13,41 @@
 /// $border
 ///     Border color; also used for disabled text.
 ///
-@use "variables";
 
 @mixin pagination (
-    $text-color: variables.$link,
-    $active-color: variables.$primary,
-    $hover-color: variables.$link-hover,
-    $active-text-color: variables.$white,
-    $border: variables.$border,
+    $text-color: $link,
+    $active-color: $primary,
+    $hover-color: $link-hover,
+    $active-text-color: $white,
+    $border: $border,
 ) {
     display: flex;
     justify-content: center;
 
     &__list {
-        padding-left: 0;
-        border-radius: 2px;
-        border: 1px solid $border;
+        @include no-bullets;
         display: flex;
-        justify-content: center;
-        list-style: none;
     }
+
     &__item {
-        margin-bottom: 0;
+        margin: 0 .25em;
     }
+
     &__link {
+        border-radius: .25em;
         color: $text-color;
         display: block;
-        padding: 0.5rem 1rem;
+        font-weight: bold;
+        padding: 0.618rem 1rem;
         position: relative;
-    }
-    &__item:not(:last-child) &__link {
-        border-right: 1px solid $border;
-    }
-    &__item.-active &__link {
-        background-color: $active-color;
-        color: $active-text-color;
-        cursor: default;
-        pointer-events: none;
+        transition: background-color $fast $fade-easing,
+            color $fast $fade-easing;
 
-        &::before,
-        &::after {
-            background-color: $active-color;
-        }
-
+        &:focus,
         &:hover {
-            background-color: $hover-color;
+            background-color: $text-color;
             color: $active-text-color;
-
-            &::before,
-            &::after {
-                background-color: $hover-color;
-            }
+            outline: none;
         }
     }
 
@@ -72,22 +56,25 @@
         cursor: default;
         pointer-events: none;
     }
-    &__item.-previous &__link {
-        &::before {
-            @include fontawesome(900, "\f100");
-        }
-    }
-    &__item.-next &__link {
-        &::before {
-            @include fontawesome(900, "\f101");
-        }
-    }
-    &__item:hover &__link {
-        background-color: $text-color;
-        color: $active-text-color;
 
-        &::before {
-            background-color: $text-color;
+    &__item.-previous &__link {
+        @include fas($fa-var-chevron-left);
+    }
+
+    &__item.-next &__link {
+        @include fas($fa-var-chevron-right);
+    }
+
+
+    &__item.-active &__link {
+        background-color: $active-color;
+        color: $active-text-color;
+        cursor: default;
+        pointer-events: none;
+
+        &:focus,
+        &:hover {
+            background-color: $hover-color;
             color: $active-text-color;
         }
     }

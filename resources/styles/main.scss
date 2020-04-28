@@ -1,17 +1,14 @@
-@use "variables";
+//@use "~@fortawesome/fontawesome-free/scss/fontawesome";
+@use "~@fortawesome/fontawesome-free/scss/solid";
+@use "~@fortawesome/fontawesome-free/scss/regular";
+@use "~@fortawesome/fontawesome-free/scss/brands";
 
-@import "mixins";
-@import "utilities";
+@use "variables" as *;
+@use "mixins" as *;
+@use "utilities" as *;
 
-@import "~slick-carousel/slick/slick-theme";
-@import "~slick-carousel/slick/slick";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/solid.scss";
-@import "~@fortawesome/fontawesome-free/scss/regular.scss";
-@import "~@fortawesome/fontawesome-free/scss/brands.scss";
-
-@import "./utilities/*/!(_)*.scss";
-@import "./@(atoms|molecules|organisms|templates|pages)/*/!(_)*.scss";
+@import "./utilities/**/*.scss";
+@import "./@(atoms|molecules|organisms|templates|pages)/**/*.scss";
 
 @import "base";
 

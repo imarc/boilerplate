@@ -2,7 +2,7 @@
 /// = Variables =
 ///
 
-$gutter:    50px !default;
+$gutter: 50px !default;
 
 ///
 /// This is the default font stack.
@@ -80,10 +80,31 @@ $breakpoints: (
 
 
 ///
-/// Easings
+/// Easings and Timings
 ///
+$ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+$ease-in-quint: cubic-bezier(0.64, 0, 0.78, 0);
+$ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
 
-$fadeEasing: cubic-bezier(0.22, 1, 0.36, 1);
+$fade-easing: $ease-out-quint;
+$entrance-easing: $ease-out-quint;
+$exit-easing: $ease-in-quint;
+
+///
+/// Fast is for micro-animations such as fades.
+///
+$fast: 150ms;
+
+///
+/// Moderate is for mid-sized animations, such as mega menus and notifications.
+///
+$moderate: 240ms;
+
+///
+/// Slow is for animations meant for large animations such as page transitions
+/// and background fades.
+///
+$slow: 400ms;
 
 
 ///

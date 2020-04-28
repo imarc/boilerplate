@@ -9,6 +9,7 @@
 ///     button color when disabled
 ///
 @use "variables";
+@use "utilities/fontawesome" as *;
 
 @mixin toggleButton(
     $checked-color: variables.$aqua-200,

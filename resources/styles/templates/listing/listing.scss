@@ -2,8 +2,6 @@
 /// LISTING shows a listing of entries. It includes an optional search form with filters.
 /// Remove the search form elements for a simple list.
 ///
-@use "variables" as *;
-
 @mixin listing() {
     margin-bottom: 2rem;
 

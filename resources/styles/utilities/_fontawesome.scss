@@ -1,0 +1,54 @@
+@use "~@fortawesome/fontawesome-free/scss/variables" as *;
+@use "~@fortawesome/fontawesome-free/scss/mixins" as *;
+
+@forward "~@fortawesome/fontawesome-free/scss/variables";
+
+///
+/// Fontawesome mixin.
+///
+@mixin fa($character: "", $set: fas) {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+
+    @if type-of($set) == number {
+        font-weight: $set;
+    } @else {
+        @extend .#{$set} !optional;
+    }
+
+    &::before {
+        content: fa-content($character);
+    }
+}
+
+///
+/// FontAwesome shorthand mixins.
+///
+@mixin fab($character: "") {
+    @include fa($character, fab);
+}
+@mixin fad($character: "") {
+    @include fa($character, fad);
+}
+@mixin fal($character: "") {
+    @include fa($character, fal);
+}
+@mixin far($character: "") {
+    @include fa($character, far);
+}
+@mixin fas($character: "") {
+    @include fa($character, fas);
+}
+
+///
+/// Legacy Fontawesome mixin.
+///
+@mixin fontawesome($set: 400, $character: "") {
+    @include fa-icon;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: $set;
+
+    content: fa-content($character);
+}

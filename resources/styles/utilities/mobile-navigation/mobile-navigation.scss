@@ -4,8 +4,6 @@
 ///
 /// @demo demo/mobile-navigation.html
 ///
-@use "../../variables" as *;
-
 @mixin mobileNavigation() {
     background-color: $gray-900;
     bottom: 0;

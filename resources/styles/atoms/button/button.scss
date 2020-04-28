@@ -12,15 +12,11 @@
 /// $font-stack
 ///     font stack for button label
 ///
-
-@use "variables";
-@use "utilities/contrast";
-
 @mixin button (
-    $color: variables.$gray-400,
-    $text-color: variables.$white,
-    $hover-color: variables.$link-hover,
-    $font-stack: variables.$font-stack
+    $color: $gray-400,
+    $text-color: $white,
+    $hover-color: $link-hover,
+    $font-stack: $font-stack
 ) {
     background-color: $color;
     border: none;
@@ -30,14 +26,14 @@
     font-family: $font-stack;
     padding: 0.618em 1.618em;
     text-align: center;
-    transition: box-shadow 200ms variables.$fadeEasing,
-        background-color 200ms variables.$fadeEasing,
-        color 200ms variables.$fadeEasing;
+    transition: box-shadow $fast $fade-easing,
+        background-color $fast $fade-easing,
+        color $fast $fade-easing;
     vertical-align: top;
 
     &:hover,
     &:focus {
-        background-color: $hover-color;
+        box-shadow: 0 0 0 2px inset $color, 0 0 0 4px inset;
         outline: none;
     }
 
@@ -45,16 +41,14 @@
         pointer-events: none;
     }
 
-    @include -color-modifiers(primary secondary danger confirm) using ($color) {
+    @include color-modifiers(primary secondary danger confirm) using ($color) {
         background-color: $color;
-        color: contrast.blackwhite($color);
+        color: blackwhite($color);
         font-weight: bold;
 
         &:hover,
         &:focus {
-            background-color: $text-color;
-            color: $color;
-            box-shadow: 0 0 0 2px inset $color;
+            box-shadow: 0 0 0 2px inset $color, 0 0 0 4px inset;
         }
     }
 
@@ -71,7 +65,7 @@
             outline: none;
         }
 
-        @include -color-modifiers(primary secondary danger confirm) using ($color) {
+        @include color-modifiers(primary secondary danger confirm) using ($color) {
             box-shadow: 0 0 0 2px inset $color;
             color: $color;
 
@@ -93,7 +87,7 @@
             box-shadow: none;
         }
 
-        @include -color-modifiers(primary secondary danger confirm) using ($color) {
+        @include color-modifiers(primary secondary danger confirm) using ($color) {
             color: $color;
 
             &:hover,
@@ -103,7 +97,7 @@
         }
     }
 
-    @include -color-modifiers(disabled) using ($color) {
+    @include color-modifiers(disabled) using ($color) {
         pointer-events: none;
         background-color: $color;
     }
