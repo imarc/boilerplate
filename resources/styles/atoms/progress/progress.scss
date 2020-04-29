@@ -2,131 +2,111 @@
 /// PROGRESS provides a basic, pill-style progress nav bar like you
 /// might find as part of an ecommerce or registration process.
 ///
-@mixin progress() {
-    ul {
-        border-radius: 2px;
-        border: 1px solid $border;
-        display: block;
-        list-style: none;
+@mixin progress(
+    $color: $blue-400,
+    $completed-icon: $fa-var-check,
+    $active-icon: $fa-var-circle
+) {
+    &__list {
         padding-left: 0;
-        width: 100%;
-    }
-    li {
-        margin-bottom: 0;
-    }
-    a {
-        display: block;
-        line-height: 1.5;
-        padding: 0.5rem 1rem;
-        position: relative;
-        text-align: center;
+        list-style: none;
 
-        &:hover {
-            color: $link-hover;
-        }
-    }
-    li:not(:last-child) a {
-        border-right: 1px solid $border;
-    }
-    li.active {
-        a {
-            background-color: $link;
-            color: #FFF;
-            cursor: default;
-            pointer-events: none;
-
-            &:hover {
-                background-color: $link-hover;
-                color: #FFF;
-            }
-        }
-    }
-    li.disabled a {
-        color: $border;
-        cursor: default;
-        pointer-events: none;
-    }
-    li:hover:not(.active,.disabled) a {
-        color: $link-hover;
-    }
-    li:not(:last-child) a {
-        border: 0;
-    }
-    li.complete a {
-        background-color: #FFF;
-        color: #ccc;
         &::before {
-            background-color: #FFF;
-        }
-        &:hover {
-            color: $link;
+            border-left: .5em solid $color;
+            bottom: 1.5em;
+            content: '';
+            left: 1.75em;
+            position: absolute;
+            top: 1.5em;
+            z-index: -1;
         }
     }
-    @include breakpoint(md) {
-        ul {
-            display: flex;
+
+    &__item {
+        margin: 0;
+    }
+
+    &__link {
+        align-items: center;
+        display: flex;
+        margin: 0;
+        padding: .618em 1em;
+
+        &::before {
+            background-color: $color;
+            border-radius: 2em;
+            color: $white;
+            content: '';
+            height: 2em;
+            line-height: 2;
+            margin-right: 1em;
+            text-align: center;
+            transition: $moderate $entrance-easing;
+            width: 2em;
         }
-        li {
-            flex: 1 1 auto;
-            position: relative;
+
+        &:hover::before {
+            transform: scale(1.25);
         }
-        li:last-child a {
+
+        &.-active {
+            @include fas($active-icon);
+            font-weight: bold;
+
             &::before {
-                display: none;
+                transform: scale(1.25);
             }
         }
-        a {
-            &::after,
+
+        &.-complete {
+            @include fas($completed-icon);
+        }
+
+        &.-disabled {
+            &:hover::before {
+                transform: none;
+            }
+        }
+    }
+
+    @include breakpoint(md) {
+        &__list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
             &::before {
-                border: 0 solid transparent;
-                border-bottom: 1.25rem solid rgba(0,0,0,0);
-                border-left: 1rem solid #FFF;
-                border-top: 1.25rem solid rgba(0,0,0,0);
+                content: unset;
+            }
+        }
+
+        &__item {
+            position: relative;
+
+            &::before {
+                border-top: .25em solid $color;
                 content: '';
+                left: 0;
                 position: absolute;
                 right: 0;
-                top: 0;
-                z-index: 1;
+                top: 1.493em;
+                z-index: -1;
             }
-            &::after {
-                border-left-color: #FFF;
+
+            &:first-child::before {
+                left: 50%;
             }
-            &::before {
-                border-left-color: darken($border, 10%);
-                margin-right: -1px;
+            &:last-child::before {
+                right: 50%;
             }
         }
-        li.active {
-            margin-left: -1rem;
-            z-index: 2;
+
+        &__link {
+            flex-direction: column;
+
             &::before {
-                border-bottom: 1.25rem solid $link;
-                border-left: 1rem solid #FFF;
-                border-top: 1.25rem solid $link;
-                content: '';
-                display: block;
-                position: absolute;
-                left: 0;
-                top: 0;
-                z-index: 2;
-            }
-            a {
-                &::after,
-                &::before {
-                    background-color: $link;
-                    border-bottom-color: #FFF;
-                    border-left-color: $link;
-                    border-top-color: #FFF;
-                }
-                &::before {
-                    margin-right: 0;
-                }
-            }
-            a:hover {
-                &::after,
-                &::before {
-                    background-color: $link-hover;
-                }
+                margin-right: 0;
+                margin-bottom: 1em;
             }
         }
     }
