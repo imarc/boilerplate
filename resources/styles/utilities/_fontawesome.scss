@@ -7,18 +7,18 @@
 /// Fontawesome mixin.
 ///
 @mixin fa($character: "", $set: fas) {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-style: normal;
-    font-variant: normal;
-
-    @if type-of($set) == number {
-        font-weight: $set;
-    } @else {
-        @extend .#{$set} !optional;
-    }
-
     &::before {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-style: normal;
+        font-variant: normal;
+
+        @if type-of($set) == number {
+            font-weight: $set;
+        } @else {
+            @extend .#{$set} !optional;
+        }
+
         content: fa-content($character);
     }
 }
