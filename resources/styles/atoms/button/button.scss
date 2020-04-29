@@ -33,7 +33,7 @@
 
     &:hover,
     &:focus {
-        box-shadow: 0 0 0 2px inset $color, 0 0 0 4px inset;
+        box-shadow: 0 0 0 2px inset $color, 0 0 0 4px inset $white;
         outline: none;
     }
 
@@ -41,16 +41,22 @@
         pointer-events: none;
     }
 
-    @include color-modifiers(primary secondary danger confirm) using ($color) {
+    @include color-modifiers using ($color) {
         background-color: $color;
         color: blackwhite($color);
         font-weight: bold;
 
         &:hover,
         &:focus {
-            box-shadow: 0 0 0 2px inset $color, 0 0 0 4px inset;
+            box-shadow: 0 0 0 2px inset $color, 0 0 0 4px inset $white;
         }
     }
+
+    &.-disabled {
+        color: $white;
+        pointer-events: none;
+    }
+
 
     &.-outline {
         box-shadow: 0 0 0 2px inset;
@@ -65,7 +71,7 @@
             outline: none;
         }
 
-        @include color-modifiers(primary secondary danger confirm) using ($color) {
+        @include color-modifiers using ($color) {
             box-shadow: 0 0 0 2px inset $color;
             color: $color;
 
@@ -87,7 +93,7 @@
             box-shadow: none;
         }
 
-        @include color-modifiers(primary secondary danger confirm) using ($color) {
+        @include color-modifiers using ($color) {
             color: $color;
 
             &:hover,
@@ -95,10 +101,5 @@
                 background-color: rgba($color, .1);
             }
         }
-    }
-
-    @include color-modifiers(disabled) using ($color) {
-        pointer-events: none;
-        background-color: $color;
     }
 }
