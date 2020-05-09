@@ -3,8 +3,6 @@ title: File Structure
 order: 2
 ---
 
-## File Structure
-
 All files are within `resources/`:
 
 * Sass code, documentation and example markup is within `/resources/styles/`

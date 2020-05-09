@@ -33,6 +33,7 @@
 
     &:hover,
     &:focus {
+        color: $text-color;
         box-shadow: 0 0 0 2px inset $color, 0 0 0 4px inset $white;
         outline: none;
     }

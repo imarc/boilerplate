@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ _target.title }} ({{ _target.handle }}) - Pattery Library</title>
+
+    <link rel="stylesheet" href="{{ prefix("/css/main.css") }}">
+
+    <script defer src="{{ prefix("/js/manifest.js") }}"></script>
+    <script defer src="{{ prefix("/js/vendor.js") }}"></script>
+    <script defer src="{{ prefix("/js/main.js") }}"></script>
+
+    {% for script in _target.resources.assets if script.isJS %}
+        <script defer src="../raw/{{ _target.baseHandle }}/{{ script.base }}"></script>
+    {% endfor %}
+</head>
+<body>
+    <div style="padding: 2em">
+        {{ yield }}
+    </div>
+</body>
+</html>

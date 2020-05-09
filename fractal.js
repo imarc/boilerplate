@@ -26,6 +26,7 @@ fractal.components.set("statuses.deprecated", {
 
 fractal.set("project.title", "Design System");
 fractal.components.set("default.context", {scripts: []});
+fractal.components.set("default.collator", markup => `<div style="margin:0 0 1em">${markup}</div>`);
 fractal.components.set("path", __dirname + "/resources/styles");
 fractal.docs.set("path", __dirname + "/resources/styles/docs");
 fractal.web.set("builder.dest", __dirname + "/web/pattern-library");
