@@ -8,14 +8,15 @@
 /// $disabled-color
 ///     button color when disabled
 ///
-@use "variables";
-@use "utilities/fontawesome" as *;
-
 @mixin toggleButton(
-    $checked-color: variables.$aqua-200,
-    $unchecked-color: variables.$aqua-300,
-    $disabled-color: variables.$disabled
+    $color: $gray-400,
+    $text-color: $white,
+    $hover-color: $link-hover,
+    $checked-color: $gray-600,
+    $disabled-color: $disabled,
 ) {
+    $b: &;
+
     display: inline-block;
 
     &__input {
@@ -23,19 +24,16 @@
     }
 
     &__label {
-        @include button($color: $unchecked-color, $hover-color: $unchecked-color);
-        background-color: $unchecked-color;
-        padding-left: 1em;
+        color: $text-color;
+        background-color: $color;
+        padding: 0.618em 1.618em;
+        user-select: none;
 
         &::before {
-            @include fontawesome(900, '\f0c8');
+            @include fontawesome(900, $fa-var-square);
             width: 1em;
             margin-right: .618em;
         }
-    }
-
-    &.-radio &__label::before {
-        @include fontawesome(900, '\f111');
     }
 
     &.-checked &__label,
@@ -43,16 +41,54 @@
         background-color: $checked-color;
 
         &::before {
-            @include fontawesome(900, '\f00c');
+            @include fontawesome(900, $fa-var-check-square);
         }
     }
 
-    &.-radio-checked &__label,
-    &.-radio &__input:checked ~ &__label {
-        background-color: $checked-color;
+    &.-disabled {
+        #{$b}__label {
+            background-color: $disabled-color;
+            cursor: default;
+        }
+    }
 
-        &::before {
-            @include fontawesome(400, '\f111');
+
+    &.-radio {
+        #{$b}__label {
+            &::before {
+                @include fontawesome(900, $fa-var-circle);
+            }
+        }
+
+        &.-checked #{$b}__label,
+        #{$b}__input:checked ~ #{$b}__label {
+            &::before {
+                @include fontawesome(400, $fa-var-dot-circle);
+            }
+        }
+    }
+
+
+    &.-outline {
+        #{$b}__label {
+            color: $color;
+            background-color: transparent;
+            box-shadow: 0 0 0 2px inset;
+
+            &::before {
+                font-weight: 400;
+            }
+        }
+
+        #{$b}.-checked #{$b}__label,
+        #{$b}__input:checked ~ #{$b}__label {
+            color: $checked-color;
+        }
+
+        &.-disabled {
+            #{$b}__label {
+                color: $disabled-color;
+            }
         }
     }
 }
