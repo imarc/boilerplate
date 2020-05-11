@@ -6,6 +6,7 @@
 @use "variables" as *;
 @use "mixins" as *;
 @use "utilities" as *;
+@use "transitions" as *;
 
 @import "./utilities/**/*.scss";
 @import "./@(atoms|molecules|organisms|templates|pages)/**/*.scss";

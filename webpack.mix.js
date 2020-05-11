@@ -63,7 +63,6 @@ mix.autoload({
 
 mix.copyDirectory('resources/media', 'web/media');
 
-mix.js('resources/js/plugins/accordion.plugin.js', 'js/plugins');
 mix.js('resources/js/plugins/stickyElement.plugin.js', 'js/plugins');
 mix.js('resources/js/plugins/mobileNavigation.plugin.js', 'js/plugins');
 mix.js('resources/js/plugins/stickyHeader.plugin.js', 'js/plugins');

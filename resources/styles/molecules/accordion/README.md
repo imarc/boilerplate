@@ -1,4 +1,15 @@
-Accordion is for a collapsible section of mof markup
+BAccordion is a simple Vue component that created an expanding and collapsing block. It uses the vue transition _expand_ and can be paired with the Sass mixin `accordion()`.
+
+### Vue Component
+
+`BAccordion`
+
+#### Props
+
+* **block** - the block class (defaults to 'accordion')
+* **headingElement** - the heading element (defaults to 'heading')
+* **contentElement** - the content element (defaults to 'content')
+
 
 ### Sass Mixin
 

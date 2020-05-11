@@ -1,0 +1,14 @@
+@use "variables" as *;
+
+.expand-enter,
+.expand-leave-to {
+    height: 0 !important;
+}
+.expand-enter-active {
+    transition: height $moderate $entrance-easing;
+    overflow: hidden;
+}
+.expand-leave-active {
+    transition: height $moderate $entrance-easing;
+    overflow: hidden;
+}
