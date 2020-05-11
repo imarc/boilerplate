@@ -3,33 +3,24 @@
 ///
 /// @character
 ///     Font awesome character to show.
-/// @background
-///     Background color.
+/// @color
+///     Dominant color.
 /// @link-color
 ///     Optionally override the default link color.
 /// @link-hover-color
 ///     Optionally override the link hover color.
 ///
-@use "variables";
-@use "utilities/fontawesome" as *;
-
 @mixin messaging (
-    $character: "",
-    $background: variables.$info,
-    $link-color: variables.$link,
-    $link-hover-color: variables.$link-hover
+    $character: $fa-var-info-circle,
+    $color: $info,
+    $link-color: inherit,
+    $link-hover-color: inherit
 ) {
-    $b: &;
-    background-color: $background;
+    background-color: $gray-100;
+    box-shadow: .25rem 0 0 inset;
     margin-bottom: 2rem;
-    padding: 1em 3em;
+    padding: 1rem 1.618rem 1rem 3.5rem;
     position: relative;
-
-    ol:last-child,
-    p:last-child,
-    ul:last-child {
-        margin-bottom: 0;
-    }
 
     a {
         color: $link-color;
@@ -42,44 +33,47 @@
 
     &::before {
         @include fontawesome(900, $character);
-        font-size: 1em;
-        left: 1em;
-        line-height: inherit;
+        font-size: 1.5rem;
+        left: 1rem;
         position: absolute;
-        text-align: center;
-        top: 1em;
-        width: 1em;
+        top: 1rem;
     }
 
-    &.-success {
-        background-color: variables.$success;
-        color: variables.$white;
+    &.-success::before {
+        @include fontawesome(900, $fa-var-check-circle);
+    }
+
+    &.-info::before {
+        @include fontawesome(900, $fa-var-info-circle);
+    }
+
+    &.-warning::before {
+        @include fontawesome(900, $fa-var-exclamation-circle);
+    }
+
+    &.-error::before {
+        @include fontawesome(900, $fa-var-minus-circle);
+    }
+
+    @include color-modifiers(success warning error info) using ($color) {
+        box-shadow: .25rem 0 0 $color inset;
+        color: $plain-text;
 
         &::before {
-            @include fontawesome(900, "\f00c");
-        }
-
-        a,
-        a:hover {
-            color: variables.$white;
+            color: $color;
         }
     }
-    &.-info {
-        &::before {
-            @include fontawesome(900, "\f129");
-        }
-    }
-    &.-error {
-        background-color: variables.$error;
-        color: variables.$white;
 
-        &::before {
-            @include fontawesome(900, "\f12a");
-        }
+    &.-filled {
+        box-shadow: none;
 
-        a,
-        a:hover {
-            color: variables.$white;
+        @include color-modifiers(success warning error info) using ($color) {
+            background-color: $color;
+            color: blackwhite($color, $plain-text);
+
+            &::before {
+                color: inherit;
+            }
         }
     }
 }
