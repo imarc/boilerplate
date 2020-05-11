@@ -1,7 +1,7 @@
 @use "variables";
 
 
-@mixin modifiers($map, $default-map) {
+@mixin modifiers($map, $default-map, $prefix: '.-') {
     @each $pair in $map {
         $label: nth($pair, 1);
         $value: map-get($default-map, $label);
@@ -9,19 +9,19 @@
             $value: nth($pair, 2);
         }
 
-        &.-#{$label} {
+        &#{$prefix}#{$label} {
             @content($value);
         }
     }
 }
 
-@mixin color-modifiers($colors: variables.$color-modifiers) {
+@mixin color-modifiers($colors: variables.$color-modifiers, $prefix: '.-') {
     @if content-exists() {
-        @include modifiers($colors, variables.$color-modifiers) using ($color) {
+        @include modifiers($colors, variables.$color-modifiers, $prefix) using ($color) {
             @content($color);
         }
     } @else {
-        @include modifiers($colors, variables.$color-modifiers) using ($color) {
+        @include modifiers($colors, variables.$color-modifiers, $prefix) using ($color) {
             color: $color;
         }
     }
