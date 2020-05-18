@@ -9,21 +9,18 @@
 ///     button hover color
 /// $disabled-color
 ///     disabled button color
-/// $font-stack
-///     font stack for button label
 ///
 @mixin button (
     $color: $gray-400,
     $text-color: $white,
-    $hover-color: $link-hover,
-    $font-stack: $font-stack
+    $hover-color: $link-hover
 ) {
     background-color: $color;
     border: none;
     color: $text-color;
     cursor: pointer;
     display: inline-block;
-    font-family: $font-stack;
+    font-family: inherit;
     padding: 0.618em 1.618em;
     text-align: center;
     transition: box-shadow $fast $fade-easing,
