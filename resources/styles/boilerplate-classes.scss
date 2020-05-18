@@ -2,7 +2,7 @@
 
     // atoms
     .breadcrumbs {
-        @include breadcrumbs($meta-text);
+        @include breadcrumbs;
     }
     .button {
         @include button;

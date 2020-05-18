@@ -1,10 +1,15 @@
 ///
-/// BREADCRUMBS provides basic breadcrumb styling, complete with
-/// fontawesome icons for separators. Many styles for BREADCRUMBS
-/// are cascading from our base styles.scss file.
+/// Simple breadcrumbs for your breadcrumbing needs.
 ///
-
-@mixin breadcrumbs($color) {
+/// $color
+///     crumb color
+/// $hover-color
+///     crumb hover color
+///
+@mixin breadcrumbs(
+    $color: $meta-text,
+    $hover-color: $link-hover,
+) {
     &__list {
         display: inline-flex;
         list-style: none;
@@ -23,11 +28,16 @@
     &__link {
         color: $color;
         display: block;
-        padding: .618rem .618rem .618rem 0;
+        padding: .618em .809em;
+
+        &:hover {
+            color: $hover-color;
+        }
 
         &::after {
             content: "∕";
-            padding-left: .618rem;
+            display: inline-block;
+            transform: translateX(.809em);
         }
 
         .-active &::after {
