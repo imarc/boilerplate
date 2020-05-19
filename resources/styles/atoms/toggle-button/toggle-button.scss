@@ -36,6 +36,13 @@
         }
     }
 
+    @include color-modifiers(primary secondary) using ($color) {
+        #{$b}__label {
+            background-color: $color;
+            color: blackwhite($color,  $text-color);
+        }
+    }
+
     &.-checked &__label,
     &__input:checked ~ &__label {
         background-color: $checked-color;
@@ -88,6 +95,15 @@
         &.-disabled {
             #{$b}__label {
                 color: $disabled-color;
+            }
+        }
+    }
+
+    &.-blank {
+        #{$b}:not(.-checked) #{$b}__label,
+        #{$b}__input:not(:checked) ~ #{$b}__label {
+            &::before {
+                content: unset;
             }
         }
     }
