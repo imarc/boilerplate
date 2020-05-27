@@ -1,15 +1,34 @@
 <template>
     <div :class="[block, isOpen ? '-open' : '-closed' ]">
-        <div :class="`${block}__${headingElement}`" @click="open">
-            <slot name="heading" />
-        </div>
+        <header>
+          <div 
+              :class="`${block}__${headingElement}`" 
+              :aria-expanded="`${isOpen}`"
+              :aria-controls="identifier"
+              :id="`${identifier}-control`"
+              @click="open" 
+              @keyup.enter="open" 
+              tabindex="0"
+              role="button"
+              aria-level="3"
+          >
+              <slot name="heading" />
+          </div>
+        </header>
         <transition name="expand"
             @enter="startTransition"
             @after-enter="endTransition"
             @before-leave="startTransition"
             @after-leave="endTransition"
         >
-            <div :class="`${block}__${contentElement}`" ref="content" v-if="isOpen">
+            <div 
+                :id="identifier"
+                :class="`${block}__${contentElement}`" 
+                ref="content"
+                role="region" 
+                v-if="isOpen"
+                :aria-labelledby="`${identifier}-control`"
+            >
                 <slot />
             </div>
         </transition>
@@ -22,6 +41,10 @@ export default {
         block: { default: 'accordion' },
         headingElement: { default: 'heading' },
         contentElement: { default: 'content' },
+        identifier: {
+          type: String,
+          required: true,
+        },
     },
     methods: {
         open() {
