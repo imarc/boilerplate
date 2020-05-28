@@ -64,7 +64,7 @@
       "sourceType": "module"
     },
     "rules": {
-      "comma-dangle": "off",
+      "comma-dangle": ["warn", "always"],
       "indent": ["warn", 4]
     }
   }
