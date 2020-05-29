@@ -1,7 +1,7 @@
-@use "~@fortawesome/fontawesome-free/scss/variables" as *;
-@use "~@fortawesome/fontawesome-free/scss/mixins" as *;
+@use "~@fortawesome/fontawesome-pro/scss/variables" as *;
+@use "~@fortawesome/fontawesome-pro/scss/mixins" as *;
 
-@forward "~@fortawesome/fontawesome-free/scss/variables";
+@forward "~@fortawesome/fontawesome-pro/scss/variables";
 
 ///
 /// Fontawesome mixin.
@@ -47,7 +47,7 @@
 ///
 @mixin fontawesome($set: 400, $character: "") {
     @include fa-icon;
-    font-family: 'Font Awesome 5 Free';
+    font-family: 'Font Awesome 5 Pro';
     font-weight: $set;
 
     content: fa-content($character);

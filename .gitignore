@@ -1,4 +1,5 @@
 mix-manifest.json
 node_modules
+.npmrc
 web
 /.env

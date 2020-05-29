@@ -21,7 +21,7 @@
     "watch:event": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
+    "@fortawesome/fontawesome-pro": "^5.7.1",
     "@frctl/consolidate": "^1.0.1",
     "@frctl/fractal": "^1.2.1",
     "cross-env": "^7.0.2",
