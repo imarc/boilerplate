@@ -42,6 +42,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.2.2",
     "resolve-url-loader": "^2.3.1",
     "sass": "^1.17.3",
     "sass-loader": "^7.1.0",
@@ -53,8 +54,10 @@
       "es6": true
     },
     "extends": [
+      "plugin:vue/recommended",
       "standard"
     ],
+    "plugins": ["vue"],
     "globals": {
       "Atomics": "readonly",
       "SharedArrayBuffer": "readonly"
@@ -64,7 +67,13 @@
       "sourceType": "module"
     },
     "rules": {
-      "comma-dangle": ["warn", "always"],
+      "comma-dangle": ["warn", {
+        "arrays": "always",
+        "objects": "always",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }],
       "indent": ["warn", 4]
     }
   }
