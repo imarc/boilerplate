@@ -57,7 +57,9 @@
       "plugin:vue/recommended",
       "standard"
     ],
-    "plugins": ["vue"],
+    "plugins": [
+      "vue"
+    ],
     "globals": {
       "Atomics": "readonly",
       "SharedArrayBuffer": "readonly"
@@ -67,14 +69,20 @@
       "sourceType": "module"
     },
     "rules": {
-      "comma-dangle": ["warn", {
-        "arrays": "always",
-        "objects": "always",
-        "imports": "never",
-        "exports": "never",
-        "functions": "never"
-      }],
-      "indent": ["warn", 4]
+      "comma-dangle": [
+        "warn",
+        {
+          "arrays": "always",
+          "objects": "always",
+          "imports": "never",
+          "exports": "never",
+          "functions": "never"
+        }
+      ],
+      "indent": [
+        "warn",
+        4
+      ]
     }
   }
 }
