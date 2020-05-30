@@ -1,5 +1,5 @@
-$(function() {
+$(function () {
     $('.carousel').slick({
         dots: true,
-    });
-});
+    })
+})
