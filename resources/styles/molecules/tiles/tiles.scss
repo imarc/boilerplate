@@ -10,7 +10,13 @@
 ///
 
 @mixin tiles($gutter: 2rem, $columns: 4) {
-    @include grid($columns: $columns, $gutter: $gutter, $selector: '> *');
+    @include breakpoint(md) {
+        @include grid(2, $gutter, $element: tile);
+    }
+
+    @include breakpoint(lg) {
+        @include grid(3, $gutter, $element: tile);
+    }
 
     &__tile {
         background-color: #EEE;
