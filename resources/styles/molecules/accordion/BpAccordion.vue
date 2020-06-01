@@ -4,8 +4,8 @@
           <div 
               :class="`${block}__${headingElement}`" 
               :aria-expanded="`${isOpen}`"
-              :aria-controls="identifier"
-              :id="`${identifier}-control`"
+              :aria-controls="uniqueId"
+              :id="`${uniqueId}-control`"
               @click="open" 
               @keyup.enter="open" 
               tabindex="0"
@@ -22,12 +22,12 @@
             @after-leave="endTransition"
         >
             <div 
-                :id="identifier"
+                :id="uniqueId"
                 :class="`${block}__${contentElement}`" 
                 ref="content"
                 role="region" 
                 v-if="isOpen"
-                :aria-labelledby="`${identifier}-control`"
+                :aria-labelledby="`${uniqueId}-control`"
             >
                 <slot />
             </div>
@@ -41,9 +41,11 @@ export default {
         block: { default: 'accordion' },
         headingElement: { default: 'heading' },
         contentElement: { default: 'content' },
-        identifier: {
-          type: String,
-          required: true,
+        id: String,
+    },
+    computed: {
+        uniqueId() {
+          return this.id ? this.id : Math.random()
         },
     },
     methods: {
@@ -60,7 +62,7 @@ export default {
         },
         endTransition(el) {
             el.style.height = '';
-        }
+        },
     },
 };
 </script>
