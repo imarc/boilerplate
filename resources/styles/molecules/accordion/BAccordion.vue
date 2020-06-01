@@ -1,27 +1,27 @@
 <template>
-  <div :class="[block, isOpen ? '-open' : '-closed' ]">
-    <div
-      :class="`${block}__${headingElement}`"
-      @click="open"
-    >
-      <slot name="heading" />
+    <div :class="[block, isOpen ? '-open' : '-closed' ]">
+        <div
+            :class="`${block}__${headingElement}`"
+            @click="open"
+        >
+            <slot name="heading" />
+        </div>
+        <transition
+            name="expand"
+            @enter="startTransition"
+            @after-enter="endTransition"
+            @before-leave="startTransition"
+            @after-leave="endTransition"
+        >
+            <div
+                v-if="isOpen"
+                ref="content"
+                :class="`${block}__${contentElement}`"
+            >
+                <slot />
+            </div>
+        </transition>
     </div>
-    <transition
-      name="expand"
-      @enter="startTransition"
-      @after-enter="endTransition"
-      @before-leave="startTransition"
-      @after-leave="endTransition"
-    >
-      <div
-        v-if="isOpen"
-        ref="content"
-        :class="`${block}__${contentElement}`"
-      >
-        <slot />
-      </div>
-    </transition>
-  </div>
 </template>
 <script>
 export default {
