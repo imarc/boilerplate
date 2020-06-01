@@ -10,7 +10,6 @@
               @keyup.enter="open" 
               tabindex="0"
               role="button"
-              aria-level="3"
           >
               <slot name="heading" />
           </div>
@@ -25,7 +24,6 @@
                 :id="uniqueId"
                 :class="`${block}__${contentElement}`" 
                 ref="content"
-                role="region" 
                 v-if="isOpen"
                 :aria-labelledby="`${uniqueId}-control`"
             >
@@ -45,7 +43,7 @@ export default {
     },
     computed: {
         uniqueId() {
-          return this.id ? this.id : Math.random()
+            return this.id ? this.id : Math.random()
         },
     },
     methods: {
