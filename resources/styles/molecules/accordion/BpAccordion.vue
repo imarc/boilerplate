@@ -1,15 +1,32 @@
 <template>
     <div :class="[block, isOpen ? '-open' : '-closed' ]">
-        <div :class="`${block}__${headingElement}`" @click="open">
-            <slot name="heading" />
-        </div>
+        <header>
+          <div 
+              :class="`${block}__${headingElement}`" 
+              :aria-expanded="`${isOpen}`"
+              :aria-controls="uniqueId"
+              :id="`${uniqueId}-control`"
+              @click="open" 
+              @keyup.enter="open" 
+              tabindex="0"
+              role="button"
+          >
+              <slot name="heading" />
+          </div>
+        </header>
         <transition name="expand"
             @enter="startTransition"
             @after-enter="endTransition"
             @before-leave="startTransition"
             @after-leave="endTransition"
         >
-            <div :class="`${block}__${contentElement}`" ref="content" v-if="isOpen">
+            <div 
+                :id="uniqueId"
+                :class="`${block}__${contentElement}`" 
+                ref="content"
+                v-if="isOpen"
+                :aria-labelledby="`${uniqueId}-control`"
+            >
                 <slot />
             </div>
         </transition>
@@ -22,6 +39,12 @@ export default {
         block: { default: 'accordion' },
         headingElement: { default: 'heading' },
         contentElement: { default: 'content' },
+        id: String,
+    },
+    computed: {
+        uniqueId() {
+            return this.id ? this.id : Math.random()
+        },
     },
     methods: {
         open() {
@@ -37,7 +60,7 @@ export default {
         },
         endTransition(el) {
             el.style.height = '';
-        }
+        },
     },
 };
 </script>
