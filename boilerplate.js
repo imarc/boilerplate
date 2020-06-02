@@ -34,7 +34,7 @@ console.log(`Copying files to ${dest}...`)
 const files = [
     'resources',
     'webpack.mix.js',
-    'fractal.js',
+    'fractal.config.js',
 ]
 
 files.forEach(file => {

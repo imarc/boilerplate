@@ -2,13 +2,14 @@ BAccordion is a simple Vue component that created an expanding and collapsing bl
 
 ### Vue Component
 
-`BAccordion`
+`BpAccordion`
 
 #### Props
 
 * **block** - the block class (defaults to 'accordion')
 * **headingElement** - the heading element (defaults to 'heading')
 * **contentElement** - the content element (defaults to 'content')
+* **id** - A unique string to identify an accordion item for accessibility purposes (defaults to generating a random number)
 
 
 ### Sass Mixin

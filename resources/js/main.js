@@ -5,7 +5,7 @@ import './plugins/stickyElement.plugin'
 import './plugins/stickyHeader.plugin'
 import './plugins/tabs.plugin'
 
-import BAccordion from '../styles/molecules/accordion/BAccordion'
+import BpAccordion from '../styles/molecules/accordion/BAccordion'
 
 import Vue from 'vue'
 
@@ -13,6 +13,6 @@ import Vue from 'vue'
 new Vue({
     el: 'main',
     components: {
-        BAccordion,
+        BpAccordion,
     },
 })

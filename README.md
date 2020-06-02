@@ -1,4 +1,4 @@
-Imarc Boilerplate 4 Components 
+Imarc Boilerplate 4 Components
 ==============================
 
 This is a framework for frontend development. It includes
@@ -62,4 +62,4 @@ And lastly, to build the pattern library:
 
 * `npm run fractal build`
 
-You can customize this behavior further by editing either the `webpack.mix.js` or `fractal.js` files per the Laravel Mix or Fractal documentation respectively.
+You can customize this behavior further by editing either the `webpack.mix.js` or `fractal.config.js` files per the Laravel Mix or Fractal documentation respectively.
