@@ -29,12 +29,6 @@
 @mixin fab($character: "") {
     @include fa($character, fab);
 }
-@mixin fad($character: "") {
-    @include fa($character, fad);
-}
-@mixin fal($character: "") {
-    @include fa($character, fal);
-}
 @mixin far($character: "") {
     @include fa($character, far);
 }
