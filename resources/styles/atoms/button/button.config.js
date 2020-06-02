@@ -1,3 +1,3 @@
 module.exports = {
-    "collated": true,
+    collated: true,
 }
