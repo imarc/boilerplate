@@ -55,7 +55,11 @@ export default {
         },
         initialTab: {
             type: String,
-            default: 'tab1',
+            default () {
+                const [firstTab] = Object.keys(this.tabs)
+
+                return firstTab
+            },
         },
         setHash: {
             type: Boolean,
