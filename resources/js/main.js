@@ -5,7 +5,7 @@ import './plugins/stickyElement.plugin'
 import './plugins/stickyHeader.plugin'
 import './plugins/tabs.plugin'
 
-import BpAccordion from '../styles/molecules/accordion/BAccordion'
+import BpAccordion from '../styles/molecules/accordion/BpAccordion'
 
 import Vue from 'vue'
 

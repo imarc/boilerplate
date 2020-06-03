@@ -2,10 +2,10 @@
     <div :class="[block, isOpen ? '-open' : '-closed' ]">
         <header>
             <div
-                :id="`${uniqueId}-control`"
+                :id="`${id}-control`"
                 :class="`${block}__${headingElement}`"
                 :aria-expanded="`${isOpen}`"
-                :aria-controls="uniqueId"
+                :aria-controls="id"
                 tabindex="0"
                 role="button"
                 @click="open"
@@ -23,10 +23,10 @@
         >
             <div
                 v-if="isOpen"
-                :id="uniqueId"
+                :id="id"
                 ref="content"
                 :class="`${block}__${contentElement}`"
-                :aria-labelledby="`${uniqueId}-control`"
+                :aria-labelledby="`${id}-control`"
             >
                 <slot />
             </div>
@@ -39,14 +39,12 @@ export default {
         block: { default: 'accordion', },
         headingElement: { default: 'heading', },
         contentElement: { default: 'content', },
-        id: String,
-    },
-    data: () => ({ isOpen: false, }),
-    computed: {
-        uniqueId () {
-            return this.id ? this.id : Math.random()
+        id: {
+            type: String,
+            default: () => Math.random().toString(36).substr(2)
         },
     },
+    data: () => ({ isOpen: false, }),
     methods: {
         open () {
             this.isOpen = !this.isOpen
