@@ -36,15 +36,24 @@
 <script>
 export default {
     props: {
-        block: { default: 'accordion', },
-        headingElement: { default: 'heading', },
-        contentElement: { default: 'content', },
+        block: {
+            type: String,
+            default: 'accordion',
+        },
+        headingElement: {
+            type: String,
+            default: 'heading',
+        },
+        contentElement: {
+            type: String,
+            default: 'content',
+        },
         id: {
             type: String,
-            default: () => Math.random().toString(36).substr(2)
+            default: () => Math.random().toString(36).substr(2),
         },
     },
-    data: () => ({ isOpen: false, }),
+    data: () => ({ isOpen: false }),
     methods: {
         open () {
             this.isOpen = !this.isOpen
