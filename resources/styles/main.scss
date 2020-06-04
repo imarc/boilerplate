@@ -1,11 +1,9 @@
-@use "~@fortawesome/fontawesome-free/scss/solid";
-@use "~@fortawesome/fontawesome-free/scss/regular";
-@use "~@fortawesome/fontawesome-free/scss/brands";
-
 @use "variables" as *;
 @use "mixins" as *;
 @use "utilities" as *;
 @use "transitions" as *;
+
+@use "vendor/fontawesome" as *;
 
 @import "./utilities/**/*.scss";
 @import "./@(atoms|molecules|organisms|templates|pages)/**/*.scss";
