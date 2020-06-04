@@ -4,20 +4,14 @@
 @mixin fa($character: "", $set: fas) {
     &::before {
         @include fa-icon;
-
-        @if type-of($set) == number {
-            font-family: 'Font Awesome 5 Free';
-            font-weight: $set;
-        } @else {
-            @extend .#{$set} !optional;
-        }
+        @extend .#{$set} !optional;
 
         content: fa-content($character);
     }
 }
 
 ///
-/// FontAwesome shorthand mixins for brand, regular and solid styles.
+/// Font Awesome shorthand mixins for brand, regular and solid variants.
 ///
 @mixin fab($character: "") {
     @include fa($character, fab);
@@ -33,7 +27,6 @@
 ///
 /// Only include icons used in project
 ///
-.#{$fa-css-prefix}-clock::before { content: fa-content($fa-var-clock); }
 .#{$fa-css-prefix}-check::before { content: fa-content($fa-var-check); }
 
 
@@ -47,18 +40,3 @@
 
     content: fa-content($character);
 }
-
-.baz {
-    @include fas($fa-var-clock);
-}
-.tip {
-    @include fa($fa-var-twitter, fab)
-}
-.hasnum {
-    @include fa($fa-var-check, 900);
-}
-
-/*
-1) need mixin to include on elem. should work for brand, regular, solid. would be nice to not repeat rules for every time mixin is used.
-2) <i class="fas fa-baz"></a> should also work
-*/
