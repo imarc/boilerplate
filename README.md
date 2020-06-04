@@ -1,29 +1,18 @@
-Imarc Boilerplate 4 Components
-==============================
+# Imarc Boilerplate Components &middot; [![Netlify Status](https://api.netlify.com/api/v1/badges/630eeb6d-c075-4953-ba22-e70f98270eb1/deploy-status)](https://app.netlify.com/sites/imarc-boilerplate/deploys)
 
-This is a framework for frontend development. It includes
+This is a frontend development framework that includes a curated set of conventions and libraries, including
 
-* Support for [Sass](https://sass-lang.com/),
-* A Pattern Library (powered by [Fractal](https://fractal.build/)), and
-* A Front End Build (powered by [Laravel Mix](https://laravel-mix.com/).)
+* [Sass](https://sass-lang.com) and [Vue](https://vuejs.org/) **components**, built to using
+* [Atomic Design](https://atomicdesign.bradfrost.com/) and [ABEM](https://css-tricks.com/abem-useful-adaptation-bem/) **conventions**, integrated with
+* [Laravel Mix](https://laravel-mix.com/)-based **build scripts**,
+* **starter documentation** and a **pattern library** powered by [Fractal](https://fractal.build/) and [Twig](https://github.com/twigjs/twig.js).
+
+### **[View it on Netlify](https://imarc-boilerplate.netlify.app/)**
 
 This pairs with [imarc/boilerplate](https://github.com/imarc/boilerplate) as a version that contains with many of the components that were originally just part of that project.
 
 **imarc/boilerplate** provides a basic pattern library, folder structure, and build files. This repository, **imarc/boilerplate-components**, provides that along with a set of basic components.
 
-[You can view these components here on GitHub](https://imarc.github.io/boilerplate-components/pattern-library/).
-
-While we encourage you to read [the builtin documentation](https://imarc.github.io/boilerplate-components/pattern-library/), some highlights are
-
-* Uses [Atomic Design](http://atomicdesign.bradfrost.com/)
-* Uses [ABEM](https://css-tricks.com/abem-useful-adaptation-bem/)
-* Uses [Twig](https://github.com/twigjs/twig.js)
-
-
-Notes
------
-
-Some components were carried over from version 3, but were not updated to the latest practices and syntax. These are flagged as DEPRECATED within the pattern library, and may be removed entirely in a future release.
 
 
 Getting Started
