@@ -2,10 +2,9 @@
 /// Fontawesome mixin.
 ///
 @mixin fa($character: "", $set: fas) {
-    &::before {
-        @include fa-icon;
-        @extend .#{$set} !optional;
+    @extend .#{$set} !optional;
 
+    &::before {
         content: fa-content($character);
     }
 }
@@ -28,6 +27,16 @@
 /// Only include icons used in project
 ///
 .#{$fa-css-prefix}-check::before { content: fa-content($fa-var-check); }
+
+.fl {
+    @include fa($fa-var-twitter, fas);
+}
+.ax {
+    @include fa($fa-var-check, fas);
+}
+.bz {
+    @include fa($fa-var-clock, far);
+}
 
 
 ///
