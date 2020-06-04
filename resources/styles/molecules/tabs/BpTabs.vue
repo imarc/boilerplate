@@ -9,7 +9,7 @@
                 >
                     <button
                         :id="tab"
-                        :tabindex="isActiveTab(tab) ? '0' : '-1'"
+                        :tabindex="isFocusedTab(tab) ? '0' : '-1'"
                         role="button"
                         :aria-selected="`${isActive(tab)}`"
                         :aria-controls="`${tab}-panel`"
@@ -150,6 +150,9 @@ export default {
         },
         isActiveTab (tab) {
             return this.activeTab === tab
+        },
+        isFocusedTab (tab) {
+            return this.currentFocusTab === tab
         },
         navigateNextTab () {
             const nextTabButton = this.$el.querySelector(`[id="${this.nextTabKey}"]`)
