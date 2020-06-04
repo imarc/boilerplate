@@ -125,7 +125,7 @@ export default {
 
     methods: {
         setInitActiveTab () {
-            if (location.hash && this.tabs.includes(location.hash.substr(1))) {
+            if (location.hash && this.tabKeys.indexOf(location.hash.substr(1)) !== -1) {
                 this.activeTab = location.hash.substr(1)
             } else if (this.initialTab) {
                 this.activeTab = this.initialTab
