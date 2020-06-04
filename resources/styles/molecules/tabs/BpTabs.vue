@@ -15,8 +15,10 @@
                         :aria-controls="`${tab}-panel`"
                         @click="selectTab(tab)"
                         @keyup.enter="selectTab(tab)"
-                        @keyup.right="nextTab(tab)"
-                        @keyup.left="prevTab(tab)"
+                        @keyup.space="selectTab(tab)"
+                        @keyup.right="navigateNextTab"
+                        @keyup.left="navigatePrevTab"
+                        @focus="setFocusTab(tab)"
                         v-text="tabTitle"
                     />
                 </li>
@@ -39,6 +41,7 @@
 
 <script>
 export default {
+
     props: {
         block: {
             type: String,
@@ -81,11 +84,14 @@ export default {
             default: true,
         },
     },
+
     data () {
         return {
             activeTab: '',
+            currentFocusTab: '',
         }
     },
+
     computed: {
         tabKeys () {
             return Object.keys(this.tabs)
@@ -96,11 +102,27 @@ export default {
         lastTabKey () {
             return this.tabKeys[this.tabKeys.length - 1]
         },
+        currentFocusTabIndex () {
+            return this.tabKeys.indexOf(this.currentFocusTab)
+        },
+        nextTabKey () {
+            return this.currentFocusTab === this.lastTabKey
+                ? this.firstTabKey
+                : this.tabKeys[this.currentFocusTabIndex + 1]
+        },
+        prevTabKey () {
+            return this.currentFocusTabIndex === 0
+                ? this.lastTabKey
+                : this.tabKeys[this.currentFocusTabIndex - 1]
+        },
     },
+
     mounted () {
+        this.setInitFocusTab()
         this.setInitActiveTab()
         this.attachKeyboardListeners()
     },
+
     methods: {
         setInitActiveTab () {
             if (location.hash && this.tabs.includes(location.hash.substr(1))) {
@@ -110,6 +132,12 @@ export default {
             } else {
                 [this.activeTab] = this.tabs
             }
+        },
+        setFocusTab (tab) {
+            this.currentFocusTab = tab
+        },
+        setInitFocusTab () {
+            this.currentFocusTab = this.initialTab
         },
         selectTab (tab) {
             this.activeTab = tab
@@ -123,44 +151,35 @@ export default {
         isActiveTab (tab) {
             return this.activeTab === tab
         },
-        nextTab (tab) {
-            const currentTab = this.tabKeys.indexOf(tab)
-            const nextTab = currentTab === this.lastTabKey
-                ? this.firstTabKey
-                : this.tabKeys[currentTab + 1]
-
-            const nextTabButton = this.$el.querySelector(`[id="${nextTab}"]`)
+        navigateNextTab () {
+            const nextTabButton = this.$el.querySelector(`[id="${this.nextTabKey}"]`)
             nextTabButton.focus()
         },
-        prevTab (tab) {
-            const currentTab = this.tabKeys.indexOf(tab)
-            const prevTab = currentTab === 0
-                ? this.tabKeys[this.lastTabKey]
-                : this.tabKeys[currentTab - 1]
-
-            const prevTabButton = this.$el.querySelector(`[id="${prevTab}"]`)
+        navigatePrevTab () {
+            const prevTabButton = this.$el.querySelector(`[id="${this.prevTabKey}"]`)
             prevTabButton.focus()
         },
         attachKeyboardListeners () {
-            const firstTab = this.$el.querySelector(`[id="${this.firstTabKey}"]`)
-            const lastTab = this.$el.querySelector(`[id="${this.lastTabKey}"]`)
+            const firstTabEl = this.$el.querySelector(`[id="${this.firstTabKey}"]`)
+            const lastTabEl = this.$el.querySelector(`[id="${this.lastTabKey}"]`)
 
             this.$el.addEventListener('keydown', event => {
                 if (event.keyCode === 36) {
                     event.preventDefault()
 
-                    firstTab.focus()
+                    firstTabEl.focus()
                     this.activeTab = this.firstTabKey
                 }
 
                 if (event.keyCode === 35) {
                     event.preventDefault()
 
-                    lastTab.focus()
+                    lastTabEl.focus()
                     this.activeTab = this.lastTabKey
                 }
             })
         },
     },
+
 }
 </script>
