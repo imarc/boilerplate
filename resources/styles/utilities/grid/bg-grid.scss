@@ -1,0 +1,30 @@
+@import './grid--functions';
+
+///
+/// This mixin generates a background (via linear gradient) mapping to a grid.
+///
+@mixin bg-grid($columns: $grid-columns, $gutter: $gutter, $columns-color: rgba(1,1,1,.03), $gutter-color: transparent, $container: $container - 2*$gutter) {
+  $gradient: to right, $columns-color 0;
+  @for $i from 1 through $columns - 1 {
+    $gradient: $gradient,
+      $columns-color #{span($i)},
+      $gutter-color #{span($i)},
+      $gutter-color #{offset($i)},
+      $columns-color #{offset($i)};
+  }
+  background-image: linear-gradient($gradient);
+  background-position: center;
+  background-size: unquote("min(100%, #{$container})") 100%;
+  background-repeat: no-repeat;
+}
+
+.dev-bg-grid {
+    @include bg-grid;
+    bottom: 0;
+    left: $gutter;
+    pointer-events: none;
+    position: fixed;
+    right: $gutter;
+    top: 0;
+    z-index: 666;
+}

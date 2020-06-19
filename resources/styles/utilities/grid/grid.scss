@@ -3,23 +3,26 @@
 /// that can wrap or nowrap. It is lighter than FEATURES or TILES
 /// in that it contains no default styling on its contents.
 ///
-/// @param {direction} $align  [stretch] - align-items property
-/// @param {number}  $columns [3] - number of columns while min-width is $large
-/// @param {direction}  $flow [row wrap] - number of columns while min-width is $large
+/// @param {number}   $columns [3] - number of columns
 /// @param {measure}  $gutter [1rem] - gutter between grid items
-/// @param {direction}  $justify [flex-start] - justify-content property
+/// @param {measure}  $vertical-gutter [null] - vertical gutter between grid items
+/// @param {string}   $element [&__item] - classname for grid items
 ///
 
-@mixin grid($columns: 3, $gutter: 2rem, $vertical-gutter: null, $element: item) {
+@mixin grid($columns: 3, $gutter: 2rem, $vertical-gutter: null, $element: null) {
     @if $vertical-gutter == null {
         $vertical-gutter: $gutter;
+    }
+
+    @if $element == null {
+        $element: #{&}__item;
     }
 
     display: flex;
     flex-wrap: wrap;
 
-    &__#{$element} {
-        width: calc(#{100%/$columns} - #{$gutter * ($columns - 1) / $columns});
+    #{$element} {
+        width: span(1, $columns, $gutter);
         margin-bottom: $vertical-gutter;
 
         &:nth-child(n) {
