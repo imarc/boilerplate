@@ -41,12 +41,6 @@
     @return wide-span($n, $columns, $gutter);
 }
 
-
-.example {
-    background-color: aliceblue;
-    text-align: center;
-}
-
 @for $i from 1 through $grid-columns {
     .span-#{$i} {
         width: span($i);
