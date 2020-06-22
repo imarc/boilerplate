@@ -10,6 +10,7 @@
                     <button
                         :id="tab"
                         :tabindex="isFocusedTab(tab) ? '0' : '-1'"
+                        :class="`${block}__${buttonElement}`"
                         role="button"
                         :aria-selected="`${isActive(tab)}`"
                         :aria-controls="`${tab}-panel`"
@@ -58,6 +59,10 @@ export default {
         tabElement: {
             type: String,
             default: 'tab',
+        },
+        buttonElement: {
+            type: String,
+            default: 'button',
         },
         panelElement: {
             type: String,
@@ -135,6 +140,7 @@ export default {
         },
         setFocusTab (tab) {
             this.currentFocusTab = tab
+            this.selectTab(tab)
         },
         setInitFocusTab () {
             this.currentFocusTab = this.initialTab
@@ -142,7 +148,7 @@ export default {
         selectTab (tab) {
             this.activeTab = tab
             if (this.setHash) {
-                location.hash = this.activeTab
+                history.replaceState(undefined, undefined, `#${this.activeTab}`)
             }
         },
         isActive (tab) {

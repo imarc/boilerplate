@@ -26,7 +26,11 @@
         display: inline-block;
         margin-bottom: 0;
         margin-right: 0.5em;
+    }
+    &__button {
         padding: 0.5em 1em;
+        border: none;
+        background: none;
     }
     &__tab.-active {
         background-color: #FFF;
