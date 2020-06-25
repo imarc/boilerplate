@@ -9,6 +9,14 @@
 /// @param {string}   $element [&__item] - classname for grid items
 ///
 
+@use "variables";
+@use "~candlepin/src/functions" as * with (
+    $settings: (
+        gutter: variables.$gutter,
+        columns: variables.$grid-columns,
+    ),
+);
+
 @mixin grid($columns: 3, $gutter: 2rem, $vertical-gutter: null, $element: null) {
     @if $vertical-gutter == null {
         $vertical-gutter: $gutter;
