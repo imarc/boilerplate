@@ -9,36 +9,25 @@
 /// @param {string}   $element [&__item] - classname for grid items
 ///
 
-@use "variables";
-@use "~candlepin/src/functions" as * with (
-    $settings: (
-        gutter: variables.$gutter,
-        columns: variables.$grid-columns,
-    ),
-);
+@import "candlepin";
 
-@mixin grid($columns: 3, $gutter: 2rem, $vertical-gutter: null, $element: null) {
-    @if $vertical-gutter == null {
-        $vertical-gutter: $gutter;
-    }
-
-    @if $element == null {
-        $element: #{&}__item;
-    }
-
+@mixin grid($gutter: $gutter, $vertical-gutter: $gutter, $element: 'item') {
     display: flex;
     flex-wrap: wrap;
 
-    #{$element} {
-        width: span(1, $columns, $gutter);
-        margin-bottom: $vertical-gutter;
+    &__#{$element} {
+        flex-grow: 1;
+        margin-bottom: $gutter;
 
-        &:nth-child(n) {
-            margin-left: 0;
+        @include breakpoint(md) {
+            @include wrap(1, 2, $gutter);
+            flex-grow: 0;
         }
-
-        &:not(:nth-child(#{$columns}n + 1)) {
-            margin-left: $gutter;
+        @include breakpoint(lg) {
+            @include wrap(1, 3, $gutter);
+        }
+        @include breakpoint(xl) {
+            @include wrap(1, 4, $gutter);
         }
     }
 }

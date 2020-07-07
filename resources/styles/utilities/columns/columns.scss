@@ -1,9 +1,11 @@
 ///
+/// The COLUMNS mixin is deprecated; you should really use display: flex or
+/// display: grid for this kind of functionality now and not < hr > elements.
+///
 /// The COLUMNS mixin makes it so that immmediate child elements appear as
 /// columns. It assumes the use of < hr > elements to create visual gutters
 /// that are only visible while displayed as columns.
 ///
-
 @mixin columns() {
     > hr {
         border: 0;

@@ -9,19 +9,11 @@
 /// @param {number}  $columns [4]    - number of columns while min-width is $large
 ///
 
-@mixin tiles($gutter: $gutter, $columns: 4) {
-    @include breakpoint(md) {
-        @include grid(2, $gutter, $element: #{&}__tile);
-    }
-
-    @include breakpoint(lg) {
-        @include grid(3, $gutter, $element: #{&}__tile);
-    }
+@mixin tiles($gutter: $gutter) {
+    @include grid($gutter, $gutter, 'tile');
 
     &__tile {
         background-color: #EEE;
-        text-align: left;
-        margin-bottom: $gutter;
     }
 
     &__tileContent {
