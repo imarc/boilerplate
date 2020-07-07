@@ -1,0 +1,13 @@
+.layer {
+
+    &.-twoColumn {
+        @include breakpoint(lg) {
+            .layer__content {
+                display: flex;
+            }
+            .layer__item {
+                @include wrap(1, 2);
+            }
+        }
+    }
+}
