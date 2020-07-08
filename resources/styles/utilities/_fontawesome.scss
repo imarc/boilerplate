@@ -1,30 +1,16 @@
-@use "~@fortawesome/fontawesome-free/scss/variables" as *;
-@use "~@fortawesome/fontawesome-free/scss/mixins" as *;
-
-@forward "~@fortawesome/fontawesome-free/scss/variables";
-
 ///
 /// Fontawesome mixin.
 ///
 @mixin fa($character: "", $set: fas) {
+    @extend .#{$set} !optional;
+
     &::before {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-style: normal;
-        font-variant: normal;
-
-        @if type-of($set) == number {
-            font-weight: $set;
-        } @else {
-            @extend .#{$set} !optional;
-        }
-
         content: fa-content($character);
     }
 }
 
 ///
-/// FontAwesome shorthand mixins.
+/// Font Awesome shorthand mixins for brand, regular and solid variants.
 ///
 @mixin fab($character: "") {
     @include fa($character, fab);
@@ -35,6 +21,13 @@
 @mixin fas($character: "") {
     @include fa($character, fas);
 }
+
+
+///
+/// Only include icons used in project
+///
+.#{$fa-css-prefix}-check::before { content: fa-content($fa-var-check); }
+
 
 ///
 /// Legacy Fontawesome mixin.
