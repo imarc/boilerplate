@@ -1,9 +1,15 @@
 .layer {
 
     &.-twoColumn {
+
+        .layer__content {
+            display: flex;
+            flex-direction: column;
+        }
+
         @include breakpoint(lg) {
             .layer__content {
-                display: flex;
+                flex-direction: row;
             }
             .layer__item {
                 @include wrap(1, 2);
