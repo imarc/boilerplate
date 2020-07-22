@@ -11,49 +11,44 @@
 
         @include color-modifiers(primary secondary);
     }
+}
 
-    /* Special syntax for <h1> and .h1 instead of .heading.-h1 */
-    @at-root h1, .h1 {
-        @extend .heading;
-        font-size: 2.2rem;
-        @include breakpoint(lg) {
-            font-size: 2.6rem;
-        }
+h1,
+.h1 {
+    @extend .heading;
+    @include at-each(2.2rem, md 2.4rem, lg 2.6rem) using ($size) {
+        font-size: $size;
     }
+}
 
-    /* Special syntax for <h2> and .h2 instead of .heading.-h2 */
-    @at-root h2, .h2 {
-        @extend .heading;
-        font-size: 1.7rem;
-        @include breakpoint(lg) {
-            font-size: 2.1rem;
-        }
+h2,
+.h2 {
+    @extend .heading;
+    @include at-each(1.88rem, md 2rem, lg 2.15rem) using ($size) {
+        font-size: $size;
     }
+}
 
-    /* Special syntax for <h3> and .h3 instead of .heading.-h3 */
-    @at-root h3, .h3 {
-        @extend .heading;
-        font-size: 1.3rem;
-        @include breakpoint(lg) {
-            font-size: 1.6rem;
-        }
+h3,
+.h3 {
+    @extend .heading;
+    @include at-each(1.6rem, md 1.68rem, lg 1.77rem) using ($size) {
+        font-size: $size;
     }
+}
 
-    /* Special syntax for <h4> and .h4 instead of .heading.-h4 */
-    @at-root h4, .h4 {
-        @extend .heading;
-        font-size: 1.1rem;
-        @include breakpoint(lg) {
-            font-size: 1.25rem;
-        }
+h4,
+.h4 {
+    @extend .heading;
+    @include at-each(1.37rem, md 1.42rem, lg 1.47rem) using ($size) {
+        font-size: $size;
     }
+}
 
-    /* Special syntax for <h5> and .h5 instead of .heading.-h5 */
-    @at-root h5, .h5 {
-        @extend .heading;
-        font-size: 1rem;
-        @include breakpoint(lg) {
-            font-size: 1.15rem;
-        }
+h5,
+.h5 {
+    @extend .heading;
+    @include at-each(1.17rem, md 1.19rem, lg 1.21rem) using ($size) {
+        font-size: $size;
     }
 }
