@@ -6,6 +6,7 @@ import './plugins/stickyHeader.plugin'
 import './plugins/tabs.plugin'
 
 import BpAccordion from '../styles/molecules/accordion/BpAccordion'
+import BpNavigation from '../styles/molecules/navigation/BpNavigation'
 import BpTabs from '../styles/molecules/tabs/BpTabs'
 
 import Vue from 'vue'
@@ -15,6 +16,7 @@ new Vue({
     el: 'main',
     components: {
         BpAccordion,
+        BpNavigation,
         BpTabs,
     },
 })
