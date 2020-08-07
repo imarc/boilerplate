@@ -14,6 +14,16 @@ import Vue from 'vue'
 Vue.directive('focus-group', (() => {
     let groups = {}
 
+
+    const focusable = [
+        'button:not([tabindex="-1"]):not([disabled])',
+        'a[href]:not([tabindex="-1"])',
+        'input:not([tabindex="-1"]):not([disabled])',
+        'select:not([tabindex="-1"]):not([disabled])',
+        '[tabindex]:not([tabindex="-1"])',
+        'textarea:not([tabindex="-1"]):not([disabled])',
+    ].join(',');
+
     const group = function(el) {
         const elements = [el];
 
@@ -59,14 +69,15 @@ Vue.directive('focus-group', (() => {
         }
     }
 
-    const handler = function(key, evt, modifiers) {
+    const handler = function(key, evt, modifiers, value) {
         const group = groups[key]
         const bindings = getBindings(modifiers)
 
         if (evt.key in bindings) {
             const action = bindings[evt.key]
             const el = group[action](evt.target)
-            el.focus()
+
+            value.target(el).focus()
 
             evt.preventDefault();
             return false;
@@ -76,14 +87,14 @@ Vue.directive('focus-group', (() => {
     }
 
     return {
-        bind(el, { arg: key, modifiers }) {
+        bind(el, { arg: key, modifiers, value = { target: e => e } }) {
             if (!(key in groups)) {
                 groups[key] = new group(el)
             } else {
                 groups[key].push(el)
             }
 
-            el.addEventListener('keydown', evt => handler(key, evt, modifiers))
+            el.addEventListener('keydown', evt => handler(key, evt, modifiers, value))
         }
     }
 })())
