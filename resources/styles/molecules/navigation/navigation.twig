@@ -1,31 +1,31 @@
-<nav>
-    <ul style="display: flex">
-        <li v-focus-group:p="{ target: el => el.firstChild }">
-            <a aria-controls="js-e1" aria-expanded="false" href="#" v-focus-group:p1.vertical>Elit?</a>
-            <ul id="js-e1">
-                <li><a href="#" v-focus-group:p1.vertical>Amet</a></li>
-                <li><a href="#" v-focus-group:p1.vertical>Sit?</a></li>
-                <li><a href="#" v-focus-group:p1.vertical>Sit!</a></li>
-                <li><a href="#" v-focus-group:p1.vertical>Adipisicing.</a></li>
-            </ul>
-        </li>
-        <li v-focus-group:p="{ target: el => el.firstChild }">
-            <a aria-controls="js-e2" aria-expanded="false" href="#" v-focus-group:p2.vertical>Elit</a>
-            <ul id="js-e2">
-                <li><a href="#" v-focus-group:p2.vertical>Sit.</a></li>
-                <li><a href="#" v-focus-group:p2.vertical>Consectetur.</a></li>
-                <li><a href="#" v-focus-group:p2.vertical>Elit.</a></li>
-                <li><a href="#" v-focus-group:p2.vertical>Lorem.</a></li>
-            </ul>
-        </li>
-        <li v-focus-group:p="{ target: el => el.firstChild }">
-            <a aria-controls="js-e3" aria-expanded="false" href="#" v-focus-group:p3.vertical>Elit?</a>
-            <ul id="js-e3">
-                <li><a href="#" v-focus-group:p3.vertical>Dolor</a></li>
-                <li><a href="#" v-focus-group:p3.vertical>Lorem?</a></li>
-                <li><a href="#" v-focus-group:p3.vertical>Elit.</a></li>
-                <li><a href="#" v-focus-group:p3.vertical>Sit?</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+<bp-navigation>
+    <template #foo>
+        <a class="primaryNavigation__link" aria-controls="js-e1" aria-expanded="false" href="#">Elit?</a>
+        <ul class="dropdown" id="js-e1">
+            <li><a href="#">Amet</a></li>
+            <li><a href="#">Sit?</a></li>
+            <li><a href="#">Sit!</a></li>
+            <li><a href="#">Adipisicing.</a></li>
+        </ul>
+    </template>
+    <template #bar>
+        <a class="primaryNavigation__link" aria-controls="js-e2" aria-expanded="false" href="#">Banan</a>
+        <ul class="dropdown" id="js-e2">
+            <li><a href="#">Sit.</a></li>
+            <li><a href="#">Consectetur.</a></li>
+            <li><a href="#">Elit.</a></li>
+            <li><a href="#">Lorem.</a></li>
+        </ul>
+    </template>
+    <template #zee>
+        <a class="primaryNavigation__link" aria-controls="js-e3" aria-expanded="false" href="#">Chuck</a>
+        <ul class="dropdown" id="js-e3">
+            <li><a href="#">Dolor</a></li>
+            <li><a href="#">Lorem?</a></li>
+            <li><a href="#">Elit.</a></li>
+            <li><a href="#">Sit?</a></li>
+        </ul>
+    </template>
+</bp-navigation>
+
+

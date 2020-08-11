@@ -1,53 +1,13 @@
-///
-/// The DROPDOWN mixin allows for single-column dropdown menus. The mixin
-/// is called from the nav.primary element, not a list item.
-///
-@mixin dropdown() {
-    @media only screen and (max-width: map-get($breakpoints,lg) - 1px) {
-        .dropdown,
-        i.fa {
-            display: none;
-        }
+.dropdown {
+    &__button {
+        @include fa($fa-var-chevron-right);
     }
-    @include breakpoint(lg) {
-        i.fa {
-            display: inline-block;
-        }
-        .dropdown {
-            background-color: #2A2A2A;
-            color: #FFF;
+
+    &__content {
+        display: none;
+
+        &.-open {
             display: block;
-            font-size: 1rem;
-            min-width: 260px;
-            opacity: 0;
-            padding: 2rem 0;
-            position: absolute;
-            top: 100%;
-            transition: opacity $moderate $entrance-easing;
-            visibility: hidden;
-            z-index: 1;
-            ul {
-                display: block;
-            }
-            .menu {
-                > * {
-                    padding: 0 1rem;
-                }
-                li {
-                    margin-bottom: 0.4em;
-                }
-                a {
-                    color: #0C96DD;
-                }
-                a:hover,
-                a:focus {
-                    color: darken(#0C96DD, 10%);
-                }
-            }
-        }
-        .dropdown.open {
-            opacity: 1;
-            visibility: visible;
         }
     }
 }
