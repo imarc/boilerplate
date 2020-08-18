@@ -16,10 +16,10 @@ const FOCUSABLE_SELECTOR = [
 ].map(t => t + ':not([tabindex^="-"]):not([disabled])').join();
 
 const KEY_FILTERS = {
-    ArrowRight: ({x, y}) => x > 0 && Math.abs(x) > Math.abs(y),
-    ArrowLeft: ({x, y}) => x < 0 && Math.abs(x) > Math.abs(y),
-    ArrowDown: ({x, y}) => y > 0 && Math.abs(x) < Math.abs(y),
-    ArrowUp: ({x, y}) => y < 0 && Math.abs(x) < Math.abs(y),
+    ArrowRight: ({x, y}) => x > 0,
+    ArrowLeft: ({x, y}) => x < 0,
+    ArrowDown: ({x, y}) => y > 0,
+    ArrowUp: ({x, y}) => y < 0,
 }
 
 export default {
@@ -29,10 +29,15 @@ export default {
         },
 
         getCoordinates(el) {
-            return {
-                x: el.offsetLeft + el.offsetWidth / 2,
-                y: el.offsetTop + el.offsetHeight / 2
+            const coords = el.getClientRects()[0];
+            if (coords) {
+                return {
+                    x: coords.x + coords.width / 2,
+                    y: coords.y + coords.height / 2
+                }
             }
+
+            return { x: null, y: null }
         },
 
         withCoordinates(nodeList, origin) {
@@ -41,6 +46,11 @@ export default {
 
             nodeList.forEach(el => {
                 let {x, y} = this.getCoordinates(el);
+
+                if (x === null) {
+                    return;
+                }
+
                 x -= originX
                 y -= originY
 
@@ -55,7 +65,7 @@ export default {
         findTarget(el, key) {
             const elements = this.withCoordinates(this.focusable(), el)
             return elements
-                .filter(key in KEY_FILTERS ? KEY_FILTERS[key] : x => x)
+                .filter(key in KEY_FILTERS ? KEY_FILTERS[key] : () => false)
                 .reduce((closest, n) => n.d < closest.d ?  n : closest, { d: Infinity })
                 .el
         },
@@ -63,10 +73,14 @@ export default {
         keydown(evt) {
             const newTarget = this.findTarget(evt.target, evt.key)
             if (newTarget) {
+                console.log('here', evt.key, newTarget)
+                evt.preventDefault()
                 evt.stopPropagation()
                 newTarget.focus()
                 return false
             }
+
+            console.log('let it go', evt)
 
             return true
         }

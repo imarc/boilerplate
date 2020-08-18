@@ -1,5 +1,5 @@
 <template>
-    <div class="dropdown">
+    <div ref="dropdown" class="dropdown">
         <a ref="link" :href="href" :aria-controls="id" :aria-expanded="String(expanded)" class="dropdown__link" @click="click" @keydown.space="toggle">
             <slot name="link">{{ label }}</slot>
         </a>
@@ -12,6 +12,20 @@
     </div>
 </template>
 <script>
+const FOCUSABLE_SELECTOR = [
+    'a[href]',
+    'audio[controls]',
+    'button',
+    'details summary',
+    'input',
+    'map area[href]',
+    'select',
+    'svg a[xlink\\:href]',
+    '[tabindex]',
+    'textarea',
+    'video[controls]',
+].map(t => t + ':not([tabindex^="-"]):not([disabled])').join();
+
 export default {
     data: () => ({
         expanded: false
@@ -20,6 +34,13 @@ export default {
         href: { required: true },
         id: { required: true },
         label: {}
+    },
+    mounted() {
+        document.addEventListener('focusin', evt => {
+            if (!this.$refs.dropdown.contains(evt.target)) {
+                this.expanded = false
+            }
+        })
     },
     methods: {
         click(evt) {
@@ -30,11 +51,9 @@ export default {
         toggle(evt) {
             evt.preventDefault()
             this.expanded = !this.expanded
-            if (this.expanded) {
-                // focus
-            }
         },
         close(evt) {
+            console.log('made it', evt)
             evt.preventDefault()
             this.expanded = false
             this.$refs.link.focus()

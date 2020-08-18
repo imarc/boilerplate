@@ -1,6 +1,7 @@
 .dropdown {
     &__button {
         @include fa($fa-var-chevron-right);
+        display: none;
     }
 
     &__content {
