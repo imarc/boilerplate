@@ -16,10 +16,14 @@ const FOCUSABLE_SELECTOR = [
 ].map(t => t + ':not([tabindex^="-"]):not([disabled])').join();
 
 const KEY_FILTERS = {
-    ArrowRight: ({x, y}) => x > 0,
-    ArrowLeft: ({x, y}) => x < 0,
-    ArrowDown: ({x, y}) => y > 0,
-    ArrowUp: ({x, y}) => y < 0,
+    //ArrowRight: ({x, y}) => x > 0,
+    //ArrowLeft: ({x, y}) => x < 0,
+    //ArrowDown: ({x, y}) => y > 0,
+    //ArrowUp: ({x, y}) => y < 0,
+    ArrowRight: ({x, y}) => x > 0 && Math.abs(x) > Math.abs(y),
+    ArrowLeft: ({x, y}) => x < 0 && Math.abs(x) > Math.abs(y),
+    ArrowDown: ({x, y}) => y > 0 && Math.abs(x) < Math.abs(y),
+    ArrowUp: ({x, y}) => y < 0 && Math.abs(x) < Math.abs(y),
 }
 
 export default {
@@ -73,16 +77,10 @@ export default {
         keydown(evt) {
             const newTarget = this.findTarget(evt.target, evt.key)
             if (newTarget) {
-                console.log('here', evt.key, newTarget)
                 evt.preventDefault()
                 evt.stopPropagation()
                 newTarget.focus()
-                return false
             }
-
-            console.log('let it go', evt)
-
-            return true
         }
     },
     mounted() {

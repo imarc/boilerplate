@@ -1,4 +1,6 @@
 .dropdown {
+    position: relative;
+
     &__button {
         @include fa($fa-var-chevron-right);
         display: none;
@@ -6,6 +8,7 @@
 
     &__content {
         display: none;
+        position: absolute;
 
         &.-open {
             display: block;

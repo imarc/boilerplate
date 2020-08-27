@@ -1,8 +1,38 @@
-.primaryNavigation {
+.primaryNav {
     &__list {
         list-style: none;
-        margin: 0;
-        padding: 0;
+        margin-bottom: 0;
+        padding-left: 0;
         display: flex;
+    }
+
+    &__item {
+        margin-bottom: 0;
+    }
+
+    &__link {
+        display: block;
+        padding: 1rem 1.618rem;
+    }
+}
+
+.linkGroups {
+    display: flex;
+}
+
+.linkGroup {
+    &__list {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
+    &__item {
+        margin-bottom: 0;
+    }
+
+    &__link {
+        display: block;
+        padding: .618rem 1rem;
     }
 }
