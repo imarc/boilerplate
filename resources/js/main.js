@@ -6,7 +6,6 @@ import './plugins/stickyHeader.plugin'
 import './plugins/tabs.plugin'
 
 import BpAccordion from '../styles/molecules/accordion/BpAccordion'
-import BpNavigation from '../styles/molecules/navigation/BpNavigation'
 import BpTabs from '../styles/molecules/tabs/BpTabs'
 import BpDirectional from '../styles/utilities/directional/BpDirectional'
 import BpDropdown from '../styles/atoms/dropdown/BpDropdown'
@@ -19,7 +18,6 @@ new Vue({
     components: {
         BpAccordion,
         BpDirectional,
-        BpNavigation,
         BpTabs,
         BpDropdown,
     },
