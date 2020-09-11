@@ -13,7 +13,7 @@ const FOCUSABLE_SELECTOR = [
     '[tabindex]',
     'textarea',
     'video[controls]',
-].map(t => t + ':not([tabindex^="-"]):not([disabled])').join();
+].map(t => t + ':not([tabindex^="-"]):not([disabled])').join()
 
 const KEY_FILTERS = {
     //ArrowRight: ({x, y}) => x > 0,
@@ -33,7 +33,7 @@ export default {
         },
 
         getCoordinates(el) {
-            const coords = el.getClientRects()[0];
+            const coords = el.getClientRects()[0]
             if (coords) {
                 return {
                     x: coords.x + coords.width / 2,
@@ -45,14 +45,14 @@ export default {
         },
 
         withCoordinates(nodeList, origin) {
-            const elements = [];
-            const {x: originX, y: originY} = this.getCoordinates(origin);
+            const elements = []
+            const {x: originX, y: originY} = this.getCoordinates(origin)
 
             nodeList.forEach(el => {
-                let {x, y} = this.getCoordinates(el);
+                let {x, y} = this.getCoordinates(el)
 
                 if (x === null) {
-                    return;
+                    return
                 }
 
                 x -= originX

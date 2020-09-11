@@ -1,69 +1,104 @@
 <template>
-    <div ref="dropdown" class="dropdown">
-        <a :class="labelClass" ref="link" :href="href" :aria-controls="id" :aria-expanded="String(expanded)" class="dropdown__link" @click="click" @keydown.space="toggle">
+    <div ref="dropdown" class="dropdown"
+        v-on="{ mouseleave, focusout, mouseover }"
+    >
+        <a
+            :aria-controls="id"
+            :aria-expanded="String(expanded)"
+            class="dropdown__link"
+            :class="labelClass"
+            :href="href"
+            ref="link"
+            @click.prevent="click"
+            @keydown.space.prevent="click"
+        >
             <slot name="link">{{ label }}</slot>
         </a>
-        <button :aria-controls="id" :aria-expanded="String(expanded)" class="dropdown__button" @click="toggle">
+        <button
+            :aria-controls="id"
+            :aria-expanded="String(expanded)"
+            class="dropdown__button"
+            @click.prevent="click"
+        >
             <slot name="button" />
         </button>
-        <div :id="id" class="dropdown__content" :class="{'-open': expanded}" @keydown="close">
+        <div
+            :id="id"
+            class="dropdown__content"
+            :class="{'-open': expanded}"
+            @keydown.esc.prevent="close"
+            @keydown.up.prevent="close"
+        >
             <slot />
         </div>
     </div>
 </template>
 
 <script>
-const FOCUSABLE_SELECTOR = [
-    'a[href]',
-    'audio[controls]',
-    'button',
-    'details summary',
-    'input',
-    'map area[href]',
-    'select',
-    'svg a[xlink\\:href]',
-    '[tabindex]',
-    'textarea',
-    'video[controls]',
-].map(t => t + ':not([tabindex^="-"]):not([disabled])').join();
+const Timer = function() {
+    return {
+        timeout: null,
+        start(callback, delay) {
+            if (!this.timeout) {
+                console.log('start intent')
+                this.timeout = setTimeout(callback, delay)
+            }
+        },
+        clear() {
+            if (this.timeout) {
+                console.log('clear intent')
+                clearTimeout(this.timeout)
+                this.timeout = null
+            }
+        }
+    }
+}
 
 export default {
     data: () => ({
-        expanded: false
+        timer: new Timer,
+        expanded: false,
     }),
     props: {
+        delay: {type: Number, default: 250 },
         href: { type: String, required: true },
         id: { type: String, required: true },
         label: { type: String, required: true },
         labelClass: { default: '' },
     },
-    mounted() {
-        this.$el.addEventListener('focusout', evt => {
-            if (!this.$el.contains(evt.relatedTarget)) {
-                this.expanded = false
-            }
-        })
-    },
     methods: {
+        mouseleave(evt) {
+            this.timer.start(() => this.close(), this.delay)
+        },
+        focusout(evt) {
+            if (this.expanded && !this.$el.contains(evt.relatedTarget)) {
+                this.close()
+            }
+        },
         click(evt) {
+            if (this.expanded) {
+                this.close()
+            } else {
+                this.open()
+            }
+        },
+        mouseover() {
+            this.timer.clear()
             if (!this.expanded) {
-                this.toggle(evt)
+                this.open()
             }
         },
-        toggle(evt) {
-            evt.preventDefault()
-            this.expanded = !this.expanded
+
+        open() {
+            this.$emit('open')
+            this.timer.clear()
+            this.expanded = true
         },
-        close(evt) {
-            if (evt.key == 'Escape' || evt.key == 'ArrowUp') {
-                evt.stopPropagation()
-                evt.preventDefault()
-                this.expanded = false
-                this.$refs.link.focus()
-            } else if (evt.key in ['ArrowLeft', 'ArrowRight', 'ArrowDown']) {
-                evt.stopPropagation()
-                evt.preventDefault()
-            }
+        close() {
+            this.$emit('close')
+            this.timer.clear()
+            this.expanded = false
+            this.$refs.link.focus()
         }
     }
 }
