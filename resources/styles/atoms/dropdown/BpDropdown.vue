@@ -68,11 +68,11 @@ export default {
     },
     methods: {
         mouseleave(evt) {
-            this.timer.start(() => this.close(), this.delay)
+            this.timer.start(() => this.close(false), this.delay)
         },
         focusout(evt) {
             if (this.expanded && !this.$el.contains(evt.relatedTarget)) {
-                this.close()
+                this.close(false)
             }
         },
         click(evt) {
@@ -94,11 +94,13 @@ export default {
             this.timer.clear()
             this.expanded = true
         },
-        close() {
+        close(refocus = true) {
             this.$emit('close')
             this.timer.clear()
             this.expanded = false
-            this.$refs.link.focus()
+            if (refocus) {
+                this.$refs.link.focus()
+            }
         }
     }
 }
