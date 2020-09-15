@@ -14,7 +14,7 @@ import Vue from 'vue'
 
 // eslint-disable-next-line
 new Vue({
-    el: 'main',
+    el: '#root',
     components: {
         BpAccordion,
         BpDirectional,
