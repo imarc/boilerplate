@@ -1,4 +1,5 @@
 const mix = require('laravel-mix')
+require('laravel-mix-purgecss')
 
 // Mix Public Path
 //
@@ -82,6 +83,9 @@ mix.sass('resources/styles/main.scss', 'css', {
         ],
     },
 })
+    .purgeCss({
+        content: ['resources/styles/**/*.twig'],
+    })
 mix.extract()
 mix.sourceMaps()
 mix.version()
