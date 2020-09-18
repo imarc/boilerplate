@@ -40,13 +40,11 @@ const Timer = function() {
         timeout: null,
         start(callback, delay) {
             if (!this.timeout) {
-                console.log('start intent')
                 this.timeout = setTimeout(callback, delay)
             }
         },
         clear() {
             if (this.timeout) {
-                console.log('clear intent')
                 clearTimeout(this.timeout)
                 this.timeout = null
             }
@@ -60,7 +58,7 @@ export default {
         expanded: false,
     }),
     props: {
-        delay: {type: Number, default: 250 },
+        delay: {type: Number, default: 0 },
         href: { type: String, required: true },
         id: { type: String, required: true },
         label: { type: String, required: true },

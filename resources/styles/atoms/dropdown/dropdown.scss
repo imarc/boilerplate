@@ -7,13 +7,28 @@
     }
 
     &__content {
-        background-color: white;
+        background-color: $gray-100;
         display: none;
         position: absolute;
         z-index: 1;
 
         &.-open {
             display: block;
+        }
+    }
+
+    &.-rightEdge {
+        .dropdown__content {
+            right: 0;
+        }
+    }
+
+    &.-fullWidth {
+        position: static;
+
+        .dropdown__content {
+            left: 0;
+            right: 0;
         }
     }
 }
