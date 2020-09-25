@@ -7,14 +7,18 @@ import './plugins/tabs.plugin'
 
 import BpAccordion from '../styles/molecules/accordion/BpAccordion'
 import BpTabs from '../styles/molecules/tabs/BpTabs'
+import BpDirectional from '../styles/utilities/directional/BpDirectional'
+import BpDropdown from '../styles/atoms/dropdown/BpDropdown'
 
 import Vue from 'vue'
 
 // eslint-disable-next-line
 new Vue({
-    el: 'main',
+    el: '#root',
     components: {
         BpAccordion,
+        BpDirectional,
         BpTabs,
+        BpDropdown,
     },
 })

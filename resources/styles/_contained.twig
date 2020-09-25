@@ -16,8 +16,10 @@
     {% endfor %}
 </head>
 <body>
-    <main style="padding: 2em">
-        {{ yield }}
-    </main>
+    <div id="root">
+        <main style="padding: 2em">
+            {{ yield }}
+        </main>
+    </div>
 </body>
 </html>

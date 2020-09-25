@@ -16,7 +16,7 @@
 
 @mixin pagination (
     $text-color: $link,
-    $active-color: $primary,
+    $active-color: $link,
     $hover-color: $link-hover,
     $active-text-color: $white,
     $border: $border,
@@ -45,7 +45,7 @@
 
         &:focus,
         &:hover {
-            background-color: $text-color;
+            background-color: $hover-color;
             color: $active-text-color;
             outline: none;
         }
