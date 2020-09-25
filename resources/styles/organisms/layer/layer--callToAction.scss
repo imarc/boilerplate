@@ -1,0 +1,13 @@
+.layer {
+
+    &.-callToAction {
+        background-color: $secondary;
+        color: $white;
+        text-align: center;
+
+        .layer__cta {
+            @include button($white, $secondary);
+            font-weight: bold;
+        }
+    }
+}
