@@ -9,6 +9,7 @@ const mandelbrot = require('@frctl/mandelbrot')
 const theme = mandelbrot({
     //skin: 'black',
     nav: [
+        'search',
         'docs',
         'components',
     ],
@@ -18,7 +19,7 @@ const theme = mandelbrot({
         'resources',
     ],
     styles: [
-        'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;1,400&display=swap',
+        'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap',
         'default',
         '/css/fractal.css',
     ]
