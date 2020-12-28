@@ -1,4 +1,4 @@
-///
+//
 /// = Variables =
 ///
 
@@ -19,10 +19,10 @@ $font-stack: Arial, sans-serif !default;
 @use 'colors' as *;
 @forward 'colors';
 
-$primary: $aqua-200;
-$secondary: $blue-500;
+$primary: $blue-500;
+$secondary: $aqua-200;
 $danger: $red-400;
-$confirm: $green-300;
+$confirm: $green-400;
 
 ///
 /// Messaging colors
@@ -56,7 +56,7 @@ $color-modifiers: (
 $plain-text: $gray-900 !default;
 $meta-text: $gray-500 !default;
 $link: $primary !default;
-$link-hover: $secondary !default;
+$link-hover: $blue-400 !default;
 $border: $gray-200 !default;
 
 

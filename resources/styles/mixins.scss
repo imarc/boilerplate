@@ -61,3 +61,40 @@
         @content;
     }
 }
+
+///
+/// Alias for breakpoint().
+///
+@mixin at($bp, $rule: min-width) {
+    @include breakpoint($bp, $rule) {
+        @content;
+    }
+}
+
+///
+/// Quick way to define a bunch of media queries. Example usage:
+///
+///     @include each-breakpoint(10px, md 20px, lg 30px) using ($margin) {
+///         margin-top: $margin;
+///     }
+///
+@mixin each-breakpoint($map...) {
+    @each $bp, $arg in $map {
+        @if $arg {
+            @include breakpoint($bp) {
+                @content($arg);
+            }
+        } @else {
+            @content($bp);
+        }
+    }
+}
+
+///
+/// Alias for each-breakpoint().
+///
+@mixin at-each($map...) {
+    @include each-breakpoint($map...) using ($v) {
+        @content($v);
+    }
+}
