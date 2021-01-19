@@ -7,7 +7,6 @@ const twig = require('twig')
 const mandelbrot = require('@frctl/mandelbrot')
 
 const theme = mandelbrot({
-    //skin: 'black',
     nav: [
         'search',
         'docs',
