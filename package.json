@@ -23,8 +23,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
-    "@frctl/consolidate": "^1.0.1",
     "@frctl/fractal": "^1.3.0",
+    "@frctl/twig": "^1.2.4",
     "candlepin": "^1.2.0",
     "cross-env": "^7.0.2",
     "expose-loader": "^0.7.5",
@@ -36,7 +36,6 @@
     "normalize-scss": "^7.0.1",
     "npm": "^6.14.5",
     "slick-carousel": "^1.8.1",
-    "twig": "^1.15.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
