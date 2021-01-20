@@ -75,7 +75,6 @@ mix.js('resources/js/plugins/dropdown.plugin.js', 'js/plugins')
 mix.js('resources/js/plugins/tabs.plugin.js', 'js/plugins')
 
 mix.js('resources/js/main.js', 'js')
-mix.sass('resources/styles/fractal.scss', 'css')
 mix.sass('resources/styles/main.scss', 'css', {
     sassOptions: {
         includePaths: [
