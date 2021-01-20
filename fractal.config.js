@@ -5,19 +5,7 @@ const consolidate = require('@frctl/consolidate')
 const fractal = module.exports = require('@frctl/fractal').create()
 const twig = require('twig')
 const mandelbrot = require('@frctl/mandelbrot')
-
-const theme = mandelbrot({
-    skin: 'black',
-    nav: [
-        'docs',
-        'components',
-    ],
-    panels: [
-        'notes',
-        'html',
-        'resources',
-    ],
-})
+const theme = require('fractal-theme-hydrogen')(mandelbrot)
 
 twig.extendFunction('prefix', path => Path.join(process.env.RESOURCE_ROOT || '/', path))
 
