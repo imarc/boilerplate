@@ -1,0 +1,8 @@
+[build]
+  publish = "web/"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/"
+  to = "/pattern-library"
+  status = 301
