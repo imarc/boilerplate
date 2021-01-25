@@ -50,6 +50,9 @@
     .features {
         @include features;
     }
+    .cards {
+        @include cards;
+    }
     .login {
         @include login;
     }

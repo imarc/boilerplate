@@ -4,37 +4,65 @@
 @mixin card() {
     background-color: $white;
     box-shadow: $med-shadow;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-areas: "icon" "headline" "description" "actions";
+    justify-items: center;
     margin-bottom: 2rem;
     margin-left: auto;
-    align-items: center;
     margin-right: auto;
-    text-align: center;
-
-    > :first-child {
-        margin-top: 2rem;
-    }
-    > * {
-        margin: 0 2rem;
-    }
-    > :last-child {
-        margin-bottom: 2rem;
-    }
 
     &__icon,
     &__headline,
-    &__description {
-        margin-bottom: 1rem;
+    &__description,
+    &__actions {
+        height: min-content;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 
-    &__action {
-        margin-bottom: 0;
+    &__icon {
+        grid-area: icon;
+        padding-top: 2rem;
+    }
+
+    &__headline {
+        grid-area: headline;
+    }
+
+    &__description {
+        grid-area: description;
+    }
+
+
+    &__background {
+        background-color: $gray-100;
+        background-size: cover;
+        grid-column: 1;
+        grid-row: icon / headline;
+        height: 100%;
+        justify-self: stretch;
+
+        svg {
+            object-fit: cover;
+        }
+    }
+
+    &__actions {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, max-content));
+        justify-content: center;
+        justify-self: stretch;
         margin-top: auto;
+        padding-bottom: 2rem;
 
         &.-attached {
-            margin-bottom: 0;
-            align-self: stretch;
+            grid-gap: 0;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            padding-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 }
