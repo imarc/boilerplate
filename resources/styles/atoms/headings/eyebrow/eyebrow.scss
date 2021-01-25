@@ -5,4 +5,13 @@
     text-transform: uppercase;
 
     @include color-modifiers(primary secondary);
+
+    &.-highlighted {
+        @include color-modifiers(primary secondary) using ($color) {
+            background-color: $color;
+            color: blackwhite($color);
+            display: inline-block;
+            padding: 0 .25em;
+        }
+    }
 }
