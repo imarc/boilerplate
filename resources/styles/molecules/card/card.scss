@@ -1,0 +1,40 @@
+///
+/// Simple card.
+///
+@mixin card() {
+    background-color: $white;
+    box-shadow: $med-shadow;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    align-items: center;
+    margin-right: auto;
+    text-align: center;
+
+    > :first-child {
+        margin-top: 2rem;
+    }
+    > * {
+        margin: 0 2rem;
+    }
+    > :last-child {
+        margin-bottom: 2rem;
+    }
+
+    &__icon,
+    &__headline,
+    &__description {
+        margin-bottom: 1rem;
+    }
+
+    &__action {
+        margin-bottom: 0;
+        margin-top: auto;
+
+        &.-attached {
+            margin-bottom: 0;
+            align-self: stretch;
+        }
+    }
+}
