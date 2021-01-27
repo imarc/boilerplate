@@ -1,52 +1,14 @@
 
 <div class="container">
     <div class="cards">
-        <div class="cards__card card">
-            <div class="card__background" style="opacity: .3; background-image: url(https://placeimg.com/640/320/tech/grayscale)"></div>
-            <div class="card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" height="64" width="64" viewBox="0 0 6 6" stroke-width=".25" stroke="currentColor" fill="none"><rect x="1" y="1" width="4" height="4" rx="1" /></svg>
-            </div>
-            <h4 class="card__headline">One Great Headline</h4>
-            <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos et voluptatum aliquam neque beatae.</p>
-            <div class="card__actions">
-                <a href="" class="card__action button -primary">Learn More</a>
-            </div>
-        </div>
+        {% render "@card" with { class: 'cards__card' } %}
 
-        <div class="cards__card card">
-            <div class="card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" height="64" width="64" viewBox="0 0 6 6" stroke-width=".25" stroke="currentColor" fill="none"><rect x="1" y="1" width="4" height="4" rx="1" /></svg>
-            </div>
-            <h4 class="card__headline">One Great Headline</h4>
-            <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos et voluptatum aliquam neque beatae.</p>
-            <div class="card__actions -attached">
-                <a href="" class="card__action button -primary">Learn More</a>
-            </div>
-        </div>
+        {% render "@card--two-actions" with { class: 'cards__card' } %}
 
-        <div class="cards__card card">
-            <div class="card__background" style="opacity: .3; background-image: url(https://placeimg.com/640/320/tech/grayscale)"></div>
-            <div class="card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" height="64" width="64" viewBox="0 0 6 6" stroke-width=".25" stroke="currentColor" fill="none"><rect x="1" y="1" width="4" height="4" rx="1" /></svg>
-            </div>
-            <h4 class="card__headline">One Great Headline</h4>
-            <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos et voluptatum aliquam neque beatae.</p>
-            <div class="card__actions">
-                <a href="" class="card__action button -secondary -ghost">Learn More</a>
-                <a href="" class="card__action button -primary">Register</a>
-            </div>
-        </div>
+        {% render "@card--actions-attached" with { class: 'cards__card' } %}
 
-        <div class="cards__card card">
-            <div class="card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" height="64" width="64" viewBox="0 0 6 6" stroke-width=".25" stroke="currentColor" fill="none"><rect x="1" y="1" width="4" height="4" rx="1" /></svg>
-            </div>
-            <h4 class="card__headline">One Great Headline</h4>
-            <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos et voluptatum aliquam neque beatae.</p>
-            <div class="card__actions -attached">
-                <a href="" class="card__action button -secondary">Learn More</a>
-                <a href="" class="card__action button -primary">Register</a>
-            </div>
-        </div>
+        {% render "@card--two-actions-attached" with { class: 'cards__card' } %}
+
+        {% render "@card" with { class: 'cards__card' } %}
     </div>
 </div>

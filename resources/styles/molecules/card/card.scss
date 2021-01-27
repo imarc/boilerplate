@@ -6,15 +6,15 @@
     box-shadow: $med-shadow;
     display: grid;
     grid-gap: 1em;
-    grid-template-areas: "icon" "headline" "description" "actions";
+    grid-template-areas: "icon" "headline" "content" "actions";
     justify-items: center;
     margin-bottom: 2rem;
+    z-index: 1;
 
     &__icon,
     &__headline,
-    &__description,
+    &__content,
     &__actions {
-        height: min-content;
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -28,22 +28,18 @@
         grid-area: headline;
     }
 
-    &__description {
-        grid-area: description;
+    &__content {
+        grid-area: content;
     }
 
 
     &__background {
-        background-color: $gray-100;
-        background-size: cover;
+        background: $gray-100 center/cover;
         grid-column: 1;
         grid-row: icon / headline;
         height: 100%;
         justify-self: stretch;
-
-        svg {
-            object-fit: cover;
-        }
+        z-index: -1;
     }
 
     &__actions {
