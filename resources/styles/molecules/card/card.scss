@@ -43,6 +43,7 @@
     }
 
     &__actions {
+        grid-area: actions;
         display: grid;
         grid-gap: 1rem;
         grid-template-columns: repeat(auto-fit, minmax(10rem, max-content));
