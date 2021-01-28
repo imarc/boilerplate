@@ -72,6 +72,10 @@ export default {
             const elements = []
             origin = this.getElementRects(origin)
 
+            if (!origin) {
+                return elements
+            }
+
             nodeList.forEach(el => {
                 let rects = this.getElementRects(el)
                 if (rects === null) {
