@@ -51,6 +51,7 @@
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.12"
   },
+  "browserslist": ["defaults", "ie 11"],
   "eslintConfig": {
     "env": {
       "browser": true,

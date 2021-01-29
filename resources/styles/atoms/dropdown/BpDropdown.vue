@@ -1,40 +1,44 @@
 <template>
-    <div ref="dropdown" class="dropdown"
+    <bp-directional>
+        <div ref="dropdown" class="dropdown" :class="{'-open': expanded}"
         v-on="{ mouseleave, focusout, mouseover }"
     >
-        <a
-            :aria-controls="id"
-            :aria-expanded="String(expanded)"
-            class="dropdown__link"
-            :class="labelClass"
-            :href="href"
-            ref="link"
-            @click.prevent="click"
-            @keydown.space.prevent="click"
-        >
-            <slot name="link">{{ label }}</slot>
-        </a>
-        <button
-            :aria-controls="id"
-            :aria-expanded="String(expanded)"
-            class="dropdown__button"
-            @click.prevent="click"
-        >
-            <slot name="button" />
-        </button>
-        <div
-            :id="id"
-            class="dropdown__content"
-            :class="{'-open': expanded}"
-            @keydown.esc.prevent="close"
-            @keydown.up.prevent="close"
-        >
-            <slot />
+            <a
+                :aria-controls="id"
+                :aria-expanded="String(expanded)"
+                class="dropdown__link"
+                :class="labelClass"
+                :href="href"
+                ref="link"
+                @click.prevent="click"
+                @keydown.space.prevent="click"
+            >
+                <slot name="link">{{ label }}</slot>
+                <button
+                    :aria-controls="id"
+                    :aria-expanded="String(expanded)"
+                    class="dropdown__button"
+                    @click.prevent.stop="click"
+                >
+                    <slot name="button">
+                        <svg class="dropdown__icon" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none"><polyline points="6 9 12 15 18 9" /></svg>
+                    </slot>
+                </button>
+            </a>
+            <div
+                :id="id"
+                class="dropdown__content"
+                @keydown.esc.prevent="close"
+            >
+                <slot />
+            </div>
         </div>
-    </div>
+    </bp-directional>
 </template>
 
 <script>
+import BpDirectional from '/resources/styles/utilities/directional/BpDirectional.vue'
+
 const Timer = function() {
     return {
         timeout: null,
@@ -53,12 +57,16 @@ const Timer = function() {
 }
 
 export default {
+    components: {
+        BpDirectional,
+    },
     data: () => ({
         timer: new Timer,
         expanded: false,
     }),
     props: {
         delay: {type: Number, default: 0 },
+        hoverable: {type: Boolean, default: false },
         href: { type: String, required: true },
         id: { type: String, required: true },
         label: { type: String, required: true },
@@ -66,7 +74,9 @@ export default {
     },
     methods: {
         mouseleave(evt) {
-            this.timer.start(() => this.close(false), this.delay)
+            if (this.hoverable) {
+                this.timer.start(() => this.close(false), this.delay)
+            }
         },
         focusout(evt) {
             if (this.expanded && !this.$el.contains(evt.relatedTarget)) {
@@ -81,9 +91,11 @@ export default {
             }
         },
         mouseover() {
-            this.timer.clear()
-            if (!this.expanded) {
-                this.open()
+            if (this.hoverable) {
+                this.timer.clear()
+                if (!this.expanded) {
+                    this.open()
+                }
             }
         },
 

@@ -24,8 +24,8 @@
     .accordion {
         @include accordion;
     }
-    .feature {
-        @include feature;
+    .card {
+        @include card;
     }
     .messaging {
         @include messaging;
@@ -49,6 +49,9 @@
     }
     .features {
         @include features;
+    }
+    .cards {
+        @include cards;
     }
     .login {
         @include login;

@@ -1,0 +1,23 @@
+.menu {
+    display: flex;
+    flex-flow: column nowrap;
+
+    &__list {
+        @include no-bullets;
+    }
+
+    &__item {
+        margin-bottom: 0;
+    }
+
+    &__link {
+        margin-bottom: 0;
+        display: block;
+        padding: .5rem 1rem;
+
+        &:hover {
+            background-color: $blue-100;
+            color: $blue-600;
+        }
+    }
+}

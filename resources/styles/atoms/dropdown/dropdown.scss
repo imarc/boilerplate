@@ -1,24 +1,41 @@
 .dropdown {
     position: relative;
 
-    &__button {
-        @include fa($fa-var-chevron-right);
-        display: none;
+    &__link {
+        display: inline-block;
+        padding: .5rem 1rem;
     }
 
+    &__button {
+        background: transparent;
+        border: 0;
+        padding: 0;
+    }
+
+    &__icon {
+        height: 1em;
+        vertical-align: middle;
+    }
+
+
     &__content {
-        background-color: $gray-100;
         display: none;
         position: absolute;
         z-index: 1;
+    }
 
-        &.-open {
+    &.-open {
+
+        .dropdown__content {
+            background-color: $white;
+            box-shadow: $low-shadow;
             display: block;
         }
     }
 
     &.-rightEdge {
         .dropdown__content {
+            left: unset;
             right: 0;
         }
     }

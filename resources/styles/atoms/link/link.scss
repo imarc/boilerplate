@@ -28,4 +28,13 @@
         cursor: default;
         pointer-events: none;
     }
+
+    &__icon {
+        height: 1em;
+        vertical-align: text-bottom;
+
+        &.-separator {
+            transform: translateX(50%);
+        }
+    }
 }

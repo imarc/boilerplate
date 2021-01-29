@@ -11,7 +11,7 @@
     $hover-color: $link-hover,
 ) {
     &__list {
-        display: inline-flex;
+        display: flex;
         list-style: none;
         margin: 0;
         padding-left: 0;
@@ -19,10 +19,6 @@
 
     &__item {
         margin-bottom: 0;
-
-        &.-active {
-            font-weight: 700;
-        }
     }
 
     &__link {
@@ -32,16 +28,6 @@
 
         &:hover {
             color: $hover-color;
-        }
-
-        &::after {
-            content: "∕";
-            display: inline-block;
-            transform: translateX(.809em);
-        }
-
-        .-active &::after {
-            content: unset;
         }
     }
 }

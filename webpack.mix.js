@@ -14,6 +14,11 @@ mix.setPublicPath('web')
 
 mix.options({
     clearConsole: Mix.isWatching(),
+    postCss: [
+        require('autoprefixer')({
+            grid: 'autoplace',
+        })
+    ],
 })
 
 // Extra Webpack Config

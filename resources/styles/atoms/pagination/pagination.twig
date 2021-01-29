@@ -1,7 +1,9 @@
-<nav class="pagination">
+<nav class="{{ class }} pagination">
     <ul class="pagination__list">
         <li class="pagination__item -previous">
-            <a class="pagination__link" href=""><span class="sr-only">Previous</span></a>
+            <a class="pagination__link" href="" aria-label="Previous">
+                <svg class="link__icon" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none"><polyline points="15 6 9 12 15 18" /></svg>
+            </a>
         </li>
 
         <li class="pagination__item"><a class="pagination__link" href="">1</a></li>
@@ -12,7 +14,9 @@
         <li class="pagination__item"><a class="pagination__link" href="">6</a></li>
 
         <li class="pagination__item -next -disabled">
-            <a class="pagination__link" href=""><span class="sr-only">Next</span></a>
+            <a class="pagination__link link" href="" aria-label="Next">
+                <svg class="link__icon" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none"><polyline points="9 6 15 12 9 18" /></svg>
+            </a>
         </li>
     </ul>
 </nav>

@@ -2,77 +2,62 @@
 /// PROGRESS provides a basic, pill-style progress nav bar like you
 /// might find as part of an ecommerce or registration process.
 ///
-@mixin progress(
-    $color: $blue-400,
-    $completed-icon: $fa-var-check,
-    $active-icon: $fa-var-circle
-) {
+@mixin progress() {
     &__list {
-        padding-left: 0;
-        list-style: none;
+        @include no-bullets;
+        position: relative;
 
         &::before {
-            border-left: .5em solid $color;
-            bottom: 1.5em;
+            border-left: .5rem solid $blue-300;
+            bottom: 1rem;
             content: '';
-            left: 1.75em;
+            left: .75rem;
             position: absolute;
-            top: 1.5em;
+            top: 1rem;
             z-index: -1;
         }
     }
 
     &__item {
-        margin: 0;
+        margin-bottom: 1rem;
     }
 
     &__link {
-        align-items: center;
-        display: flex;
-        margin: 0;
-        padding: .618em 1em;
+        color: $blue-400;
 
-        &::before {
-            background-color: $color;
-            border-radius: 2em;
-            color: $white;
-            content: '';
-            height: 2em;
-            line-height: 2;
-            margin-right: 1em;
-            text-align: center;
-            transition: $moderate $entrance-easing;
-            width: 2em;
-        }
-
-        &:hover::before {
-            transform: scale(1.25);
-        }
-
-        &.-active {
-            @include fas($active-icon);
-            font-weight: bold;
-
-            &::before {
+        &:hover {
+            .progress__icon {
                 transform: scale(1.25);
             }
         }
 
-        &.-complete {
-            @include fas($completed-icon);
-        }
+        &.-active {
+            font-weight: bold;
 
-        &.-disabled {
-            &:hover::before {
-                transform: none;
+            .progress__icon {
+                transform: scale(1.25);
             }
         }
     }
 
+    &__icon {
+        background-color: $blue-300;
+        border-radius: 2rem;
+        color: $white;
+        height: 2em;
+        margin-right: 1rem;
+        padding: .25rem;
+        transition: transform $fade-easing $fast;
+        vertical-align: middle;
+        width: 2em;
+    }
+
     @include breakpoint(md) {
+        display: flex;
+        justify-content: center;
+
         &__list {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
 
             &::before {
@@ -80,34 +65,36 @@
             }
         }
 
-        &__item {
+        &__link {
+            align-items: center;
+            display: flex;
+            flex-flow: column nowrap;
+            padding: 1rem;
             position: relative;
 
             &::before {
-                border-top: .25em solid $color;
                 content: '';
-                left: 0;
+                border-top: .5rem solid $blue-300;
                 position: absolute;
+                left: 0;
                 right: 0;
-                top: 1.493em;
+                top: 1.75rem;
                 z-index: -1;
+
+                .progress__item:first-child & {
+                    left: 50%;
+                }
+
+                .progress__item:last-child & {
+                    right: 50%;
+                }
             }
 
-            &:first-child::before {
-                left: 50%;
-            }
-            &:last-child::before {
-                right: 50%;
-            }
         }
 
-        &__link {
-            flex-direction: column;
-
-            &::before {
-                margin-right: 0;
-                margin-bottom: 1em;
-            }
+        &__icon {
+            margin-right: 0;
+            margin-bottom: 1rem;
         }
     }
 }

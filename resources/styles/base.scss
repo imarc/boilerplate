@@ -41,7 +41,8 @@ img {
     background: $border;
 }
 
-a {
+a,
+.link {
     @include link;
 }
 

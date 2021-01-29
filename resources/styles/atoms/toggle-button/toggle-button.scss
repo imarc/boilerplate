@@ -9,14 +9,13 @@
 ///     button color when disabled
 ///
 @mixin toggleButton(
-    $color: $gray-400,
+    $color: $gray-500,
     $text-color: $white,
     $hover-color: $link-hover,
     $checked-color: $gray-600,
     $disabled-color: $disabled,
 ) {
     $b: &;
-
     display: inline-block;
 
     &__input {
@@ -24,87 +23,124 @@
     }
 
     &__label {
-        color: $text-color;
-        background-color: $color;
-        padding: 0.618em 1.618em;
+        display: block;
         user-select: none;
+        padding: 0.618em 1em 0.618em .618em;
+    }
 
-        &::before {
-            @include fontawesome(900, $fa-var-square);
-            width: 1em;
-            margin-right: .618em;
+    &__checkbox {
+        border-radius: .25em;
+        border: 2px solid;
+        display: inline-block;
+        height: 1.5em;
+        margin-right: .382em;
+        transform: translateY(-.125em);
+        vertical-align: middle;
+        width: 1.5em;
+
+        &.-radio {
+            border-radius: 1.5em;
+        }
+    }
+
+    &__icon {
+        width: 100%;
+        display: none;
+    }
+
+    &:focus {
+        outline: none;
+
+        .toggleButton__checkbox {
+            box-shadow: 0 0 0 2px red;
         }
     }
 
     @include color-modifiers(primary secondary) using ($color) {
-        #{$b}__label {
-            background-color: $color;
-            color: blackwhite($color,  $text-color);
+        #{$b}__checkbox {
+            border-color: $color;
+        }
+
+        #{$b}.-checked #{$b}__label,
+        #{$b}__input:checked ~ #{$b}__label {
+            #{$b}__checkbox {
+                border-color: $black;
+                background-color: $color;
+                color: blackwhite($color);
+            }
         }
     }
 
     &.-checked &__label,
     &__input:checked ~ &__label {
-        background-color: $checked-color;
-
-        &::before {
-            @include fontawesome(900, $fa-var-check-square);
-        }
-    }
-
-    &.-disabled {
-        #{$b}__label {
-            background-color: $disabled-color;
-            cursor: default;
-        }
-    }
-
-
-    &.-radio {
-        #{$b}__label {
-            &::before {
-                @include fontawesome(900, $fa-var-circle);
-            }
-        }
-
-        &.-checked #{$b}__label,
-        #{$b}__input:checked ~ #{$b}__label {
-            &::before {
-                @include fontawesome(400, $fa-var-dot-circle);
-            }
-        }
-    }
-
-
-    &.-outline {
-        #{$b}__label {
-            color: $color;
-            background-color: transparent;
-            box-shadow: 0 0 0 2px inset;
-
-            &::before {
-                font-weight: 400;
-            }
-        }
-
-        #{$b}.-checked #{$b}__label,
-        #{$b}__input:checked ~ #{$b}__label {
-            color: $checked-color;
-        }
-
-        &.-disabled {
-            #{$b}__label {
-                color: $disabled-color;
-            }
+        #{$b}__icon {
+            display: unset;
         }
     }
 
     &.-blank {
-        #{$b}:not(.-checked) #{$b}__label,
-        #{$b}__input:not(:checked) ~ #{$b}__label {
-            &::before {
-                content: unset;
+        border: 2px solid $color;
+
+        #{$b}__label {
+            padding-left: 1em;
+        }
+
+        #{$b}.-checked #{$b}__label,
+        #{$b}__input:checked ~ #{$b}__label {
+            background-color: $color;
+            color: blackwhite($color);
+        }
+
+        @include color-modifiers(primary secondary) using ($color) {
+            border-color: $color;
+
+            #{$b}.-checked #{$b}__label,
+            #{$b}__input:checked ~ #{$b}__label {
+                background-color: $color;
+                color: blackwhite($color);
+                #{$b}__checkbox {
+                    border-color: blackwhite($color);
+                }
             }
         }
+    }
+
+    &.-disabled {
+        border-color: $disabled-color;
+        color: $disabled-color;
+        cursor: default;
+    }
+
+    &.-outline {
+        border: 2px solid $color;
+
+        #{$b}.-checked #{$b}__label,
+        #{$b}__input:checked ~ #{$b}__label {
+            background-color: $color;
+            color: blackwhite($color);
+        }
+
+        @include color-modifiers(primary secondary) using ($color) {
+            border-color: $color;
+
+            #{$b}__checkbox {
+                border-color: $color;
+            }
+
+            #{$b}.-checked #{$b}__label,
+            #{$b}__input:checked ~ #{$b}__label {
+                background-color: $color;
+                color: blackwhite($color);
+                #{$b}__checkbox {
+                    border-color: blackwhite($color);
+                }
+            }
+        }
+    }
+
+    &.-disabled {
+        border-color: $disabled-color;
+        color: $disabled-color;
+        cursor: default;
     }
 }
