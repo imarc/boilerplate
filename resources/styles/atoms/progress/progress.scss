@@ -27,16 +27,15 @@
 
         &:hover {
             .progress__icon {
-                box-shadow: 0 0 0 .25rem $blue-300;
+                transform: scale(1.25);
             }
         }
 
         &.-active {
-            color: $blue-500;
             font-weight: bold;
 
             .progress__icon {
-                box-shadow: 0 0 0 .25rem $blue-500;
+                transform: scale(1.25);
             }
         }
     }
@@ -48,7 +47,7 @@
         height: 2em;
         margin-right: 1rem;
         padding: .25rem;
-        transition: box-shadow $fade-easing $fast;
+        transition: transform $fade-easing $fast;
         vertical-align: middle;
         width: 2em;
     }
