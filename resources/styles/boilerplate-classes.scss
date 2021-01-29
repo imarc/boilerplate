@@ -47,9 +47,6 @@
     .dossier {
         @include dossier;
     }
-    .features {
-        @include features;
-    }
     .cards {
         @include cards;
     }
