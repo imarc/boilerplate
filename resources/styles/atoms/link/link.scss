@@ -18,9 +18,6 @@
     &:active {
         color: $hover-color;
     }
-    &:focus {
-        outline: thin dotted;
-    }
 
     &.-disabled,
     &[disabled] {

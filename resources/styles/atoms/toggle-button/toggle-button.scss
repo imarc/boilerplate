@@ -49,8 +49,6 @@
     }
 
     &:focus {
-        outline: none;
-
         .toggleButton__checkbox {
             box-shadow: 0 0 0 2px red;
         }
