@@ -3,6 +3,16 @@
 /// that can wrap or nowrap. It is lighter than FEATURES or TILES
 /// in that it contains no default styling on its contents.
 ///
+/// If you want to just change the suffix for $element, you can do this:
+///
+///     @include grid($element: "#{&}__tile");
+///
+/// Or you can override and pass in a completely different class:
+///
+///     @include grid($element: "& .i-will-be-nested");
+///
+///     @include grid($element: ".i-will-be-at-the-root-level");
+///
 /// @param {number}   $columns [3] - number of columns
 /// @param {measure}  $gutter [1rem] - gutter between grid items
 /// @param {measure}  $vertical-gutter [null] - vertical gutter between grid items
@@ -11,11 +21,11 @@
 
 @import "candlepin";
 
-@mixin grid($gutter: $gutter, $vertical-gutter: $gutter, $element: 'item') {
+@mixin grid($gutter: $gutter, $vertical-gutter: $gutter, $element: "#{&}__item") {
     display: flex;
     flex-wrap: wrap;
 
-    &__#{$element} {
+    @at-root #{$element} {
         flex-grow: 1;
         margin-bottom: $gutter;
 

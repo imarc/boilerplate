@@ -1,0 +1,7 @@
+@mixin team {
+    $b: &;
+
+    &__members {
+        @include grid($element: "#{$b}__member");
+    }
+}

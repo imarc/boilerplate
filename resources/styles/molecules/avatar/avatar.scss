@@ -1,0 +1,27 @@
+@mixin avatar {
+    display: inline-flex;
+    width: 15rem;
+    flex-direction: column;
+    text-align: center;
+
+    &__photo {
+        object-fit: cover;
+    }
+
+    &__info {
+        padding: 1rem;
+    }
+
+    &__name {
+        margin: 1rem 0 .25rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    &.-horizontal {
+        flex-direction: row;
+        height: 10rem;
+        text-align: left;
+        width: auto;
+    }
+}

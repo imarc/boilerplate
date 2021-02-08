@@ -10,7 +10,7 @@
 ///
 
 @mixin tiles($gutter: $gutter) {
-    @include grid($gutter, $gutter, 'tile');
+    @include grid($gutter, $gutter, #{&}__tile);
 
     &__tile {
         background-color: #EEE;

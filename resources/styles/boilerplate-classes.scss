@@ -24,6 +24,9 @@
     .accordion {
         @include accordion;
     }
+    .avatar {
+        @include avatar;
+    }
     .card {
         @include card;
     }
@@ -31,7 +34,10 @@
         @include messaging;
     }
     .tabs {
-     @include tabs;
+        @include tabs;
+    }
+    .team {
+        @include team;
     }
     .tiles {
         @include tiles;
@@ -41,23 +47,11 @@
     .backgroundVideo {
         @include backgroundVideo;
     }
-    .carousel {
-        @include carousel;
-    }
-    .dossier {
-        @include dossier;
-    }
     .cards {
         @include cards;
     }
-    .login {
-        @include login;
-    }
     .mega {
         @include dropdown-mega;
-    }
-    .testimonial {
-        @include testimonial;
     }
 
     // templates
