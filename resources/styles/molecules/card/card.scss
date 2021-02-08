@@ -7,6 +7,7 @@
     display: grid;
     grid-gap: 1em;
     grid-template-areas: "icon" "headline" "content" "actions";
+    grid-template-rows: auto auto 1fr auto;
     justify-items: center;
     margin-bottom: 2rem;
     z-index: 1;
@@ -44,20 +45,26 @@
 
     &__actions {
         grid-area: actions;
-        display: grid;
-        grid-gap: 1rem;
-        grid-template-columns: repeat(auto-fit, minmax(10rem, max-content));
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         justify-self: stretch;
         margin-top: auto;
         padding-bottom: 2rem;
 
         &.-attached {
-            grid-gap: 0;
-            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            justify-content: stretch;
             padding-bottom: 0;
             padding-left: 0;
             padding-right: 0;
+
+            .card__action {
+                flex-grow: 1;
+            }
         }
+    }
+
+    &__action {
+        flex-basis: max(9rem, 50%);
     }
 }
