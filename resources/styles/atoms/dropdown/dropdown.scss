@@ -15,6 +15,7 @@
     &__icon {
         height: 1em;
         vertical-align: middle;
+        width: 1em;
     }
 
 
@@ -35,7 +36,7 @@
 
     &.-rightEdge {
         .dropdown__content {
-            left: unset;
+            left: auto;
             right: 0;
         }
     }

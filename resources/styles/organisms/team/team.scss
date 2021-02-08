@@ -2,6 +2,27 @@
     $b: &;
 
     &__members {
-        @include grid($element: "#{$b}__member");
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint(lg) {
+            flex-flow: row wrap;
+            justify-content: flex-start;
+        }
+    }
+
+    &__member {
+        @extend .avatar, .-horizontal;
+
+        @include breakpoint(lg) {
+            @include wrap(1, 3, $gutter);
+            flex-direction: column;
+            height: auto;
+            text-align: center;
+        }
+        @include breakpoint(xl) {
+            @include wrap(1, 4, $gutter);
+        }
     }
 }

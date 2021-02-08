@@ -72,7 +72,7 @@
     &.-checked &__label,
     &__input:checked ~ &__label {
         #{$b}__icon {
-            display: unset;
+            display: block;
         }
     }
 

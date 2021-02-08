@@ -23,6 +23,7 @@
     &__icon {
         grid-area: icon;
         padding-top: 2rem;
+        text-align: center; // For IE11
     }
 
     &__headline {

@@ -27,6 +27,7 @@
     }
 
     &__icon {
+        width: 1em; // IE11 needs both width and height on SVGs
         height: 1em;
         vertical-align: text-bottom;
 

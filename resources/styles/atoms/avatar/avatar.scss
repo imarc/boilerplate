@@ -1,14 +1,11 @@
 @mixin avatar {
     $b: &;
 
+    align-items: center;
     display: flex;
-    width: 15rem;
+    width: 16rem;
     flex-direction: column;
     text-align: center;
-
-    &__photo {
-        object-fit: cover;
-    }
 
     &__info {
         padding: 1rem;
@@ -28,7 +25,7 @@
         width: auto;
 
         #{$b}__photo {
-            align-self: stretch;
+            max-height: 100%;
         }
 
         #{$b}__name {
