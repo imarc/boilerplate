@@ -53,6 +53,9 @@
     .mega {
         @include dropdown-mega;
     }
+    .testimonial {
+        @include testimonial;
+    }
 
     // templates
     .listing {

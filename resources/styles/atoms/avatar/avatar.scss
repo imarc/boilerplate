@@ -1,5 +1,7 @@
 @mixin avatar {
-    display: inline-flex;
+    $b: &;
+
+    display: flex;
     width: 15rem;
     flex-direction: column;
     text-align: center;
@@ -19,9 +21,18 @@
     }
 
     &.-horizontal {
+        align-items: center;
         flex-direction: row;
         height: 10rem;
         text-align: left;
         width: auto;
+
+        #{$b}__photo {
+            align-self: stretch;
+        }
+
+        #{$b}__name {
+            margin-top: 0;
+        }
     }
 }
