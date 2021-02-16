@@ -62,3 +62,7 @@
         }
     }
 }
+
+.messaging {
+    @include messaging;
+}

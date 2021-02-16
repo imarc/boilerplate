@@ -99,3 +99,7 @@
         }
     }
 }
+
+.button {
+    @include button;
+}

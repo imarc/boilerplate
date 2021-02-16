@@ -11,3 +11,7 @@
     padding-right: $padding;
     position: relative;
 }
+
+.container {
+    @include container;
+}

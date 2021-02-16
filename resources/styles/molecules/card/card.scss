@@ -70,3 +70,7 @@
         flex-basis: max(9rem, 50%);
     }
 }
+
+.card {
+    @include card;
+}

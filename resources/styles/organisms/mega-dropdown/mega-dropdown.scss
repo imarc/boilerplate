@@ -38,3 +38,7 @@
         }
     }
 }
+
+.mega {
+    @include dropdown-mega;
+}

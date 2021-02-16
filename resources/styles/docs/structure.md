@@ -1,14 +1,17 @@
 ---
-title: File Structure
 order: 2
 ---
+
+## File Structure
 
 All files are within `resources/`:
 
 * Sass code, documentation and example markup is within `/resources/styles/`
 * JavaScript code is within `/resources/js/`
 
-Within `/resource/styles/`, there are the folowing directories from Atomic Design:
+### Style Structure
+
+Within `/resource/styles/`, there are the following directories from Atomic Design:
 
 * **atoms/**
 * **molecules/**
@@ -16,18 +19,21 @@ Within `/resource/styles/`, there are the folowing directories from Atomic Desig
 * **templates/**
 * **pages/**
 
-We also have two other directories:
+We also have three other directories:
 
 * **docs/** - project specific, front end documentation (such as this.)
-* **utilities/** - utilities that aren't components.
+* **examples/** – project specific examples of groups of components assembled together.
+* **utilities/** - utilities are lightweight components that add specific functionality and aren't limited to one of the Atomic Design categories.
 
 There's also a handful of Sass files within this folder itself:
 
 * **main.scss** - This is the root file that Boilerplate compiles to **main.css**. It just contains `@import` statements.
-* **variables.scss** - contains Sass variables.
-* **utilities.scss** - contains Sass utilities that are too simple to define standalone.
-* **base.scss** - Base styles, such as typography.
-* **mixins.scss** - contains Sass mixins and functions that don't make sense to get their own folder.
+* **_base.scss** - Base styles, such as typography.
+* **_colors.scss** – A set of starter color scales.
+* **_mixins.scss** - contains Sass mixins and functions that don't make sense to get their own folder.
+* **_transitions.scs** – css transitions.
+* **_utilities.scss** - contains Sass utilities that are too simple to define standalone.
+* **_variables.scss** - contains Sass variables.
 
 
 ## Component File Structure and Naming

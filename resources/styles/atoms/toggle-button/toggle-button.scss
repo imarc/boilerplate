@@ -142,3 +142,7 @@
         cursor: default;
     }
 }
+
+.toggleButton {
+    @include toggleButton;
+}

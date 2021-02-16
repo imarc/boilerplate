@@ -40,3 +40,7 @@
         }
     }
 }
+
+.accordion {
+    @include accordion;
+}

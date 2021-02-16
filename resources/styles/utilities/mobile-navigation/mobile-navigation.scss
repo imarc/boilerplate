@@ -79,3 +79,7 @@
         }
     }
 }
+
+.mobile {
+    @include mobileNavigation;
+}

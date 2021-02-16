@@ -33,3 +33,7 @@
         padding-top: 30%;
     }
 }
+
+.backgroundVideo {
+    @include backgroundVideo;
+}

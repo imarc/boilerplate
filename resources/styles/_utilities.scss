@@ -13,6 +13,9 @@
     position: absolute;
     width: 1px;
 }
+.sr-only {
+    @include visuallyhidden;
+}
 
 ///
 /// returns a properly scaled font size based on a given max size, assuming a

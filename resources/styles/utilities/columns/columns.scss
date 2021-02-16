@@ -27,3 +27,7 @@
         }
     }
 }
+
+.columns {
+    @include columns;
+}

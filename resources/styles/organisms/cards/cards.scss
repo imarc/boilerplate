@@ -17,3 +17,7 @@
         }
     }
 }
+
+.cards {
+    @include cards;
+}

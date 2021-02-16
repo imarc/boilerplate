@@ -31,3 +31,7 @@
         }
     }
 }
+
+.breadcrumbs {
+    @include breadcrumbs;
+}

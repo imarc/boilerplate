@@ -29,3 +29,7 @@
         max-height: 8rem;
     }
 }
+
+.testimonial {
+    @include testimonial;
+}
