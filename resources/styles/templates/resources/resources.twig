@@ -1,44 +1,13 @@
-<h1>wide card</h1>
+<header>
+    <div class="container">
+        <h1>Resources</h1>
+    </div>
+</header>
+
 
 <div class="filters">
     <div class="container">
-        <form action="">
-            <input type="search">
-            <button class="button -primary" type="submit">Filter</button>
-
-            <label class="toggleButton -outline -secondary" tabindex="0" for="toggle1">
-                <input name="example-1" class="toggleButton__input" type="radio" id="toggle1">
-                <span class="toggleButton__label">
-                    <div class="toggleButton__checkbox -radio">
-                        <svg class="toggleButton__icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none">
-                            <circle cx="12" cy="12" r="2" fill="currentColor" />
-                        </svg>
-                    </div>
-                    Category
-                </span>
-            </label><label class="toggleButton -outline -secondary" tabindex="0" for="toggle2">
-                <input name="example-1" class="toggleButton__input" type="radio" id="toggle2">
-                <span class="toggleButton__label">
-                    <div class="toggleButton__checkbox -radio">
-                        <svg class="toggleButton__icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none">
-                            <circle cx="12" cy="12" r="2" fill="currentColor" />
-                        </svg>
-                    </div>
-                    Category
-                </span>
-            </label><label class="toggleButton -outline -secondary" tabindex="0" for="toggle3">
-                <input name="example-1" class="toggleButton__input" type="radio" id="toggle3">
-                <span class="toggleButton__label">
-                    <div class="toggleButton__checkbox -radio">
-                        <svg class="toggleButton__icon" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none">
-                            <circle cx="12" cy="12" r="2" fill="currentColor" />
-                        </svg>
-                    </div>
-                    Category
-                </span>
-            </label>
-
-        </form>
+        {% render "@search" %}
     </div>
 </div>
 
