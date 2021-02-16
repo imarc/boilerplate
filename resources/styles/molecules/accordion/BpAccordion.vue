@@ -3,7 +3,7 @@
         <header>
             <div
                 :id="`${id}-control`"
-                :class="`${block}__${headingElement}`"
+                :class="`${block}__${headerElement}`"
                 :aria-expanded="`${isOpen}`"
                 :aria-controls="id"
                 tabindex="0"
@@ -12,6 +12,11 @@
                 @keyup.enter="open"
             >
                 <slot name="heading" />
+                <slot name="icon">
+                    <svg :class="`${block}__icon`" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </slot>
             </div>
         </header>
         <transition
@@ -40,9 +45,9 @@ export default {
             type: String,
             default: 'accordion',
         },
-        headingElement: {
+        headerElement: {
             type: String,
-            default: 'heading',
+            default: 'header',
         },
         contentElement: {
             type: String,

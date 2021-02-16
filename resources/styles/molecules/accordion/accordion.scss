@@ -8,29 +8,35 @@
 /// Within the div wrapper there is a .header class and a .content class.
 ///
 @mixin accordion() {
-    border-top: 1px solid $gray-100;
+    box-shadow: $med-shadow;
+    margin-bottom: 1.5rem;
+    $b: &;
 
-    &__heading {
+    &__header {
         cursor: pointer;
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .618rem 1rem;
+    }
+
+    &__heading {
+        margin-bottom: 0;
+    }
+
+    &__content {
+        border-top: 1px solid $gray-100;
         padding: .618rem 0;
-
-        &::after {
-            margin-left: auto;
-            padding: 0 .618rem;
-        }
+        margin: 0 1rem;
     }
 
-
-    &.-open &__heading {
-        &::after {
-            @include fontawesome(900, $fa-var-chevron-up);
-        }
+    &__icon {
+        transition: transform $fast $ease-out-quint;
     }
 
-    &.-closed &__heading {
-        &::after {
-            @include fontawesome(900, $fa-var-chevron-down);
+    &.-open {
+        #{$b}__icon {
+            transform: rotate(-180deg);
         }
     }
 }
