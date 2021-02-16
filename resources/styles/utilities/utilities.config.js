@@ -1,3 +1,3 @@
 module.exports = {
-    order: 4
+    order: 6,
 }

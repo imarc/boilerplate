@@ -1,3 +1,4 @@
 module.exports = {
-  "preview": "@contained"
+    order: 2,
+    "preview": "@contained"
 }

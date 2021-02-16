@@ -1,4 +1,5 @@
 module.exports = {
+    order: 1,
     "preview": "@contained",
     "collated": true,
     collator: (markup, item) =>
