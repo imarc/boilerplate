@@ -11,16 +11,25 @@
 ///     Optionally override the link hover color.
 ///
 @mixin messaging (
-    $character: $fa-var-info-circle,
     $color: $info,
     $link-color: inherit,
     $link-hover-color: inherit
 ) {
+    $b: &;
+
     background-color: $gray-100;
     box-shadow: .25rem 0 0 inset, $med-shadow;
     margin-bottom: 2rem;
-    padding: 1rem 1.618rem 1rem 3.5rem;
-    position: relative;
+    padding: 1rem 1.618rem;
+    display: flex;
+
+    &__icon {
+        margin-right: 1.618rem;
+    }
+
+    &__content {
+        flex-grow: 1;
+    }
 
     a {
         color: $link-color;
@@ -31,35 +40,11 @@
         }
     }
 
-    &::before {
-        @include fontawesome(900, $character);
-        font-size: 1.5rem;
-        left: 1rem;
-        position: absolute;
-        top: 1rem;
-    }
-
-    &.-success::before {
-        @include fontawesome(900, $fa-var-check-circle);
-    }
-
-    &.-info::before {
-        @include fontawesome(900, $fa-var-info-circle);
-    }
-
-    &.-warning::before {
-        @include fontawesome(900, $fa-var-exclamation-circle);
-    }
-
-    &.-error::before {
-        @include fontawesome(900, $fa-var-minus-circle);
-    }
-
     @include color-modifiers(success warning error info) using ($color) {
         box-shadow: .25rem 0 0 $color inset, $med-shadow;
         color: $plain-text;
 
-        &::before {
+        #{$b}__icon {
             color: $color;
         }
     }
@@ -71,7 +56,7 @@
             background-color: $color;
             color: blackwhite($color, $plain-text);
 
-            &::before {
+            #{$b}__icon {
                 color: inherit;
             }
         }
