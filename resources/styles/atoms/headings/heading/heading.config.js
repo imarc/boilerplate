@@ -1,4 +1,4 @@
-{
-  "label": "Headings",
-  "order": 1
+module.exports = {
+    "label": "Headings",
+    "order": 1
 }
