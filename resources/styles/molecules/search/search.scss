@@ -1,0 +1,22 @@
+.search {
+    margin-bottom: 3rem;
+
+    &__field {
+        display: flex;
+        margin-bottom: 1rem;
+    }
+
+    &__categories {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    &__category {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &__meta {
+        color: $meta-text;
+    }
+}

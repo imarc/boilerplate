@@ -3,8 +3,6 @@
 @use "utilities" as *;
 @use "transitions" as *;
 
-@use "vendor/fontawesome" as *;
-
 @import "./utilities/**/*.scss";
 @import "./@(atoms|molecules|organisms|templates|pages)/**/*.scss";
 

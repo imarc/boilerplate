@@ -22,7 +22,6 @@
     "build": "npm run prod && npm run fractal build"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
     "@frctl/fractal": "^1.3.0",
     "@frctl/twig": "^1.2.4",
     "candlepin": "^1.2.0",
@@ -51,7 +50,10 @@
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.12"
   },
-  "browserslist": ["defaults", "ie 11"],
+  "browserslist": [
+    "defaults",
+    "ie 11"
+  ],
   "eslintConfig": {
     "env": {
       "browser": true,
