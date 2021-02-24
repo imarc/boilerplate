@@ -66,7 +66,10 @@
 /// Alias for breakpoint().
 ///
 @mixin at($bp, $rule: min-width) {
-    @include breakpoint($bp, $rule) {
+    @if map-has-key($variables.$breakpoints, $bp) {
+        $bp: map-get(variables.$breakpoints, $bp);
+    }
+    @media screen and (#{$rule}: $bp) {
         @content;
     }
 }
