@@ -52,7 +52,7 @@
         width: 2em;
     }
 
-    @include breakpoint(md) {
+    @include at(md) {
         display: flex;
         justify-content: center;
 

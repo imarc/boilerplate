@@ -70,7 +70,7 @@
         }
 
     }
-    @include breakpoint(lg) {
+    @include at(lg) {
         &.open.left {
             transform: translateX(-100%);
         }

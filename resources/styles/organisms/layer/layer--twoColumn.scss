@@ -7,7 +7,7 @@
             flex-direction: column;
         }
 
-        @include breakpoint(lg) {
+        @include at(lg) {
             .layer__content {
                 flex-direction: row;
             }

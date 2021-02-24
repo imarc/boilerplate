@@ -3,14 +3,14 @@
 ///
 
 @mixin cards($gutter: $gutter) {
-    @include breakpoint(md) {
+    @include at(md) {
         display: flex;
         flex-wrap: wrap;
         &__card {
             @include wrap(1, 2, $gutter);
         }
     }
-    @include breakpoint(lg) {
+    @include at(lg) {
 
         &__card {
             @include wrap(1, 3, $gutter);

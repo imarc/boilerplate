@@ -9,7 +9,7 @@
 @mixin dropdown-mega() {
     position: static;
 
-    @include breakpoint(lg) {
+    @include at(lg) {
         .dropdown {
             left: 0;
             top: 100%;

@@ -11,7 +11,7 @@
         border: 0;
         display: none;
     }
-    @include breakpoint(md) {
+    @include at(md) {
         & {
             display: table;
             table-layout: fixed;

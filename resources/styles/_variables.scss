@@ -21,7 +21,7 @@ $font-stack: Arial, sans-serif !default;
 
 
 ///
-/// Brand Colors
+/// Site Colors
 ///
 $primary: $blue-500;
 $secondary: $aqua-200;
@@ -38,21 +38,6 @@ $error: $red-500 !default;
 $info: $blue-400 !default;
 $success: $green-300 !default;
 $warning: $yellow-200 !default;
-
-$color-modifiers: (
-    primary: $primary,
-    secondary: $secondary,
-    danger: $danger,
-    confirm: $confirm,
-
-    success: $success,
-    warning: $warning,
-    error: $error,
-
-    info: $info,
-    disabled: $disabled,
-) !default;
-
 
 ///
 /// Applied colors
@@ -73,6 +58,24 @@ $facebook: #3664A2 !default;
 $twitter: #55ACEE !default;
 $linkedin: #0077B5 !default;
 $youtube: #CD201F !default;
+
+///
+/// Color Modifiers
+///
+
+$color-modifiers: (
+    primary: $primary,
+    secondary: $secondary,
+    danger: $danger,
+    confirm: $confirm,
+
+    success: $success,
+    warning: $warning,
+    error: $error,
+
+    info: $info,
+    disabled: $disabled,
+) !default;
 
 
 ///

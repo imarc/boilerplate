@@ -1,16 +1,24 @@
 @use "variables";
 
 
-@mixin modifiers($map, $default-map, $prefix: '.-') {
+@mixin modifiers($map, $default-map: (), $prefix: '.-') {
     @each $pair in $map {
         $label: nth($pair, 1);
-        $value: map-get($default-map, $label);
+        $value: null;
+
         @if length($pair) > 1 {
             $value: nth($pair, 2);
+
+        } @else if map-has-key($default-map, $label) {
+            $value: map-get($default-map, $label);
         }
 
-        &#{$prefix}#{$label} {
-            @content($value);
+        @if $value != null {
+            &#{$prefix}#{$label} {
+                @content($value);
+            }
+        } @else {
+            @content($label);
         }
     }
 }
@@ -53,20 +61,23 @@
 
 
 ///
-/// media query mixin
+/// Historical alias for at().
 ///
 
 @mixin breakpoint($bp, $rule: min-width) {
-    @media screen and (#{$rule}: map-get(variables.$breakpoints, $bp)) {
+    @include at($bp, $rule) {
         @content;
     }
 }
 
 ///
-/// Alias for breakpoint().
+/// Media query mixin. Includes content when matching the breakpoint $bp as
+/// defined in $breakpoints. You can also just pass in a length to create a
+/// one-off breakpoint. It's discouraged, but you can also override the rule
+/// if you're prefer to use max-width instead of min-width.
 ///
 @mixin at($bp, $rule: min-width) {
-    @if map-has-key($variables.$breakpoints, $bp) {
+    @if map-has-key(variables.$breakpoints, $bp) {
         $bp: map-get(variables.$breakpoints, $bp);
     }
     @media screen and (#{$rule}: $bp) {
@@ -75,29 +86,29 @@
 }
 
 ///
+/// Alias for at-each() for those who prefer breakpoint().
+///
+@mixin each-breakpoint($map...) {
+    @include at-each($map...) using ($v) {
+        @content($v);
+    }
+}
+
+///
 /// Quick way to define a bunch of media queries. Example usage:
 ///
-///     @include each-breakpoint(10px, md 20px, lg 30px) using ($margin) {
+///     @include at-each(10px, md 20px, lg 30px) using ($margin) {
 ///         margin-top: $margin;
 ///     }
 ///
-@mixin each-breakpoint($map...) {
+@mixin at-each($map...) {
     @each $bp, $arg in $map {
         @if $arg {
-            @include breakpoint($bp) {
+            @include at($bp) {
                 @content($arg);
             }
         } @else {
             @content($bp);
         }
-    }
-}
-
-///
-/// Alias for each-breakpoint().
-///
-@mixin at-each($map...) {
-    @include each-breakpoint($map...) using ($v) {
-        @content($v);
     }
 }
