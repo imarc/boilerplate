@@ -1,2 +1,1 @@
-This is a legacy mixin that is used as part of the Primary Header
-implementation from Boilerplate 3.
+This is a Vue component, BpDropdown, for implementing dropdowns. It's used in the navigation components in conjunctions with BpDirectinonal.
