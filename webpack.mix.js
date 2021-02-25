@@ -37,20 +37,12 @@ mix.webpackConfig({
                 use: [
                     {
                         loader: 'expose-loader',
-                        options: '$',
+                        options: {
+                            exposes: ['$', 'jQuery'],
+                        },
                     },
                 ],
             },
-        ],
-    },
-
-    watchOptions: {
-        // Custom polling options to reduce CPU usage
-        // when using `npm run watch`
-        poll: Mix.isPolling() ? 1700 : false,
-        aggregateTimeout: 600,
-        ignored: [
-            /^(?!.*resources)/,
         ],
     },
 
@@ -79,7 +71,7 @@ mix.js('resources/js/plugins/stickyHeader.plugin.js', 'js/plugins')
 mix.js('resources/js/plugins/dropdown.plugin.js', 'js/plugins')
 mix.js('resources/js/plugins/tabs.plugin.js', 'js/plugins')
 
-mix.js('resources/js/main.js', 'js')
+mix.js('resources/js/main.js', 'js').vue()
 mix.sass('resources/styles/main.scss', 'css', {
     sassOptions: {
         includePaths: [
