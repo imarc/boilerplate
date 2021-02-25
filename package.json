@@ -34,6 +34,7 @@
     "laravel-mix": "^5.0.4",
     "normalize-scss": "^7.0.1",
     "npm": "^6.14.5",
+    "portal-vue": "^2.1.7",
     "slick-carousel": "^1.8.1",
     "vue": "^2.6.11"
   },
