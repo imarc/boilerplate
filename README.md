@@ -1,47 +1,42 @@
 # Imarc Boilerplate Components &middot; [![Netlify Status](https://api.netlify.com/api/v1/badges/630eeb6d-c075-4953-ba22-e70f98270eb1/deploy-status)](https://app.netlify.com/sites/imarc-boilerplate/deploys)
 
-This is a frontend development framework that includes a curated set of conventions and libraries, including
+A starting-point frontend framework used by Imarc.com employees. Boilerplate Components provides:
 
-* [Sass](https://sass-lang.com) and [Vue](https://vuejs.org/) **components**, built to using
-* [Atomic Design](https://atomicdesign.bradfrost.com/) and [ABEM](https://css-tricks.com/abem-useful-adaptation-bem/) **conventions**, integrated with
-* [Laravel Mix](https://laravel-mix.com/)-based **build scripts**,
-* **starter documentation** and a **pattern library** powered by [Fractal](https://fractal.build/) and [Twig](https://github.com/twigjs/twig.js).
+* common user interface components such as cards, buttons, pagination, etc.
+* a pattern library [(Fractal)](https://fractal.build/) to house your project's components and documentation
+* module bundling and asset compilation via Laravel Mix (a.k.a the build system to compile your JavaScript and Sass)
 
-### **[View it on Netlify](https://imarc-boilerplate.netlify.app/)**
+The goals of Boilerplate Components are:
+* help foster code conformity across all teams
+* help get you started faster
 
-This pairs with [imarc/boilerplate](https://github.com/imarc/boilerplate) as a version that contains with many of the components that were originally just part of that project.
+### **[Demo: View Boilerplate](https://imarc-boilerplate.netlify.app/)**
 
-**imarc/boilerplate** provides a basic pattern library, folder structure, and build files. This repository, **imarc/boilerplate-components**, provides that along with a set of basic components.
+## Getting Started
 
+### Using Boilerplate within a project
 
+#### Setup
 
-Getting Started
----------------
-
-Within a new project, make sure you first have an existing `package.json`. If you don't have one, you can create one by running
-
+Within a new project, make sure you first have an existing `package.json` file the project's root. If you don't have one, you can create one by running:
 ```
 npm init -y
 ```
 
 After that, run
-
 ```
 npx imarc/boilerplate-components
 ```
 
-NPX should automatically copy the resource folder to your project, add dependencies to your package.json, and even add scripts to your package.json file.
+`npx` should automatically copy the resource folder to your project, add dependencies to your package.json, and even add build scripts to your package.json file.
 
+#### Usage
 
-
-Usage
------
-
-After running `npx` above, your project will be automatically setup so you can run
+After running `npx` above, your project will be automatically setup so you can run:
 
 * `npm run dev` to run the development build (make sourcemaps, don't minify, etc.)
-* `npm run prod` to run the production build.
-* `npm run watch` to watches files for changes and automatically re-run the development build.
+* `npm run prod` to run the production build
+* `npm run watch` to watches files for changes and automatically re-run the development build
 
 To locally serve the pattern library:
 
@@ -51,4 +46,8 @@ And lastly, to build the pattern library:
 
 * `npm run fractal build`
 
-You can customize this behavior further by editing either the `webpack.mix.js` or `fractal.config.js` files per the Laravel Mix or Fractal documentation respectively.
+You can customize this behavior by editing either the `webpack.mix.js` or `fractal.config.js` files per the Laravel Mix or Fractal documentation, respectively.
+
+### Contibuting back to Boilerplate Components
+
+Create your own branch from the `next` branch with your suggested edits. Then, submit a pull request so it can be reviewed by the team.
