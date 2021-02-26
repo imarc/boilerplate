@@ -5,7 +5,7 @@
             :open-modal="openModal"
         >
             <button
-                :class="`${block}__openButton`"
+                :class="`${block}__${openButtonElement}`"
                 @click="openModal"
             >
                 Open Modal
@@ -16,17 +16,22 @@
             mount-to="#modal"
             append
         >
-            <div :class="`${block}__overlay`">
+            <div
+                :class="`${block}__${overlayElement}`"
+                @click="clickOut"
+            >
                 <div
-                    :class="`${block}__wrapper`"
+                    ref="modalWrapper"
+                    :class="`${block}__${wrapperElement}`"
                 >
                     <div
                         ref="modalContainer"
-                        :class="`${block}__container`"
+                        :class="`${block}__${containerElement}`"
                     >
                         <div
                             ref="modalContent"
-                            :class="`${block}__content`"
+                            :class="`${block}__${contentElement}`"
+                            tabindex="0"
                         >
                             <slot />
                         </div>
@@ -35,7 +40,7 @@
                             name="loading-spinner"
                         >
                             <img
-                                :class="`${block}__loadingSpinner`"
+                                :class="`${block}__${loadingSpinnerElement}`"
                                 src="/media/spinner.gif"
                                 alt=""
                             >
@@ -46,10 +51,19 @@
                         :close-modal="closeModal"
                     >
                         <button
-                            :class="`${block}__openButton`"
+                            :class="`${block}__${closeButtonElement}`"
                             @click="closeModal"
                         >
                             Close Modal
+                            <svg
+                                :class="`${block}__${closeButtonIconElement}`"
+                                viewBox="0 0 320 512"
+                            >
+                                <path
+                                    fill="currentColor"
+                                    d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"
+                                />
+                            </svg>
                         </button>
                     </slot>
                 </div>
@@ -66,6 +80,46 @@ export default {
             type: String,
             default: 'modal',
         },
+
+        openButtonElement: {
+            type: String,
+            default: 'openButton',
+        },
+
+        overlayElement: {
+            type: String,
+            default: 'overlay',
+        },
+
+        containerElement: {
+            type: String,
+            default: 'container',
+        },
+
+        loadingSpinnerElement: {
+            type: String,
+            default: 'loadingSpinner',
+        },
+
+        contentElement: {
+            type: String,
+            default: 'content',
+        },
+
+        closeButtonElement: {
+            type: String,
+            default: 'closeButton',
+        },
+
+        wrapperElement: {
+            type: String,
+            default: 'wrapper',
+        },
+
+        closeButtonIconElement: {
+            type: String,
+            default: 'closeButtonIcon',
+        },
     },
 
     data: () => ({
@@ -76,25 +130,31 @@ export default {
     methods: {
         async openModal () {
             this.open = true
+            this.lockScroll()
+            window.addEventListener('keyup', this.keyboardEvent)
             await this.handleContent()
             this.loading = false
         },
 
         closeModal () {
+            this.unlockScroll()
             this.open = false
         },
 
         handleContent () {
             return new Promise((resolve, reject) => {
                 this.$nextTick(async () => {
-                    const { innerHTML } = this.$refs.modalContent
+                    const { modalContent } = this.$refs
+                    const { innerHTML } = modalContent
 
                     const parsedDocument = this.htmlDecode(innerHTML)
                     const body = parsedDocument.querySelector('body')
                     const scripts = [...parsedDocument.querySelectorAll('script')]
 
                     scripts.forEach(script => script.remove())
-                    this.$refs.modalContent.innerHTML = body.innerHTML
+                    modalContent.innerHTML = body.innerHTML
+
+                    modalContent.focus()
 
                     if (scripts.length) {
                         await this.loadScripts(scripts)
@@ -147,6 +207,32 @@ export default {
             })
         },
 
+        lockScroll () {
+            const { documentElement, body } = document
+            documentElement.classList.add('-lock')
+            body.classList.add('-lock')
+        },
+
+        unlockScroll () {
+            const { documentElement, body } = document
+            documentElement.classList.remove('-lock')
+            body.classList.remove('-lock')
+        },
+
+        keyboardEvent ({ key }) {
+            if (key === 'Escape') {
+                window.removeEventListener('keyup', this.keyboardEvent)
+                this.closeModal()
+            }
+        },
+
+        clickOut ({ path }) {
+            const { modalWrapper } = this.$refs
+
+            if (!path.includes(modalWrapper)) {
+                this.closeModal()
+            }
+        },
     },
 
 }

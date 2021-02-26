@@ -12,3 +12,12 @@
     transition: height $moderate $entrance-easing;
     overflow: hidden;
 }
+
+// Scroll Lock
+body.-lock,
+html.-lock {
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+    -ms-touch-action: none;
+}
