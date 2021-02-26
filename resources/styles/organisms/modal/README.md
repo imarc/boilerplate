@@ -24,8 +24,7 @@ BpModal also provides some named slots that can be used to override certain elem
 
 * **open-button** - To provide a custom button for opening the modal (`openModal` method is passed through the `open-button` slot prop)
 * **close-button** - To provide a custom button for closing the modal (`closeModal` method is passed through the `close-button` slot prop)
-* **loading-spinner** - the provide a custom spinner
-
+* **loading-spinner** - the provide a custom spinner (`loading` data attribute is passed through the `loading` slot prop)
 #### Parameters
 
 None.

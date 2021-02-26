@@ -38,6 +38,7 @@
                         <slot
                             v-if="loading"
                             name="loading-spinner"
+                            :loading="loading"
                         >
                             <img
                                 :class="`${block}__${loadingSpinnerElement}`"
