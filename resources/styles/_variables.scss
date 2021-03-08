@@ -7,11 +7,12 @@ $gutter: 30px !default;
 $columns: 12 !default;
 
 ///
-/// This is the default font stack.
+/// Default font stack, size, line-height
 ///
 
 $font-stack: Arial, sans-serif !default;
-
+$base-font-size: 1rem;
+$base-line-height: 1.5;
 
 ///
 /// Color Scales
