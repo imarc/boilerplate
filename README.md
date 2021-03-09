@@ -2,7 +2,7 @@
 
 This is a front-end development framework that includes a curated set of conventions and libraries, including
 
-* [Sass](https://sass-lang.com) and [Vue](https://vuejs.org/) **components**, built to using
+* [Sass](https://sass-lang.com) and [Vue](https://vuejs.org/) **components**, built using
 * [Atomic Design](https://atomicdesign.bradfrost.com/) and [ABEM](https://css-tricks.com/abem-useful-adaptation-bem/) **conventions**, integrated with
 * [Laravel Mix](https://laravel-mix.com/)-based **build scripts**,
 * **starter documentation** and a **pattern library** powered by [Fractal](https://fractal.build/) and [Twig](https://github.com/twigjs/twig.js).
