@@ -1,18 +1,29 @@
 # Imarc Boilerplate Components &middot; [![Netlify Status](https://api.netlify.com/api/v1/badges/630eeb6d-c075-4953-ba22-e70f98270eb1/deploy-status)](https://app.netlify.com/sites/imarc-boilerplate/deploys)
 
-This is a frontend development framework that includes a curated set of conventions and libraries, including
+This is a front-end development framework that includes a curated set of conventions and libraries, including
 
 * [Sass](https://sass-lang.com) and [Vue](https://vuejs.org/) **components**, built to using
 * [Atomic Design](https://atomicdesign.bradfrost.com/) and [ABEM](https://css-tricks.com/abem-useful-adaptation-bem/) **conventions**, integrated with
 * [Laravel Mix](https://laravel-mix.com/)-based **build scripts**,
 * **starter documentation** and a **pattern library** powered by [Fractal](https://fractal.build/) and [Twig](https://github.com/twigjs/twig.js).
 
-### **[View it on Netlify](https://imarc-boilerplate.netlify.app/)**
+### **[View Boilerplate](https://imarc-boilerplate.netlify.app/)**
 
-This pairs with [imarc/boilerplate](https://github.com/imarc/boilerplate) as a version that contains with many of the components that were originally just part of that project.
 
-**imarc/boilerplate** provides a basic pattern library, folder structure, and build files. This repository, **imarc/boilerplate-components**, provides that along with a set of basic components.
+Framework, not a Library
+------------------------
 
+Unlike traditional libraries, The code included within Boilerplate is *scaffolded* into your project so you can adapt it to do your needs. It adds a fractal.config.js, webpack.mix.js, as well as everything in the resources/ folder to your project. [Learn more about Boilerplate's structure.](https://imarc-boilerplate.netlify.app/pattern-library/docs/structure.html)
+
+Goals
+-----
+
+See [GOALS.](.github/GOALS.md).
+
+Contributing
+------------
+
+See [CONTRIBUTING.](.github/CONTRIBUTING.md).
 
 
 Getting Started
@@ -30,7 +41,7 @@ After that, run
 npx imarc/boilerplate-components
 ```
 
-NPX should automatically copy the resource folder to your project, add dependencies to your package.json, and even add scripts to your package.json file.
+`npx` automatically installs Boilerplate and copies fractal.config.js, webpack.mix.js, and the resources/ folder to your project. It also adds dependencies and scripts to your package.json.
 
 
 
@@ -45,7 +56,7 @@ After running `npx` above, your project will be automatically setup so you can r
 
 To locally serve the pattern library:
 
-* `npm run fractal start -w` to run a local server and watch for changes
+* `npm run fractal start` to run a local server and watch for changes
 
 And lastly, to build the pattern library:
 
