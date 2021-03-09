@@ -1,10 +1,8 @@
 ///
 /// For messages to the user.
 ///
-/// @character
-///     Font awesome character to show.
 /// @color
-///     Dominant color.
+///     Icon color.
 /// @link-color
 ///     Optionally override the default link color.
 /// @link-hover-color
@@ -12,9 +10,9 @@
 ///
 @mixin messaging (
     $color: $info,
-    $font-size: $base-font-size,
+    $font-size: $body-font-size,
     $icon-size: 1.5rem,
-    $line-height: $base-line-height,
+    $line-height: $body-line-height,
     $link-color: inherit,
     $link-hover-color: inherit
 ) {
@@ -34,8 +32,10 @@
         height: $icon-size;
         flex-shrink: 0;
         margin-right: 1.618rem;
-        transform: translateY(($leading - $icon-size) / 2);
         width: $icon-size;
+        @if $leading != $icon-size {
+            transform: translateY(($leading - $icon-size) / 2);
+        }
     }
 
     &__content {
