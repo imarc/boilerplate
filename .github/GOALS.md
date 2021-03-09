@@ -14,7 +14,7 @@ Boilerplate povides
 * a consistent pattern library, and
 * good solutions of common components.
 
-Most projects will need all of these and the tools and languages we use are unopinionated. Boilerplate pairs a selection of libraries with a selection of methodologies and conventions so that jump right into functionality and not re-visit conventions.
+Most projects will need all of these and the tools and languages we use are unopinionated. Boilerplate pairs a selection of libraries with a selection of conventions, so that you can jump right into building functionality.
 
 
 ## Boilerplate Solutions to Common Problems
