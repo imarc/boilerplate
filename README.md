@@ -18,12 +18,12 @@ Unlike traditional libraries, The code included within Boilerplate is *scaffolde
 Goals
 -----
 
-See [GOALS.](.github/GOALS.md).
+See [GOALS.](.github/GOALS.md)
 
 Contributing
 ------------
 
-See [CONTRIBUTING.](.github/CONTRIBUTING.md).
+See [CONTRIBUTING.](.github/CONTRIBUTING.md)
 
 
 Getting Started
