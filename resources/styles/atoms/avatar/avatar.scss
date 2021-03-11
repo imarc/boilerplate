@@ -8,11 +8,11 @@
     text-align: center;
 
     &__info {
-        padding: 1rem;
+        padding: $thin-padding;
     }
 
     &__name {
-        margin: 1rem 0 .25rem;
+        margin-bottom: .25rem;
         font-size: 1.25rem;
         font-weight: bold;
     }

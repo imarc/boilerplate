@@ -10,6 +10,8 @@
     $color: $meta-text,
     $hover-color: $link-hover,
 ) {
+    $b: &;
+
     &__list {
         display: flex;
         list-style: none;
@@ -24,7 +26,11 @@
     &__link {
         color: $color;
         display: block;
-        padding: .618em .809em;
+        padding: $thin-v-space #{$thin-h-space/2};
+
+        #{$b}__item:first-child & {
+            margin-left: -#{$thin-h-space/2};
+        }
 
         &:hover {
             color: $hover-color;

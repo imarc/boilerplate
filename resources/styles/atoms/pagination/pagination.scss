@@ -38,7 +38,7 @@
         color: $text-color;
         display: block;
         font-weight: bold;
-        padding: 0.618rem 1rem;
+        padding: $thin-padding;
         position: relative;
         transition: background-color $fast $fade-easing,
             color $fast $fade-easing;

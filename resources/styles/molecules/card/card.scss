@@ -9,7 +9,7 @@
     grid-template-areas: "icon" "headline" "content" "actions";
     grid-template-columns: auto;
     grid-template-rows: auto auto 1fr auto;
-    margin-bottom: 2rem;
+    margin-bottom: $v-space;
     z-index: 1;
 
     &__icon,
@@ -17,13 +17,13 @@
     &__content,
     &__actions {
         justify-self: center; // For IE11 (instead of justify-items)
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: $h-space;
+        padding-right: $h-space;
     }
 
     &__icon {
         grid-area: icon;
-        padding-top: 2rem;
+        padding-top: $v-space;
         text-align: center; // For IE11
     }
 
@@ -52,7 +52,7 @@
         justify-content: center;
         justify-self: stretch;
         margin-top: auto;
-        padding-bottom: 2rem;
+        padding-bottom: $v-space;
 
         &.-attached {
             justify-content: stretch;

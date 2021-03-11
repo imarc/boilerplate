@@ -25,13 +25,13 @@
     font-size: $font-size;
     line-height: $line-height;
     margin-bottom: 2rem;
-    padding: 1rem 1.618rem;
+    padding: $padding;
     display: flex;
 
     &__icon {
         height: $icon-size;
         flex-shrink: 0;
-        margin-right: 1.618rem;
+        margin-right: $h-space;
         width: $icon-size;
         @if $leading != $icon-size {
             transform: translateY(($leading - $icon-size) / 2);

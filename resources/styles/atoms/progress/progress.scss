@@ -8,18 +8,18 @@
         position: relative;
 
         &::before {
-            border-left: .5rem solid $blue-300;
-            bottom: 1rem;
+            border-left: .5em solid $blue-300;
+            bottom: 1em;
             content: '';
-            left: .75rem;
+            left: .75em;
             position: absolute;
-            top: 1rem;
+            top: 1em;
             z-index: -1;
         }
     }
 
     &__item {
-        margin-bottom: 1rem;
+        margin-bottom: 1em;
     }
 
     &__link {
@@ -42,11 +42,11 @@
 
     &__icon {
         background-color: $blue-300;
-        border-radius: 2rem;
+        border-radius: 2em;
         color: $white;
         height: 2em;
-        margin-right: 1rem;
-        padding: .25rem;
+        margin-right: $thin-h-space;
+        padding: .25em;
         transition: transform $fade-easing $fast;
         vertical-align: middle;
         width: 2em;
@@ -69,16 +69,16 @@
             align-items: center;
             display: flex;
             flex-flow: column nowrap;
-            padding: 1rem;
+            padding: $padding;
             position: relative;
 
             &::before {
                 content: '';
-                border-top: .5rem solid $blue-300;
+                border-top: .5em solid $blue-300;
                 position: absolute;
                 left: 0;
                 right: 0;
-                top: 1.75rem;
+                top: #{$v-space + .75em};
                 z-index: -1;
 
                 .progress__item:first-child & {
@@ -94,7 +94,7 @@
 
         &__icon {
             margin-right: 0;
-            margin-bottom: 1rem;
+            margin-bottom: $v-space;
         }
     }
 }

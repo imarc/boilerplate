@@ -17,7 +17,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: .618rem 1rem;
+        padding: $thin-padding;
     }
 
     &__heading {
@@ -26,7 +26,7 @@
 
     &__content {
         border-top: 1px solid $gray-100;
-        padding: .618rem 0;
+        padding: $thin-v-space 0;
         margin: 0 1rem;
     }
 

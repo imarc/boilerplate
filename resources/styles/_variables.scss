@@ -15,6 +15,22 @@ $body-font-size: 1rem;
 $body-line-height: 1.5;
 
 ///
+/// Default padding. Used for components like buttons, cards, and primary nav items.
+///
+
+$v-space: 1em;
+$h-space: 1.618em;
+$padding: $v-space $h-space;
+
+///
+/// Thin padding. Used for components like breadcrumbs, radios, and within dropdowns.
+///
+
+$thin-v-space: .618em;
+$thin-h-space: 1em;
+$thin-padding: $thin-v-space $thin-h-space;
+
+///
 /// Color Scales
 ///
 @use 'colors' as *;
