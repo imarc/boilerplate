@@ -124,9 +124,3 @@ $moderate: 240ms;
 /// and background fades.
 ///
 $slow: 400ms;
-
-
-///
-/// If this is turned off, component mixins are included but not their CSS classnames.
-///
-$use-boilerplate-classes: true !default;
