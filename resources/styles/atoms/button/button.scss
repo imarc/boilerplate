@@ -21,7 +21,7 @@
     cursor: pointer;
     display: inline-block;
     font-family: inherit;
-    padding: 1rem 1.618em;
+    padding: $padding;
     text-align: center;
     transition: box-shadow $fast $fade-easing,
         background-color $fast $fade-easing,

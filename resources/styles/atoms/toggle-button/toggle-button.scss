@@ -25,7 +25,7 @@
     &__label {
         display: block;
         user-select: none;
-        padding: 0.618em 1em 0.618em .618em;
+        padding: $thin-padding;
     }
 
     &__checkbox {
@@ -78,10 +78,6 @@
 
     &.-blank {
         border: 2px solid $color;
-
-        #{$b}__label {
-            padding-left: 1em;
-        }
 
         #{$b}.-checked #{$b}__label,
         #{$b}__input:checked ~ #{$b}__label {

@@ -12,7 +12,7 @@
 
     &__link {
         display: block;
-        padding: 1rem 1.618rem;
+        padding: $padding;
         font-weight: bold;
     }
 }
@@ -34,6 +34,6 @@
 
     &__link {
         display: block;
-        padding: .618rem 1rem;
+        padding: $thin-padding;
     }
 }

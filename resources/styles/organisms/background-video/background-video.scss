@@ -16,7 +16,7 @@
 
     &__backdrop {
         background-color: $background;
-        padding: 2em;
+        padding: $padding;
         text-align: center;
         z-index: 2;
     }
