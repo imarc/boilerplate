@@ -10,6 +10,7 @@ import BpAccordion from '../styles/molecules/accordion/BpAccordion'
 import BpTabs from '../styles/molecules/tabs/BpTabs'
 import BpDirectional from '../styles/utilities/directional/BpDirectional'
 import BpDropdown from '../styles/atoms/dropdown/BpDropdown'
+import BpMobileNavigation from '../styles/organisms/mobile-navigation/BpMobileNavigation'
 import BpModal from '../styles/organisms/modal/BpModal'
 
 import Vue from 'vue'
@@ -24,6 +25,7 @@ new Vue({
         BpDirectional,
         BpTabs,
         BpDropdown,
+        BpMobileNavigation,
         BpModal,
     },
 })

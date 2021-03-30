@@ -33,6 +33,7 @@
     "jquery": "^3.5.1",
     "jsonfile": "^6.0.1",
     "laravel-mix": "^6.0.11",
+    "mmenu-light": "^3.0.8",
     "normalize-scss": "^7.0.1",
     "npm": "^6.14.5",
     "portal-vue": "^2.1.7",
