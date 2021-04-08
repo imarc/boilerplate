@@ -1,7 +1,9 @@
 .primaryNav {
+    display: none;
+
     &__list {
         list-style: none;
-        margin-bottom: 0;
+        margin: 0;
         padding-left: 0;
         display: flex;
     }
@@ -15,25 +17,8 @@
         padding: $padding;
         font-weight: bold;
     }
-}
 
-.linkGroups {
-    display: flex;
-}
-
-.linkGroup {
-    &__list {
-        list-style: none;
-        padding-left: 0;
-        margin-bottom: 0;
-    }
-
-    &__item {
-        margin-bottom: 0;
-    }
-
-    &__link {
+    @include at(lg) {
         display: block;
-        padding: $thin-padding;
     }
 }

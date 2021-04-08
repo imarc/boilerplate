@@ -16,4 +16,8 @@
         width: 1.5rem;
         height: 1.5rem;
     }
+
+    @include at(lg) {
+        display: none;
+    }
 }
