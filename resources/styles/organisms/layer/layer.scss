@@ -45,7 +45,7 @@
         color: $white;
 
         .layer__background::before {
-            background: linear-gradient(90deg, $blue-900 calc(50% - min(#{$container / 2}, 50vw)), transparent);
+            background: linear-gradient(to right, $blue-900 calc(50% - min(#{$container / 2}, 50vw)), transparent);
             bottom: 0;
             content: '';
             left: 0;
