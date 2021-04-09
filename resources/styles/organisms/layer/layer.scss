@@ -1,3 +1,50 @@
 .layer {
-    padding: 5em 0;
+    align-items: center;
+    display: grid;
+    grid-template-areas: "stack";
+
+    &__container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        width: 100%;
+    }
+
+    &__background,
+    &__container {
+        grid-area: stack;
+    }
+
+    &__background {
+        position: relative;
+    }
+
+    &__backgroundImg {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    &__heading,
+    &__subheading {
+        margin-bottom: 0;
+    }
+
+    &__title {
+        margin-bottom: 2rem;
+    }
+
+
+    &.-dark {
+        color: $white;
+
+        .layer__background::before {
+            background: linear-gradient(90deg, $blue-900 calc(50% - min(#{$container / 2}, 50vw)), transparent);
+            bottom: 0;
+            content: '';
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
 }
