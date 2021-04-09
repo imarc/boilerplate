@@ -2,9 +2,7 @@
     display: none;
 
     &__list {
-        list-style: none;
-        margin: 0;
-        padding-left: 0;
+        @include no-bullets;
         display: flex;
     }
 
@@ -14,7 +12,7 @@
 
     &__link {
         display: block;
-        padding: $padding;
+        padding: 1.5rem $h-space;
         font-weight: bold;
     }
 
