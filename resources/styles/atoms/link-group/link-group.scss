@@ -1,8 +1,17 @@
 .linkGroup {
+    &__title {
+        font-weight: bold;
+        padding: $thin-v-space 0;
+    }
+
     &__list {
         list-style: none;
         padding-left: 0;
         margin-bottom: 0;
+
+        &.-span-2 {
+            columns: 2;
+        }
     }
 
     &__item {
@@ -11,6 +20,10 @@
 
     &__link {
         display: block;
-        padding: $thin-padding;
+        padding: $thin-v-space 0;
+    }
+
+    & + & {
+        margin-left: 3rem;
     }
 }
