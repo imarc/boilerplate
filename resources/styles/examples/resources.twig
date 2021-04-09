@@ -1,21 +1,19 @@
 {% render "@site-header" %}
 
 <main>
-    <section>
-        <div class="container">
+    <section class="layer">
+        <div class="layer__container container">
             <h1>Resources</h1>
         </div>
     </section>
 
+    <section class="layer results">
+        <div class="layer__container container">
 
-    <section class="filters">
-        <div class="container">
-            {% render "@search" %}
-        </div>
-    </section>
+            <div class="filters">
+                {% render "@search" %}
+            </div>
 
-    <section class="results">
-        <div class="container">
             <div class="cards">
                 <div class="cards__card card">
                     <div class="card__icon">
@@ -144,3 +142,5 @@
         </div>
     </section>
 </main>
+
+{% render "@site-footer" %}
