@@ -45,4 +45,16 @@
             margin-left: .5rem;
         }
     }
+
+    &__utility {
+        color: $gray-300;
+        display: flex;
+        font-size: .875rem;
+        justify-content: space-between;
+        padding-top: 2rem;
+
+        a {
+            color: $gray-300;
+        }
+    }
 }
