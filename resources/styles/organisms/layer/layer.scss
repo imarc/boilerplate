@@ -7,6 +7,12 @@
         padding-top: 2rem;
         padding-bottom: 2rem;
         width: 100%;
+
+        &.-pull-left {
+            @include at-each(md 33.33%, lg $container/3) using ($padding) {
+                padding-right: $padding;
+            }
+        }
     }
 
     &__background,
@@ -15,6 +21,7 @@
     }
 
     &__background {
+        align-self: stretch;
         position: relative;
     }
 
