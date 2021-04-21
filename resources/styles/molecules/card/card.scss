@@ -19,6 +19,7 @@
         justify-self: center; // For IE11 (instead of justify-items)
         padding-left: $h-space;
         padding-right: $h-space;
+        position: relative;
     }
 
     &__icon {
@@ -42,7 +43,6 @@
         grid-row: icon / headline;
         height: 100%;
         justify-self: stretch;
-        z-index: -1;
     }
 
     &__actions {

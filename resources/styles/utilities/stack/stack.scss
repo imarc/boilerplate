@@ -1,0 +1,12 @@
+@mixin stack {
+    display: grid;
+    grid-template-areas: "stack";
+
+    > * {
+        grid-area: stack;
+    }
+}
+
+.stack {
+    @include stack;
+}

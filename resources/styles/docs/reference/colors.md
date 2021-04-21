@@ -25,6 +25,8 @@ The color scales provided by Boilerplate all follow the same (CIECAM02) contrast
 
 Just based on the number, you can safely use 400 or higher for headlines and 500 or higher for body text. This is overkill for nearly any project, but it's worth keeping some basic WCAG considerations such as contrast in mind while choosing colors.
 
+All the colors were generated using [Leonardo](https://leonardocolor.io/), a tool made by Adobe. While not required, it's recommended that we continue the convention that 100–600 have sufficient contrast to use against black and  400–900 have sufficeint contrast to use against white. Using a tool like Leonardo is a great way to generate this scale if you need one, but it's not automated so each shade can be picked individually as well.
+
 
 
 ## Site Colors
