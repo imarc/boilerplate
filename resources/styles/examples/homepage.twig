@@ -11,7 +11,7 @@
                 <h1 class="layer__heading">You're reading a headline.</h1>
                 <h2 class="layer__subheading">Now you're reading the subheadline instead.</h2>
             </div>
-            <div class="layer__introduction">
+            <div class="layer__introduction -emphasized">
                 <p>
                     Lorem sed molestias possimus impedit accusantium, nostrum?
                     Delectus adipisci odio impedit.
@@ -24,6 +24,8 @@
             </div>
         </div>
     </section>
+
+    {% render "@layer--introduction" %}
 
     {% render "@layer--two-column" %}
 </main>

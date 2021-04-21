@@ -40,6 +40,13 @@
         margin-bottom: 2rem;
     }
 
+    &__introduction {
+
+        &.-emphasized {
+            font-size: 1.125rem;
+        }
+    }
+
 
     &.-dark {
         color: $white;
