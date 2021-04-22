@@ -14,9 +14,9 @@
     overflow: hidden;
     position: relative;
 
-    &.-overlay:after {
+    &.-overlay::after {
         content: "";
-        background:linear-gradient(to right,rgba(65, 0, 255, 0.8),rgba(255, 0, 232, 0.8));
+        background: linear-gradient(to right,rgba(65, 0, 255, 0.8),rgba(255, 0, 232, 0.8));
         position: absolute;
         display: block;
         mix-blend-mode: multiply;
