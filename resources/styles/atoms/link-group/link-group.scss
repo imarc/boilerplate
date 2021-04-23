@@ -9,8 +9,13 @@
         padding-left: 0;
         margin-bottom: 0;
 
-        &.-span-2 {
+        &.-wide {
             columns: 2;
+            column-gap: 1.5rem;
+
+            .linkGroup__link {
+                break-inside: avoid;
+            }
         }
     }
 
