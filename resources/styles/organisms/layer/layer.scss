@@ -31,13 +31,13 @@
         width: 100%;
     }
 
+    &__header {
+        margin-bottom: 2rem;
+    }
+
     &__heading,
     &__subheading {
         margin-bottom: 0;
-    }
-
-    &__title {
-        margin-bottom: 2rem;
     }
 
     &__introduction {

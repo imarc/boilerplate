@@ -5,7 +5,7 @@
         color: $white;
         text-align: center;
 
-        .layer__cta {
+        .layer__action {
             @include button($white, $primary);
             font-weight: bold;
         }
