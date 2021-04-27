@@ -17,6 +17,10 @@
                 break-inside: avoid;
             }
         }
+
+        &.-secondary {
+            margin-bottom: 2rem;
+        }
     }
 
     &__item {
