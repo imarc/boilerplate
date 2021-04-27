@@ -11,10 +11,12 @@ const packageJsonPath = path.resolve('./package.json')
 
 const scripts = {
     fractal: 'fractal',
-    dev: 'cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js',
-    prod: 'cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js',
-    watch: 'cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --watch-poll --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js',
-    'watch:event': 'cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js',
+    dev: "mix",
+    prod: "mix --production",
+    watch: "mix watch",
+    "watch-poll": "mix watch -- -- watch-options-poll=1000",
+    hot: "mix watch --hot",
+    build: "npm run prod && npm run fractal build"
 }
 
 // Add the dependency
