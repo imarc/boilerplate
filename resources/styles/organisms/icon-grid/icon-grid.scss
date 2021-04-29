@@ -1,0 +1,12 @@
+.iconGrid {
+    $b: &;
+
+    &__container {
+        @include grid($max-columns: 5, $element: "#{$b}__icon");
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+    }
+}
