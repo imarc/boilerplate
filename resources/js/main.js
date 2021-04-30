@@ -1,10 +1,12 @@
 import 'slick-carousel'
+import 'lazysizes'
+import PortalVue from 'portal-vue'
+
 import './plugins/dropdown.plugin'
 import './plugins/mobileNavigation.plugin'
 import './plugins/stickyElement.plugin'
 import './plugins/stickyHeader.plugin'
 import './plugins/tabs.plugin'
-import PortalVue from 'portal-vue'
 
 import BpAccordion from '../styles/molecules/accordion/BpAccordion'
 import BpTabs from '../styles/molecules/tabs/BpTabs'

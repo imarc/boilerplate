@@ -25,6 +25,11 @@ img {
     max-width: 100%;
     vertical-align: middle;
     height: auto;
+
+    &[data-sizes="auto"] {
+        display: block;
+        width: 100%;
+    }
 }
 
 ::selection {
