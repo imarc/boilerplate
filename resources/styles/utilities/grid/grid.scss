@@ -21,7 +21,7 @@
 
 @import "candlepin";
 
-@mixin grid($gutter: $gutter, $vertical-gutter: $gutter, $element: "#{&}__item") {
+@mixin grid($max-columns: 4, $gutter: $gutter, $vertical-gutter: $gutter, $element: "#{&}__item") {
     display: flex;
     flex-wrap: wrap;
 
@@ -30,14 +30,14 @@
         margin-bottom: $gutter;
 
         @include at(md) {
-            @include wrap(1, 2, $gutter);
+            @include wrap(1, $max-columns - 2, $gutter);
             flex-grow: 0;
         }
         @include at(lg) {
-            @include wrap(1, 3, $gutter);
+            @include wrap(1, $max-columns - 1, $gutter);
         }
         @include at(xl) {
-            @include wrap(1, 4, $gutter);
+            @include wrap(1, $max-columns, $gutter);
         }
     }
 }

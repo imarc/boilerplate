@@ -4,21 +4,25 @@
 @mixin card() {
     background-color: $white;
     box-shadow: $med-shadow;
-    display: grid;
-    grid-gap: 1em;
-    grid-template-areas: "icon" "headline" "content" "actions";
-    grid-template-columns: auto;
-    grid-template-rows: auto auto 1fr auto;
     margin-bottom: $v-space;
     z-index: 1;
 
+    &__container {
+        display: grid;
+        grid-gap: 1em;
+        grid-template-areas: "icon" "heading" "content" "actions";
+        grid-template-columns: auto;
+        grid-template-rows: auto auto 1fr auto;
+    }
+
     &__icon,
-    &__headline,
+    &__heading,
     &__content,
     &__actions {
         justify-self: center; // For IE11 (instead of justify-items)
         padding-left: $h-space;
         padding-right: $h-space;
+        position: relative;
     }
 
     &__icon {
@@ -27,8 +31,8 @@
         text-align: center; // For IE11
     }
 
-    &__headline {
-        grid-area: headline;
+    &__heading {
+        grid-area: heading;
     }
 
     &__content {
@@ -39,10 +43,9 @@
     &__background {
         background: $gray-100 center/cover;
         grid-column: 1;
-        grid-row: icon / headline;
+        grid-row: icon / heading;
         height: 100%;
         justify-self: stretch;
-        z-index: -1;
     }
 
     &__actions {
