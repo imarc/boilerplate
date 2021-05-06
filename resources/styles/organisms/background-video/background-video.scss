@@ -14,10 +14,24 @@
     overflow: hidden;
     position: relative;
 
-    &::before {
+    &.-overlay::after {
         content: "";
+        background: linear-gradient(to right,rgba(65, 0, 255, 0.8),rgba(255, 0, 232, 0.8));
+        position: absolute;
         display: block;
-        padding-top: 30%;
+        mix-blend-mode: multiply;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+    }
+
+    &__backdrop {
+        background-color: $background;
+        padding: $padding;
+        text-align: center;
+        z-index: 2;
     }
 
     &__video {
@@ -26,11 +40,11 @@
         top: 0;
         width: 100%;
     }
-
-    &__backdrop {
-        background-color: $background;
-        padding: $padding;
-        text-align: center;
+  
+     &::before {
+        content: "";
+        display: block;
+        padding-top: 30%;
     }
 }
 
