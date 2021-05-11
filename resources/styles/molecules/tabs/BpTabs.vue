@@ -17,8 +17,10 @@
                         @click="selectTab(tab)"
                         @keyup.enter="selectTab(tab)"
                         @keyup.space="selectTab(tab)"
-                        @keyup.right="navigateNextTab"
-                        @keyup.left="navigatePrevTab"
+                        @keyup.right="vertical ? null : navigateNextTab($event)"
+                        @keyup.left="vertical ? null : navigatePrevTab($event)"
+                        @keydown.down="vertical ? navigateNextTab($event) : null"
+                        @keydown.up="vertical ? navigatePrevTab($event) : null"
                         @focus="setFocusTab(tab)"
                         v-text="tabTitle"
                     />
@@ -88,6 +90,16 @@ export default {
             type: Boolean,
             default: true,
         },
+        vertical: {
+            type: Boolean,
+            default: false,
+        },
+        wrap: {
+            type: Boolean,
+            default() {
+                return !this.vertical;
+            },
+        }
     },
 
     data () {
@@ -112,12 +124,12 @@ export default {
         },
         nextTabKey () {
             return this.currentFocusTab === this.lastTabKey
-                ? this.firstTabKey
+                ? (this.wrap ? this.firstTabKey : null)
                 : this.tabKeys[this.currentFocusTabIndex + 1]
         },
         prevTabKey () {
             return this.currentFocusTabIndex === 0
-                ? this.lastTabKey
+                ? (this.wrap ? this.lastTabKey : null)
                 : this.tabKeys[this.currentFocusTabIndex - 1]
         },
     },
@@ -160,13 +172,19 @@ export default {
         isFocusedTab (tab) {
             return this.currentFocusTab === tab
         },
-        navigateNextTab () {
-            const nextTabButton = this.$el.querySelector(`[id="${this.nextTabKey}"]`)
-            nextTabButton.focus()
+        navigateNextTab (evt) {
+            if (this.nextTabKey) {
+                evt.preventDefault();
+                const nextTabButton = this.$el.querySelector(`[id="${this.nextTabKey}"]`)
+                nextTabButton.focus()
+            }
         },
-        navigatePrevTab () {
-            const prevTabButton = this.$el.querySelector(`[id="${this.prevTabKey}"]`)
-            prevTabButton.focus()
+        navigatePrevTab (evt) {
+            if (this.prevTabKey) {
+                evt.preventDefault();
+                const prevTabButton = this.$el.querySelector(`[id="${this.prevTabKey}"]`)
+                prevTabButton.focus()
+            }
         },
         attachKeyboardListeners () {
             const firstTabEl = this.$el.querySelector(`[id="${this.firstTabKey}"]`)

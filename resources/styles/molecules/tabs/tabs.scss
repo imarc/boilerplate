@@ -7,6 +7,8 @@
 ///
 
 @mixin tabs() {
+    $b: &;
+
     &__list {
         @include no-bullets;
         display: flex;
@@ -44,6 +46,52 @@
         border-bottom: none;
         box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.57), 0 0 3.6px rgba(0, 0, 0, 0.083), 0 0 16px rgba(0, 0, 0, 0.14);
         z-index: 1;
+    }
+
+    &.-vertical {
+        @include at(md) {
+            display: flex;
+            justify-content: space-between;
+
+            #{$b}__header {
+                width: span(1, 3);
+            }
+
+            #{$b}__list {
+                flex-direction: column;
+
+                &::before,
+                &::after {
+                    content: none;
+                }
+            }
+
+            #{$b}__tab {
+                border-radius: 0;
+                border: 0;
+                box-shadow: .25rem 0 0 inset;
+                margin: 0 0 .5rem;
+
+                &.-active {
+                    box-shadow: .5rem 0 0 $primary inset;
+
+                    #{$b}__button {
+                        color: $primary;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            /*
+            #{$b}__button {
+                width: 100%;
+            }
+            */
+
+            #{$b}__panel {
+                width: span(2, 3);
+            }
+        }
     }
 }
 
