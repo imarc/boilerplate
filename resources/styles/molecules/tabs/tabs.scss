@@ -37,6 +37,7 @@
     &__button {
         border: none;
         background: none;
+        cursor: pointer;
         padding: $thin-v-space $h-space;
     }
 
@@ -48,7 +49,26 @@
         z-index: 1;
     }
 
+    &__panel {
+        padding-top: .5rem;
+    }
+
     &.-vertical {
+
+        #{$b}__tab {
+            border-radius: 0;
+            border: 0;
+            box-shadow: 0 -.125rem 0 inset;
+
+            &.-active {
+                box-shadow: 0 -.25rem 0 $primary inset;
+
+                #{$b}__button {
+                    color: $primary;
+                }
+            }
+        }
+
         @include at(md) {
             display: flex;
             justify-content: space-between;
@@ -67,28 +87,21 @@
             }
 
             #{$b}__tab {
-                border-radius: 0;
-                border: 0;
                 box-shadow: .25rem 0 0 inset;
                 margin: 0 0 .5rem;
 
                 &.-active {
                     box-shadow: .5rem 0 0 $primary inset;
-
-                    #{$b}__button {
-                        color: $primary;
-                        font-weight: bold;
-                    }
                 }
             }
 
-            /*
             #{$b}__button {
+                text-align: left;
                 width: 100%;
             }
-            */
 
             #{$b}__panel {
+                padding-top: 0;
                 width: span(2, 3);
             }
         }
