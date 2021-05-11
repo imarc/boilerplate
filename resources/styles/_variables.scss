@@ -18,7 +18,7 @@ $body-line-height: 1.5;
 /// Heading font stack, line-height
 ///
 $heading-font-stack: system-ui, sans-serif !default;
-$heading-line-height: 1.2;
+$heading-line-height: 1;
 
 ///
 /// Regular padding. Used for components like buttons, cards, and primary nav items.
@@ -106,9 +106,9 @@ $color-modifiers: (
 ///
 
 $breakpoints: (
-  md: 576px,
-  lg: 1024px,
-  xl: 1200px
+  md: 696px,
+  lg: 992px,
+  xl: 1288px,
 ) !default;
 
 

@@ -1,8 +1,8 @@
 ```
 $breakpoints: (
-  md: 576px,
-  lg: 1024px,
-  xl: 1200px
+  md: 696px,
+  lg: 992px,
+  xl: 1288px,
 ) !default;
 ```
 
