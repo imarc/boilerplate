@@ -3,8 +3,8 @@ order: 1
 ---
 
 ```
-$container: 1200px !default;
-$gutter: 30px !default;
+$container: 1288px !default;
+$gutter: 40px !default;
 $columns: 12 !default;
 ```
 
@@ -26,7 +26,7 @@ Best practice for using container is to use either the mixin or the class:
     // ...
 ```
 
-This sets a max width, padding, margins, and `position: relative`. Note that because Boilerplate sets a default box-sizing of border-box, the paddings are included in the max width: so, 1200px with 30px gutters gives you 1140px for your content.
+This sets a max width, padding, margins, and `position: relative`. Note that because Boilerplate sets a default box-sizing of border-box, the paddings are included in the max width: so, 1288px with 40px gutters gives you 1208px for your content.
 
 
 
