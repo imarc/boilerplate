@@ -13,6 +13,7 @@
     line-height: normal;
     padding: 0;
     text-decoration: none;
+    transition: color variables.$fade-easing variables.$fast;
 
     &:hover,
     &:active {

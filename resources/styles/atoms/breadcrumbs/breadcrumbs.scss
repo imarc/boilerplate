@@ -27,6 +27,7 @@
         color: $color;
         display: block;
         padding: $thin-v-space #{$thin-h-space/2};
+        transition: color $fade-easing $fast;
 
         #{$b}__item:first-child & {
             margin-left: -#{$thin-h-space/2};

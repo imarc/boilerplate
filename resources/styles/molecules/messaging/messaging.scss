@@ -45,6 +45,7 @@
     a {
         color: $link-color;
         text-decoration: underline;
+        transition: color $fade-easing $fast;
 
         &:hover {
             color: $link-hover-color;
