@@ -25,9 +25,11 @@
         </div>
     </section>
 
-    {% render "@layer--introduction" %}
+    {% render "@layer--introduction"%}
 
-    {% render "@layer--two-column" %}
+    {% render "@layer--two-column" with { class: "-lightGray" } %}
+    {% render "@layer--two-column-image" %}
+    {% render "@layer--two-column-video" with { class: "-lightGray" } %}
 </main>
 
 {% render "@site-footer" %}
