@@ -4,8 +4,8 @@
     grid-template-areas: "stack";
 
     &__container {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
         width: 100%;
 
         &.-pull-left {
@@ -60,5 +60,14 @@
             right: 0;
             top: 0;
         }
+    }
+
+    @include color-modifiers((
+        primary,
+        secondary,
+        lightGray $gray-100,
+    )) using ($color) {
+        background-color: $color;
+        color: blackwhite($color);
     }
 }
