@@ -25,13 +25,15 @@
                     </slot>
                 </button>
             </a>
-            <div
-                :id="id"
-                class="dropdown__content"
-                @keydown.esc.prevent="close"
-            >
-                <slot />
-            </div>
+            <transition :name="transition">
+                <div v-if="expanded"
+                    :id="id"
+                    class="dropdown__content"
+                    @keydown.esc.prevent="close"
+                >
+                    <slot />
+                </div>
+            </transition>
         </div>
     </bp-directional>
 </template>
@@ -60,18 +62,19 @@ export default {
     components: {
         BpDirectional,
     },
+    props: {
+        delay: { type: Number, default: 0 },
+        hoverable: { type: Boolean, default: false },
+        href: { type: String, required: true },
+        id: { type: String, required: true },
+        label: { type: String, required: true },
+        labelClass: { type: String, default: '' },
+        transition: { type: String, default: 'dropdown' },
+    },
     data: () => ({
         timer: new Timer,
         expanded: false,
     }),
-    props: {
-        delay: {type: Number, default: 0 },
-        hoverable: {type: Boolean, default: false },
-        href: { type: String, required: true },
-        id: { type: String, required: true },
-        label: { type: String, required: true },
-        labelClass: { default: '' },
-    },
     methods: {
         mouseleave(evt) {
             if (this.hoverable) {

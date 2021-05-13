@@ -13,6 +13,16 @@
     overflow: hidden;
 }
 
+.dropdown-enter-active {
+  transform-origin: top;
+  transition: opacity $moderate, transform $moderate;
+  transform: rotateX(0);
+}
+.dropdown-enter, .dropdown-leave-to {
+  opacity: 0;
+  transform: rotateX(90deg);
+}
+
 // Scroll Lock
 body.-lock,
 html.-lock {

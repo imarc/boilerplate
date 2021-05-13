@@ -2,8 +2,10 @@
     position: relative;
 
     &__link {
+        background-color: $gray-100;
         display: inline-block;
         padding: $thin-padding;
+        z-index: 2;
     }
 
     &__button {
@@ -20,7 +22,6 @@
 
 
     &__content {
-        display: none;
         position: absolute;
         z-index: 1;
     }
@@ -30,7 +31,6 @@
         .dropdown__content {
             background-color: $white;
             box-shadow: $low-shadow;
-            display: block;
         }
     }
 
