@@ -14,7 +14,7 @@
         }
 
         @if $value != null {
-            &#{$prefix}#{$label} {
+            &#{$prefix}#{""+$label} {
                 @content($value);
             }
         } @else {
