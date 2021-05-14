@@ -1,0 +1,1 @@
+You can create custom column layouts using the candlepin-style modifiers for `.layer__item`, however you want something fancier than a single column going to a single row, you'll have to at least adjust margins yourself or with the candlepin utility classes.

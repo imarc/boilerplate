@@ -18,6 +18,11 @@ module.exports = {
       "label": "Two Column (Video)",
       "name": "two-column-video",
       "view": "layer--twoColumn-video.twig"
+    },
+    {
+      "label": "Custom Columns",
+      "name": "customColumns",
+      "view": "layer--customColumns.twig"
     }
   ]
 }

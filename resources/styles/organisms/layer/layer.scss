@@ -15,6 +15,11 @@
         }
     }
 
+    .layer__content {
+        display: flex;
+        flex-direction: column;
+    }
+
     &__background,
     &__container {
         grid-area: stack;
@@ -69,5 +74,22 @@
     )) using ($color) {
         background-color: $color;
         color: blackwhite($color);
+    }
+
+    @include at(lg) {
+        .layer__content {
+            flex-direction: row;
+        }
+
+        .layer__item {
+            flex: 1;
+            margin-right: gutter();
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            @include grid-utilities;
+        }
     }
 }
