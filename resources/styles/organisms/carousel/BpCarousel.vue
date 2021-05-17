@@ -23,8 +23,23 @@ export default {
                     el: '.swiper-pagination',
                 },
 
-                slidesPerView: 2.5,
+                slidesPerView: 1,
                 spaceBetween: 40,
+
+                breakpoints: {
+                    616: {
+                        slidesPerView: 1.25,
+                        spaceBetween: 40,
+                    },
+                    1000: {
+                        slidesPerView: 1.5,
+                        spaceBetween: 40,
+                    },
+                    1200: {
+                        slidesPerView: 2.25,
+                        spaceBetween: 40,
+                    },
+                }
             }),
         },
     },
