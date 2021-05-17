@@ -1,6 +1,7 @@
 import 'slick-carousel'
 import 'lazysizes'
 import PortalVue from 'portal-vue'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 import './plugins/dropdown.plugin'
 import './plugins/mobileNavigation.plugin'
@@ -9,11 +10,12 @@ import './plugins/stickyHeader.plugin'
 import './plugins/tabs.plugin'
 
 import BpAccordion from '../styles/molecules/accordion/BpAccordion'
-import BpTabs from '../styles/molecules/tabs/BpTabs'
+import BpCarousel from '../styles/organisms/carousel/BpCarousel'
 import BpDirectional from '../styles/utilities/directional/BpDirectional'
 import BpDropdown from '../styles/atoms/dropdown/BpDropdown'
 import BpMobileNavigation from '../styles/organisms/mobile-navigation/BpMobileNavigation'
 import BpModal from '../styles/organisms/modal/BpModal'
+import BpTabs from '../styles/molecules/tabs/BpTabs'
 
 import Vue from 'vue'
 
@@ -24,10 +26,13 @@ new Vue({
     el: '#root',
     components: {
         BpAccordion,
+        BpCarousel,
         BpDirectional,
-        BpTabs,
         BpDropdown,
         BpMobileNavigation,
         BpModal,
+        BpTabs,
+        Swiper,
+        SwiperSlide,
     },
 })
