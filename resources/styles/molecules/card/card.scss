@@ -73,6 +73,10 @@
         flex-basis: max(9rem, 50%);
     }
 
+    &.-clickable {
+        cursor: pointer;
+    }
+
     &.-wide {
         #{$b}__container {
             grid-gap: 1rem 0;

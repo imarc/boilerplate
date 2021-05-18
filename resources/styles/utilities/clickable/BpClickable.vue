@@ -1,4 +1,18 @@
 <script>
+
+/**
+ * Renderless component for making a larger element clickable.
+ *
+ * Example:
+ *
+ *     <bp-clickable v-slot="{ click }">
+ *         <div @click="click($event, $refs.link)">
+ *             <!-- ... -->
+ *             <a ref="link" href="...">...</a>
+ *         </div>
+ *     </bp-clickable>
+ *
+ */
 export default {
     methods: {
         click (evt, link) {
