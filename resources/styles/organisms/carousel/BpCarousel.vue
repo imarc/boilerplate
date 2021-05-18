@@ -19,6 +19,9 @@ const variants = {
     default: {
         spaceBetween: 40,
         centeredSlides: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
     },
     bleedRight: {
         slidesPerView: 1,
@@ -63,9 +66,6 @@ export default {
                     navigation: {
                         nextEl: '.swiper-button-next',
                         prevEl: '.swiper-button-prev',
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
                     },
                     ...variants[this.variant],
                 }
