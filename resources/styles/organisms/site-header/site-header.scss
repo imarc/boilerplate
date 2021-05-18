@@ -2,8 +2,9 @@
     box-shadow: $low-shadow;
 
     &__container {
-        align-items: flex-end;
+        align-items: center;
         display: flex;
+        padding-right: 0;
     }
 
     &__brand {
@@ -11,7 +12,6 @@
         color: $primary;
         display: flex;
         margin-right: 2rem;
-        padding: $v-space 0;
     }
 
     &__logo {
@@ -29,5 +29,11 @@
 
     &__end {
         margin-left: auto;
+    }
+
+    @include at(lg) {
+        &__brand {
+            padding: $v-space 0;
+        }
     }
 }
