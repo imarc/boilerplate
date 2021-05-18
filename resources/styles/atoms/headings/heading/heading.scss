@@ -11,6 +11,12 @@ h1,
     @include at-each(2rem, md 3rem, lg 3.75rem) using ($size) {
         font-size: $size;
     }
+
+    &.-oversize {
+        @include at(lg) {
+            font-size: max(3.75rem, #{100vw * 3.75rem * 16px / 1rem / $container});
+        }
+    }
 }
 
 h2,
@@ -19,6 +25,12 @@ h2,
     @include at-each(1.5rem, md 2rem, lg 3rem) using ($size) {
         font-size: $size;
     }
+
+    &.-oversize {
+        @include at(lg) {
+            font-size: max(3rem, #{100vw * 3rem * 16px / 1rem / $container});
+        }
+    }
 }
 
 h3,
@@ -26,6 +38,12 @@ h3,
     @extend .heading;
     @include at-each(1.25rem, md 1.5rem, lg 2rem) using ($size) {
         font-size: $size;
+    }
+
+    &.-oversize {
+        @include at(lg) {
+            font-size: max(2rem, #{100vw * 2rem * 16px / 1rem / $container});
+        }
     }
 }
 
