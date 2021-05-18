@@ -3,13 +3,12 @@
 <main>
     <section class="layer -dark">
         <div class="layer__background">
-            <img class="layer__backgroundImg" src="https://placeimg.com/1920/640/tech" alt="">
+            {% render "@responsive-image" with { imgClass: "layer__backgroundImg" } %}
         </div>
         <div class="layer__container -pull-left container">
             <header class="layer__header">
                 <div class="heading__eyebrow eyebrow">I'm a kicker</div>
                 <h1 class="layer__heading">You're reading a headline.</h1>
-                <h2 class="layer__subheading">Now you're reading the subheadline instead.</h2>
             </header>
             <div class="layer__introduction -emphasized">
                 <p>
