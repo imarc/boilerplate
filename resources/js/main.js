@@ -11,6 +11,7 @@ import './plugins/tabs.plugin'
 
 import BpAccordion from '../styles/molecules/accordion/BpAccordion'
 import BpCarousel from '../styles/organisms/carousel/BpCarousel'
+import BpClickable from '../styles/utilities/clickable/BpClickable'
 import BpDirectional from '../styles/utilities/directional/BpDirectional'
 import BpDropdown from '../styles/atoms/dropdown/BpDropdown'
 import BpMobileNavigation from '../styles/organisms/mobile-navigation/BpMobileNavigation'
@@ -27,6 +28,7 @@ new Vue({
     components: {
         BpAccordion,
         BpCarousel,
+        BpClickable,
         BpDirectional,
         BpDropdown,
         BpMobileNavigation,

@@ -1,5 +1,5 @@
 <bp-clickable v-slot="{ click }">
-    <div class="{{ class }} card -clickable -wide" @click="click($event, $refs.link)">
+    <div class="{{ class }} card -wide" @click="click($event, $refs.link)">
         <div class="card__container">
             <div class="card__background">
                 <picture class="{{ class }}">
@@ -19,10 +19,14 @@
                 </picture>
             </div>
             <h3 class="card__heading">One Great Heading</h3>
-            <p class="card__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos et voluptatum aliquam neque beatae.</p>
+            <p class="card__content">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos et voluptatum aliquam neque beatae.
+                <a href="#nope">nope</a>
+            </p>
             <div class="card__actions -attached">
-                <a ref="link" href="#foo" class="card__action button -primary">Learn More</a>
+                <a ref="link" href="#example" class="card__action button -primary">Learn More</a>
             </div>
         </div>
     </div>
+
 </bp-clickable>
