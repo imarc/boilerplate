@@ -52,6 +52,23 @@
         }
     }
 
+    &__item {
+
+        &.-sidebar {
+            background-color: $blue-200;
+            padding: $padding;
+
+            .field {
+                @extend .field, .-outlined;
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+    }
+
 
     &.-dark {
         color: $white;
