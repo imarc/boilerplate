@@ -13,6 +13,7 @@ import BpAccordion from '../styles/molecules/accordion/BpAccordion'
 import BpCarousel from '../styles/organisms/carousel/BpCarousel'
 import BpClickable from '../styles/utilities/clickable/BpClickable'
 import BpDirectional from '../styles/utilities/directional/BpDirectional'
+import BpDismissable from '../styles/utilities/dismissable/BpDismissable'
 import BpDropdown from '../styles/atoms/dropdown/BpDropdown'
 import BpMobileNavigation from '../styles/organisms/mobile-navigation/BpMobileNavigation'
 import BpModal from '../styles/organisms/modal/BpModal'
@@ -30,6 +31,7 @@ new Vue({
         BpCarousel,
         BpClickable,
         BpDirectional,
+        BpDismissable,
         BpDropdown,
         BpMobileNavigation,
         BpModal,
