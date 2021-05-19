@@ -1,9 +1,5 @@
 .logoCloud {
-    $b: &;
-
-    &__container {
-        @include grid($max-columns: 5, $element: "#{$b}__icon");
-    }
+    @include grid($max-columns: 5, $element: "#{&}__icon");
 
     &__img {
         width: 100%;
