@@ -1,3 +1,7 @@
+**The [next version of Boilerplate](https://github.com/imarc/boilerplate-components/tree/next) is in beta and is the best starting point for new projects.**
+
+----
+
 Imarc Boilerplate 4 Components 
 ==============================
 
