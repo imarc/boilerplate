@@ -1,3 +1,5 @@
+@use "sass:math";
+
 ///
 /// For messages to the user.
 ///
@@ -34,7 +36,7 @@
         margin-right: $h-space;
         width: $icon-size;
         @if $leading != $icon-size {
-            transform: translateY(($leading - $icon-size) / 2);
+            transform: translateY(math.div($leading - $icon-size, 2));
         }
     }
 

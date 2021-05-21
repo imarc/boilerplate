@@ -7,25 +7,25 @@ $white: variables.$white !default;
 
 @function _relative-lum($n) {
   @if $n < 0.03928 {
-    @return $n/12.92;
+    @return math.div($n, 12.92);
   } @else {
-    @return math.pow(($n+0.055)/1.055, 2.4);
+    @return math.pow(math.div($n+0.055, 1.055), 2.4);
   }
 }
 
 @function _relative-luminance($c) {
-  $r: _relative-lum(color.red($c)/255);
-  $g: _relative-lum(color.green($c)/255);
-  $b: _relative-lum(color.blue($c)/255);
+  $r: _relative-lum(math.div(color.red($c), 255));
+  $g: _relative-lum(math.div(color.green($c), 255));
+  $b: _relative-lum(math.div(color.blue($c), 255));
 
   @return $r*0.2126+$g*0.7152+$b*0.0722;
 }
 
 @function contrast($c, $on-black: false) {
   @if $on-black {
-    @return (_relative-luminance($c) + 0.05) / 0.05;
+    @return math.div(_relative-luminance($c) + 0.05, 0.05);
   } @else {
-    @return (1.05 / (_relative-luminance($c) + 0.05));
+    @return math.div(1.05, _relative-luminance($c) + 0.05);
   }
 }
 
