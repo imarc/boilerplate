@@ -1,4 +1,7 @@
 @use "sass:math";
+@use "variables";
+@use "mixins";
+@use "candlepin";
 
 .layer {
     align-items: center;
@@ -11,7 +14,7 @@
         width: 100%;
 
         &.-pull-left {
-            @include at-each(md 33.33%, lg math.div($container, 3)) using ($padding) {
+            @include mixins.at-each(md 33.33%, lg math.div(variables.$container, 3)) using ($padding) {
                 padding-right: $padding;
             }
         }
@@ -62,8 +65,8 @@
     &__item {
 
         &.-sidebar {
-            background-color: $blue-200;
-            padding: $padding;
+            background-color: variables.$blue-200;
+            padding: variables.$padding;
 
             .field {
                 @extend .field, .-outlined;
@@ -78,11 +81,11 @@
 
 
     &.-dark {
-        background-color: $blue-900;
-        color: $white;
+        background-color: variables.$blue-900;
+        color: variables.$white;
 
         .layer__background::before {
-            background: linear-gradient(to right, $blue-900 calc(50% - min(#{math.div($container, 2)}, 50vw)), transparent);
+            background: linear-gradient(to right, variables.$blue-900 calc(50% - min(#{math.div(variables.$container, 2)}, 50vw)), transparent);
             bottom: 0;
             content: '';
             left: 0;
@@ -92,16 +95,16 @@
         }
     }
 
-    @include color-modifiers((
+    @include mixins.color-modifiers((
         primary,
         secondary,
-        lightGray $gray-100,
+        lightGray variables.$gray-100,
     )) using ($color) {
         background-color: $color;
         color: blackwhite($color);
     }
 
-    @include at(lg) {
+    @include mixins.at(lg) {
         .layer__content {
             flex-direction: row;
         }
@@ -114,7 +117,7 @@
                 margin-right: 0;
             }
 
-            @include grid-utilities;
+            @include candlepin.grid-utilities;
         }
     }
 }

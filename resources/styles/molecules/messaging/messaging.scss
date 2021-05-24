@@ -1,4 +1,6 @@
 @use "sass:math";
+@use "variables";
+@use "mixins";
 
 ///
 /// For messages to the user.
@@ -11,10 +13,10 @@
 ///     Optionally override the link hover color.
 ///
 @mixin messaging (
-    $color: $info,
-    $font-size: $body-font-size,
+    $color: variables.$info,
+    $font-size: variables.$body-font-size,
     $icon-size: 1.5rem,
-    $line-height: $body-line-height,
+    $line-height: variables.$body-line-height,
     $link-color: inherit,
     $link-hover-color: inherit
 ) {
@@ -22,18 +24,18 @@
 
     $leading: $font-size * $line-height;
 
-    background-color: $gray-100;
-    box-shadow: .25rem 0 0 inset, $med-shadow;
+    background-color: variables.$gray-100;
+    box-shadow: .25rem 0 0 inset, variables.$med-shadow;
     font-size: $font-size;
     line-height: $line-height;
     margin-bottom: 2rem;
-    padding: $padding;
+    padding: variables.$padding;
     display: flex;
 
     &__icon {
         height: $icon-size;
         flex-shrink: 0;
-        margin-right: $h-space;
+        margin-right: variables.$h-space;
         width: $icon-size;
         @if $leading != $icon-size {
             transform: translateY(math.div($leading - $icon-size, 2));
@@ -47,16 +49,16 @@
     a {
         color: $link-color;
         text-decoration: underline;
-        transition: color $fade-easing $fast;
+        transition: color variables.$fade-easing variables.$fast;
 
         &:hover {
             color: $link-hover-color;
         }
     }
 
-    @include color-modifiers(success warning error info) using ($color) {
-        box-shadow: .25rem 0 0 $color inset, $med-shadow;
-        color: $plain-text;
+    @include mixins.color-modifiers(success warning error info) using ($color) {
+        box-shadow: .25rem 0 0 $color inset, variables.$med-shadow;
+        color: variables.$plain-text;
 
         #{$b}__icon {
             color: $color;
@@ -64,11 +66,11 @@
     }
 
     &.-filled {
-        box-shadow: $med-shadow;
+        box-shadow: variables.$med-shadow;
 
-        @include color-modifiers(success warning error info) using ($color) {
+        @include mixins.color-modifiers(success warning error info) using ($color) {
             background-color: $color;
-            color: blackwhite($color, $plain-text);
+            color: blackwhite($color, variables.$plain-text);
 
             #{$b}__icon {
                 color: inherit;
