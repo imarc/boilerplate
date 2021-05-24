@@ -1,6 +1,3 @@
-@use "variables";
-
-
 @mixin modifiers($map, $default-map: (), $prefix: '.-') {
     @each $pair in $map {
         $label: nth($pair, 1);
@@ -23,13 +20,13 @@
     }
 }
 
-@mixin color-modifiers($colors: variables.$color-modifiers, $prefix: '.-') {
+@mixin color-modifiers($colors: $color-modifiers, $prefix: '.-') {
     @if content-exists() {
-        @include modifiers($colors, variables.$color-modifiers, $prefix) using ($color) {
+        @include modifiers($colors, $color-modifiers, $prefix) using ($color) {
             @content($color);
         }
     } @else {
-        @include modifiers($colors, variables.$color-modifiers, $prefix) using ($color) {
+        @include modifiers($colors, $color-modifiers, $prefix) using ($color) {
             color: $color;
         }
     }
@@ -77,8 +74,8 @@
 /// if you're prefer to use max-width instead of min-width.
 ///
 @mixin at($bp, $rule: min-width) {
-    @if map-has-key(variables.$breakpoints, $bp) {
-        $bp: map-get(variables.$breakpoints, $bp);
+    @if map-has-key($breakpoints, $bp) {
+        $bp: map-get($breakpoints, $bp);
     }
     @media screen and (#{$rule}: $bp) {
         @content;

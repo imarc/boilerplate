@@ -1,5 +1,3 @@
-@use 'sass:math';
-
 ///
 /// visuallyhidden mixin
 ///
@@ -22,7 +20,7 @@
 /// minimum size of 1rem.
 ///
 @function type-scale($max, $ratio, $accuracy: 1000) {
-    $m: math.div($max, $max * 0 + 1);
-    $u: math.div($max, $m);
-    @return math.div($u * math.round(math.pow($m, $ratio) * $accuracy), $accuracy);
+    $m: divide($max, $max * 0 + 1);
+    $u: divide($max, $m);
+    @return divide($u * math.round(math.pow($m, $ratio) * $accuracy), $accuracy);
 }

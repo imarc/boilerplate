@@ -1,12 +1,7 @@
-@use "sass:math";
-@use "variables";
-@use "mixins";
-@use "candlepin";
-
 .layer {
     align-items: center;
     display: grid;
-    grid-template-areas: "stack";
+    grid-template: "stack";
 
     &__container {
         padding-top: 4rem;
@@ -14,7 +9,7 @@
         width: 100%;
 
         &.-pull-left {
-            @include mixins.at-each(md 33.33%, lg math.div(variables.$container, 3)) using ($padding) {
+            @include at-each(md 33.33%, lg divide($container, 3)) using ($padding) {
                 padding-right: $padding;
             }
         }
@@ -65,8 +60,8 @@
     &__item {
 
         &.-sidebar {
-            background-color: variables.$blue-200;
-            padding: variables.$padding;
+            background-color: $blue-200;
+            padding: $padding;
 
             .field {
                 @extend .field, .-outlined;
@@ -81,11 +76,11 @@
 
 
     &.-dark {
-        background-color: variables.$blue-900;
-        color: variables.$white;
+        background-color: $blue-900;
+        color: $white;
 
         .layer__background::before {
-            background: linear-gradient(to right, variables.$blue-900 calc(50% - min(#{math.div(variables.$container, 2)}, 50vw)), transparent);
+            background: linear-gradient(to right, $blue-900 calc(50% - min(#{divide($container, 2)}, 50vw)), transparent);
             bottom: 0;
             content: '';
             left: 0;
@@ -95,16 +90,16 @@
         }
     }
 
-    @include mixins.color-modifiers((
+    @include color-modifiers((
         primary,
         secondary,
-        lightGray variables.$gray-100,
+        lightGray $gray-100,
     )) using ($color) {
         background-color: $color;
         color: blackwhite($color);
     }
 
-    @include mixins.at(lg) {
+    @include at(lg) {
         .layer__content {
             flex-direction: row;
         }
@@ -117,7 +112,7 @@
                 margin-right: 0;
             }
 
-            @include candlepin.grid-utilities;
+            @include grid-utilities;
         }
     }
 }

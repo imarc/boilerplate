@@ -39,8 +39,8 @@ $thin-padding: $thin-v-space $thin-h-space;
 ///
 /// Color Scales
 ///
-@use 'colors' as *;
 @forward 'colors';
+@use 'colors' as *;
 
 
 ///

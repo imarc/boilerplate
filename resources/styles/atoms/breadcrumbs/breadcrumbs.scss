@@ -1,6 +1,3 @@
-@use "sass:math";
-@use "variables";
-
 ///
 /// Simple breadcrumbs for your breadcrumbing needs.
 ///
@@ -10,8 +7,8 @@
 ///     crumb hover color
 ///
 @mixin breadcrumbs(
-    $color: variables.$meta-text,
-    $hover-color: variables.$link-hover,
+    $color: $meta-text,
+    $hover-color: $link-hover,
 ) {
     $b: &;
 
@@ -29,11 +26,11 @@
     &__link {
         color: $color;
         display: block;
-        padding: variables.$thin-v-space #{math.div(variables.$thin-h-space, 2)};
-        transition: color variables.$fade-easing variables.$fast;
+        padding: $thin-v-space #{divide($thin-h-space, 2)};
+        transition: color $fade-easing $fast;
 
         #{$b}__item:first-child & {
-            margin-left: -#{math.div(variables.$thin-h-space, 2)};
+            margin-left: -#{divide($thin-h-space, 2)};
         }
 
         &:hover {
