@@ -20,12 +20,3 @@
   opacity: 0;
   transform: rotateX(90deg);
 }
-
-// Scroll Lock
-body.-lock,
-html.-lock {
-    position: relative;
-    overflow: hidden;
-    touch-action: none;
-    -ms-touch-action: none;
-}
