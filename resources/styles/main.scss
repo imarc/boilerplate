@@ -1,10 +1,6 @@
-@import "functions";
-@import "variables";
-@import "mixins";
-@import "utilities";
-@import "transitions";
+@import "./abstracts/**/[^_]*.scss";
+@import "./utilities/**/[^_]*.scss";
 
-@import "./utilities/**/*.scss";
-@import "./@(atoms|molecules|organisms|templates|pages)/**/*.scss";
+@import "./@(atoms|molecules|organisms|templates|pages)/**/[^_]*.scss";
 
-@import "base";
+@import "./base/**/[^_]*.scss";
