@@ -1,9 +1,5 @@
 @use "sass:color";
 @use "sass:math";
-@use "../variables";
-
-$black: variables.$black !default;
-$white: variables.$white !default;
 
 @function _relative-lum($n) {
   @if $n < 0.03928 {
