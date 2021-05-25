@@ -40,3 +40,12 @@
         width: 1rem;
     }
 }
+
+// Scroll Lock
+body.-lock,
+html.-lock {
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+    -ms-touch-action: none;
+}
