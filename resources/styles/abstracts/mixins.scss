@@ -49,11 +49,12 @@
 
 
 ///
-/// transition mixin
+/// Mixin for generating transitions. $properties can be a list of properties,
+/// and it'll append duration and easing to each.
 ///
 
 @mixin transition($properties: all, $duration: $fast, $easing: $ease-out-quint) {
-    transition: $properties $duration $easing;
+    transition: append-each($properties, $duration $easing, comma);
 }
 
 

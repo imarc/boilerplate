@@ -18,6 +18,19 @@
     @return math.div($a, $b);
 }
 
+
+@function append-each($list, $append, $separator: '') {
+    $new-list: ();
+    @if $separator == '' {
+        $separator: list.separator($list);
+    }
+    @each $value in $list {
+        $new-list: list.append($new-list, $value $append, $separator);
+    }
+
+    @return $new-list;
+}
+
 @function _relative-lum($n) {
   @if $n < 0.03928 {
     @return math.div($n, 12.92);
