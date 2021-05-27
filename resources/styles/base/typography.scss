@@ -17,7 +17,7 @@ blockquote {
     border-left: 1px solid $border;
     color: $meta-text;
     font-style: italic;
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
     padding-left: 1rem;
 }
 
@@ -26,11 +26,10 @@ hr {
     border-top: 1px solid $meta-text;
     display: block;
     height: 0;
-    margin: 2em auto 3em;
+    margin: 3rem auto;
     width: 100%;
 }
 
-p,
 ol,
 ul,
 dl {
@@ -47,24 +46,20 @@ ul {
     }
 }
 
-ul {
-    list-style: disc;
-}
-
 dt {
     font-weight: bold;
     padding-left: 0.5em;
 }
 
 pre {
-    background-color: #4A4A4A;
-    padding: 1em;
+    background-color: $gray-800;
+    color: $gray-200;
+    padding: $padding;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
 
 code {
-    color: #FBCE78;
     font-family: "Consolas", monospace;
-    padding: 2px 4px;
+    font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", monospace;
 }
