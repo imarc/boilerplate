@@ -1,5 +1,6 @@
-@use "sass:color";
 @use "sass:math";
+
+@forward "functions/contrast";
 
 ///
 /// returns a properly scaled font size based on a given max size, assuming a
@@ -18,7 +19,11 @@
     @return math.div($a, $b);
 }
 
-
+///
+/// Function returns a copy of $list with $append appended to each item in
+/// $list. If $separator is specified, it's passed to list.append(), otherwise
+/// append-each() tries to use the same separate used in the original list.
+///
 @function append-each($list, $append, $separator: '') {
     $new-list: ();
     @if $separator == '' {
@@ -29,36 +34,4 @@
     }
 
     @return $new-list;
-}
-
-@function _relative-lum($n) {
-  @if $n < 0.03928 {
-    @return math.div($n, 12.92);
-  } @else {
-    @return math.pow(math.div($n+0.055, 1.055), 2.4);
-  }
-}
-
-@function _relative-luminance($c) {
-  $r: _relative-lum(math.div(color.red($c), 255));
-  $g: _relative-lum(math.div(color.green($c), 255));
-  $b: _relative-lum(math.div(color.blue($c), 255));
-
-  @return $r*0.2126+$g*0.7152+$b*0.0722;
-}
-
-@function contrast($c, $on-black: false) {
-  @if $on-black {
-    @return math.div(_relative-luminance($c) + 0.05, 0.05);
-  } @else {
-    @return math.div(1.05, _relative-luminance($c) + 0.05);
-  }
-}
-
-@function blackwhite($c, $black: $black, $white: $white) {
-    @if contrast($c) < contrast($c, true) {
-        @return $black;
-    } @else {
-        @return $white;
-    }
 }
