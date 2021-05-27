@@ -86,15 +86,14 @@ mix.sass('resources/styles/main.scss', 'css', {
 // markup with need special consideration (marketo forms for example).
 // If in doubt, leave commented out.
 // See: https://github.com/spatie/laravel-mix-purgecss
-//
-// .purgeCss({
-//     content: [
-//         'resources/styles/**/*.twig',
-//         'templates/*.twig',
-//         'templates/**/*.twig',
-//         'resources/js/components/*.vue'
-//     ],
-// })
+
+//mix.purgeCss({
+//    content: [
+//        'resources/**/*.twig',
+//        'resources/**/*.vue',
+//        'templates/**/*.twig',
+//    ],
+//})
 
 mix.extract()
 mix.sourceMaps()
