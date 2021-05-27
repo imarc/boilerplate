@@ -1,4 +1,5 @@
 const mix = require('laravel-mix')
+require('laravel-mix-purgecss')
 
 // Mix Public Path
 //
@@ -79,6 +80,22 @@ mix.sass('resources/styles/main.scss', 'css', {
         ],
     },
 })
+// To trim off unused css. This scans both fractal
+// and craft templates to determine what to purge.
+// Styles built specifically for dynamically generated
+// markup with need special consideration (marketo forms for example).
+// If in doubt, leave commented out.
+// See: https://github.com/spatie/laravel-mix-purgecss
+//
+// .purgeCss({
+//     content: [
+//         'resources/styles/**/*.twig',
+//         'templates/*.twig',
+//         'templates/**/*.twig',
+//         'resources/js/components/*.vue'
+//     ],
+// })
+
 mix.extract()
 mix.sourceMaps()
 mix.version()
