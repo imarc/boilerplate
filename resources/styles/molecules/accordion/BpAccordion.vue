@@ -20,7 +20,7 @@
             </div>
         </header>
         <transition
-            name="expand"
+            name="accordion__transition"
             @enter="startTransition"
             @after-enter="endTransition"
             @before-leave="startTransition"

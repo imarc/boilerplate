@@ -48,4 +48,17 @@
             right: 0;
         }
     }
+
+    &__transition {
+        &-enter-active {
+            transform-origin: top;
+            transition: opacity $moderate, transform $moderate;
+            transform: rotateX(0);
+        }
+        &-enter,
+        &-leave-to {
+            opacity: 0;
+            transform: rotateX(90deg);
+        }
+    }
 }
