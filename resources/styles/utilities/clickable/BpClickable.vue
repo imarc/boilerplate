@@ -16,7 +16,7 @@
 export default {
     methods: {
         click (evt, link) {
-            if (evt.target.tagName == 'A') {
+            if (evt.target.tagName === 'A') {
                 return
             }
 
