@@ -1,4 +1,17 @@
 <script>
+
+/**
+ * Renderless component for dismissable content.
+ *
+ * @param storageKey (required) - used to identify a specific instance of this
+ *     component to tell if it's already dismissed or not.
+ * @param hash - optional second component for telling if content has changed
+ *     and the component should be re-displayed even if it was already
+ *     dismissed.
+ * @param expiration - optional duration for how long to hide the content
+ *     before displaying it again. Defaults to a week. If set to 0, stays
+ *     dimissed permanently.
+ */
 export default {
     props: {
         storageKey: {
