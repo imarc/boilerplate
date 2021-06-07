@@ -9,7 +9,6 @@ $columns: 12 !default;
 ///
 /// Default font stack, size, line-height
 ///
-
 $body-font-stack: Arial, sans-serif !default;
 $body-font-size: 1rem;
 $body-line-height: 1.5;
@@ -23,7 +22,6 @@ $heading-line-height: 1;
 ///
 /// Regular padding. Used for components like buttons, cards, and primary nav items.
 ///
-
 $v-space: 1rem;
 $h-space: 1.5rem;
 $padding: $v-space $h-space;
@@ -31,17 +29,9 @@ $padding: $v-space $h-space;
 ///
 /// Thin padding. Used for components like breadcrumbs, radios, and within dropdowns.
 ///
-
 $thin-v-space: .5rem;
 $thin-h-space: 1rem;
 $thin-padding: $thin-v-space $thin-h-space;
-
-///
-/// Color Scales
-///
-@forward 'colors';
-@use 'colors' as *;
-
 
 ///
 /// Site Colors
@@ -53,7 +43,6 @@ $secondary: $aqua-200;
 ///
 /// Messaging colors
 ///
-
 $confirm: $green-400 !default;
 $danger: $red-400 !default;
 $disabled: $gray-200 !default;
@@ -65,7 +54,6 @@ $warning: $yellow-200 !default;
 ///
 /// Applied colors
 ///
-
 $plain-text: $gray-900 !default;
 $meta-text: $gray-500 !default;
 $link: $primary !default;
@@ -76,7 +64,6 @@ $border: $gray-200 !default;
 ///
 /// Social Network Colors
 ///
-
 $facebook: #3664A2 !default;
 $twitter: #55ACEE !default;
 $linkedin: #0077B5 !default;
@@ -85,7 +72,6 @@ $youtube: #CD201F !default;
 ///
 /// Color Modifiers
 ///
-
 $color-modifiers: (
     primary: $primary,
     secondary: $secondary,
@@ -104,7 +90,6 @@ $color-modifiers: (
 ///
 /// Media Query Breakpoints
 ///
-
 $breakpoints: (
   md: 616px,
   lg: 1000px,

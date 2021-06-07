@@ -39,6 +39,19 @@
             transform: rotate(-180deg);
         }
     }
+
+    &__transition {
+        &-enter,
+        &-leave-to {
+            height: 0 !important;
+        }
+
+        &-enter-active,
+        &-leave-active {
+            transition: height $moderate $entrance-easing;
+            overflow: hidden;
+        }
+    }
 }
 
 .accordion {

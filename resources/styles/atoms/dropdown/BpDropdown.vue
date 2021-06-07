@@ -69,7 +69,7 @@ export default {
         id: { type: String, required: true },
         label: { type: String, required: true },
         labelClass: { type: String, default: '' },
-        transition: { type: String, default: 'dropdown' },
+        transition: { type: String, default: 'dropdown__transition' },
     },
     data: () => ({
         timer: new Timer,

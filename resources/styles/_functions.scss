@@ -1,8 +1,0 @@
-@use "sass:math";
-
-///
-/// This is shim for files that aren't using @use yet but need division.
-///
-@function divide($a, $b) {
-    @return math.div($a, $b);
-}
