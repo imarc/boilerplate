@@ -2,21 +2,21 @@
 /// = Variables =
 ///
 
-$container: 1288px !default;
-$gutter: 40px !default;
-$columns: 12 !default;
+$container: 1288px;
+$gutter: 40px;
+$columns: 12;
 
 ///
 /// Default font stack, size, line-height
 ///
-$body-font-stack: Arial, sans-serif !default;
+$body-font-stack: Arial, sans-serif;
 $body-font-size: 1rem;
 $body-line-height: 1.5;
 
 ///
 /// Heading font stack, line-height
 ///
-$heading-font-stack: system-ui, sans-serif !default;
+$heading-font-stack: system-ui, sans-serif;
 $heading-line-height: 1;
 
 ///
@@ -43,31 +43,31 @@ $secondary: $aqua-200;
 ///
 /// Messaging colors
 ///
-$confirm: $green-400 !default;
-$danger: $red-400 !default;
-$disabled: $gray-200 !default;
-$error: $red-500 !default;
-$info: $blue-400 !default;
-$success: $green-300 !default;
-$warning: $yellow-200 !default;
+$confirm: $green-400;
+$danger: $red-400;
+$disabled: $gray-200;
+$error: $red-500;
+$info: $blue-400;
+$success: $green-300;
+$warning: $yellow-200;
 
 ///
 /// Applied colors
 ///
-$plain-text: $gray-900 !default;
-$meta-text: $gray-500 !default;
-$link: $primary !default;
-$link-hover: $blue-400 !default;
-$border: $gray-200 !default;
+$plain-text: $gray-900;
+$meta-text: $gray-500;
+$link: $primary;
+$link-hover: $blue-400;
+$border: $gray-200;
 
 
 ///
 /// Social Network Colors
 ///
-$facebook: #3664A2 !default;
-$twitter: #55ACEE !default;
-$linkedin: #0077B5 !default;
-$youtube: #CD201F !default;
+$facebook: #3664A2;
+$twitter: #55ACEE;
+$linkedin: #0077B5;
+$youtube: #CD201F;
 
 ///
 /// Color Modifiers
@@ -84,7 +84,7 @@ $color-modifiers: (
 
     info: $info,
     disabled: $disabled,
-) !default;
+);
 
 
 ///
@@ -94,7 +94,7 @@ $breakpoints: (
   md: 616px,
   lg: 1000px,
   xl: 1288px,
-) !default;
+);
 
 
 ///
