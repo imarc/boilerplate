@@ -22,7 +22,7 @@ const scripts = {
 // Add the dependency
 console.log('Installing NPM dependency...')
 
-npm.load({}, function (er, npm) {
+npm.load(function (er, npm) {
     if (er) {
         console.log("Error loading package.json. Make sure you've created one first.")
         process.exit()
