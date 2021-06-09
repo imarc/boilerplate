@@ -11,18 +11,24 @@ const packageJsonPath = path.resolve('./package.json')
 
 const scripts = {
     fractal: 'fractal',
-    dev: 'mix',
-    prod: 'mix --production',
-    watch: 'mix watch',
-    'watch-poll': 'mix watch -- -- watch-options-poll=1000',
-    hot: 'mix watch --hot',
-    build: 'npm run prod && npm run fractal build',
+    dev: "mix",
+    prod: "mix --production",
+    watch: "mix watch",
+    "watch-poll": "mix watch -- -- watch-options-poll=1000",
+    hot: "mix watch --hot",
+    build: "npm run prod && npm run fractal build"
 }
 
 // Add the dependency
 console.log('Installing NPM dependency...')
 
-npm.load(() => npm.commands.install(['imarc/boilerplate']))
+npm.load(er => {
+    if (er) {
+        console.log("Error loading package.json. Make sure you've created one first.")
+        process.exit()
+    }
+    npm.commands.install(['imarc/boilerplate@^5.0.0'])
+})
 
 // Add the files
 console.log(`Copying files to ${dest}...`)
