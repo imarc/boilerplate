@@ -1,21 +1,26 @@
 .banner {
     background-color: $info;
     color: blackwhite($info);
-    padding: $padding;
+    padding: $v-space 0;
 
     &__container {
         display: flex;
         justify-content: space-between;
-        align-items: center;
     }
 
     &__dismiss {
+        background-color: transparent;
         border: 0;
         cursor: pointer;
-        padding: 0;
-        width: 1.5rem;
+        fill: none;
+        flex-shrink: 0;
         height: 1.5rem;
-        background-color: transparent;
+        padding: 0;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.5;
+        width: 1.5rem;
     }
 
 }
