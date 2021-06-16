@@ -15,8 +15,6 @@
   "homepage": "https://github.com/imarc/boilerplate#readme",
   "scripts": {
     "fractal": "fractal",
-    "fractal-start": "fractal start",
-    "fractal-build": "fractal build",
     "dev": "mix",
     "prod": "mix --production",
     "watch": "mix watch",
