@@ -7,55 +7,52 @@ This is a front-end development framework that includes a curated set of convent
 * [Laravel Mix](https://laravel-mix.com/)-based **build scripts**,
 * **starter documentation** and a **pattern library** powered by [Fractal](https://fractal.build/) and [Twig](https://github.com/twigjs/twig.js).
 
-### **[View Boilerplate Components](https://imarc-boilerplate.netlify.app/)**
+### **[View Boilerplate](https://imarc-boilerplate.netlify.app/)**
 
 
-## Framework, not a Library
+Framework, not a Library
+------------------------
 
-Unlike traditional libraries, the code included within Boilerplate Components is *scaffolded* into your project so you can adapt it to do your needs. It adds a `fractal.config.js`, `webpack.mix.js`, as well as everything in the `resources/` folder to your project. [Learn more about Boilerplate Components' structure.](https://imarc-boilerplate.netlify.app/pattern-library/docs/structure.html)
+Unlike traditional libraries, The code included within Boilerplate is *scaffolded* into your project so you can adapt it to do your needs. It adds a fractal.config.js, webpack.mix.js, as well as everything in the resources/ folder to your project. [Learn more about Boilerplate's structure.](https://imarc-boilerplate.netlify.app/pattern-library/docs/structure.html)
 
-## Goals
+Goals
+-----
 
 See [GOALS.](.github/GOALS.md)
 
-## Contributing
+Contributing
+------------
 
 See [CONTRIBUTING.](.github/CONTRIBUTING.md)
 
-## View Boilerplate Components locally
 
-To locally serve the pattern library:
+Getting Started
+---------------
 
-* `npm run fractal start` to run a local server and watch for changes
-
-To build the pattern library:
-
-* `npm run fractal build`
-
-You can customize this behavior further by editing either the `webpack.mix.js` or `fractal.config.js` files per the Laravel Mix or Fractal documentation respectively.
-
-
-## Using Boilerplate Components in a new project
-
-Within a new project, make sure you first have an existing `package.json`. If you don't have one, you can create one by running:
+Within a new project, make sure you first have an existing `package.json`. If you don't have one, you can create one by running
 
 ```
 npm init -y
 ```
 
-After that, run:
+After that, run
 
 ```
 npx imarc/boilerplate-components
 ```
 
-`npx` automatically installs Boilerplate Components and copies `fractal.config.js`, `webpack.mix.js`, and the resources/ folder to your project. It also adds dependencies and scripts to your package.json.
+`npx` automatically installs Boilerplate and copies fractal.config.js, webpack.mix.js, and the resources/ folder to your project. It also adds dependencies and scripts to your package.json.
+
+
+
+Usage
+-----
 
 After running `npx` above, your project will be automatically setup so you can run
 
 * `npm run dev` to run the development build (make sourcemaps, don't minify, etc.)
 * `npm run prod` to run the production build.
-* `npm run watch` to watches files for changes and automatically re-runs the development build.
+* `npm run watch` to watches files for changes and automatically re-run the development build.
 
 To locally serve the pattern library:
 
@@ -65,4 +62,4 @@ And lastly, to build the pattern library:
 
 * `npm run fractal build`
 
-You can customize this behavior further by editing either the `webpack.mix.js` or `fractal.config.js` files per the [Laravel Mix](https://laravel-mix.com/docs/6.0/installation) or [Fractal documentation](https://fractal.build/guide/documentation), respectively.
+You can customize this behavior further by editing either the `webpack.mix.js` or `fractal.config.js` files per the Laravel Mix or Fractal documentation respectively.
