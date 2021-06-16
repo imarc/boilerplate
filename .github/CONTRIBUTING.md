@@ -9,6 +9,17 @@ Please [open issues](https://github.com/imarc/boilerplate-components/issues) on 
 
 As with other GitHub projects, don't submit an issue for support requests and check for existing issues.
 
+## Working on Boilerplate Locally
+
+To work on Boilerplate locally,
+
+1. Clone this repository.
+2. Run `npm install` to install its dependencies.
+3. Run `npm run watch` to run the front-end build and watch for file changes.
+4. Additionally (in a separate terminal) run `npm run fractal start` to use Fractal's dev server and view the components within your browser.
+
+While running like this, any changes made to source files will be picked up immediately. If you add new scss files, you will need to restart `npm run watch` but will not need to restart Fractal.
+
 
 ## Creating Pull Requests
 
