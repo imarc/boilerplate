@@ -16,7 +16,7 @@
 
     &.-overlay::after {
         content: "";
-        background: linear-gradient(to right,rgba(65, 0, 255, 0.8),rgba(255, 0, 232, 0.8));
+        background: linear-gradient(to bottom, $blue-300, $blue-800);
         position: absolute;
         display: block;
         mix-blend-mode: multiply;
@@ -40,11 +40,11 @@
         top: 0;
         width: 100%;
     }
-  
+
      &::before {
         content: "";
         display: block;
-        padding-top: 30%;
+        padding-top: 56.25%;
     }
 }
 
