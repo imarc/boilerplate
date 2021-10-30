@@ -4,7 +4,7 @@
             ref="dropdown"
             class="dropdown"
             :class="{'-open': expanded}"
-            v-on="{ mouseleave, focusout, mouseover }"
+            v-on="{ mouseleave, focusout, mouseover, mouseup, mousedown }"
         >
             <a
                 ref="link"
@@ -85,18 +85,33 @@ export default {
         timer: new Timer(),
         expanded: false,
     }),
+
+    destroyed () {
+        removeExternalClickListener(this.externalClick)
+    },
     methods: {
         mouseleave (evt) {
             if (this.hoverable) {
                 this.timer.start(() => this.close(false), this.delay)
             }
         },
+
+        mouseup (evt) {
+            console.log('mouseup', evt)
+        },
+
+        mousedown (evt) {
+            console.log('mousedown', evt)
+        },
+
         focusout (evt) {
-            if (this.expanded && !this.$el.contains(evt.relatedTarget)) {
+            console.log('focusout', evt)
+            if (evt.relatedTarget && this.expanded && !this.$el.contains(evt.relatedTarget)) {
                 this.close(false)
             }
         },
         click (evt) {
+            console.log('click', evt)
             if (this.expanded) {
                 this.close()
             } else {
@@ -112,10 +127,18 @@ export default {
             }
         },
 
+        externalClick (evt) {
+            console.log('externalClick', evt)
+            if (evt.srcElement && !this.$el.contains(evt.srcElement)) {
+                this.close(false)
+            }
+        },
+
         open () {
             this.$emit('open')
             this.timer.clear()
             this.expanded = true
+            addEventListener('click', this.externalClick)
         },
         close (refocus = true) {
             this.$emit('close')
@@ -124,6 +147,7 @@ export default {
             if (refocus) {
                 this.$refs.link.focus()
             }
+            removeEventListener('click', this.externalClick)
         },
     },
 }
