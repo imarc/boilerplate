@@ -13,7 +13,7 @@
 </template>
 <script>
 import { Swiper, directive } from 'vue-awesome-swiper'
-import 'swiper/swiper-bundle.css'
+import 'swiper/css/swiper.css'
 
 const variants = {
     default: {
