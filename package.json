@@ -42,7 +42,7 @@
     "resolve-url-loader": "^4.0.0",
     "sass-loader": "^12.0.0",
     "slick-carousel": "^1.8.1",
-    "swiper": "^6.7.0",
+    "swiper": "^5.2.0",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^4.1.1"
   },
