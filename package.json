@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/imarc/boilerplate#readme",
   "scripts": {
+    "lint": "eslint resources",
     "fractal": "fractal",
     "dev": "mix",
     "prod": "mix --production",
@@ -83,6 +84,7 @@
     "plugins": [
       "vue"
     ],
+    "ignorePatterns": ["*.plugin.js"],
     "rules": {
       "comma-dangle": [
         "warn",
