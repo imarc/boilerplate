@@ -1,7 +1,7 @@
 module.exports = {
     order: 2,
-    "preview": "@contained",
-    "collated": true,
+    preview: '@contained',
+    collated: true,
     collator: (markup, item) =>
         `<div style="margin-bottom: 3rem">
             <div style="margin-bottom: 1.5rem">
