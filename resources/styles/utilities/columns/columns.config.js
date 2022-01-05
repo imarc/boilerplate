@@ -1,3 +1,3 @@
 module.exports = {
-    "status": "deprecated"
+    status: 'deprecated',
 }
