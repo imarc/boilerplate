@@ -13,6 +13,7 @@
         display: grid;
         grid-gap: 1rem;
         grid-template: "icon" "heading" "content" 1fr "actions" / auto;
+        height: 100%;
     }
 
     &__icon,
