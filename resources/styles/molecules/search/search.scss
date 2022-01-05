@@ -6,14 +6,9 @@
         margin-bottom: 1rem;
     }
 
-    &__categories {
-        display: flex;
-        flex-flow: row wrap;
-    }
-
-    &__category {
-        margin-right: 1rem;
-        margin-bottom: 1rem;
+    &__input,
+    input#{&}__input {
+        margin: 0;
     }
 
     &__meta {
