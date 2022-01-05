@@ -2,7 +2,6 @@
 const chalk = require('chalk')
 const fs = require('fs-extra')
 const path = require('path')
-const npm = require('npm')
 const json = require('jsonfile')
 
 const src = path.resolve(__dirname)
