@@ -27,7 +27,7 @@
 
     @at-root #{$element} {
         flex-grow: 1;
-        margin-bottom: $gutter;
+        margin-bottom: $vertical-gutter;
 
         @include at(md) {
             @include wrap(1, $max-columns - 2, $gutter);

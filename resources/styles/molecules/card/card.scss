@@ -25,6 +25,21 @@
         position: relative;
     }
 
+    &__tag {
+        align-self: start;
+        color: $meta-text;
+        font-size: .875rem;
+        font-weight: bold;
+        grid-area: icon;
+        justify-self: start;
+        padding: $thin-padding;
+        text-transform: uppercase;
+
+        &.-overlay {
+            color: $black;
+        }
+    }
+
     &__icon {
         grid-area: icon;
         padding-top: $v-space;
