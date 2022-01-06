@@ -28,7 +28,7 @@ const files = [
 ]
 
 files.forEach(file => {
-    fs.copySync(path.join(src, file), path.join(dest, file))
+    fs.copySync(path.join(src, file), path.join(dest, file), { overwrite: false })
 })
 
 // Add the scripts to package.json
