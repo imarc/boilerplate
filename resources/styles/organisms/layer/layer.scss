@@ -2,6 +2,7 @@
     align-items: center;
     display: grid;
     grid-template: "stack";
+    grid-template-columns: minmax(0, 1fr);
 
     &__container {
         padding-top: 4rem;
@@ -51,14 +52,12 @@
     }
 
     &__introduction {
-
         &.-emphasized {
             font-size: 1.125rem;
         }
     }
 
     &__item {
-
         &.-sidebar {
             background-color: $blue-200;
             padding: $padding;
@@ -70,10 +69,20 @@
     }
 
     &__actions {
+        align-items: center;
         display: flex;
-        justify-content: center;
+        flex-wrap: wrap;
+        gap: $h-space;
+
+        &.-centered {
+            justify-content: center;
+        }
     }
 
+    &__action {
+        @include button($white, $primary);
+        font-weight: bold;
+    }
 
     &.-dark {
         background-color: $blue-900;
