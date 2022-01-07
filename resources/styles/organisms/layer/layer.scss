@@ -7,12 +7,6 @@
         padding-top: 4rem;
         padding-bottom: 4rem;
         width: 100%;
-
-        &.-pull-left {
-            @include at-each(md 33.33%, lg divide($container, 3)) using ($padding) {
-                padding-right: $padding;
-            }
-        }
     }
 
     .layer__content {
@@ -100,7 +94,7 @@
     }
 
     @include at(lg) {
-        .layer__content {
+        .layer__content.-columns {
             flex-direction: row;
         }
 
@@ -112,6 +106,19 @@
                 margin-right: 0;
             }
 
+            /**
+             * This is Candlepin's grid-utilities mixin. It adds the following
+             * modifier classes to .layer__item:
+             *
+             *   .-gutter
+             *   .-gutter-1 through .gutter-12 (the configured # of columns)
+             *   .-span-1 through .-span-12
+             *   .-left-1 through .-left-12
+             *   .-right-1 through .-right-12
+             *
+             * These can be used to quickly space out, offset, or define other custom column widths for .layer__item elements with .layer__content.-columns.
+             *
+             */
             @include grid-utilities;
         }
     }
