@@ -1,8 +1,11 @@
 .linkGroups {
     display: flex;
 
-    > * {
-        flex: 1;
+    .linkGroups__group {
         width: max-content;
+
+        + .linkGroups__group {
+            margin-left: 3rem;
+        }
     }
 }
