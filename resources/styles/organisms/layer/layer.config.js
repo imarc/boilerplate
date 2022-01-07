@@ -1,6 +1,9 @@
 module.exports = {
     label: 'Layers',
+    collated: true,
     variants: [
+        ...['-primary', '-secondary', '-lightGray']
+            .map(name => ({ name, label: name, context: { class: name } })),
         {
             name: 'Call to Action',
             view: 'layer--callToAction.twig',
