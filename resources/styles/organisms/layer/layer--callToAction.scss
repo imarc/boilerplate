@@ -4,10 +4,5 @@
         background-color: $primary;
         color: $white;
         text-align: center;
-
-        .layer__action {
-            @include button($white, $primary);
-            font-weight: bold;
-        }
     }
 }

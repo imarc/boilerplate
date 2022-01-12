@@ -8,25 +8,57 @@
     }
 
     &__container {
-        align-items: flex-start;
+        align-items: center;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
 
         > * {
             flex: 1;
         }
+
+        @include at(lg) {
+            align-items: flex-start;
+            flex-direction: row;
+        }
     }
 
     &__links {
+        display: block;
         flex: 2;
+        gap: $h-space;
+        width: 100%;
+
+        @include at(lg) {
+            display: flex;
+        }
+
+        > * {
+            width: auto;
+        }
+    }
+
+    &__linkGroup {
+        text-align: center;
+
+        & + & {
+            margin-left: 0;
+        }
+
+        @include at(lg) {
+            text-align: left;
+        }
     }
 
     &__brand {
         align-items: center;
         color: $primary;
         display: flex;
-        margin-right: 2rem;
         padding: $thin-v-space 0;
+
+        @include at(lg) {
+            margin-right: 2rem;
+        }
     }
 
     &__logo {
