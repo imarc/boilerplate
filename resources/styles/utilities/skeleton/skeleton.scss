@@ -1,0 +1,109 @@
+/**
+ * atoms > skeleton
+ */
+
+.skeleton {
+    border-color: $gray-100;
+    color: $gray-100;
+    filter: grayscale(1);
+    width: 100%;
+
+    /**
+     * Ribs are elements that need color/border-color overridden only.
+     * Generally used on container elements that have borders, etc.
+     *
+     * These rules are !important to override the colors of whatever component rib is mixed with.
+     */
+
+    &__rib {
+        border-color: $gray-100 !important;
+        color: $gray-100 !important;
+    }
+
+    &__button,
+    &__button.button, /* specificity fix */
+    &__image,
+    &__shape,
+    &__line,
+    &__lines {
+        animation: skeleton--loading 1.8s linear infinite;
+        background-attachment: fixed;
+        background-color: $gray-100;
+        background-image: linear-gradient(95deg, transparent 7vw, $gray-200 7.5vw, transparent 13vw);
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size: 13vw 100%;
+        box-sizing: content-box;
+        width: 100%;
+    }
+
+    /**
+     * lines are for placeholding text.
+     */
+
+    &__line {
+        height: 1em;
+
+        &--1-word {
+            width: 5em;
+        }
+
+        @for $i from 2 through 5 {
+            &--#{$i}-words {
+                width: $i * 5em;
+            }
+        }
+    }
+
+    @for $i from 2 through 10 {
+        &__lines--#{$i} {
+            height: $i * 1em;
+        }
+    }
+
+    /**
+     * For placeholding buttons.
+     */
+
+    &__button {
+        cursor: default;
+        height: 1.5em;
+        width: 5em;
+
+        &:hover {
+            transform: none;
+        }
+    }
+
+    /**
+     * For placehoding images.
+     */
+
+    &__image {
+
+        /**
+         * Meant to be used within responsiveImage comonents.
+         */
+
+        &--responsiveImage {
+            height: 100%;
+            position: absolute;
+            width: 100%;
+        }
+
+        &--cover {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+@keyframes skeleton--loading {
+    0% {
+        background-position: calc(150% + 13vw) 0;
+    }
+
+    100% {
+        background-position: -13vw 0;
+    }
+}
