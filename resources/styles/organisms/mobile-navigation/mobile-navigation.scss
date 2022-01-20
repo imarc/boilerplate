@@ -1,4 +1,4 @@
-@import '~mmenu-light/dist/mmenu-light';
+@import '/node_modules/mmenu-light/dist/mmenu-light.css';
 
 :root {
     --mm-spn-item-height: #{$body-line-height * $body-font-size + 2 * $v-space};

@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import BpDirectional from '../../utilities/directional/BpDirectional'
+import BpDirectional from '../../utilities/directional/BpDirectional.vue'
 
 const Timer = function () {
     return {

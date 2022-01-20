@@ -1,6 +1,58 @@
-@import "./abstracts/**/[^_]*.scss";
-@import "./utilities/**/[^_]*.scss";
+@import "resources/styles/abstracts/colors.scss";
+@import "resources/styles/abstracts/functions.scss";
+@import "resources/styles/abstracts/functions/contrast.scss";
+@import "resources/styles/abstracts/mixins.scss";
+@import "resources/styles/abstracts/variables.scss";
 
-@import "./@(atoms|molecules|organisms|templates|pages)/**/[^_]*.scss";
+@import "resources/styles/utilities/columns/columns.scss";
+@import "resources/styles/utilities/container/container.scss";
+@import "resources/styles/utilities/grid/grid.scss";
+@import "resources/styles/utilities/stack/stack.scss";
+@import "resources/styles/utilities/visually-hidden/visually-hidden.scss";
 
-@import "./base/**/[^_]*.scss";
+@import "resources/styles/atoms/avatar/avatar.scss";
+@import "resources/styles/atoms/banner/banner.scss";
+@import "resources/styles/atoms/breadcrumbs/breadcrumbs.scss";
+@import "resources/styles/atoms/button/button.scss";
+@import "resources/styles/atoms/dropdown/dropdown.scss";
+@import "resources/styles/atoms/field/field.scss";
+@import "resources/styles/atoms/headings/accented/accented.scss";
+@import "resources/styles/atoms/headings/eyebrow/eyebrow.scss";
+@import "resources/styles/atoms/headings/heading/heading.scss";
+@import "resources/styles/atoms/link-group/link-group.scss";
+@import "resources/styles/atoms/link/link.scss";
+@import "resources/styles/atoms/menu/menu.scss";
+@import "resources/styles/atoms/pagination/pagination.scss";
+@import "resources/styles/atoms/progress/progress.scss";
+@import "resources/styles/atoms/table/table.scss";
+@import "resources/styles/atoms/toggle-button/toggle-button.scss";
+@import "resources/styles/atoms/utility-nav/utility-nav.scss";
+
+@import "resources/styles/molecules/accordion/accordion.scss";
+@import "resources/styles/molecules/card/card.scss";
+@import "resources/styles/molecules/link-groups/link-groups.scss";
+@import "resources/styles/molecules/messaging/messaging.scss";
+@import "resources/styles/molecules/search/search.scss";
+@import "resources/styles/molecules/tabs/tabs.scss";
+@import "resources/styles/molecules/testimonial/testimonial.scss";
+@import "resources/styles/molecules/tiles/tiles.scss";
+
+@import "resources/styles/organisms/background-video/background-video.scss";
+@import "resources/styles/organisms/cards/cards.scss";
+@import "resources/styles/organisms/carousel/carousel.scss";
+@import "resources/styles/organisms/layer/layer--callToAction.scss";
+@import "resources/styles/organisms/layer/layer--twoColumn.scss";
+@import "resources/styles/organisms/layer/layer.scss";
+@import "resources/styles/organisms/logo-cloud/logo-cloud.scss";
+@import "resources/styles/organisms/mega-dropdown/mega-dropdown.scss";
+@import "resources/styles/organisms/mobile-navigation/mobile-navigation.scss";
+@import "resources/styles/organisms/modal/modal.scss";
+@import "resources/styles/organisms/primary-nav/primary-nav.scss";
+@import "resources/styles/organisms/site-footer/site-footer.scss";
+@import "resources/styles/organisms/site-header/site-header.scss";
+@import "resources/styles/organisms/team/team.scss";
+
+@import "resources/styles/base/base.scss";
+@import "resources/styles/base/forms.scss";
+@import "resources/styles/base/print.scss";
+@import "resources/styles/base/typography.scss";
