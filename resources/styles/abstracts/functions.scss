@@ -33,3 +33,46 @@
 
     @return $new-list;
 }
+
+///
+/// Takes in a $color argument and returns a lighter color based on
+/// percentage $weight. Lightens by mixing the $color with white.
+///
+/// Example:
+///
+/// .baz {
+///     color: tint-color(#FF0000, 30%);
+/// }
+///
+/// generates
+///
+///     .baz {
+///         color: #ff4d4d;;
+///     }
+///
+
+@function tint-color($color, $weight) {
+    @return mix(white, $color, $weight);
+}
+
+///
+/// Takes in a $color argument and returns a darker color based on
+/// percentage $weight. Darkens by mixing the $color with black.
+///
+/// Example:
+///
+/// .baz {
+///     color: shade-color(#FF0000, 30%);
+/// }
+///
+/// generates
+///
+///     .baz {
+///         color: #b30000;;
+///     }
+///
+
+@function shade-color($color, $weight) {
+    @return mix(black, $color, $weight);
+}
+
