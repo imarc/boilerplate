@@ -67,3 +67,9 @@ You can still run `npm run fractal build` to build a static version of the patte
 You can customize this behavior further by editing either the `vite.config.js` or `fractal.config.js` files per the [Vite](https://vitejs.dev/) or [Fractal documentation](https://fractal.build/) respectively.
 
 **It's no longer needed to run `npm run watch` and `npm run fractal start` in different terminals at the same time.** Enjoy!
+
+### Using with Craft or Laravel
+
+To use with Craft, try the [Vite plugin](https://plugins.craftcms.com/vite) by nystudio107.
+
+To use with Laravel, try out [Laravel Vite](https://laravel-vite.dev/).
