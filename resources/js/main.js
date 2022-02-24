@@ -15,7 +15,6 @@ import BpMobileNavigation from '../styles/organisms/mobile-navigation/BpMobileNa
 import BpModal from '../styles/organisms/modal/BpModal.vue'
 import BpTabs from '../styles/molecules/tabs/BpTabs.vue'
 
-
 import Vue from 'vue'
 
 Vue.use(PortalVue)
