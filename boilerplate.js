@@ -9,13 +9,11 @@ const dest = path.resolve('./')
 const packageJsonPath = path.resolve('./package.json')
 
 const scripts = {
+    lint: 'eslint resources',
     fractal: 'fractal',
-    dev: "mix",
-    prod: "mix --production",
-    watch: "mix watch",
-    "watch-poll": "mix watch -- -- watch-options-poll=1000",
-    hot: "mix watch --hot",
-    build: "npm run prod && npm run fractal build"
+    dev: 'vite',
+    preview: 'vite preview',
+    prod: 'vite build',
 }
 
 // Add the files
@@ -23,7 +21,7 @@ console.log(`Copying files to ${dest}...`)
 
 const files = [
     'resources',
-    'webpack.mix.js',
+    'vite.config.js',
     'fractal.config.js',
 ]
 
@@ -46,8 +44,4 @@ json.writeFileSync(packageJsonPath, packageJson)
 
 // All done.
 console.log('Done.')
-console.log('Remember to run ' +
-    chalk.underline('npm run dev') + ' first, then either ' +
-    chalk.underline('npm run fractal start') + ' or ' +
-    chalk.underline('npm run fractal build') +
-    ' to create your pattern library.\n')
+console.log('Run ' + chalk.underline('npm run dev') + ' to get started.\n')
