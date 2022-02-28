@@ -1,4 +1,6 @@
-.layer {
+@mixin layer {
+    $b: &;
+
     align-items: center;
     display: grid;
     grid-template: "stack";
@@ -9,7 +11,7 @@
         width: 100%;
     }
 
-    .layer__content {
+    &__content {
         display: flex;
         flex-direction: column;
 
@@ -73,7 +75,7 @@
         background-color: $blue-900;
         color: $white;
 
-        .layer__background::before {
+        #{$b}__background::before {
             background: linear-gradient(to right, $blue-900 calc(50% - min(#{divide($container, 2)}, 50vw)), transparent);
             bottom: 0;
             content: '';
@@ -93,12 +95,55 @@
         color: blackwhite($color);
     }
 
+    &.-twoColumn {
+
+        #{$b}__content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @include at(lg) {
+            #{$b}__content {
+                flex-direction: row;
+            }
+            #{$b}__item {
+                @include wrap(1, 2);
+
+            }
+        }
+    }
+
+    &.-threeColumn {
+        #{$b}__content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @include at(md) {
+            #{$b}__content {
+                flex-direction: row;
+            }
+            #{$b}__item {
+                @include wrap(1, 2);
+            }
+        }
+
+        @include at(lg) {
+            #{$b}__content {
+                flex-direction: row;
+            }
+            #{$b}__item {
+                @include wrap(1, 3);
+            }
+        }
+    }
+
     @include at(lg) {
-        .layer__content.-columns {
+        #{$b}__content.-columns {
             flex-direction: row;
         }
 
-        .layer__item {
+        #{$b}__item {
             flex: 1;
             margin-right: gutter();
 
@@ -108,7 +153,7 @@
 
             /**
              * This is Candlepin's grid-utilities mixin. It adds the following
-             * modifier classes to .layer__item:
+             * modifier classes to layer__item:
              *
              *   .-gutter
              *   .-gutter-1 through .gutter-12 (the configured # of columns)

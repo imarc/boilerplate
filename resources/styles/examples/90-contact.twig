@@ -1,16 +1,16 @@
 {% render "@site-header" %}
 
 <main>
-    <section class="layer -dark">
-        <div class="layer__background">
-            {% render "@responsive-image" with { imgClass: "layer__backgroundImg" } %}
+    <section class="richTextSection -dark">
+        <div class="richTextSection__background">
+            {% render "@responsive-image" with { imgClass: "richTextSection__backgroundImg" } %}
         </div>
-        <div class="layer__container -pull-left container">
-            <header class="layer__header">
+        <div class="richTextSection__container -pull-left container">
+            <header class="richTextSection__header">
                 <div class="heading__eyebrow eyebrow">About</div>
-                <h1 class="layer__heading">Contact us</h1>
+                <h1 class="richTextSection__heading">Contact us</h1>
             </header>
-            <div class="layer__introduction -emphasized">
+            <div class="richTextSection__introduction -emphasized">
                 <p>
                     We can't wait to hear from you.
                 </p>
@@ -18,10 +18,10 @@
         </div>
     </section>
 
-    <section class="layer">
-        <div class="layer__container container">
-            <div class="layer__content">
-                <div class="layer__item -span-8">
+    <section class="designedSection -twoColumns -formText">
+        <div class="designedSection__container container">
+            <div class="designedSection__content">
+                <div class="designedSection__item -span-8">
                     <p>Elit adipisicing consectetur ipsa eius nemo Fuga ipsam
                     illo dolore ducimus consequatur. Quas aspernatur ducimus
                     quibusdam eligendi alias. Esse nisi nulla dicta minima
@@ -38,7 +38,7 @@
                     quibusdam sapiente optio quae sint Minima odit quidem est
                     quia cum quis qui voluptatibus!</p>
                 </div>
-                <div class="layer__item -span-4 -sidebar">
+                <div class="designedSection__item -span-4 -sidebar">
                     <div class="field">
                         <label class="field__label" for="first_name">First Name</label>
                         <input class="field__input" name="first_name" type="text">
@@ -67,8 +67,8 @@
                         <input class="field__input" type="checkbox" id="accept">
                     </div>
 
-                    <div class="layer__actions">
-                        <button class="layer__action button -primary">Send</button>
+                    <div class="designedSection__actions">
+                        <button class="designedSection__action button -primary">Send</button>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,11 @@
+.callToActionSection {
+    @include layer;
+    background-color: $primary;
+    color: $white;
+    text-align: center;
+
+    &__action {
+        @include button($white, $primary);
+        font-weight: bold;
+    }
+}
