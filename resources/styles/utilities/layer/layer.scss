@@ -58,10 +58,6 @@
         &.-sidebar {
             background-color: $blue-200;
             padding: $padding;
-
-            .field {
-                @extend .field, .-outlined;
-            }
         }
     }
 
