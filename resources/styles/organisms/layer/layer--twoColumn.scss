@@ -1,0 +1,45 @@
+.layer {
+
+    &.-twoColumn {
+
+        .layer__content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @include at(lg) {
+            .layer__content {
+                flex-direction: row;
+            }
+            .layer__item {
+                @include wrap(1, 2);
+
+            }
+        }
+    }
+
+    &.-threeColumn {
+        .layer__content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @include at(md) {
+            .layer__content {
+                flex-direction: row;
+            }
+            .layer__item {
+                @include wrap(1, 2);
+            }
+        }
+
+        @include at(lg) {
+            .layer__content {
+                flex-direction: row;
+            }
+            .layer__item {
+                @include wrap(1, 3);
+            }
+        }
+    }
+}
