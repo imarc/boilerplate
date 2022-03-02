@@ -1,17 +1,17 @@
-.layer {
+.section {
 
     &.-twoColumn {
 
-        .layer__content {
+        .section__content {
             display: flex;
             flex-direction: column;
         }
 
         @include at(lg) {
-            .layer__content {
+            .section__content {
                 flex-direction: row;
             }
-            .layer__item {
+            .section__item {
                 @include wrap(1, 2);
 
             }
@@ -19,25 +19,25 @@
     }
 
     &.-threeColumn {
-        .layer__content {
+        .section__content {
             display: flex;
             flex-direction: column;
         }
 
         @include at(md) {
-            .layer__content {
+            .section__content {
                 flex-direction: row;
             }
-            .layer__item {
+            .section__item {
                 @include wrap(1, 2);
             }
         }
 
         @include at(lg) {
-            .layer__content {
+            .section__content {
                 flex-direction: row;
             }
-            .layer__item {
+            .section__item {
                 @include wrap(1, 3);
             }
         }
