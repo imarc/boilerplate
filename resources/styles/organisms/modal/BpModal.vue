@@ -42,7 +42,7 @@
                         >
                             <img
                                 :class="`${block}__${loadingSpinnerElement}`"
-                                src="/media/spinner.gif"
+                                src="/resources/media/spinner.gif"
                                 alt=""
                             >
                         </slot>
