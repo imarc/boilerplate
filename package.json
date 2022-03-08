@@ -18,7 +18,8 @@
     "fractal": "fractal",
     "dev": "vite",
     "preview": "vite preview",
-    "prod": "vite build"
+    "prod": "vite build",
+    "build": "vite build"
   },
   "dependencies": {
     "@frctl/fractal": "^1.5.4",
