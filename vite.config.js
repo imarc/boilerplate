@@ -1,13 +1,11 @@
 import { defineConfig } from 'vite'
-const { createVuePlugin } = require('vite-plugin-vue2')
+import vue from '@vitejs/plugin-vue'
 
 import fractal from './fractal.config.js'
 
 export default defineConfig(async ({ command, mode }) => {
     const config = {
-        plugins: [
-            createVuePlugin(),
-        ],
+        plugins: [vue()],
         build: {
             manifest: true,
             outDir: 'web/dist',

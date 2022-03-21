@@ -19,8 +19,6 @@
 /// @param {string}   $element [&__item] - classname for grid items
 ///
 
-@import "candlepin";
-
 @mixin grid($max-columns: 4, $gutter: $gutter, $vertical-gutter: $gutter, $element: "#{&}__item") {
     display: flex;
     flex-wrap: wrap;
@@ -30,14 +28,14 @@
         margin-bottom: $vertical-gutter;
 
         @include at(md) {
-            @include wrap(1, $max-columns - 2, $gutter);
+            //@include wrap(1, $max-columns - 2, $gutter);
             flex-grow: 0;
         }
         @include at(lg) {
-            @include wrap(1, $max-columns - 1, $gutter);
+            //@include wrap(1, $max-columns - 1, $gutter);
         }
         @include at(xl) {
-            @include wrap(1, $max-columns, $gutter);
+            //@include wrap(1, $max-columns, $gutter);
         }
     }
 }
