@@ -1,35 +1,42 @@
+@use "/resources/styles/abstracts";
+
 @mixin avatar {
     $b: &;
+    display: inline-block;
 
-    align-items: center;
-    display: flex;
-    width: 16rem;
-    flex-direction: column;
-    text-align: center;
-
-    &__content {
-        padding: $thin-padding;
+    &__container {
+        display: grid;
+        grid: "photo name" 1fr "photo title" 1fr;
+        gap: abstracts.$thin-v-space 0;
     }
 
     &__name {
-        margin-bottom: .25rem;
         font-size: 1.25rem;
         font-weight: bold;
+        grid-area: name;
+        padding: 0 abstracts.$thin-h-space;
+        align-self: end;
     }
 
-    &.-horizontal {
-        align-items: center;
-        flex-direction: row;
-        height: 10rem;
-        text-align: left;
-        width: auto;
+    &__photo {
+        grid-area: photo;
+        border-radius: 100%;
+        align-self: stretch;
+    }
 
-        #{$b}__photo {
-            max-height: 100%;
+    &__title {
+        grid-area: title;
+        padding: 0 abstracts.$thin-h-space;
+    }
+
+    &.-reversed {
+        #{$b}__container {
+            grid: "name photo" 1fr "title photo" 1fr;
         }
 
-        #{$b}__name {
-            margin-top: 0;
+        #{$b}__name,
+        #{$b}__title {
+            justify-self: end;
         }
     }
 }

@@ -2,6 +2,9 @@
 /// = Base =
 ///
 
+@use "/resources/styles/abstracts" as *;
+@import "normalize.css";
+
 *,
 *::before,
 *::after {
@@ -10,7 +13,6 @@
 
 html {
     background-color: #FFF;
-    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -18,7 +20,6 @@ body {
     font-family: $body-font-stack;
     font-size: $body-font-size;
     line-height: $body-line-height;
-    margin: 0;
 }
 
 img {

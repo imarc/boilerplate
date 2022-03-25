@@ -1,10 +1,11 @@
+@forward "./colors";
+@use "./colors.scss";
+
 //
 /// = Variables =
 ///
-
-$container: 1288px;
-$gutter: 40px;
-$columns: 12;
+$columns: 12 !default;
+$row-gap: 1.5rem;
 
 ///
 /// Default font stack, size, line-height
@@ -36,29 +37,29 @@ $thin-padding: $thin-v-space $thin-h-space;
 ///
 /// Site Colors
 ///
-$primary: $blue-500;
-$secondary: $aqua-200;
+$primary: colors.$blue-500;
+$secondary: colors.$aqua-200;
 
 
 ///
 /// Messaging colors
 ///
-$confirm: $green-400;
-$danger: $red-400;
-$disabled: $gray-200;
-$error: $red-500;
-$info: $blue-400;
-$success: $green-300;
-$warning: $yellow-200;
+$confirm: colors.$green-400;
+$danger: colors.$red-400;
+$disabled: colors.$gray-200;
+$error: colors.$red-500;
+$info: colors.$blue-400;
+$success: colors.$green-300;
+$warning: colors.$yellow-200;
 
 ///
 /// Applied colors
 ///
-$plain-text: $gray-900;
-$meta-text: $gray-500;
+$plain-text: colors.$gray-900;
+$meta-text: colors.$gray-500;
 $link: $primary;
-$link-hover: $blue-400;
-$border: $gray-200;
+$link-hover: colors.$blue-400;
+$border: colors.$gray-200;
 
 
 ///
@@ -91,10 +92,11 @@ $color-modifiers: (
 /// Media Query Breakpoints
 ///
 $breakpoints: (
-  md: 616px,
-  lg: 1000px,
-  xl: 1288px,
-);
+    sm: (width:      0, gap: 16px),
+    md: (width:  625px, gap: 32px),
+    lg: (width: 1121px, gap: 48px),
+    xl: (width: 1393px, gap: 48px),
+) !default;
 
 
 ///

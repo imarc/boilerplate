@@ -1,3 +1,8 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
+@use "variables" as *;
+
 ///
 /// Generates modifier classes based on $map and $default-map prefixed with $prefix.
 ///
@@ -30,14 +35,14 @@
 ///
 @mixin modifiers($map, $default-map: (), $prefix: '.-') {
     @each $pair in $map {
-        $key: nth($pair, 1);
+        $key: list.nth($pair, 1);
         $value: null;
 
-        @if length($pair) > 1 {
-            $value: nth($pair, 2);
+        @if string.length($pair) > 1 {
+            $value: list.nth($pair, 2);
 
-        } @else if map-has-key($default-map, $key) {
-            $value: map-get($default-map, $key);
+        } @else if map.has-key($default-map, $key) {
+            $value: map.get($default-map, $key);
         }
 
         @if $value != null {
@@ -117,37 +122,20 @@
 
 
 ///
-/// Historical alias for at().
-///
-@mixin breakpoint($bp, $rule: min-width) {
-    @include at($bp, $rule) {
-        @content;
-    }
-}
-
-///
 /// Media query mixin. Includes content when matching the breakpoint $bp as
 /// defined in $breakpoints. You can also just pass in a length to create a
 /// one-off breakpoint. It's discouraged, but you can also override the rule
 /// if you're prefer to use max-width instead of min-width.
 ///
 @mixin at($bp, $rule: min-width) {
-    @if map-has-key($breakpoints, $bp) {
-        $bp: map-get($breakpoints, $bp);
+    @if map.has-key($breakpoints, $bp, width) {
+        $bp: map.get($breakpoints, $bp, width);
     }
     @media screen and (#{$rule}: $bp) {
         @content;
     }
 }
 
-///
-/// Alias for at-each() for those who prefer breakpoint().
-///
-@mixin each-breakpoint($map...) {
-    @include at-each($map...) using ($v) {
-        @content($v);
-    }
-}
 
 ///
 /// Quick way to define a bunch of media queries. Example usage:
