@@ -50,3 +50,7 @@
 //@use "organisms/team/team.scss";
 
 @use "base";
+
+.grid {
+    @include grid.grid;
+}

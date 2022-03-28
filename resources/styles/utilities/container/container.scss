@@ -3,7 +3,6 @@
 @use "sass:map";
 
 .container {
-    background: #f804;
     margin-left: auto;
     margin-right: auto;
     padding-left: #{map.get(variables.$breakpoints, sm, gap)};

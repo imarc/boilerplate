@@ -1,3 +1,3 @@
 The container class is deprecated and will be removed in a future version of Boilerplate. Instead of container, use `.grid` with `.grid__container` or the mixin.
 
-The container mixin and class limit content to the max width configured by the `$container` variable, using the `$gutter` variable by default for left and right padding.
+The container class has been updated to use the responsive `$gap` sizes so it will correctly match how `.grid__container` looks across all breakpoints.
