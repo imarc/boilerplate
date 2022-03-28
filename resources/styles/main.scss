@@ -1,13 +1,5 @@
-@use "abstracts" as *;
-@use "/packages/boilerplate-grid/lib/grid" with (
-    $-breakpoints: $breakpoints,
-    $-columns: $columns,
-    $-row-gap: $row-gap,
-);
-
-@use "utilities/container/container";
-@use "utilities/stack/stack";
-@use "utilities/visually-hidden/visually-hidden";
+@use "abstracts";
+@use "utilities";
 
 @use "atoms/avatar/avatar";
 //@use "atoms/banner/banner.scss";
@@ -50,7 +42,3 @@
 //@use "organisms/team/team.scss";
 
 @use "base";
-
-.grid {
-    @include grid.grid;
-}
