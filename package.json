@@ -19,7 +19,7 @@
     "dev": "vite",
     "preview": "vite preview",
     "prod": "vite build",
-    "build": "vite build"
+    "build": "vite build && fractal build"
   },
   "dependencies": {
     "@frctl/fractal": "^1.5.4",
