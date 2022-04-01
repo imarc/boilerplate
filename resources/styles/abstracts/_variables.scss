@@ -34,59 +34,6 @@ $thin-v-space: .5rem;
 $thin-h-space: 1rem;
 $thin-padding: $thin-v-space $thin-h-space;
 
-///
-/// Site Colors
-///
-$primary: colors.$blue-500;
-$secondary: colors.$aqua-200;
-
-
-///
-/// Messaging colors
-///
-$confirm: colors.$green-400;
-$danger: colors.$red-400;
-$disabled: colors.$gray-200;
-$error: colors.$red-500;
-$info: colors.$blue-400;
-$success: colors.$green-300;
-$warning: colors.$yellow-200;
-
-///
-/// Applied colors
-///
-$plain-text: colors.$gray-900;
-$meta-text: colors.$gray-500;
-$link: $primary;
-$link-hover: colors.$blue-400;
-$border: colors.$gray-200;
-
-
-///
-/// Social Network Colors
-///
-$facebook: #3664A2;
-$twitter: #55ACEE;
-$linkedin: #0077B5;
-$youtube: #CD201F;
-
-///
-/// Color Modifiers
-///
-$color-modifiers: (
-    primary: $primary,
-    secondary: $secondary,
-    danger: $danger,
-    confirm: $confirm,
-
-    success: $success,
-    warning: $warning,
-    error: $error,
-
-    info: $info,
-    disabled: $disabled,
-);
-
 
 ///
 /// Media Query Breakpoints

@@ -1,7 +1,10 @@
 @use "sass:list";
 @use "sass:map";
+@use "sass:meta";
 @use "sass:string";
+
 @use "variables" as *;
+@use "colors";
 
 ///
 /// Generates modifier classes based on $map and $default-map prefixed with $prefix.
@@ -38,7 +41,7 @@
         $key: list.nth($pair, 1);
         $value: null;
 
-        @if string.length($pair) > 1 {
+        @if list.length($pair) > 1 {
             $value: list.nth($pair, 2);
 
         } @else if map.has-key($default-map, $key) {
@@ -85,14 +88,15 @@
 ///         }
 ///     }
 ///
-@mixin color-modifiers($colors: $color-modifiers, $prefix: '.-') {
+$-colors: meta.module-variables(colors);
+@mixin color-modifiers($colors: $-colors, $property: --background-color, $prefix: '.-') {
     @if content-exists() {
-        @include modifiers($colors, $color-modifiers, $prefix) using ($color) {
+        @include modifiers($colors, $-colors, $prefix) using ($color) {
             @content($color);
         }
     } @else {
-        @include modifiers($colors, $color-modifiers, $prefix) using ($color) {
-            color: $color;
+        @include modifiers($colors, $-colors, $prefix) using ($color) {
+            #{$property}: $color;
         }
     }
 }

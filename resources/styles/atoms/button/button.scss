@@ -1,105 +1,62 @@
-///
-/// A basic button mixin.
-///
-/// $color
-///     button color
-/// $text-color
-///     button label color
-/// $hover-color
-///     button hover color
-/// $disabled-color
-///     disabled button color
-///
-@mixin button (
-    $color: $gray-400,
-    $text-color: $white,
-    $hover-color: $link-hover
-) {
-    background-color: $color;
+@use "/resources/styles/abstracts";
+
+.button {
+    --button-background-color: var(--background-color, #{abstracts.$gray-400});
+    --button-color: var(--color, #{abstracts.$white});
+    --button-background-color-hover: var(--background-color-hover, #{abstracts.$link-hover});
+
+    background-color: var(--button-background-color);
     border: none;
-    color: $text-color;
+    color: var(--button-color);
     cursor: pointer;
     display: inline-block;
     font-family: inherit;
-    padding: $padding;
+    padding: abstracts.$padding;
     text-align: center;
-    transition: box-shadow $fast $fade-easing,
-        background-color $fast $fade-easing,
-        color $fast $fade-easing;
+    transition: box-shadow abstracts.$fast abstracts.$fade-easing,
+        background-color abstracts.$fast abstracts.$fade-easing,
+        color abstracts.$fast abstracts.$fade-easing;
     vertical-align: top;
 
     &:hover,
     &:focus {
-        color: $text-color;
-        box-shadow: 0 0 0 2px inset $color, 0 0 0 4px inset $white;
+        color: var(--button-color);
+        box-shadow: 0 0 0 2px inset var(--button-background-color), 0 0 0 4px inset abstracts.$white;
     }
 
     &[disabled] {
         pointer-events: none;
     }
 
-    @include color-modifiers using ($color) {
-        background-color: $color;
-        color: blackwhite($color);
-        font-weight: bold;
-
-        &:hover,
-        &:focus {
-            box-shadow: 0 0 0 2px inset $color, 0 0 0 4px inset $white;
-        }
-    }
-
     &.-disabled {
-        color: $white;
+        --button-color: #{abstracts.$white};
         pointer-events: none;
     }
 
 
     &.-outline {
         box-shadow: 0 0 0 2px inset;
-        color: $color;
+        color: var(--button-background-color);
         background-color: transparent;
 
         &:hover,
         &:focus {
-            color: $text-color;
-            box-shadow: 0 0 0 2px inset $color;
-            background-color: $color;
-        }
-
-        @include color-modifiers using ($color) {
-            box-shadow: 0 0 0 2px inset $color;
-            color: $color;
-
-            &:hover,
-            &:focus {
-                color: $text-color;
-                background-color: $color;
-            }
+            color: var(--button-color);
+            box-shadow: 0 0 0 2px inset var(--button-background-color);
+            background-color: var(--button-background-color);
         }
     }
 
     &.-ghost {
         background-color: transparent;
-        color: $color;
+        color: var(--button-background-color);
 
         &:hover,
         &:focus {
-            background-color: rgba($color, .1);
+            background-color: rgba(red, .1);
             box-shadow: none;
         }
-
-        @include color-modifiers using ($color) {
-            color: $color;
-
-            &:hover,
-            &:focus {
-                background-color: rgba($color, .1);
-            }
-        }
     }
-}
 
-.button {
-    @include button;
+    @include abstracts.color-modifiers(primary secondary danger confirm disabled);
 }

@@ -1,6 +1,8 @@
 @use "sass:color";
 @use "sass:math";
 
+@use "/resources/styles/abstracts/colors" as *;
+
 ///
 /// Private function - returns the relative luminance of a single color
 /// channel where $n goes from 0 to 255.
