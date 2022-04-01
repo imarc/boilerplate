@@ -65,7 +65,7 @@ fractal.web.set('builder.dest', resolve('./web/pattern-library'))
  * Static files the pattern library uses are copied from /web, but make sure
  * not to copy index.php or the pattern library itself.
  */
-fractal.web.set('static.path', resolve('/web'))
+fractal.web.set('static.path', resolve('./web'))
 fractal.web.set('builder.static.ignored', [
     resolve('./web/pattern-library'),
     resolve('./web/index.php'),
