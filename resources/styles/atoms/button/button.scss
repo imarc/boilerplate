@@ -1,35 +1,44 @@
-@use "/resources/styles/abstracts";
+@use "sass:list";
+
+@use "/resources/styles/common" as *;
+@use "/resources/styles/variables";
+
+//
+// Button component
+//
+// custom properties
+//
+//   --background-color        background color
+//   --background-color-hover  background color on hover
+//   --color                   text color
 
 .button {
-    --button-background-color: var(--background-color, #{abstracts.$gray-400});
-    --button-color: var(--color, #{abstracts.$white});
-    --button-background-color-hover: var(--background-color-hover, #{abstracts.$link-hover});
+    --button-background-color: var(--background-color, #{variables.$gray-400});
+    //--button-background-color-hover: var(--background-color-hover, #{variables.$gray-300});
+    --button-color: var(--color, #{variables.$white});
 
     background-color: var(--button-background-color);
     border: none;
     color: var(--button-color);
     cursor: pointer;
     display: inline-block;
-    font-family: inherit;
-    padding: abstracts.$padding;
-    text-align: center;
-    transition: box-shadow abstracts.$fast abstracts.$fade-easing,
-        background-color abstracts.$fast abstracts.$fade-easing,
-        color abstracts.$fast abstracts.$fade-easing;
-    vertical-align: top;
+    font-weight: 700;
+    padding: variables.$padding;
+    transition: box-shadow var(--duration-fast) variables.$fade-easing,
+        background-color var(--duration-fast) variables.$fade-easing,
+        color var(--duration-fast) variables.$fade-easing;
 
     &:hover,
     &:focus {
+        //background-color: var(--button-background-color-hover);
         color: var(--button-color);
-        box-shadow: 0 0 0 2px inset var(--button-background-color), 0 0 0 4px inset abstracts.$white;
     }
 
+    @include color-modifiers(primary primary secondary danger confirm);
+
+    &.-disabled,
     &[disabled] {
-        pointer-events: none;
-    }
-
-    &.-disabled {
-        --button-color: #{abstracts.$white};
+        --background-color: #{variables.$disabled};
         pointer-events: none;
     }
 
@@ -48,15 +57,19 @@
     }
 
     &.-ghost {
+        --button-background-color-hover: var(--background-color-hover, #{rgba(variables.$gray-300, .1)});
+
         background-color: transparent;
         color: var(--button-background-color);
 
+        @include color-modifiers(primary secondary danger confirm) using ($color) {
+            --button-background-color-hover: var(--background-color-hover, #{rgba($color, .1)});
+        }
+
         &:hover,
         &:focus {
-            background-color: rgba(red, .1);
+            background: var(--button-background-color-hover);
             box-shadow: none;
         }
     }
-
-    @include abstracts.color-modifiers(primary secondary danger confirm disabled);
 }

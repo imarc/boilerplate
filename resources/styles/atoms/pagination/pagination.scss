@@ -17,7 +17,7 @@
 @mixin pagination (
     $text-color: $link,
     $active-color: $link,
-    $hover-color: $link-hover,
+    $hover-color: $link\:hover,
     $active-text-color: $white,
     $border: $border,
 ) {

@@ -1,12 +1,10 @@
-@use "/resources/styles/abstracts" as *;
+@use "/resources/styles/variables";
 
-button,
-input,
-optgroup,
-select,
-textarea {
-    font: inherit;
-    margin: 0;
+button {
+    border: 0;
+    background-color: transparent;
+    line-height: inherit;
+    padding: 0;
 }
 
 label {
@@ -21,7 +19,7 @@ fieldset {
     margin: 0;
     padding: 0;
     .help {
-        color: $meta-text;
+        color: variables.$meta-text;
         font-size: 0.8rem;
         margin: 0;
     }
@@ -35,19 +33,19 @@ input[type="submit"] {
 }
 
 ::-webkit-input-placeholder {
-    color: $gray-400;
+    color: variables.$gray-400;
 }
 
 ::ms-input-placeholder {
-    color: $gray-400;
+    color: variables.$gray-400;
 }
 
 ::-placeholder {
-    color: $gray-400;
+    color: variables.$gray-400;
 }
 
 select {
-    border: 1px solid $border;
+    border: 1px solid variables.$border;
     height: 2.4rem;
     width: 100%;
 }

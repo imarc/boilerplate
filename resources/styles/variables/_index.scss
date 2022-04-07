@@ -1,5 +1,5 @@
-@forward "./colors";
-@use "./colors.scss";
+@forward "colors";
+@use "colors";
 
 //
 /// = Variables =
@@ -10,15 +10,15 @@ $row-gap: 1.5rem;
 ///
 /// Default font stack, size, line-height
 ///
-$body-font-stack: Arial, sans-serif;
-$body-font-size: 1rem;
-$body-line-height: 1.5;
+$font-family: Arial, sans-serif;
+$font-size: 1rem;
+$line-height: 1.5;
 
 ///
 /// Heading font stack, line-height
 ///
-$heading-font-stack: system-ui, sans-serif;
-$heading-line-height: 1;
+$font-family-heading: system-ui, sans-serif;
+$line-height-heading: 1;
 
 ///
 /// Regular padding. Used for components like buttons, cards, and primary nav items.
@@ -66,17 +66,20 @@ $entrance-easing: $ease-out-quint;
 $exit-easing: $ease-in-quint;
 
 ///
+/// These are recommended durations for transitions. They are custom properties
+/// so they can be set to 0 when a visitor prefers-reduced-motion.
+///
 /// Fast is for micro-animations such as fades.
 ///
-$fast: 150ms;
+$fast: var(--duration-fast);
 
 ///
 /// Moderate is for mid-sized animations, such as mega menus and notifications.
 ///
-$moderate: 240ms;
+$moderate: var(--duration-moderate);
 
 ///
 /// Slow is for animations meant for large animations such as page transitions
 /// and background fades.
 ///
-$slow: 400ms;
+$slow: var(--duration-slow);

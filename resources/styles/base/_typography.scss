@@ -1,4 +1,4 @@
-@use "/resources/styles/abstracts" as *;
+@use "/resources/styles/variables";
 
 p {
     margin: 0 0 2em;
@@ -16,8 +16,8 @@ em {
 }
 
 blockquote {
-    border-left: 1px solid $border;
-    color: $meta-text;
+    border-left: 1px solid variables.$border;
+    color: variables.$meta-text;
     font-style: italic;
     margin-bottom: 2rem;
     padding-left: 1rem;
@@ -25,7 +25,7 @@ blockquote {
 
 hr {
     border: 0;
-    border-top: 1px solid $meta-text;
+    border-top: 1px solid variables.$meta-text;
     display: block;
     height: 0;
     margin: 3rem auto;
@@ -54,9 +54,9 @@ dt {
 }
 
 pre {
-    background-color: $gray-800;
-    color: $gray-200;
-    padding: $padding;
+    background-color: variables.$gray-800;
+    color: variables.$gray-200;
+    padding: variables.$padding;
     white-space: pre-wrap;
     word-wrap: break-word;
 }

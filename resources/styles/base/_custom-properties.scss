@@ -1,0 +1,13 @@
+@use "/resources/styles/variables";
+
+:root {
+    --duration-fast: 150ms;
+    --duration-moderate: 250ms;
+    --duration-slow: 400ms;
+
+    @media (prefers-reduced-motion) {
+        --duration-fast: 0;
+        --duration-moderate: 0;
+        --duration-slow: 0;
+    }
+}

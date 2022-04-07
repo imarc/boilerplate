@@ -1,4 +1,5 @@
-@use "abstracts";
+@use "variables";
+@use "common";
 @use "utilities";
 
 @use "atoms/avatar/avatar";
@@ -11,7 +12,7 @@
 //@use "atoms/headings/eyebrow/eyebrow.scss";
 //@use "atoms/headings/heading/heading.scss";
 //@use "atoms/link-group/link-group.scss";
-//@use "atoms/link/link.scss";
+@use "atoms/link/link.scss";
 //@use "atoms/menu/menu.scss";
 //@use "atoms/pagination/pagination.scss";
 //@use "atoms/progress/progress.scss";

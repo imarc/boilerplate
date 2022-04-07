@@ -1,9 +1,10 @@
-@use "/resources/styles/abstracts" as *;
+@use "/resources/styles/common" as *;
+@use "/resources/styles/variables";
 
 @use "/packages/boilerplate-grid/lib/grid" with (
-    $-breakpoints: $breakpoints,
-    $-columns: $columns,
-    $-row-gap: $row-gap,
+    $-breakpoints: variables.$breakpoints,
+    $-columns: variables.$columns,
+    $-row-gap: variables.$row-gap,
 );
 
 .grid {

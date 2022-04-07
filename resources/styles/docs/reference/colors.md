@@ -53,7 +53,7 @@ This is standard set of colors that each of specific meanings. Nearly every site
 $plain-text: $gray-900 !default;
 $meta-text: $gray-500 !default;
 $link: $primary !default;
-$link-hover: $blue-400 !default;
+$link\:hover: $blue-400 !default;
 $border: $gray-200 !default;
 ```
 

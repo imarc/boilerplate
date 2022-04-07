@@ -8,7 +8,7 @@
 ///
 @mixin breadcrumbs(
     $color: $meta-text,
-    $hover-color: $link-hover,
+    $hover-color: $link\:hover,
 ) {
     $b: &;
 

@@ -1,6 +1,7 @@
-@use "/resources/styles/abstracts/variables.scss";
-@use "/resources/styles/abstracts/mixins.scss" as *;
 @use "sass:map";
+
+@use "/resources/styles/variables";
+@use "/resources/styles/common" as *;
 
 .container {
     margin-left: auto;

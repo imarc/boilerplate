@@ -1,4 +1,4 @@
-@use "/resources/styles/abstracts";
+@use "/resources/styles/variables";
 
 @mixin avatar {
     $b: &;
@@ -7,14 +7,14 @@
     &__container {
         display: grid;
         grid: "photo name" 1fr "photo title" 1fr;
-        gap: abstracts.$thin-v-space 0;
+        gap: variables.$thin-v-space 0;
     }
 
     &__name {
         font-size: 1.25rem;
         font-weight: bold;
         grid-area: name;
-        padding: 0 abstracts.$thin-h-space;
+        padding: 0 variables.$thin-h-space;
         align-self: end;
     }
 
@@ -26,7 +26,7 @@
 
     &__title {
         grid-area: title;
-        padding: 0 abstracts.$thin-h-space;
+        padding: 0 variables.$thin-h-space;
     }
 
     &.-reversed {

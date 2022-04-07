@@ -1,6 +1,7 @@
 @use "sass:math";
+@use "sass:string";
 
-@forward "functions/contrast";
+@forward "contrast";
 
 ///
 /// returns a properly scaled font size based on a given max size, assuming a
@@ -34,4 +35,13 @@
     }
 
     @return $new-list;
+}
+
+@function unslash-colons($str) {
+    $index: string.index($str, \:);
+    @if $index != null {
+        @return unslash-colons(string.slice($str, 1, $index - 1) + string.slice($str, $index + 1));
+    } @else {
+        @return $str;
+    }
 }

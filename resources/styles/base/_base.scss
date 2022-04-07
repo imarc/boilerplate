@@ -2,7 +2,8 @@
 /// = Base =
 ///
 
-@use "/resources/styles/abstracts" as *;
+@use "/resources/styles/variables";
+
 @import "/node_modules/normalize.css/normalize.css";
 
 *,
@@ -16,10 +17,10 @@ html {
 }
 
 body {
-    color: $plain-text;
-    font-family: $body-font-stack;
-    font-size: $body-font-size;
-    line-height: $body-line-height;
+    color: variables.$plain-text;
+    font-family: variables.$font-family;
+    font-size: variables.$font-size;
+    line-height: variables.$line-height;
 }
 
 img {
@@ -34,5 +35,5 @@ img {
 }
 
 ::selection {
-    background: $border;
+    background: variables.$border;
 }

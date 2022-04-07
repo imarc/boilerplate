@@ -3,8 +3,9 @@
 @use "sass:meta";
 @use "sass:string";
 
-@use "variables" as *;
-@use "colors";
+@use "/resources/styles/common/functions";
+@use "/resources/styles/variables" as *;
+@use "/resources/styles/variables/colors";
 
 ///
 /// Generates modifier classes based on $map and $default-map prefixed with $prefix.
@@ -36,7 +37,7 @@
 ///         color: blue;
 ///     }
 ///
-@mixin modifiers($map, $default-map: (), $prefix: '.-') {
+@mixin modifiers($map, $default-map: (), $prefix: '.-', $suffixes: \:hover \:active \:focus) {
     @each $pair in $map {
         $key: list.nth($pair, 1);
         $value: null;
@@ -49,11 +50,21 @@
         }
 
         @if $value != null {
-            &#{$prefix}#{""+$key} {
+            &#{$prefix}#{functions.unslash-colons($key)} {
                 @content($value);
             }
         } @else {
             @content($key);
+        }
+
+        @each $suffix in $suffixes {
+            @if map.has-key($default-map, $key + $suffix) {
+                $value: map.get($default-map, $key + $suffix);
+
+                &#{$prefix}#{functions.unslash-colons($key + $suffix)} {
+                    @content($value);
+                }
+            }
         }
     }
 }
@@ -99,6 +110,16 @@ $-colors: meta.module-variables(colors);
             #{$property}: $color;
         }
     }
+}
+
+@function palette-darken($color) {
+    @each $key, $value in $-colors {
+        @if $value == $color {
+            @return $key
+        }
+    }
+
+    @return null
 }
 
 

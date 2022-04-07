@@ -1,42 +1,32 @@
-@mixin link (
-    $color: $link,
-    $hover-color: $link-hover,
-    $disabled-color: darken(#FFF, 20%)
-) {
-    background-color: transparent;
-    border: 0;
-    color: $color;
+@use "/resources/styles/variables";
+
+a,
+.link {
+    --link-color: var(--color, #{variables.$link});
+    --link-color-hover: var(--color-hover, #{variables.$link\:hover});
+    color: var(--link-color);
     cursor: pointer;
-    display: inline;
-    line-height: normal;
-    padding: 0;
     text-decoration: none;
-    transition: color $fade-easing $fast;
+    transition: color variables.$fade-easing variables.$fast;
 
     &:hover,
     &:active {
-        color: $hover-color;
+        color: var(--link-color-hover);
     }
 
     &.-disabled,
     &[disabled] {
-        color: $disabled;
+        --link-color: #{variables.$disabled};
         cursor: default;
         pointer-events: none;
     }
 
     &__icon {
-        width: 1em; // IE11 needs both width and height on SVGs
         height: 1em;
-        vertical-align: text-bottom;
+        vertical-align: text-top;
 
         &.-separator {
             transform: translateX(50%);
         }
     }
-}
-
-a,
-.link {
-    @include link;
 }
