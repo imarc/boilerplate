@@ -1,4 +1,5 @@
 @use "sass:list";
+@use "/resources/styles/common" as *;
 @use "/resources/styles/config";
 
 //
@@ -11,12 +12,14 @@
 //   --color                   text color
 
 .button {
-    --button-background-color: var(--background-color, #{config.$gray-400});
-    --button-background-color-fade: var(--background-color-fade, #{rgba(config.$gray-400, .1)});
-    --button-color: var(--color, #{config.$white});
+    @extend %accentable;
+
+    --button-background-color: var(--color-accent, #{config.$gray-400});
+    --button-background-color-fade: var(--color-accent-01, #{rgba(config.$gray-400, .1)});
+
     background-color: var(--button-background-color);
     border: none;
-    color: var(--button-color);
+    color: var(--color-accent-contrast, #{config.$white});
     cursor: pointer;
     display: inline-block;
     font-weight: 700;
@@ -27,29 +30,12 @@
 
     &:hover,
     &:focus {
-        --button-background-color: var(--background-color, #{config.$gray-300});
-        color: var(--button-color);
+        --button-background-color: var(--color-accent-hover, #{config.$gray-300});
     }
 
-    @each $modifier, $color, $hover-color in (
-        primary   config.$primary   config.$primary-hover,
-        secondary config.$secondary config.$secondary-hover,
-        danger    config.$danger    config.$danger-hover,
-        confirm   config.$confirm   config.$confirm-hover,
-    ) {
-        &.-#{$modifier} {
-            --button-background-color: var(--background-color, #{$color});
-            --button-background-color-fade: #{rgba($color, .1)};
-
-            &:hover {
-                --button-background-color: var(--background-color, #{$hover-color});
-            }
-        }
-    }
 
     &.-disabled,
     &[disabled] {
-        --background-color: #{config.$disabled};
         pointer-events: none;
     }
 
@@ -63,9 +49,10 @@
         &:focus {
             background-color: var(--button-background-color);
             box-shadow: 0 0 0 2px inset var(--button-background-color);
-            color: var(--button-color);
+            color: var(--color-accent-contrast, #{config.$white});
         }
     }
+
 
     &.-ghost {
         background-color: transparent;

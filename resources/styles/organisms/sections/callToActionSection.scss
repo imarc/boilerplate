@@ -1,19 +1,15 @@
+@use "/resources/styles/config";
+
 .section.-callToActionSection {
-    background-color: $primary;
-    color: $white;
+    background-color: var(--accent-color, #{config.$primary});
+    color: config.$white;
     text-align: center;
 
     .section__eyebrow {
-        color: $secondary;
+        color: config.$secondary;
     }
 
-    @include color-modifiers((primary, secondary, lightGray $gray-100)) using ($color) {
-        .section__eyebrow {
-            color: blackwhite($color, $primary, $secondary);
-        }
-    }
-    .section__action {
-        @include button($white, $primary);
-        font-weight: bold;
+    .section__eyebrow {
+        color: var(--accent-color-contrast);
     }
 }

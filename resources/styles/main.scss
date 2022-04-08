@@ -21,7 +21,7 @@
 //@use "atoms/utility-nav/utility-nav.scss";
 //
 //@use "molecules/accordion/accordion.scss";
-//@use "molecules/card/card.scss";
+@use "molecules/card/card.scss";
 //@use "molecules/link-groups/link-groups.scss";
 @use "molecules/messaging/messaging.scss";
 //@use "molecules/search/search.scss";
@@ -32,7 +32,7 @@
 //@use "organisms/background-video/background-video.scss";
 //@use "organisms/cards/cards.scss";
 //@use "organisms/carousel/carousel.scss";
-//@use "organisms/sections";
+@use "organisms/sections";
 //@use "organisms/logo-cloud/logo-cloud.scss";
 //@use "organisms/mega-dropdown/mega-dropdown.scss";
 //@use "organisms/mobile-navigation/mobile-navigation.scss";

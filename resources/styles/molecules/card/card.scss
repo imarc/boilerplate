@@ -1,12 +1,15 @@
+@use "/resources/styles/config";
+@use "/resources/styles/common" as *;
+
 ///
 /// Simple card.
 ///
 @mixin card() {
     $b: &;
 
-    background-color: $white;
-    box-shadow: $med-shadow;
-    margin-bottom: $v-space;
+    background-color: config.$white;
+    box-shadow: config.$med-shadow;
+    margin-bottom: config.$v-space;
     z-index: 1;
 
     &__container {
@@ -21,29 +24,29 @@
     &__content,
     &__actions {
         justify-self: center; // For IE11 (instead of justify-items)
-        padding-left: $h-space;
-        padding-right: $h-space;
+        padding-left: config.$h-space;
+        padding-right: config.$h-space;
         position: relative;
     }
 
     &__tag {
         align-self: start;
-        color: $meta-text;
+        color: config.$meta-text;
         font-size: .875rem;
         font-weight: bold;
         grid-area: icon;
         justify-self: start;
-        padding: $thin-padding;
+        padding: config.$thin-padding;
         text-transform: uppercase;
 
         &.-overlay {
-            color: $black;
+            color: config.$black;
         }
     }
 
     &__icon {
         grid-area: icon;
-        padding-top: $v-space;
+        padding-top: config.$v-space;
         text-align: center; // For IE11
     }
 
@@ -57,7 +60,7 @@
 
 
     &__background {
-        background: $gray-100 center/cover;
+        background: config.$gray-100 center/cover;
         grid-column: 1;
         grid-row: icon / heading;
         height: 100%;
@@ -71,7 +74,7 @@
         justify-content: center;
         justify-self: stretch;
         margin-top: auto;
-        padding-bottom: $v-space;
+        padding-bottom: config.$v-space;
 
         &.-attached {
             justify-content: stretch;
@@ -109,7 +112,7 @@
         }
 
         #{$b}__heading {
-            padding-top: $v-space;
+            padding-top: config.$v-space;
         }
     }
 }

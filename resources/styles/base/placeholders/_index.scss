@@ -1,0 +1,25 @@
+@use "/resources/styles/common" as *;
+@use "/resources/styles/config";
+
+%accentable {
+    @each $modifier, $color, $hover-color in (
+        primary   config.$primary   config.$primary-hover,
+        secondary config.$secondary config.$secondary-hover,
+
+        danger    config.$danger    config.$danger-hover,
+        confirm   config.$confirm   config.$confirm-hover,
+
+        disabled  config.$disabled,
+        error     config.$error,
+        info      config.$info,
+        success   config.$success,
+        warning   config.$warning,
+    ) {
+        &.-#{$modifier} {
+            --color-accent: #{$color};
+            --color-accent-01: #{rgba($color, .1)};
+            --color-accent-contrast: #{blackwhite($color)};
+            --color-accent-hover: #{$hover-color};
+        }
+    }
+}

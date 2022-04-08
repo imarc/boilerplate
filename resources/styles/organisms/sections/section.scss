@@ -1,4 +1,9 @@
+@use "/resources/styles/config";
+@use "/resources/styles/common" as *;
+
 .section {
+    @extend %accentable;
+
     align-items: center;
     display: grid;
     grid-template: "stack";
@@ -54,11 +59,11 @@
     &__item {
 
         &.-sidebar {
-            background-color: $blue-200;
-            padding: $padding;
+            background-color: config.$blue-200;
+            padding: config.$padding;
 
             .field {
-                @extend .field, .-outlined;
+                //@extend .field, .-outlined; What is this
             }
         }
     }
@@ -68,32 +73,22 @@
         justify-content: center;
     }
 
+    background-color: var(--color-accent);
+    color: var(--color-accent-contrast, #{config.$plain-text});
+
 
     &.-dark {
-        background-color: $blue-900;
-        color: $white;
+        background-color: config.$blue-900;
+        color: config.$white;
 
         .section__background::before {
-            background: linear-gradient(to right, $blue-900 calc(50% - min(#{divide($container, 2)}, 50vw)), transparent);
+            //background: linear-gradient(to right, config.$blue-900 calc(50% - min(#{divide(config.$container, 2)}, 50vw)), transparent);
             bottom: 0;
             content: '';
             left: 0;
             position: absolute;
             right: 0;
             top: 0;
-        }
-    }
-
-    @include color-modifiers((
-        primary,
-        secondary,
-        lightGray $gray-100,
-    )) using ($color) {
-        background-color: $color;
-        color: blackwhite($color);
-
-        .section__eyebrow {
-            color: blackwhite($color, $primary, $secondary);
         }
     }
 

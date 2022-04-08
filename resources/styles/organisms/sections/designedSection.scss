@@ -1,3 +1,6 @@
+@use "/resources/styles/config";
+@use "/resources/styles/common" as *;
+
 .section {
 
     &.-twoColumn {
