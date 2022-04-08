@@ -2,7 +2,7 @@
 /// = Base =
 ///
 
-@use "/resources/styles/variables";
+@use "/resources/styles/config";
 
 @import "/node_modules/normalize.css/normalize.css";
 
@@ -17,10 +17,10 @@ html {
 }
 
 body {
-    color: variables.$plain-text;
-    font-family: variables.$font-family;
-    font-size: variables.$font-size;
-    line-height: variables.$line-height;
+    color: config.$plain-text;
+    font-family: config.$font-family;
+    font-size: config.$font-size;
+    line-height: config.$line-height;
 }
 
 img {
@@ -35,5 +35,5 @@ img {
 }
 
 ::selection {
-    background: variables.$border;
+    background: config.$border;
 }

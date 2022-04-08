@@ -41,7 +41,7 @@
 /// returns either $black or $white, whichever has a the higher contrast value
 /// with $c.
 ///
-@function blackwhite($c, $black: $black, $white: $white) {
+@function blackwhite($c, $black: #000, $white: #fff) {
     @if _contrast($c) < _contrast($c, true) {
         @return $black;
     } @else {

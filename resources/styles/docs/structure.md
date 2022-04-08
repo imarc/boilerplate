@@ -35,7 +35,7 @@ There's also a handful of Sass files within this folder itself:
 * **_mixins.scss** - contains Sass mixins and functions that don't make sense to get their own folder.
 * **_transitions.scs** – css transitions.
 * **_utilities.scss** - contains Sass utilities that are too simple to define standalone.
-* **_variables.scss** - contains Sass variables.
+* **_config.scss** - contains Sass variables.
 
 
 ## Component File Structure and Naming

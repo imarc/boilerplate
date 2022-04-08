@@ -1,4 +1,4 @@
-@use "/resources/styles/variables";
+@use "/resources/styles/config";
 
 button {
     border: 0;
@@ -19,7 +19,7 @@ fieldset {
     margin: 0;
     padding: 0;
     .help {
-        color: variables.$meta-text;
+        color: config.$meta-text;
         font-size: 0.8rem;
         margin: 0;
     }
@@ -33,19 +33,19 @@ input[type="submit"] {
 }
 
 ::-webkit-input-placeholder {
-    color: variables.$gray-400;
+    color: config.$gray-400;
 }
 
 ::ms-input-placeholder {
-    color: variables.$gray-400;
+    color: config.$gray-400;
 }
 
 ::-placeholder {
-    color: variables.$gray-400;
+    color: config.$gray-400;
 }
 
 select {
-    border: 1px solid variables.$border;
+    border: 1px solid config.$border;
     height: 2.4rem;
     width: 100%;
 }

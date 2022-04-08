@@ -5,9 +5,9 @@
 /// Site Colors
 ///
 $primary: $blue-500;
-$primary\:hover: $blue-400;
+$primary-hover: $blue-400;
 $secondary: $aqua-200;
-$secondary\:hover: $aqua-100;
+$secondary-hover: $aqua-100;
 
 
 
@@ -15,9 +15,9 @@ $secondary\:hover: $aqua-100;
 /// Messaging colors
 ///
 $confirm: $green-400;
-$confirm\:hover: $green-300;
+$confirm-hover: $green-300;
 $danger: $red-400;
-$danger\:hover: $red-300;
+$danger-hover: $red-300;
 $disabled: $gray-200;
 $error: $red-500;
 $info: $blue-400;
@@ -31,7 +31,7 @@ $warning: $yellow-200;
 $plain-text: $gray-900;
 $meta-text: $gray-500;
 $link: $primary;
-$link\:hover: $blue-300;
+$link-hover: $blue-300;
 $border: $gray-200;
 
 

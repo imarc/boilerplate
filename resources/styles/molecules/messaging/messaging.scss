@@ -1,80 +1,76 @@
+@use "/resources/styles/config";
+@use "/resources/styles/common" as *;
+
 ///
 /// For messages to the user.
 ///
-/// @color
-///     Icon color.
-/// @link-color
-///     Optionally override the default link color.
-/// @link-hover-color
-///     Optionally override the link hover color.
-///
-@mixin messaging (
-    $color: $info,
-    $font-size: $body-font-size,
-    $icon-size: 1.5rem,
-    $line-height: $body-line-height,
-    $link-color: inherit,
-    $link-hover-color: inherit
-) {
+.messaging {
     $b: &;
 
-    $leading: $font-size * $line-height;
-
-    background-color: $gray-100;
-    box-shadow: .25rem 0 0 inset, $med-shadow;
-    font-size: $font-size;
-    line-height: $line-height;
+    --messaging-height-icon: var(--height-icon, 1.5rem);
+    background-color: config.$gray-100;
+    box-shadow: .25rem 0 0 inset, config.$med-shadow;
+    display: grid;
+    gap: config.$h-space;
+    grid: "icon content" #{config.$line-height * 1em} "_ content" / auto 1fr;
     margin-bottom: 2rem;
-    padding: $padding;
-    display: flex;
+    padding: config.$padding;
 
     &__icon {
-        height: $icon-size;
-        flex-shrink: 0;
-        margin-right: $h-space;
-        width: $icon-size;
-        @if $leading != $icon-size {
-            transform: translateY(divide($leading - $icon-size, 2));
-        }
+        align-self: center;
+        grid-area: icon;
+        height: var(--messaging-height-icon);
     }
 
     &__content {
-        flex-grow: 1;
+        grid-area: content;
     }
 
-    a {
-        color: $link-color;
-        text-decoration: underline;
-        transition: color $fade-easing $fast;
+    @each $modifier, $color in (
+        success config.$success,
+        warning config.$warning,
+        error   config.$error,
+        info    config.$info,
+    ) {
+        &.-#{$modifier} {
+            box-shadow: .25rem 0 0 $color inset, config.$med-shadow;
 
-        &:hover {
-            color: $link-hover-color;
-        }
-    }
-
-    @include color-modifiers(success warning error info) using ($color) {
-        box-shadow: .25rem 0 0 $color inset, $med-shadow;
-        color: $plain-text;
-
-        #{$b}__icon {
-            color: $color;
+            #{$b}__icon {
+                color: $color;
+            }
         }
     }
 
     &.-filled {
-        box-shadow: $med-shadow;
+        box-shadow: config.$med-shadow;
+
+        a:not([class]) {
+            text-decoration: underline;
+        }
 
         @include color-modifiers(success warning error info) using ($color) {
             background-color: $color;
-            color: blackwhite($color, $plain-text);
+            color: blackwhite($color, config.$plain-text);
+
+            a {
+                --color: #{blackwhite($color, config.$plain-text)};
+                --background-color: #{blackwhite($color, config.$plain-text)};
+
+                &:hover {
+                    --background-color: #{config.$white};
+                    --color: #{$color};
+                }
+            }
+
+            a:not([class]) {
+                &:hover {
+                    --color: #{blackwhite($color, config.$plain-text)};
+                }
+            }
 
             #{$b}__icon {
                 color: inherit;
             }
         }
     }
-}
-
-.messaging {
-    @include messaging;
 }

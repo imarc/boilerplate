@@ -1,23 +1,23 @@
 @use "sass:map";
 
-@use "/resources/styles/variables";
+@use "/resources/styles/config";
 @use "/resources/styles/common" as *;
 
 .container {
     margin-left: auto;
     margin-right: auto;
-    padding-left: #{map.get(variables.$breakpoints, sm, gap)};
-    padding-right: #{map.get(variables.$breakpoints, sm, gap)};
+    padding-left: #{map.get(config.$breakpoints, sm, gap)};
+    padding-right: #{map.get(config.$breakpoints, sm, gap)};
 
     @include at(md) {
-        max-width: #{map.get(variables.$breakpoints, lg, width)};
-        padding-left: #{map.get(variables.$breakpoints, md, gap)};
-        padding-right: #{map.get(variables.$breakpoints, md, gap)};
+        max-width: #{map.get(config.$breakpoints, lg, width)};
+        padding-left: #{map.get(config.$breakpoints, md, gap)};
+        padding-right: #{map.get(config.$breakpoints, md, gap)};
     }
 
     @include at(lg) {
-        max-width: #{map.get(variables.$breakpoints, xl, width)};
-        padding-left: #{map.get(variables.$breakpoints, lg, gap)};
-        padding-right: #{map.get(variables.$breakpoints, lg, gap)};
+        max-width: #{map.get(config.$breakpoints, xl, width)};
+        padding-left: #{map.get(config.$breakpoints, lg, gap)};
+        padding-right: #{map.get(config.$breakpoints, lg, gap)};
     }
 }

@@ -1,4 +1,4 @@
-@use "variables";
+@use "config";
 @use "common";
 @use "utilities";
 
@@ -23,7 +23,7 @@
 //@use "molecules/accordion/accordion.scss";
 //@use "molecules/card/card.scss";
 //@use "molecules/link-groups/link-groups.scss";
-//@use "molecules/messaging/messaging.scss";
+@use "molecules/messaging/messaging.scss";
 //@use "molecules/search/search.scss";
 //@use "molecules/tabs/tabs.scss";
 //@use "molecules/testimonial/testimonial.scss";

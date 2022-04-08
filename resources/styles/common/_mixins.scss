@@ -4,8 +4,8 @@
 @use "sass:string";
 
 @use "/resources/styles/common/functions";
-@use "/resources/styles/variables" as *;
-@use "/resources/styles/variables/colors";
+@use "/resources/styles/config" as *;
+@use "/resources/styles/config/colors";
 
 ///
 /// Generates modifier classes based on $map and $default-map prefixed with $prefix.

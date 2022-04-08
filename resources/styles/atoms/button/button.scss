@@ -1,7 +1,5 @@
 @use "sass:list";
-
-@use "/resources/styles/common" as *;
-@use "/resources/styles/variables";
+@use "/resources/styles/config";
 
 //
 // Button component
@@ -13,62 +11,69 @@
 //   --color                   text color
 
 .button {
-    --button-background-color: var(--background-color, #{variables.$gray-400});
-    //--button-background-color-hover: var(--background-color-hover, #{variables.$gray-300});
-    --button-color: var(--color, #{variables.$white});
-
+    --button-background-color: var(--background-color, #{config.$gray-400});
+    --button-background-color-fade: var(--background-color-fade, #{rgba(config.$gray-400, .1)});
+    --button-color: var(--color, #{config.$white});
     background-color: var(--button-background-color);
     border: none;
     color: var(--button-color);
     cursor: pointer;
     display: inline-block;
     font-weight: 700;
-    padding: variables.$padding;
-    transition: box-shadow var(--duration-fast) variables.$fade-easing,
-        background-color var(--duration-fast) variables.$fade-easing,
-        color var(--duration-fast) variables.$fade-easing;
+    padding: config.$padding;
+    transition: box-shadow var(--duration-fast) config.$fade-easing,
+        background-color var(--duration-fast) config.$fade-easing,
+        color var(--duration-fast) config.$fade-easing;
 
     &:hover,
     &:focus {
-        //background-color: var(--button-background-color-hover);
+        --button-background-color: var(--background-color, #{config.$gray-300});
         color: var(--button-color);
     }
 
-    @include color-modifiers(primary primary secondary danger confirm);
+    @each $modifier, $color, $hover-color in (
+        primary   config.$primary   config.$primary-hover,
+        secondary config.$secondary config.$secondary-hover,
+        danger    config.$danger    config.$danger-hover,
+        confirm   config.$confirm   config.$confirm-hover,
+    ) {
+        &.-#{$modifier} {
+            --button-background-color: var(--background-color, #{$color});
+            --button-background-color-fade: #{rgba($color, .1)};
+
+            &:hover {
+                --button-background-color: var(--background-color, #{$hover-color});
+            }
+        }
+    }
 
     &.-disabled,
     &[disabled] {
-        --background-color: #{variables.$disabled};
+        --background-color: #{config.$disabled};
         pointer-events: none;
     }
 
 
     &.-outline {
+        background-color: transparent;
         box-shadow: 0 0 0 2px inset;
         color: var(--button-background-color);
-        background-color: transparent;
 
         &:hover,
         &:focus {
-            color: var(--button-color);
-            box-shadow: 0 0 0 2px inset var(--button-background-color);
             background-color: var(--button-background-color);
+            box-shadow: 0 0 0 2px inset var(--button-background-color);
+            color: var(--button-color);
         }
     }
 
     &.-ghost {
-        --button-background-color-hover: var(--background-color-hover, #{rgba(variables.$gray-300, .1)});
-
         background-color: transparent;
         color: var(--button-background-color);
 
-        @include color-modifiers(primary secondary danger confirm) using ($color) {
-            --button-background-color-hover: var(--background-color-hover, #{rgba($color, .1)});
-        }
-
         &:hover,
         &:focus {
-            background: var(--button-background-color-hover);
+            background-color: var(--button-background-color-fade);
             box-shadow: none;
         }
     }
