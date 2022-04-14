@@ -10,7 +10,7 @@ a,
 
     &:hover,
     &:active {
-        --link-color-hover: var(--color, #{config.$link-hover});
+        --link-color: var(--color, #{config.$link-hover});
     }
 
     &.-disabled,
@@ -23,9 +23,5 @@ a,
     &__icon {
         height: 1em;
         vertical-align: text-top;
-
-        &.-separator {
-            transform: translateX(50%);
-        }
     }
 }
