@@ -1,12 +1,17 @@
+@use "/resources/styles/common" as *;
+@use "/resources/styles/config";
+
 .banner {
-    background-color: $info;
-    color: blackwhite($info);
-    padding: $padding;
+    background-color: config.$info;
+    color: blackwhite(config.$info);
+    padding: config.$padding;
 
     &__container {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+    }
+
+    &__message {
+        flex-grow: 1;
     }
 
     &__dismiss {
