@@ -1,7 +1,10 @@
+@use "/resources/styles/common" as *;
+@use "/resources/styles/config";
+
 .heading {
-    font-family: $heading-font-stack;
+    font-family: config.$font-family-heading;
     font-weight: normal;
-    line-height: $heading-line-height;
+    line-height: config.$line-height-heading;
     margin: 0 0 .5em;
 }
 
@@ -14,7 +17,7 @@ h1,
 
     &.-oversize {
         @include at(lg) {
-            font-size: max(3.75rem, #{divide(divide(100vw * 3.75rem * 16px, 1rem), $container)});
+            //font-size: max(3.75rem, #{divide(divide(100vw * 3.75rem * 16px, 1rem), $container)});
         }
     }
 }
@@ -28,7 +31,7 @@ h2,
 
     &.-oversize {
         @include at(lg) {
-            font-size: max(3rem, #{divide(divide(100vw * 3rem * 16px, 1rem), $container)});
+            //font-size: max(3rem, #{divide(divide(100vw * 3rem * 16px, 1rem), $container)});
         }
     }
 }
@@ -42,7 +45,7 @@ h3,
 
     &.-oversize {
         @include at(lg) {
-            font-size: max(2rem, #{divide(divide(100vw * 2rem * 16px, 1rem), $container)});
+            //font-size: max(2rem, #{divide(divide(100vw * 2rem * 16px, 1rem), $container)});
         }
     }
 }

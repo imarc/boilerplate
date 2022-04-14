@@ -1,7 +1,11 @@
+@use "/resources/styles/config";
+
 .accented {
+    --accented-color: var(--color-accent, #{config.$primary});
+
     &::after {
         content: '';
-        background-color: $plain-text;
+        background-color: var(--accented-color);
         border: 0;
         display: flex;
         height: .25rem;
@@ -9,9 +13,11 @@
         width: 2rem;
     }
 
-    @include color-modifiers(primary secondary) using ($color) {
-        &::after {
-            background-color: $color;
-        }
+    &.-primary {
+        --accented-color: var(--color-accent, #{config.$primary});
+    }
+
+    &.-secondary {
+        --accented-color: var(--color-accent, #{config.$secondary});
     }
 }
