@@ -1,19 +1,15 @@
+@use "sass:math";
+@use "/resources/styles/config";
+
 ///
 /// Simple breadcrumbs for your breadcrumbing needs.
 ///
-/// $color
-///     crumb color
-/// $hover-color
-///     crumb hover color
-///
-@mixin breadcrumbs(
-    $color: $meta-text,
-    $hover-color: $link\:hover,
-) {
+.breadcrumbs {
     $b: &;
 
     &__list {
         display: flex;
+        flex-flow: row wrap;
         list-style: none;
         margin: 0;
         padding-left: 0;
@@ -24,21 +20,19 @@
     }
 
     &__link {
-        color: $color;
         display: block;
-        padding: $thin-v-space #{divide($thin-h-space, 2)};
-        transition: color $fade-easing $fast;
+        padding: config.$thin-padding;
+        padding: config.$thin-v-space #{math.div(config.$thin-h-space, 2)};
+        transition: color config.$fade-easing config.$fast;
 
+        // This left-aligns the text of the first link without reducing its
+        // target size, by adding an equal negative left margin to the left padding.
         #{$b}__item:first-child & {
-            margin-left: -#{divide($thin-h-space, 2)};
-        }
-
-        &:hover {
-            color: $hover-color;
+            margin-left: -#{math.div(config.$thin-h-space, 2)};
         }
     }
-}
 
-.breadcrumbs {
-    @include breadcrumbs;
+    &__linkSeparator {
+        transform: translateX(50%);
+    }
 }
