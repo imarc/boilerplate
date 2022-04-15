@@ -3,19 +3,19 @@
 @use "utilities";
 
 @use "atoms/avatar/avatar";
-//@use "atoms/banner/banner.scss";
-//@use "atoms/breadcrumbs/breadcrumbs.scss";
+@use "atoms/banner/banner.scss";
+@use "atoms/breadcrumbs/breadcrumbs.scss";
 @use "atoms/button/button.scss";
 //@use "atoms/dropdown/dropdown.scss";
 //@use "atoms/field/field.scss";
-//@use "atoms/headings/accented/accented.scss";
-//@use "atoms/headings/eyebrow/eyebrow.scss";
-//@use "atoms/headings/heading/heading.scss";
+@use "atoms/headings/accented/accented.scss";
+@use "atoms/headings/eyebrow/eyebrow.scss";
+@use "atoms/headings/heading/heading.scss";
 //@use "atoms/link-group/link-group.scss";
 @use "atoms/link/link.scss";
 //@use "atoms/menu/menu.scss";
-//@use "atoms/pagination/pagination.scss";
-//@use "atoms/progress/progress.scss";
+@use "atoms/pagination/pagination.scss";
+@use "atoms/progress/progress.scss";
 //@use "atoms/table/table.scss";
 //@use "atoms/toggle-button/toggle-button.scss";
 //@use "atoms/utility-nav/utility-nav.scss";
@@ -26,7 +26,7 @@
 @use "molecules/messaging/messaging.scss";
 //@use "molecules/search/search.scss";
 //@use "molecules/tabs/tabs.scss";
-//@use "molecules/testimonial/testimonial.scss";
+@use "molecules/testimonial/testimonial.scss";
 //@use "molecules/tiles/tiles.scss";
 //
 //@use "organisms/background-video/background-video.scss";
