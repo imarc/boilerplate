@@ -2,31 +2,31 @@
 @use "common";
 @use "utilities";
 
-@use "atoms/avatar/avatar";
-@use "atoms/banner/banner.scss";
-@use "atoms/breadcrumbs/breadcrumbs.scss";
-@use "atoms/button/button.scss";
+@use "atoms/avatar";
+@use "atoms/banner";
+@use "atoms/breadcrumbs";
+@use "atoms/button";
 //@use "atoms/dropdown/dropdown.scss";
 //@use "atoms/field/field.scss";
-@use "atoms/headings/accented/accented.scss";
-@use "atoms/headings/eyebrow/eyebrow.scss";
-@use "atoms/headings/heading/heading.scss";
+@use "atoms/headings/accented";
+@use "atoms/headings/eyebrow";
+@use "atoms/headings/heading";
 //@use "atoms/link-group/link-group.scss";
-@use "atoms/link/link.scss";
+@use "atoms/link";
 //@use "atoms/menu/menu.scss";
-@use "atoms/pagination/pagination.scss";
-@use "atoms/progress/progress.scss";
+@use "atoms/pagination";
+@use "atoms/progress";
 //@use "atoms/table/table.scss";
 //@use "atoms/toggle-button/toggle-button.scss";
 //@use "atoms/utility-nav/utility-nav.scss";
 //
 //@use "molecules/accordion/accordion.scss";
-@use "molecules/card/card.scss";
+@use "molecules/card";
 //@use "molecules/link-groups/link-groups.scss";
-@use "molecules/messaging/messaging.scss";
+@use "molecules/messaging";
 //@use "molecules/search/search.scss";
 //@use "molecules/tabs/tabs.scss";
-@use "molecules/testimonial/testimonial.scss";
+@use "molecules/testimonial";
 //@use "molecules/tiles/tiles.scss";
 //
 //@use "organisms/background-video/background-video.scss";
