@@ -5,7 +5,6 @@
 /// For messages to the user.
 ///
 .messaging {
-    @extend %accentable;
     $b: &;
 
     --messaging-color-accent: var(--color-accent, #{config.$plain-text});
@@ -44,5 +43,25 @@
             color: var(--messaging-color);
             text-decoration: underline;
         }
+    }
+
+    &.-success {
+        --messaging-color-accent: var(--color-accent, #{config.$success});
+        --messaging-color: var(--color-accent-contrast, #{blackwhite(config.$success)});
+    }
+
+    &.-warning {
+        --messaging-color-accent: var(--color-accent, #{config.$warning});
+        --messaging-color: var(--color-accent-contrast, #{blackwhite(config.$warning)});
+    }
+
+    &.-info {
+        --messaging-color-accent: var(--color-accent, #{config.$info});
+        --messaging-color: var(--color-accent-contrast, #{blackwhite(config.$info)});
+    }
+
+    &.-error {
+        --messaging-color-accent: var(--color-accent, #{config.$error});
+        --messaging-color: var(--color-accent-contrast, #{blackwhite(config.$error)});
     }
 }

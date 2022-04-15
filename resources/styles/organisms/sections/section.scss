@@ -2,8 +2,6 @@
 @use "/resources/styles/common" as *;
 
 .section {
-    @extend %accentable;
-
     align-items: center;
     display: grid;
     grid-template: "stack";

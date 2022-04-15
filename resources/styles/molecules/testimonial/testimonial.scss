@@ -1,4 +1,11 @@
-@mixin testimonial {
+@use "/resources/styles/common" as *;
+@use "/resources/styles/config";
+
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     &__quote {
         border: 0;
         font-size: 1.25rem;
@@ -8,7 +15,7 @@
 
         &::after,
         &::before {
-            color: $secondary;
+            color: config.$secondary;
             content: '”';
             display: inline-block;
             font-size: 400%;
@@ -27,9 +34,9 @@
     &__attribution {
         justify-content: center;
         max-height: 8rem;
-    }
-}
 
-.testimonial {
-    @include testimonial;
+        @include at(lg) {
+            align-self: flex-end;
+        }
+    }
 }
