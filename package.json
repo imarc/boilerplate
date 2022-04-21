@@ -19,11 +19,14 @@
     "dev": "vite",
     "preview": "vite preview",
     "prod": "vite build",
-    "build": "vite build && fractal build"
+    "build": "vite build && fractal build",
+    "test": "concurrently -ks first vite \"cypress run\"",
+    "ci": "concurrently -k vite \"cypress open\""
   },
   "dependencies": {
     "@frctl/fractal": "^1.5.4",
     "@frctl/twig": "^1.2.6",
+    "concurrently": "^7.1.0",
     "eslint": "^7.32.0",
     "fractal-theme-hydrogen": "^1.0.4",
     "jsonfile": "^6.0.1",
@@ -32,7 +35,10 @@
     "vue": "^3.2.31"
   },
   "devDependencies": {
+    "@cypress/vite-dev-server": "^2.2.2",
+    "@cypress/vue": "^3.1.1",
     "@vitejs/plugin-vue": "^2.2.4",
+    "cypress": "^9.5.4",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
