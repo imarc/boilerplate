@@ -1,16 +1,15 @@
+@use "/resources/styles/common" as *;
+@use "/resources/styles/config";
+
 .dropdown {
     position: relative;
 
+    &__button,
     &__link {
+        color: config.$link;
         display: inline-block;
-        padding: $thin-padding;
+        padding: config.$thin-padding;
         z-index: 2;
-    }
-
-    &__button {
-        background: transparent;
-        border: 0;
-        padding: 0;
     }
 
     &__icon {
@@ -28,8 +27,8 @@
     &.-open {
 
         .dropdown__content {
-            background-color: $white;
-            box-shadow: $low-shadow;
+            background-color: config.$white;
+            box-shadow: config.$low-shadow;
         }
     }
 
@@ -52,7 +51,7 @@
     &__transition {
         &-enter-active {
             transform-origin: top;
-            transition: opacity $moderate, transform $moderate;
+            transition: opacity config.$moderate, transform config.$moderate;
             transform: rotateX(0);
         }
         &-enter,

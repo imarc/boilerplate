@@ -4,15 +4,16 @@
         class="dropdown"
         :class="{'-open': isOpen}"
     >
-        <button
-            ref="button"
+        <a
+            ref="link"
             :aria-controls="id"
             :aria-expanded="String(isOpen)"
-            class="dropdown__button"
+            class="dropdown__link"
             :class="labelClass"
+            :href="href"
             @click.prevent="toggle"
         >
-            <slot name="button">
+            <slot name="link">
                 {{ label }}
                 <svg
                     class="dropdown__icon"
@@ -22,7 +23,7 @@
                     fill="none"
                 ><polyline points="6 9 12 15 18 9" /></svg>
             </slot>
-        </button>
+        </a>
         <div
             v-show="isOpen"
             :id="id"
@@ -40,17 +41,18 @@ import { defineProps, onUnmounted, ref } from 'vue'
 import useOpenable from './IsOpenable.vue'
 
 const dropdown = ref(null)
-const button = ref(null)
+const link = ref(null)
 
 const props = defineProps({
     delay: { type: Number, default: 0 },
     hoverable: { type: Boolean, default: false },
+    href: { type: String, required: true },
     id: { type: String, required: true },
     label: { type: String, required: true },
     labelClass: { type: String, default: '' },
     transition: { type: String, default: 'dropdown__transition' },
 })
 
-const { toggle, isOpen } = useOpenable(dropdown, button)
+const { toggle, isOpen } = useOpenable(dropdown, link)
 
 </script>
