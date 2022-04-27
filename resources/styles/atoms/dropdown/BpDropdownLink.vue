@@ -38,7 +38,7 @@
 <script setup>
 import { defineProps, onUnmounted, ref } from 'vue'
 
-import useOpenable from './IsOpenable.vue'
+import useOpenable from '/resources/js/components/UseOpenable.vue'
 
 const dropdown = ref(null)
 const link = ref(null)

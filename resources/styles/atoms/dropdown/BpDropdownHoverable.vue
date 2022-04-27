@@ -2,6 +2,8 @@
     <div
         class="dropdown"
         :class="{'-open': isOpen}"
+        @mouseleave="delayClose(delay)"
+        @mouseenter="keepOpen"
     >
         <button
             ref="button"
@@ -10,6 +12,7 @@
             class="dropdown__button"
             :class="labelClass"
             @click.prevent="toggle"
+            @mouseenter="open"
         >
             <slot name="button">
                 {{ label }}
@@ -34,20 +37,20 @@
 </template>
 
 <script setup>
-import { defineProps, onUnmounted, ref } from 'vue'
-
+import { defineProps, ref } from 'vue'
 import useOpenable from '/resources/js/components/UseOpenable.vue'
 
 const dropdown = ref(null)
 const button = ref(null)
 
-defineProps({
+const props = defineProps({
+    delay: { type: Number, default: 0 },
     id: { type: String, required: true },
     label: { type: String, required: true },
     labelClass: { type: String, default: '' },
     transition: { type: String, default: 'dropdown__transition' },
 })
 
-const { isOpen, toggle } = useOpenable(dropdown, button)
+const { isOpen, open, keepOpen, delayClose, toggle } = useOpenable(dropdown, button)
 
 </script>

@@ -4,6 +4,7 @@ import { ref } from 'vue'
 const TAGS_WITH_DEFAULT_BEHAVIOR = ['A', 'BUTTON', 'IFRAME', 'INPUT', 'TEXTAREA', 'VIDEO', 'MAP', 'OBJECT']
 
 export default function useOpenable (el, focusOnClose = null) {
+    let timeout = null
     const isOpen = ref(false)
 
     const toggle = () => {
@@ -15,18 +16,34 @@ export default function useOpenable (el, focusOnClose = null) {
     }
 
     const open = () => {
-        isOpen.value = true
+        if (isOpen.value) {
+            return
+        }
 
+        isOpen.value = true
         addEventListener('focusout', checkFocus)
         addEventListener('keydown', checkKeydown)
         el.value.addEventListener('mousedown', checkMousedown)
     }
 
     const close = () => {
+        if (!isOpen.value) {
+            return
+        }
+
+        clearTimeout(timeout)
+
         isOpen.value = false
         removeEventListener('focusout', checkFocus)
         removeEventListener('keydown', checkKeydown)
         el.value.removeEventListener('mousedown', checkMousedown)
+    }
+
+    const keepOpen = () => clearTimeout(timeout)
+
+    const delayClose = delay => {
+        clearTimeout(timeout)
+        timeout = setTimeout(close, delay)
     }
 
     const checkFocus = (event) => {
@@ -51,6 +68,13 @@ export default function useOpenable (el, focusOnClose = null) {
         }
     }
 
-    return { open, toggle, isOpen }
+    return {
+        close,
+        delayClose,
+        isOpen,
+        keepOpen,
+        open,
+        toggle,
+    }
 }
 </script>
