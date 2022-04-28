@@ -9,15 +9,15 @@
 //
 //   --color               Text color.
 //   --color-accent        Accent color.
-//   --color-accent-hover  Hover color.
 //   --color-accent-faded  Usually 10% opacity version of --color-accent
+//   --color-accent-hover  Hover color.
 //
 
 .button {
-    --button-color-accent: var(--color-accent, #{config.$primary});
-    --button-color-accent-hover: var(--color-accent-hover, #{config.$primary-hover});
-    --button-color-accent-faded: var(--color-accent-faded, #{rgba(config.$primary, .1)});
     --button-color: var(--color, #{blackwhite(config.$primary, config.$plain-text)});
+    --button-color-accent: var(--color-accent, #{config.$primary});
+    --button-color-accent-faded: var(--color-accent-faded, #{rgba(config.$primary, .1)});
+    --button-color-accent-hover: var(--color-accent-hover, #{config.$primary-hover});
 
     background-color: var(--button-color-accent);
     border: none;
@@ -26,9 +26,7 @@
     display: inline-block;
     font-weight: 700;
     padding: config.$padding;
-    transition: box-shadow var(--duration-fast) config.$fade-easing,
-        background-color var(--duration-fast) config.$fade-easing,
-        color var(--duration-fast) config.$fade-easing;
+    transition: background-color var(--duration-fast) config.$fade-easing;
 
     &:hover,
     &:focus {
@@ -36,23 +34,40 @@
     }
 
 
-    &.-outline {
-        background-color: transparent;
-        box-shadow: 0 0 0 2px inset;
-        color: var(--button-color-accent);
+    &.-disabled,
+    &[disabled] {
+        --button-color-accent: #{config.$disabled};
 
-        &:hover,
-        &:focus {
-            background-color: var(--button-color-accent);
-            box-shadow: none;
-            color: var(--button-color);
-        }
+        pointer-events: none;
+    }
+
+    &.-secondary {
+        --button-color: #{blackwhite(config.$secondary, config.$plain-text)};
+        --button-color-accent: #{config.$secondary};
+        --button-color-accent-faded: #{rgba(config.$secondary, .1)};
+        --button-color-accent-hover: #{config.$secondary-hover};
+    }
+
+    &.-danger {
+        --button-color: #{blackwhite(config.$danger, config.$plain-text)};
+        --button-color-accent: #{config.$danger};
+        --button-color-accent-faded: #{rgba(config.$danger, .1)};
+        --button-color-accent-hover: #{config.$danger-hover};
+    }
+
+    &.-confirm {
+        --button-color: #{blackwhite(config.$confirm, config.$plain-text)};
+        --button-color-accent: #{config.$confirm};
+        --button-color-accent-faded: #{rgba(config.$confirm, .1)};
+        --button-color-accent-hover: #{config.$confirm-hover};
     }
 
 
     &.-ghost {
         background-color: transparent;
         color: var(--button-color-accent);
+        transition: background-color var(--duration-fast) config.$fade-easing,
+            color var(--duration-fast) config.$fade-easing;
 
         &:hover,
         &:focus {
@@ -62,32 +77,15 @@
     }
 
 
-    &.-disabled,
-    &[disabled] {
-        --button-color-accent: #{config.$disabled};
-        pointer-events: none;
+    &.-outline {
+        background-color: transparent;
+        box-shadow: 0 0 0 2px inset var(--button-color-accent);
+        color: var(--button-color-accent);
+
+        &:hover,
+        &:focus {
+            background-color: var(--button-color-accent);
+            color: var(--button-color);
+        }
     }
-
-    &.-secondary {
-        --button-color-accent: #{config.$secondary};
-        --button-color-accent-hover: #{config.$secondary-hover};
-        --button-color-accent-faded: #{rgba(config.$secondary, .1)};
-        --button-color: #{blackwhite(config.$secondary, config.$plain-text)};
-    }
-
-    &.-danger {
-        --button-color-accent: #{config.$danger};
-        --button-color-accent-hover: #{config.$danger-hover};
-        --button-color-accent-faded: #{rgba(config.$danger, .1)};
-        --button-color: #{blackwhite(config.$danger, config.$plain-text)};
-    }
-
-    &.-confirm {
-        --button-color-accent: #{config.$confirm};
-        --button-color-accent-hover: #{config.$confirm-hover};
-        --button-color-accent-faded: #{rgba(config.$confirm, .1)};
-        --button-color: #{blackwhite(config.$confirm, config.$plain-text)};
-    }
-
-
 }
