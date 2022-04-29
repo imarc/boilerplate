@@ -32,7 +32,7 @@ Submit a pull request and describe what your code is meant to do and why it shou
 
 ## Follow Code Conventions
 
-Boilerplate follows [its own conventions](https://imarc-boilerplate.netlify.app/pattern-library/docs/abem.html) as closely as it can; make sure any code you submit does too. If there's areas you're not sure, fallback to Vue style guidelines and ABEM or BEM conventions, or [Imarc's Handbook.](https://handbook.imarc.com/)
+See [CONVENTIONS.](CONVENTIONS.md)
 
 
 ## Versioning
