@@ -3,6 +3,7 @@
 
 .section {
     align-items: center;
+    color: #{config.$plain-text};
     display: grid;
     grid-template: "stack";
 
@@ -70,9 +71,6 @@
         display: flex;
         justify-content: center;
     }
-
-    background-color: var(--color-accent);
-    color: var(--color-accent-contrast, #{config.$plain-text});
 
 
     &.-dark {

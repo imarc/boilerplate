@@ -7,9 +7,9 @@
 ///
 
 .pagination {
-    --pagination-color-accent: var(--color-accent, #{config.$link});
-    --pagination-color: var(--color, #{blackwhite(config.$link)});
-    --pagination-color-accent-hover: var(--color-accent-hover, #{config.$link-hover});
+    --pagination-color: var(--color, #{config.$link});
+    --pagination-color-contrast: var(--color-contrast, #{blackwhite(config.$link)});
+    --pagination-color-hover: var(--color-hover, #{config.$link-hover});
 
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@
 
     &__link {
         border-radius: .25em;
-        color: var(--pagination-color-accent);
+        color: var(--pagination-color);
         display: block;
         font-weight: bold;
         padding: config.$thin-padding;
@@ -32,8 +32,8 @@
 
         &:focus,
         &:hover {
-            background-color: var(--pagination-color-accent-hover);
-            color: var(--pagination-color);
+            background-color: var(--pagination-color-hover);
+            color: var(--pagination-color-contrast);
             transition: color config.$fade-easing config.$fast, background-color config.$fade-easing config.$fast;
         }
     }
@@ -45,15 +45,15 @@
     }
 
     &__item.-active &__link {
-        background-color: var(--pagination-color-accent);
-        color: var(--pagination-color);
+        background-color: var(--pagination-color);
+        color: var(--pagination-color-contrast);
         cursor: default;
         pointer-events: none;
 
         &:focus,
         &:hover {
-            background-color: var(--pagination-color-accent-hover);
-            color: var(--pagination-color);
+            background-color: var(--pagination-color-hover);
+            color: var(--pagination-color-contrast);
         }
     }
 }

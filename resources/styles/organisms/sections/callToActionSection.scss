@@ -1,15 +1,11 @@
 @use "/resources/styles/config";
 
 .section.-callToActionSection {
-    background-color: var(--accent-color, #{config.$primary});
+    background-color: config.$primary;
     color: config.$white;
     text-align: center;
 
     .section__eyebrow {
         color: config.$secondary;
-    }
-
-    .section__eyebrow {
-        color: var(--accent-color-contrast);
     }
 }

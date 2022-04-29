@@ -1,7 +1,7 @@
 @use "/resources/styles/config";
 
 .accented {
-    --accented-color: var(--color-accent, #{config.$primary});
+    --accented-color: var(--color, #{config.$primary});
 
     &::after {
         content: '';
@@ -13,11 +13,7 @@
         width: 2rem;
     }
 
-    &.-primary {
-        --accented-color: var(--color-accent, #{config.$primary});
-    }
-
     &.-secondary {
-        --accented-color: var(--color-accent, #{config.$secondary});
+        --accented-color: var(--color, #{config.$secondary});
     }
 }
