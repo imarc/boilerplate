@@ -27,14 +27,14 @@
         font-weight: bold;
         padding: config.$thin-padding;
         position: relative;
-        transition: background-color config.$fast config.$fade-easing,
-            color config.$fast config.$fade-easing;
+        transition: background-color var(--duration-fast) config.$fade-easing,
+            color var(--duration-fast) config.$fade-easing;
 
         &:focus,
         &:hover {
             background-color: var(--pagination-color-hover);
             color: var(--pagination-color-contrast);
-            transition: color config.$fade-easing config.$fast, background-color config.$fade-easing config.$fast;
+            transition: color config.$fade-easing var(--duration-fast) background-color config.$fade-easing var(--duration-fast);
         }
     }
 

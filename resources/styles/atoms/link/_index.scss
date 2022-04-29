@@ -6,7 +6,7 @@ a,
     color: var(--link-color);
     cursor: pointer;
     text-decoration: none;
-    transition: color config.$fade-easing config.$fast;
+    transition: color config.$fade-easing var(--duration-fast);
 
     &:hover,
     &:active {

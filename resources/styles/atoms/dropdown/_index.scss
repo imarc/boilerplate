@@ -51,7 +51,7 @@
     &__transition {
         &-enter-active {
             transform-origin: top;
-            transition: opacity config.$moderate, transform config.$moderate;
+            transition: opacity var(--duration-moderate), transform var(--duration-moderate);
             transform: rotateX(0);
         }
         &-enter,

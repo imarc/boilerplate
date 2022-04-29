@@ -31,7 +31,7 @@
     }
 
     &__icon {
-        transition: transform $fast $ease-out-quint;
+        transition: transform var(--duration-fast) $ease-out-quint;
     }
 
     &.-open {
@@ -48,7 +48,7 @@
 
         &-enter-active,
         &-leave-active {
-            transition: height $moderate $entrance-easing;
+            transition: height var(--duration-moderate) $entrance-easing;
             overflow: hidden;
         }
     }

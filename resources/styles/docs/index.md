@@ -15,6 +15,8 @@ This project uses the following conventions:
 * **[ABEM](https://css-tricks.com/abem-useful-adaptation-bem/)** class naming (`.componentName__elementName -modifierName`)
 * the [**BPM**](https://www.imarc.com/blog/block-property-modifier-a-bem-like-css-custom-properties-methodology) custom property methodology
 
+For more details, see [CONVENTIONS](.github/CONVENTIONS.md).
+
 ## Tools
 
 * [Cypress](https://www.cypress.io/)
