@@ -3,125 +3,7 @@
 @use "sass:meta";
 @use "sass:string";
 
-@use "/resources/styles/common/functions";
-@use "/resources/styles/config" as *;
-@use "/resources/styles/config/colors";
-
-///
-/// Generates modifier classes based on $map and $default-map prefixed with $prefix.
-///
-/// It treats each $key in $map as the name of the modifier, and either uses
-/// the associated $value for that $key in $map or looks up $key in
-/// $default-map. If it's not in $map or $default-map, the $key itself is used
-/// as the $value and @content is not wrapped in a modifier class.
-///
-/// Example:
-///
-///     @include modifiers(
-///         (black, danger, warning, mystery blue),
-///         (danger red, warning orange, notice yellow)
-///     ) using ($color) {
-///         color: $color;
-///     }
-///
-/// generates
-///
-///     color: black;
-///     &.-danger {
-///         color: red;
-///     }
-///     &.-warning {
-///         color: orange;
-///     }
-///     &.-mystery {
-///         color: blue;
-///     }
-///
-@mixin modifiers($map, $default-map: (), $prefix: '.-', $suffixes: \:hover \:active \:focus) {
-    @each $pair in $map {
-        $key: list.nth($pair, 1);
-        $value: null;
-
-        @if list.length($pair) > 1 {
-            $value: list.nth($pair, 2);
-
-        } @else if map.has-key($default-map, $key) {
-            $value: map.get($default-map, $key);
-        }
-
-        @if $value != null {
-            &#{$prefix}#{functions.unslash-colons($key)} {
-                @content($value);
-            }
-        } @else {
-            @content($key);
-        }
-
-        @each $suffix in $suffixes {
-            @if map.has-key($default-map, $key + $suffix) {
-                $value: map.get($default-map, $key + $suffix);
-
-                &#{$prefix}#{functions.unslash-colons($key + $suffix)} {
-                    @content($value);
-                }
-            }
-        }
-    }
-}
-
-///
-/// This is a color specific version of modifiers().
-///
-/// * It defaults to using $color-modifiers as the first argument to modifiers().
-/// * It always uses $color-modifiers as the second argument.
-/// * If no @content is specified, it defaults `color: $color`.
-///
-/// Example:
-///
-///     $color-modifiers: (
-///         primary: blue,
-///         secondary: purple,
-///         tertiary: orange
-///     );
-///
-///     .Example {
-///         @include color-modifiers(primary secondary);
-///     }
-///
-/// generates
-///
-///     .Example {
-///         &.-primary {
-///             color: blue;
-///         }
-///         &.-secondary {
-///             color: purple;
-///         }
-///     }
-///
-$-colors: meta.module-variables(colors);
-@mixin color-modifiers($colors: $-colors, $property: --background-color, $prefix: '.-') {
-    @if content-exists() {
-        @include modifiers($colors, $-colors, $prefix) using ($color) {
-            @content($color);
-        }
-    } @else {
-        @include modifiers($colors, $-colors, $prefix) using ($color) {
-            #{$property}: $color;
-        }
-    }
-}
-
-@function palette-darken($color) {
-    @each $key, $value in $-colors {
-        @if $value == $color {
-            @return $key
-        }
-    }
-
-    @return null
-}
-
+@use "/resources/styles/config";
 
 ///
 /// no-bullets mixin
@@ -141,7 +23,7 @@ $-colors: meta.module-variables(colors);
 /// Mixin for generating transitions. $properties can be a list of properties,
 /// and it'll append duration and easing to each.
 ///
-@mixin transition($properties: all, $duration: $fast, $easing: $ease-out-quint) {
+@mixin transition($properties: all, $duration: config.$fast, $easing: config.$ease-out-quint) {
     transition: append-each($properties, $duration $easing, comma);
 }
 
@@ -153,8 +35,8 @@ $-colors: meta.module-variables(colors);
 /// if you're prefer to use max-width instead of min-width.
 ///
 @mixin at($bp, $rule: min-width) {
-    @if map.has-key($breakpoints, $bp, width) {
-        $bp: map.get($breakpoints, $bp, width);
+    @if map.has-key(config.$breakpoints, $bp, width) {
+        $bp: map.get(config.$breakpoints, $bp, width);
     }
     @media screen and (#{$rule}: $bp) {
         @content;
