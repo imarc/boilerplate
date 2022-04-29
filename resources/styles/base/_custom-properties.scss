@@ -1,6 +1,26 @@
 @use "/resources/styles/config";
+@use "/resources/styles/common" as *;
 
 :root {
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --font-size-h4: 1.125rem;
+
+    @include at(md) {
+        --font-size-h1: 3rem;
+        --font-size-h2: 2rem;
+        --font-size-h3: 1.5rem;
+        --font-size-h4: 1.25rem;
+    }
+
+    @include at(lg) {
+        --font-size-h1: 3.75rem;
+        --font-size-h2: 3rem;
+        --font-size-h3: 2rem;
+        --font-size-h4: 1.5rem;
+    }
+
     --duration-fast: 150ms;
     --duration-moderate: 250ms;
     --duration-slow: 400ms;
