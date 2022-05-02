@@ -11,6 +11,18 @@ In general, avoid huge files in favor of breaking up files into smaller pieces. 
 
 ### CSS/Sass
 
+#### Avoid `@import`, use `@use`/`@forwards`
+
+Unless necessary, avoid the Sass `@import` statement. Using the CSS native `@import` (for things like web fonts) is fine.
+
+#### Only use common as *
+
+Only use /resources/styles/common without a namespace. As in, only
+```
+@use "/resource/styles/common" as *;
+```
+All other use statements should put them in their own namespaces.
+
 #### Prefer Sass Variables
 
 Prefer Sass variables over custom properties. In general, only use custom properties if
@@ -30,7 +42,7 @@ Use [BPM](https://imarc-boilerplate.netlify.app/pattern-library/docs/structure.h
 * A suffix of `-faded` is used for repeating an existing color with a lower opacity.
 
 
-##### Prefer Triple slashes for docblock comments
+#### Prefer Triple slashes for docblock comments
 
 
 ### Vue
