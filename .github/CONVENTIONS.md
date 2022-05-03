@@ -35,7 +35,7 @@ Prefer to keep canonical values in Sass. Sass is more powerful than CSS still. Y
 
 ##### Custom Property Naming
 
-Use [BPM](https://imarc-boilerplate.netlify.app/pattern-library/docs/structure.html) for general naming. There are some project specific conventions as well:
+Use [BPM](https://www.imarc.com/blog/block-property-modifier-a-bem-like-css-custom-properties-methodology) for general naming. There are some project specific conventions as well:
 
 * In general, `--color` and `--<componentName>-color` will be used to set a component's dominant color instead of text color.
 * A suffix of `-contrast` (for example, `--color-contrast`) indicates that it's a near black or near white color meant to provide sufficient contrast for text when used on top of the related color.
