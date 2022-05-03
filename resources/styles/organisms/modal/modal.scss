@@ -1,3 +1,6 @@
+@use "/resources/styles/common" as *;
+@use "/resources/styles/config";
+
 .modal {
     &__overlay {
         display: flex;
@@ -8,14 +11,14 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba($black, .5);
+        background-color: rgba(config.$black, .5);
     }
 
     &__wrapper {
         position: relative;
         max-width: 60rem;
-        background-color: $white;
-        padding: $padding;
+        background-color: config.$white;
+        padding: config.$padding;
         max-height: 100vh;
     }
 
@@ -42,8 +45,8 @@
 }
 
 // Scroll Lock
-body.-lock,
-html.-lock {
+html.-lock,
+html.-lock body {
     position: relative;
     overflow: hidden;
     touch-action: none;

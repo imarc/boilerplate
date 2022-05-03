@@ -1,5 +1,5 @@
 <script>
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
 
 const TAGS_WITH_DEFAULT_BEHAVIOR = ['A', 'BUTTON', 'IFRAME', 'INPUT', 'TEXTAREA', 'VIDEO', 'MAP', 'OBJECT']
 
@@ -23,7 +23,9 @@ export default function useOpenable (el, focusOnClose = null) {
         isOpen.value = true
         addEventListener('focusout', checkFocus)
         addEventListener('keydown', checkKeydown)
-        el.value.addEventListener('mousedown', checkMousedown)
+        nextTick(() => {
+            el.value.addEventListener('mousedown', checkMousedown)
+        })
     }
 
     const close = () => {

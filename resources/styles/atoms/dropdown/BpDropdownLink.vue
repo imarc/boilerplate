@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { defineProps, onUnmounted, ref } from 'vue'
+import { ref } from 'vue'
 
 import useOpenable from '/resources/js/components/UseOpenable.vue'
 
