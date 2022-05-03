@@ -76,6 +76,7 @@
 <script setup>
 import { nextTick, ref, watch } from 'vue'
 import useOpenable from '/resources/js/components/UseOpenable.vue'
+import useLazyEmbed from '/resources/js/components/UseLazyEmbed.vue'
 
 defineProps({
     block: {
@@ -124,73 +125,19 @@ const modalContent = ref(null)
 const modalWrapper = ref(null)
 
 const { isOpen, open, close } = useOpenable(modalWrapper)
+const { loadEmbed } = useLazyEmbed(modalContent)
 
 watch(isOpen, async isOpen => {
     if (isOpen) {
         loading.value = true
         lockScroll()
-        await handleContent()
+        await nextTick(loadEmbed)
     } else {
         unlockScroll()
     }
 
     loading.value = false
 })
-
-const handleContent = () => {
-    return nextTick(async () => {
-        const embed = parseEmbed(modalContent.value.innerHTML)
-        const scripts = [...embed.querySelectorAll('script')]
-        scripts.forEach(script => script.remove())
-
-        const markup = embed.querySelector('body')
-        modalContent.value.innerHTML = markup.innerHTML
-
-        if (scripts.length) {
-            await loadScripts(scripts)
-        }
-
-        modalContent.value.focus()
-    })
-}
-
-const parseEmbed = string => {
-    const doc = new DOMParser().parseFromString(string, 'text/html')
-    doc.body.innerHTML = doc.body.textContent
-    return doc
-}
-
-const loadScripts = async scripts => {
-    const scriptsWithSrc = scripts.filter(script => script.src)
-    const inlineScripts = scripts.filter(script => !script.src)
-
-    // inline scripts most likely rely on an external api, run first
-    if (scriptsWithSrc.length) {
-        await fetchExternalScripts(scriptsWithSrc)
-    }
-
-    if (inlineScripts.length) {
-        runInlineScripts(inlineScripts)
-    }
-}
-
-const runInlineScripts = scripts => {
-    scripts.forEach(inlineScript => {
-        // eslint-disable-next-line no-eval
-        eval(inlineScript.innerHTML)
-    })
-}
-
-const fetchExternalScripts = scripts => {
-    return Promise.all(
-        scripts.map(tag => new Promise(resolve => {
-            const el = document.createElement('script')
-            el.onload = resolve
-            el.src = tag.src
-            document.body.appendChild(el)
-        }))
-    )
-}
 
 const lockScroll = () => {
     document.documentElement.classList.add('-lock')
