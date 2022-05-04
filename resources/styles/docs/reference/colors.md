@@ -11,15 +11,15 @@ The color scales provided by Boilerplate all follow the same (CIECAM02) contrast
         <tr><th>Name</th><th>Contrast against White</th><th>Notes</th></tr>
     </thead>
     <tbody>
-        <tr><td>$color-100</td><td>1.22</td></tr>
-        <tr><td>$color-200</td><td>1.5</td></tr>
-        <tr><td>$color-300</td><td>1.93</td></tr>
-        <tr><td>$color-400</td><td>3</td><td>First shade safe for headlines</td></tr>
-        <tr><td>$color-500</td><td>4.6</td><td>Safe for body text on white or black</td></tr>
+        <tr><td>$color-100</td><td>1.5</td></tr>
+        <tr><td>$color-200</td><td>2</td></tr>
+        <tr><td>$color-300</td><td>3</td></tr>
+        <tr><td>$color-400</td><td>4</td><td>First shade safe for headlines</td></tr>
+        <tr><td>$color-500</td><td>5</td><td>Safe for body text on white or black</td></tr>
         <tr><td>$color-600</td><td>7</td><td>Last shade safe for headlines on black</td></tr>
-        <tr><td>$color-700</td><td>10.6</td></tr>
-        <tr><td>$color-800</td><td>12.76</td></tr>
-        <tr><td>$color-900</td><td>16</td></tr>
+        <tr><td>$color-700</td><td>9</td></tr>
+        <tr><td>$color-800</td><td>12</td></tr>
+        <tr><td>$color-900</td><td>17</td></tr>
     </tbody>
 </table>
 
