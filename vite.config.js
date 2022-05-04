@@ -5,6 +5,10 @@ import fractal from './fractal.config.js'
 
 export default defineConfig(async ({ command, mode }) => {
     const config = {
+        test: {
+            globals: true,
+            environment: 'jsdom',
+        },
         plugins: [vue()],
         build: {
             manifest: true,
