@@ -9,6 +9,10 @@ In general, avoid huge files in favor of breaking up files into smaller pieces. 
 
 ## Code
 
+### Lint Your Code
+
+Make sure to lint your code before pull requests. You can do this by running `npm run lint` or through your editor if your editor has eslint integration.
+
 ### CSS/Sass
 
 #### Avoid `@import`, use `@use`/`@forwards`
