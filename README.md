@@ -73,3 +73,17 @@ You can customize this behavior further by editing either the `vite.config.js` o
 To use with Craft, try the [Vite plugin](https://plugins.craftcms.com/vite) by nystudio107.
 
 To use with Laravel, try out [Laravel Vite](https://laravel-vite.dev/).
+
+
+### What's New From Boilerplate 5
+
+* Vite
+* Explicit imports (no globbing)
+* Directory structure changes
+* Less mixins
+* Modular Sass: `@use`, `@forwards`, `_index.scss`
+* Grid
+* CSS custom properties
+* Vue 3
+* Cypress (Vitest)
+* Lerna
