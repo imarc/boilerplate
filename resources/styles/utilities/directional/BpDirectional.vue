@@ -23,20 +23,27 @@ const FOCUSABLE_SELECTOR = [
  * elements should be considered when a key is hit.
  */
 const KEY_FILTERS = {
-    ArrowRight: elements => elements.filter(({x, top, bottom}) => x > 0 && top < 0 && bottom > 0),
-    ArrowLeft: elements => elements.filter(({x, top, bottom}) => x < 0 && top < 0 && bottom > 0),
-    ArrowDown: elements => elements.filter(({y, left, right}) => y > 0 && left < 0 && right > 0),
-    ArrowUp: elements => elements.filter(({y, left, right}) => y < 0 && left < 0 && right > 0),
+    ArrowRight: elements => elements.filter(({ x, top, bottom }) => x > 0 && top < 0 && bottom > 0),
+    ArrowLeft: elements => elements.filter(({ x, top, bottom }) => x < 0 && top < 0 && bottom > 0),
+    ArrowDown: elements => elements.filter(({ y, left, right }) => y > 0 && left < 0 && right > 0),
+    ArrowUp: elements => elements.filter(({ y, left, right }) => y < 0 && left < 0 && right > 0),
     Home: elements => elements.length && elements.slice(0, 1),
-    End: elements => elements.length && elements.slice(-1)
+    End: elements => elements.length && elements.slice(-1),
 }
 
 export default {
+
+    /**
+     * Binds the event listener since this is a renderless component.
+     */
+    mounted () {
+        this.$el.addEventListener('keydown', this.handler)
+    },
     methods: {
         /**
          * Method for retrieving all currently visible, focusable elements.
          */
-        queryFocusableElements() {
+        queryFocusableElements () {
             return this.$el.querySelectorAll(FOCUSABLE_SELECTOR)
         },
 
@@ -44,7 +51,7 @@ export default {
          * Retrieves where the element is drawn on screen (client rects).
          * Adds in x and y for the center of the element.
          */
-        getElementRects(el) {
+        getElementRects (el) {
             const rects = el.getClientRects()[0]
 
             if (!rects || !rects.left) {
@@ -59,7 +66,7 @@ export default {
                 top: rects.top,
                 width: rects.width,
                 x: rects.left + rects.width / 2,
-                y: rects.top + rects.height / 2
+                y: rects.top + rects.height / 2,
             }
         },
 
@@ -68,7 +75,7 @@ export default {
          * values to be relative to origin for simpler follow up math. Also
          * calculates the distance between the two elements' centers.
          */
-        augmentElementRects(nodeList, origin) {
+        augmentElementRects (nodeList, origin) {
             const elements = []
             origin = this.getElementRects(origin)
 
@@ -77,7 +84,7 @@ export default {
             }
 
             nodeList.forEach(el => {
-                let rects = this.getElementRects(el)
+                const rects = this.getElementRects(el)
                 if (rects === null) {
                     return
                 }
@@ -100,7 +107,7 @@ export default {
         /**
          * Returns the filter function for key, or a function that always returns false.
          */
-        filterForKey(key) {
+        filterForKey (key) {
             return key in KEY_FILTERS ? KEY_FILTERS[key] : null
         },
 
@@ -108,12 +115,12 @@ export default {
          * returns the closest, focusable element to el that passes the filter
          * function key.
          */
-        findTarget(el, key) {
+        findTarget (el, key) {
             const elements = this.augmentElementRects(this.queryFocusableElements(), el)
             const keyFilter = this.filterForKey(key)
             if (elements.length && keyFilter) {
                 return keyFilter(elements)
-                    .reduce((closest, n) => n.distance < closest.distance ?  n : closest, { distance: Infinity })
+                    .reduce((closest, n) => n.distance < closest.distance ? n : closest, { distance: Infinity })
                     .el
             }
             return null
@@ -123,29 +130,21 @@ export default {
          * Event handler; tries to find an element to move to; if it does,
          * changes focus, otherwise just lets teh event bubble up.
          */
-        handler(evt) {
+        handler (evt) {
             const newTarget = this.findTarget(evt.target, evt.key)
             if (newTarget) {
                 evt.preventDefault()
                 evt.stopPropagation()
                 newTarget.focus()
             }
-        }
+        },
     },
-
 
     /**
      * This is a renderless component.
      */
-    render() {
+    render () {
         return this.$slots.default
     },
-
-    /**
-     * Binds the event listener since this is a renderless component.
-     */
-    mounted() {
-        this.$el.addEventListener('keydown', this.handler)
-    }
 }
 </script>

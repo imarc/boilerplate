@@ -5,18 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ _target.title }} ({{ _target.handle }}) - Pattern Library</title>
 
-    <link rel="icon" href="{{ '/media/favicon.png' }}">
-    <link rel="apple-touch-icon" href="{{ '/media/apple-touch-icon.png' }}">
-
-    <link rel="stylesheet" href="/css/main.css">
-
-    <script defer src="/js/manifest.js"></script>
-    <script defer src="/js/vendor.js"></script>
-    <script defer src="/js/main.js"></script>
-
-    {% for script in _target.resources.assets if script.isJS %}
-        <script defer src="../raw/{{ _target.baseHandle }}/{{ script.base }}"></script>
-    {% endfor %}
+    {% if not _config.viteServer %}
+        {% for file in viteManifest('resources/js/main.js', 'css') %}
+            <link rel="stylesheet" href="/dist/{{ file }}">
+        {% endfor %}
+    {% endif %}
 </head>
 <body>
     <div id="root">
@@ -24,5 +17,15 @@
             {{ yield }}
         </main>
     </div>
+
+    {% if _config.viteServer %}
+        <script type="module" src="http://localhost:3000/@vite/client"></script>
+        <script type="module" src="http://localhost:3000/resources/js/main.js"></script>
+    {% else %}
+        {% for file in viteManifest('resources/js/main.js', 'js') %}
+            <script type="module" src="/dist/{{ file }}"></script>
+        {% endfor %}
+    {% endif %}
+
 </body>
 </html>

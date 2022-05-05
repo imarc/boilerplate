@@ -14,7 +14,7 @@
         margin-bottom: 0;
         display: block;
         padding: $thin-padding;
-        transition: color $fade-easing $fast, background-color $fade-easing $fast;
+        transition: color $fade-easing var(--duration-fast), background-color $fade-easing var(--duration-fast);
 
         &:hover {
             background-color: $blue-100;

@@ -1,15 +1,23 @@
-///
-/// container mixin
-///
-@mixin container($max-width: $container, $h-padding: $gutter) {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: $max-width;
-    padding-left: $h-padding;
-    padding-right: $h-padding;
-    position: relative;
-}
+@use "sass:map";
+
+@use "/resources/styles/config";
+@use "/resources/styles/common" as *;
 
 .container {
-    @include container;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: #{map.get(config.$breakpoints, sm, gap)};
+    padding-right: #{map.get(config.$breakpoints, sm, gap)};
+
+    @include at(md) {
+        max-width: #{map.get(config.$breakpoints, lg, width)};
+        padding-left: #{map.get(config.$breakpoints, md, gap)};
+        padding-right: #{map.get(config.$breakpoints, md, gap)};
+    }
+
+    @include at(lg) {
+        max-width: #{map.get(config.$breakpoints, xl, width)};
+        padding-left: #{map.get(config.$breakpoints, lg, gap)};
+        padding-right: #{map.get(config.$breakpoints, lg, gap)};
+    }
 }

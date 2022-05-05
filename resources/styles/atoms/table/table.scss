@@ -35,7 +35,7 @@
 
     tr {
         border-bottom: 1px solid $border;
-        transition: background-color $fade-easing $fast;
+        transition: background-color $fade-easing var(--duration-fast);
     }
 
 
