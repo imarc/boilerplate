@@ -1,5 +1,5 @@
 <template>
-    <section :class="`${block}`">
+    <section :class="`${block}`" ref="el">
         <nav :class="`${block}__${navElement}`">
             <ul :class="`${block}__${navListElement}`">
                 <li
@@ -42,13 +42,17 @@
     </section>
 </template>
 
-<script>
-export default {
+<script setup>
+    import { ref, computed, onMounted } from 'vue'
 
-    props: {
+    const el = ref(null)
+    const activeTab = ref('')
+    const currentFocusTab = ref('')
+
+    const props = defineProps({
         block: {
-            type: String,
-            default: 'tabs',
+            type: String, 
+            default: 'tabs'
         },
         navElement: {
             type: String,
@@ -80,11 +84,6 @@ export default {
         },
         initialTab: {
             type: String,
-            default () {
-                const [firstTab] = Object.keys(this.tabs)
-
-                return firstTab
-            },
         },
         setHash: {
             type: Boolean,
@@ -96,117 +95,141 @@ export default {
         },
         wrap: {
             type: Boolean,
-            default() {
-                return !this.vertical;
-            },
         }
-    },
+    })
 
-    data () {
-        return {
-            activeTab: '',
-            currentFocusTab: '',
-        }
-    },
-
-    computed: {
-        tabKeys () {
-            return Object.keys(this.tabs)
-        },
-        firstTabKey () {
-            return this.tabKeys[0]
-        },
-        lastTabKey () {
-            return this.tabKeys[this.tabKeys.length - 1]
-        },
-        currentFocusTabIndex () {
-            return this.tabKeys.indexOf(this.currentFocusTab)
-        },
-        nextTabKey () {
-            return this.currentFocusTab === this.lastTabKey
-                ? (this.wrap ? this.firstTabKey : null)
-                : this.tabKeys[this.currentFocusTabIndex + 1]
-        },
-        prevTabKey () {
-            return this.currentFocusTabIndex === 0
-                ? (this.wrap ? this.lastTabKey : null)
-                : this.tabKeys[this.currentFocusTabIndex - 1]
-        },
-    },
-
-    mounted () {
-        this.setInitFocusTab()
-        this.setInitActiveTab()
-        this.attachKeyboardListeners()
-    },
-
-    methods: {
-        setInitActiveTab () {
-            if (location.hash && this.tabKeys.indexOf(location.hash.substr(1)) !== -1) {
-                this.activeTab = location.hash.substr(1)
-            } else if (this.initialTab) {
-                this.activeTab = this.initialTab
+    const initialTabComp = computed({
+        get: () => {
+            if (!props.initialTab) {
+                var [firstTab] = Object.keys(props.tabs)
+                return firstTab
             } else {
-                [this.activeTab] = this.tabs
+                return props.initialTab
             }
-        },
-        setFocusTab (tab) {
-            this.currentFocusTab = tab
-            this.selectTab(tab)
-        },
-        setInitFocusTab () {
-            this.currentFocusTab = this.initialTab
-        },
-        selectTab (tab) {
-            this.activeTab = tab
-            if (this.setHash) {
-                history.replaceState(undefined, undefined, `#${this.activeTab}`)
+        }
+    })
+
+    const wrapComp = computed({
+        get: () => {
+            if (!props.wrap) {
+                return !props.vertical
+            } else {
+                return props.wrap
             }
-        },
-        isActive (tab) {
-            return tab === this.activeTab ? this.activeClass : ''
-        },
-        isActiveTab (tab) {
-            return this.activeTab === tab
-        },
-        isFocusedTab (tab) {
-            return this.currentFocusTab === tab
-        },
-        navigateNextTab (evt) {
-            if (this.nextTabKey) {
-                evt.preventDefault();
-                const nextTabButton = this.$el.querySelector(`[id="${this.nextTabKey}"]`)
-                nextTabButton.focus()
+        }
+    })
+
+    const tabKeys = computed({
+        get: () => Object.keys(props.tabs)
+    })
+
+    const firstTabKey = computed({
+        get: () => tabKeys.value[0]
+    })
+
+    const lastTabKey = computed({
+        get: () => tabKeys.value[tabKeys.value.length - 1]
+    })
+
+    const curruentFocusTabIndex = computed({
+        get: () => tabKeys.value.indexOf(currentFocusTab.value)
+    })
+
+    const nextTabKey = computed({
+        get: () => {
+            return currentFocusTab.value === lastTabKey.value
+                ? (wrapComp.value ? firstTabKey.value : null)
+                : tabKeys.value[currentFocusTabIndex.value + 1]
+        }
+    })
+
+    const prevTabKey = computed({
+        get: () => {
+            return currentFocusTabIndex.value === 0
+                ? (wrapComp.value ? lastTabKey.value : null)
+                : tabKeys.value[currentFocusTabIndex.value - 1]
+        }
+    })
+
+    onMounted(() => {
+        setInitFocusTab()
+        setInitActiveTab()
+        attachKeyboardListeners()
+    })
+
+    function setInitActiveTab () {
+        if (location.hash && tabKeys.indexOf(location.hash.substr(1)) !== -1) {
+            activeTab.value = location.hash.substr(1)
+        } else if (initialTabComp.value) {
+            activeTab.value = initialTabComp.value
+        } else {
+            [activeTab.value] = props.tabs
+        }
+    }
+        
+    function setFocusTab (tab) {
+        currentFocusTab.value = tab
+        selectTab(tab)
+    }
+
+    function setInitFocusTab () {
+        currentFocusTab.value = initialTabComp.value
+    }
+
+    function selectTab (tab) {
+        activeTab.value = tab
+        if (props.setHash) {
+            history.replaceState(undefined, undefined, `#${activeTab.value}`)
+        }
+    }
+
+    function isActive (tab) {
+        return tab === activeTab.value ? props.activeClass : ''
+    }
+
+    function isActiveTab (tab) {
+        return activeTab.value === tab
+    }
+
+    function isFocusedTab (tab) {
+        return currentFocusTab.value === tab
+    }
+
+    function navigateNextTab (evt) {
+        if (nextTabKey.value) {
+            evt.preventDefault();
+            const nextTabButton = el.value.querySelector(`[id="${nextTabKey.value}"]`)
+            nextTabButton.focus()
+        }
+    }
+    
+    function navigatePrevTab (evt) {
+        if (prevTabKey.value) {
+            evt.preventDefault();
+            const prevTabButton = el.value.querySelector(`[id="${prevTabKey.value}"]`)
+            prevTabButton.focus()
+        }
+    }
+
+    function attachKeyboardListeners () {
+        const firstTabEl = el.value.querySelector(`[id="${firstTabKey.value}"]`)
+        const lastTabEl = el.value.querySelector(`[id="${lastTabKey.value}"]`)
+
+        el.value.addEventListener('keydown', event => {
+            if (event.keyCode === 36) {
+                event.preventDefault()
+                firstTabEl.focus()
+                activeTab.value = firstTabKey,value
             }
-        },
-        navigatePrevTab (evt) {
-            if (this.prevTabKey) {
-                evt.preventDefault();
-                const prevTabButton = this.$el.querySelector(`[id="${this.prevTabKey}"]`)
-                prevTabButton.focus()
+
+            if (event.keyCode === 35) {
+                event.preventDefault()
+                lastTabEl.focus()
+                activeTab.value = lastTabKey.value
             }
-        },
-        attachKeyboardListeners () {
-            const firstTabEl = this.$el.querySelector(`[id="${this.firstTabKey}"]`)
-            const lastTabEl = this.$el.querySelector(`[id="${this.lastTabKey}"]`)
+        })
+    }
 
-            this.$el.addEventListener('keydown', event => {
-                if (event.keyCode === 36) {
-                    event.preventDefault()
-
-                    firstTabEl.focus()
-                    this.activeTab = this.firstTabKey
-                }
-
-                if (event.keyCode === 35) {
-                    event.preventDefault()
-
-                    lastTabEl.focus()
-                    this.activeTab = this.lastTabKey
-                }
-            })
-        },
-    },
-
-}
 </script>
+
+

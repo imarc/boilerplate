@@ -6,18 +6,22 @@
 /// the url with the hash is loaded in the browser.
 ///
 
+@use "/resources/styles/common/_mixins" as mixins;
+@use "/resources/styles/config/colors" as colors;
+@use "/resources/styles/config" as config;
+
 @mixin tabs() {
     $b: &;
 
     &__list {
-        @include no-bullets;
+        @include mixins.no-bullets;
         display: flex;
         overflow: hidden;
 
         &::before,
         &::after {
             content: '';
-            border-bottom: 1px solid $gray-300;
+            border-bottom: 1px solid colors.$gray-300;
             box-shadow: 0 -0.5px 1.1px -1.1px rgba(0, 0, 0, 0.057), 0 -1.8px 3.6px -3.6px rgba(0, 0, 0, 0.083), 0 -8px 16px -16px rgba(0, 0, 0, 0.14);
             flex-grow: 1;
         }
@@ -25,8 +29,8 @@
 
     &__tab {
         margin: 0;
-        border: 1px solid $gray-100;
-        border-bottom-color: $gray-300;
+        border: 1px solid colors.$gray-100;
+        border-bottom-color: colors.$gray-300;
         border-radius: 4px 4px 0 0;
 
         & + & {
@@ -38,12 +42,12 @@
         border: none;
         background: none;
         cursor: pointer;
-        padding: $thin-v-space $h-space;
+        padding: config.$thin-v-space config.$h-space;
     }
 
     &__tab.-active {
         background-color: transparent;
-        border-color: $gray-300;
+        border-color: colors.$gray-300;
         border-bottom: none;
         box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.57), 0 0 3.6px rgba(0, 0, 0, 0.083), 0 0 16px rgba(0, 0, 0, 0.14);
         z-index: 1;
@@ -61,15 +65,15 @@
             box-shadow: 0 -.125rem 0 inset;
 
             &.-active {
-                box-shadow: 0 -.25rem 0 $primary inset;
+                box-shadow: 0 -.25rem 0 config.$primary inset;
 
                 #{$b}__button {
-                    color: $primary;
+                    color: config.$primary;
                 }
             }
         }
 
-        @include at(md) {
+        /*@include at(md) {
             display: flex;
             justify-content: space-between;
 
@@ -91,7 +95,7 @@
                 margin: 0 0 .5rem;
 
                 &.-active {
-                    box-shadow: .5rem 0 0 $primary inset;
+                    box-shadow: .5rem 0 0 config.$primary inset;
                 }
             }
 
@@ -104,7 +108,7 @@
                 padding-top: 0;
                 width: span(2, 3);
             }
-        }
+        }*/
     }
 }
 

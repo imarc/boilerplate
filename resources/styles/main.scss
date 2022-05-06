@@ -1,6 +1,7 @@
 @use "config";
-@use "common";
+@use "common" as *;
 @use "utilities";
+@use "config/colors" as colors;
 
 @use "atoms/avatar";
 @use "atoms/banner";
@@ -25,7 +26,7 @@
 //@use "molecules/link-groups/link-groups.scss";
 @use "molecules/messaging";
 //@use "molecules/search/search.scss";
-//@use "molecules/tabs/tabs.scss";
+@use "molecules/tabs/tabs.scss";
 @use "molecules/testimonial";
 //@use "molecules/tiles/tiles.scss";
 //
