@@ -17,6 +17,11 @@
 <body>
     <div id="root">
         {{ yield }}
+
+        {% if _target.context.controls is defined %}
+            <hr>
+            {{ _target.context.controls|default('')|raw }}
+        {% endif %}
     </div>
 
     {% if _config.viteServer %}
