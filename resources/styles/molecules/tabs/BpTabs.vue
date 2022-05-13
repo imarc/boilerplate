@@ -29,15 +29,16 @@
         </nav>
         <div
             v-for="(tabTitle, tab) in tabs"
-            v-show="isActiveTab(tab)"
             :id="`${tab}-panel`"
             :key="tab"
             tabindex="0"
             :class="`${block}__${panelElement}`"
-            :hidden="!isActiveTab(tab)"
+            :hidden="!isActive(tab)"
             :aria-labelledby="tab"
         >
-            <slot :name="`tab-panel-${tab}`" />
+            <div v-if="isActiveTab(tab)">
+                <slot :name="`tab-panel-${tab}`" />
+            </div>
         </div>
     </section>
 </template>
@@ -45,9 +46,13 @@
 <script setup>
     import { ref, computed, onMounted } from 'vue'
 
+    //import useKeyboard from '/resources/js/components/useKeyboard.vue'
+
     const el = ref(null)
     const activeTab = ref('')
     const currentFocusTab = ref('')
+
+    
 
     const props = defineProps({
         block: {
@@ -97,6 +102,8 @@
             type: Boolean,
         }
     })
+
+    //const { isActive } = useKeyboard(props.tabs, activeTab)
 
     const initialTabComp = computed({
         get: () => {
@@ -185,7 +192,7 @@
 
     function isActive (tab) {
         return tab === activeTab.value ? props.activeClass : ''
-    }
+    } 
 
     function isActiveTab (tab) {
         return activeTab.value === tab
