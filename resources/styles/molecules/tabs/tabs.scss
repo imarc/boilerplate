@@ -58,7 +58,6 @@
     }
 
     &.-vertical {
-
         #{$b}__tab {
             border-radius: 0;
             border: 0;
@@ -73,7 +72,7 @@
             }
         }
 
-        /*@include at(md) {
+        @include mixins.at(md) {
             display: flex;
             justify-content: space-between;
 
@@ -108,7 +107,7 @@
                 padding-top: 0;
                 width: span(2, 3);
             }
-        }*/
+        }
     }
 }
 
