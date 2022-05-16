@@ -138,7 +138,7 @@
         get: () => tabKeys.value[tabKeys.value.length - 1]
     })
 
-    const curruentFocusTabIndex = computed({
+    const currentFocusTabIndex = computed({
         get: () => tabKeys.value.indexOf(currentFocusTab.value)
     })
 
