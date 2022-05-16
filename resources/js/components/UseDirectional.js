@@ -1,4 +1,3 @@
-import { onMounted } from 'vue'
 /**
  * Default selector used for all focusable elements.
  */
@@ -86,6 +85,9 @@ const augmentElementRects = (nodeList, origin) => {
     return elements
 }
 
+/**
+ * Finds all focusable elements within and including el.
+ */
 const queryFocusableElements = el => {
     const elements = [...el.querySelectorAll(FOCUSABLE_SELECTOR)]
     if (el.matches(FOCUSABLE_SELECTOR)) {
@@ -95,6 +97,11 @@ const queryFocusableElements = el => {
     return elements
 }
 
+/**
+ * useDirectional() takes any number of rootElements that it searches for
+ * focusable elements and handles directional arrow moves between. Also
+ * supports Home and End.
+ */
 export default function useDirectional (...rootElements) {
     const findTarget = (el, key) => {
         const elements = augmentElementRects(rootElements.map(queryFocusableElements).flat(), el)
