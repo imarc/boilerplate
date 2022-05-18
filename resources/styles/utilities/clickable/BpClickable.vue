@@ -1,44 +1,40 @@
-<template>
-    <render />
-</template>
-<script setup>
-import { onMounted, onUnmounted, useSlots } from 'vue'
+<script>
+import { onMounted, onUnmounted, } from 'vue'
 
-const props = defineProps({
-    selector: {
-        type: String,
-        default: () => '[data-clickable]',
+export default {
+    props: {
+        selector: {
+            type: String,
+            default: () => '[data-clickable]',
+        },
     },
-})
 
-let vnodes = []
-const slots = useSlots()
+    setup(props, { slots }) {
+        const click = () => querySelector(props.selector)?.click()
+        const vnodes = slots.default({ click })
 
-const render = () => {
-    vnodes = slots.default({ click })
-    return vnodes
-}
-
-const querySelector = selector => {
-    for (let vnode of vnodes) {
-        const el = vnode.el?.querySelector?.(selector)
-        if (el) {
-            return el
+        const querySelector = selector => {
+            for (let vnode of vnodes) {
+                const el = vnode.el?.querySelector?.(selector)
+                if (el) {
+                    return el
+                }
+            }
         }
-    }
+
+        onMounted(() => {
+            vnodes.forEach(({ el }) => {
+                el?.addEventListener('click', click)
+            })
+        })
+
+        onUnmounted(() => {
+            vnodes.forEach(({ el }) => {
+                el?.removeEventListener('click', click)
+            })
+        })
+
+        return () => vnodes
+    },
 }
-
-const click = () => querySelector(props.selector)?.click()
-
-onMounted(() => {
-    vnodes.forEach(({ el }) => {
-        el?.addEventListener('click', click)
-    })
-})
-
-onUnmounted(() => {
-    vnodes.forEach(({ el }) => {
-        el?.removeEventListener('click', click)
-    })
-})
 </script>
