@@ -1,3 +1,5 @@
+import { unref, onMounted } from 'vue'
+
 /**
  * Default selector used for all focusable elements.
  */
@@ -89,6 +91,7 @@ const augmentElementRects = (nodeList, origin) => {
  * Finds all focusable elements within and including el.
  */
 const queryFocusableElements = el => {
+    el = unref(el)
     const elements = [...el.querySelectorAll(FOCUSABLE_SELECTOR)]
     if (el.matches(FOCUSABLE_SELECTOR)) {
         elements.unshift(el)
@@ -124,5 +127,9 @@ export default function useDirectional (...rootElements) {
         }
     }
 
-    rootElements.forEach(el => el.addEventListener('keydown', handler))
+    onMounted(() => {
+        rootElements.forEach(el => {
+            unref(el).addEventListener('keydown', handler)
+        })
+    })
 }
