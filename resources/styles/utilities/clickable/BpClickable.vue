@@ -1,3 +1,6 @@
+<template>
+    <render />
+</template>
 <script setup>
 import { onMounted, onUnmounted, useSlots } from 'vue'
 
