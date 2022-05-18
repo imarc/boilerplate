@@ -1,19 +1,12 @@
 <template>
-    <swiper
-        ref="mySwiper"
-        :options="swiperOptions"
-        class="foobar"
-    >
-        <slot
-            v-for="(_, name) in $slots"
-            :slot="name"
-            :name="name"
-        />
+    <swiper v-bind="currentVariant">
+        <slot />
     </swiper>
 </template>
-<script>
-import { Swiper, directive } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
+<script setup>
+import { computed } from 'vue'
+import { Swiper } from 'swiper/vue'
+import 'swiper/css'
 
 const variants = {
     default: {
@@ -25,7 +18,7 @@ const variants = {
     },
     bleedRight: {
         slidesPerView: 1,
-        spaceBetween: 40,
+        spaceBetween: 0,
 
         breakpoints: {
             616: {
@@ -44,33 +37,22 @@ const variants = {
     },
 }
 
-export default {
-    components: {
-        Swiper,
+
+const currentVariant = computed(() => ({
+    keyboard: {
+        enabled: true,
     },
-    directives: {
-        swiper: directive,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
-    props: {
-        variant: {
-            type: String,
-            default: 'default',
-        },
-        swiperOptions: {
-            type: Object,
-            default () {
-                return {
-                    keyboard: {
-                        enabled: true,
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    ...variants[this.variant],
-                }
-            },
-        },
+    ...variants[props.variant]
+}))
+
+const props = defineProps({
+    variant: {
+        type: String,
+        default: 'default',
     },
-}
+})
 </script>
