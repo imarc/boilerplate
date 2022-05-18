@@ -2,7 +2,7 @@ import 'lazysizes'
 
 import '../styles/main.scss'
 
-import BpClickable from '../styles/utilities/clickable/BpClickable.vue'
+import BpClickable from '../styles/utilities/clickable/BpClickable.js'
 import BpDropdown from '../styles/atoms/dropdown/BpDropdown.vue'
 import BpDropdownHoverable from '../styles/atoms/dropdown/BpDropdownHoverable.vue'
 import BpDropdownLink from '../styles/atoms/dropdown/BpDropdownLink.vue'
