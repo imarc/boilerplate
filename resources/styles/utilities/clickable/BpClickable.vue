@@ -1,40 +1,41 @@
-<script>
+<script setup>
+import { onMounted, onUnmounted, useSlots } from 'vue'
 
-/**
- * Renderless component for making a larger element clickable.
- *
- * Example:
- *
- *     <bp-clickable v-slot="{ click }">
- *         <div @click="click($event, $refs.link)">
- *             <!-- ... -->
- *             <a ref="link" href="...">...</a>
- *         </div>
- *     </bp-clickable>
- *
- */
-export default {
-    methods: {
-        click (evt, link) {
-            if (evt.target.tagName === 'A') {
-                return
-            }
-
-            let url = null
-            if (typeof (link) === 'string') {
-                url = link
-            } else if (link instanceof Node) {
-                url = link.getAttribute('href')
-            }
-
-            evt.preventDefault()
-            window.location = url
-        },
+const props = defineProps({
+    selector: {
+        type: String,
+        default: () => '[data-clickable]',
     },
-    render () {
-        return this.$scopedSlots.default({
-            click: this.click,
-        })
-    },
+})
+
+let vnodes = []
+const slots = useSlots()
+
+const render = () => {
+    vnodes = slots.default({ click })
+    return vnodes
 }
+
+const querySelector = selector => {
+    for (let vnode of vnodes) {
+        const el = vnode.el?.querySelector?.(selector)
+        if (el) {
+            return el
+        }
+    }
+}
+
+const click = () => querySelector(props.selector)?.click()
+
+onMounted(() => {
+    vnodes.forEach(({ el }) => {
+        el?.addEventListener('click', click)
+    })
+})
+
+onUnmounted(() => {
+    vnodes.forEach(({ el }) => {
+        el?.removeEventListener('click', click)
+    })
+})
 </script>
