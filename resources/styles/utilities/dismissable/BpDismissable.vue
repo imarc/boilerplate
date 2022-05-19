@@ -1,67 +1,37 @@
-<script>
+<template>
+    <slot
+        v-if="!isDismissed"
+        :dismiss="dismiss"
+    />
+</template>
+<script setup>
+import { ref } from 'vue'
+import useStorage from '/resources/js/components/UseStorage.js'
 
-/**
- * Renderless component for dismissable content.
- *
- * @param storageKey (required) - used to identify a specific instance of this
- *     component to tell if it's already dismissed or not.
- * @param hash - optional second component for telling if content has changed
- *     and the component should be re-displayed even if it was already
- *     dismissed.
- * @param expiration - optional duration for how long to hide the content
- *     before displaying it again. Defaults to a week. If set to 0, stays
- *     dimissed permanently.
- */
-export default {
-    props: {
-        storageKey: {
-            type: String,
-            required: true,
-        },
-        hash: {
-            type: String,
-            default: '',
-        },
-        expiration: {
-            type: Number,
-            default: 604800000,
-        },
+const props = defineProps({
+    storageKey: {
+        type: String,
+        required: true,
     },
-    data: () => ({
-        isDismissed: true,
-    }),
-
-    mounted () {
-        const now = (new Date()).getTime()
-        if (this.storageKey in localStorage) {
-            const { hash, expiration } = JSON.parse(localStorage[this.storageKey])
-
-            if (hash === this.hash && (expiration === 0 || expiration > now)) {
-                return
-            }
-        }
-
-        this.isDismissed = false
+    expiration: {
+        type: Number,
+        default: 604800000,
     },
+})
 
-    methods: {
-        dismiss () {
-            const now = (new Date()).getTime()
-            this.isDismissed = true
+const isDismissed = ref(false)
+const expiresAt = ref(undefined)
 
-            localStorage[this.storageKey] = JSON.stringify({
-                expiration: this.expiration === 0 ? 0 : now + this.expiration,
-                hash: this.hash,
-            })
-        },
-    },
-    render () {
-        return this.isDismissed
-            ? ''
-            : this.$scopedSlots.default({
-                dismiss: this.dismiss,
-                isDismissed: this.isDismissed,
-            })
-    },
+useStorage(isDismissed, props.storageKey)
+useStorage(expiresAt, `${props.storageKey}__expiresAt`)
+
+if (isDismissed.value && (!expiresAt.value || expiresAt.value < (new Date()).getTime())) {
+    isDismissed.value = false
+    expiresAt.value = undefined
+}
+
+const dismiss = () => {
+    expiresAt.value = (new Date()).getTime() + props.expiration
+    isDismissed.value = true
 }
 </script>

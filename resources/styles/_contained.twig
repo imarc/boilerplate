@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background: {{ _target.context.background|default('') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,6 +15,11 @@
     <div id="root">
         <main style="padding: 40px">
             {{ yield }}
+
+            {% if _target.context.controls is defined %}
+                <hr>
+                {{ _target.context.controls|default('')|raw }}
+            {% endif %}
         </main>
     </div>
 
