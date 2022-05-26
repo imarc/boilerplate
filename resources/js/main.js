@@ -2,6 +2,7 @@ import 'lazysizes'
 
 import '../styles/main.scss'
 
+import BpAccordion from '../styles/molecules/accordion/BpAccordion.vue'
 import BpClickable from '../styles/utilities/clickable/BpClickable.js'
 import BpDirectional from '../styles/utilities/directional/BpDirectional.vue'
 import BpDismissable from '../styles/utilities/dismissable/BpDismissable.vue'
@@ -14,6 +15,7 @@ import { createApp } from 'vue'
 
 const app = createApp({
     components: {
+        BpAccordion,
         BpClickable,
         BpDirectional,
         BpDismissable,
