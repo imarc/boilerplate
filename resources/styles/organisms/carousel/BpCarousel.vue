@@ -1,19 +1,22 @@
 <template>
-    <swiper v-bind="currentVariant">
+    <swiper navigation v-bind="currentVariant">
         <slot />
     </swiper>
 </template>
 <script setup>
 import { computed } from 'vue'
 import { Swiper } from 'swiper/vue'
+import { Keyboard, Navigation, Pagination } from 'swiper'
 import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const variants = {
     default: {
         spaceBetween: 40,
         centeredSlides: true,
         pagination: {
-            el: '.swiper-pagination',
+            clickable: true,
         },
     },
     bleedRight: {
@@ -37,16 +40,12 @@ const variants = {
     },
 }
 
-
 const currentVariant = computed(() => ({
+    modules: [Keyboard, Navigation, Pagination],
     keyboard: {
         enabled: true,
     },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    ...variants[props.variant]
+    ...variants[props.variant],
 }))
 
 const props = defineProps({
