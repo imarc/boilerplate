@@ -76,7 +76,7 @@
 <script setup>
 import { nextTick, ref, watch } from 'vue'
 import useOpenable from '/resources/js/components/UseOpenable.vue'
-import useLazyEmbed from '/resources/js/components/UseLazyEmbed.vue'
+import useLazyEmbed from '/resources/js/components/UseLazyEmbed.js'
 
 defineProps({
     block: {
