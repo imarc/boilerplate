@@ -1,9 +1,1 @@
-Toggle buttons. Typically used for things like toggling filters on search results.
-
-### Sass Mixin
-
-`@mixin toggleButton()`
-
-#### Parameters
-
-None.
+Checkboxes and radios. These are built so that they work properly with both keyboard or mouse for both focus and input.
