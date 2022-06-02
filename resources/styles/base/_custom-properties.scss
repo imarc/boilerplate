@@ -21,9 +21,9 @@
         --font-size-h4: 1.5rem;
     }
 
-    --duration-fast: config.$fast;
-    --duration-moderate: config.$moderate;
-    --duration-slow: config.$slow;
+    --duration-fast: #{config.$fast};
+    --duration-moderate: #{config.$moderate};
+    --duration-slow: #{config.$slow};
 
     @media (prefers-reduced-motion) {
         --duration-fast: 0;
