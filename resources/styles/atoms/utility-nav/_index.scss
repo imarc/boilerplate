@@ -1,3 +1,6 @@
+@use "/resources/styles/common" as *;
+@use "/resources/styles/config";
+
 .utilityNav {
     &__list {
         @include no-bullets;
@@ -14,12 +17,12 @@
 
         & + & {
             .utilityNav__link {
-                border-left: 1px solid $gray-500;
+                border-left: 1px solid config.$border;
             }
         }
     }
 
     .utilityNav__link {
-        padding: 0 $thin-h-space;
+        padding: 0 config.$thin-h-space;
     }
 }
