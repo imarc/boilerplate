@@ -62,20 +62,11 @@ defineProps({
         type: String,
         default: () => Math.random().toString(36).substr(2),
     },
-});
+})
 
-const isOpen = ref(false);
+const isOpen = ref(false)
 
 const open = () => {
     isOpen.value = !isOpen.value
-}
-
-function startTransition(el, done) {
-    el.style.maxHeight = 100 + 'vh'
-    el.style.padding = '0.5rem 0'
-}
-function endTransition(el, done) {
-    el.style.maxHeight = 0
-    done()
 }
 </script>
