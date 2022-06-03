@@ -33,28 +33,30 @@
         border-top: 1px solid config.$gray-100;
         padding: config.$thin-v-space 0;
         margin: 0 1rem;
+        max-height: 100vh;
+        display: block;
     }
 
     &__icon {
         transition: transform var(--duration-fast) config.$ease-out-quint;
     }
-
-    &.-open {
-        #{$b}__icon {
-            transform: rotate(-180deg);
-        }
-    }
-
+    
+    // Animated padding to avoid snap when closing accordion 
+    // Animated opacity to avoid text showing when accordiong closing
+    // Animated max-height for open/closing accordion effect
     &__transition {
-        &-enter,
+        &-enter-from,
         &-leave-to {
-            height: 0 !important;
+            max-height: 0;
+            opacity: 0;
+            padding: 0;
         }
 
         &-enter-active,
         &-leave-active {
-            transition: height var(--duration-moderate) config.$entrance-easing;
-            overflow: hidden;
+            transition: opacity .5s;
+            transition: max-height .7s;
+            transition: padding .5s;
         }
     }
 }
