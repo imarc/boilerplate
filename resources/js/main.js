@@ -16,7 +16,7 @@ const app = createApp({
         BpDropdownHoverable,
         BpDropdownLink,
         BpModal,
-        BpTabs
+        BpTabs,
     },
 })
 
