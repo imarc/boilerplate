@@ -1,8 +1,12 @@
+@use "/resources/styles/common" as *;
+@use "/resources/styles/config";
+
 .primaryNav {
     display: none;
 
     &__list {
-        @include no-bullets;
+        list-style: none;
+        padding-left: 0;
         display: flex;
     }
 
@@ -12,7 +16,7 @@
 
     &__link {
         display: block;
-        padding: 1.5rem $h-space;
+        padding: 1.5rem config.$h-space;
         font-weight: bold;
     }
 

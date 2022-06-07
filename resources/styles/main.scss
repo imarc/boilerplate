@@ -11,7 +11,6 @@
 @use "atoms/headings/accented";
 @use "atoms/headings/eyebrow";
 @use "atoms/headings/heading";
-//@use "atoms/link-group/link-group.scss";
 @use "atoms/link";
 //@use "atoms/menu/menu.scss";
 @use "atoms/pagination";
@@ -22,7 +21,7 @@
 //
 //@use "molecules/accordion/accordion.scss";
 @use "molecules/card";
-//@use "molecules/link-groups/link-groups.scss";
+@use "molecules/link-groups";
 @use "molecules/messaging";
 //@use "molecules/search/search.scss";
 //@use "molecules/tabs/tabs.scss";
@@ -37,7 +36,7 @@
 //@use "organisms/mega-dropdown/mega-dropdown.scss";
 //@use "organisms/mobile-navigation/mobile-navigation.scss";
 @use "organisms/modal/modal.scss";
-//@use "organisms/primary-nav/primary-nav.scss";
+@use "organisms/primary-nav";
 //@use "organisms/site-footer/site-footer.scss";
 //@use "organisms/site-header/site-header.scss";
 @use "organisms/team";
