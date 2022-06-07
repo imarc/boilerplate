@@ -1,5 +1,5 @@
 <template>
-    <section :class="`${block}`" ref="el">
+    <section :class="`${block}`" ref="tabSection">
         <nav :class="`${block}__${navElement}`">
             <ul :class="`${block}__${navListElement}`">
                 <li
@@ -48,7 +48,7 @@
 
     //import useKeyboard from '/resources/js/components/useKeyboard.vue'
 
-    const el = ref(null)
+    const tabSection = ref(null)
     const activeTab = ref('')
     const currentFocusTab = ref('')
 
@@ -89,6 +89,10 @@
         },
         initialTab: {
             type: String,
+            default(props) {
+                var [firstTab] = Object.keys(props.tabs)
+                return firstTab
+            }
         },
         setHash: {
             type: Boolean,
@@ -100,63 +104,33 @@
         },
         wrap: {
             type: Boolean,
-        }
-    })
-
-    //const { isActive } = useKeyboard(props.tabs, activeTab)
-
-    const initialTabComp = computed({
-        get: () => {
-            if (!props.initialTab) {
-                var [firstTab] = Object.keys(props.tabs)
-                return firstTab
-            } else {
-                return props.initialTab
-            }
-        }
-    })
-
-    const wrapComp = computed({
-        get: () => {
-            if (!props.wrap) {
+            default(props) {
                 return !props.vertical
-            } else {
-                return props.wrap
             }
         }
     })
 
-    const tabKeys = computed({
-        get: () => Object.keys(props.tabs)
-    })
+    const tabKeys = computed(() => Object.keys(props.tabs))
 
-    const firstTabKey = computed({
-        get: () => tabKeys.value[0]
-    })
+    const firstTabKey = computed(() => tabKeys.value[0])
 
-    const lastTabKey = computed({
-        get: () => tabKeys.value[tabKeys.value.length - 1]
-    })
+    const lastTabKey = computed(() => tabKeys.value[tabKeys.value.length - 1])
 
-    const currentFocusTabIndex = computed({
-        get: () => tabKeys.value.indexOf(currentFocusTab.value)
-    })
+    const currentFocusTabIndex = computed(() => tabKeys.value.indexOf(currentFocusTab.value))
 
-    const nextTabKey = computed({
-        get: () => {
+    const nextTabKey = computed(() => 
+        {
             return currentFocusTab.value === lastTabKey.value
-                ? (wrapComp.value ? firstTabKey.value : null)
+                ? (props.wrap ? firstTabKey.value : null)
                 : tabKeys.value[currentFocusTabIndex.value + 1]
-        }
-    })
+        })
 
-    const prevTabKey = computed({
-        get: () => {
+    const prevTabKey = computed(() => 
+        {
             return currentFocusTabIndex.value === 0
-                ? (wrapComp.value ? lastTabKey.value : null)
+                ? (props.wrap ? lastTabKey.value : null)
                 : tabKeys.value[currentFocusTabIndex.value - 1]
-        }
-    })
+        })
 
     onMounted(() => {
         setInitFocusTab()
@@ -167,8 +141,8 @@
     function setInitActiveTab () {
         if (location.hash && tabKeys.indexOf(location.hash.substr(1)) !== -1) {
             activeTab.value = location.hash.substr(1)
-        } else if (initialTabComp.value) {
-            activeTab.value = initialTabComp.value
+        } else if (props.initialTab) {
+            activeTab.value = props.initialTab
         } else {
             [activeTab.value] = props.tabs
         }
@@ -176,11 +150,10 @@
         
     function setFocusTab (tab) {
         currentFocusTab.value = tab
-        selectTab(tab)
     }
 
     function setInitFocusTab () {
-        currentFocusTab.value = initialTabComp.value
+        currentFocusTab.value = props.initialTab
     }
 
     function selectTab (tab) {
@@ -205,7 +178,7 @@
     function navigateNextTab (evt) {
         if (nextTabKey.value) {
             evt.preventDefault();
-            const nextTabButton = el.value.querySelector(`[id="${nextTabKey.value}"]`)
+            const nextTabButton = tabSection.value.querySelector(`[id="${nextTabKey.value}"]`)
             nextTabButton.focus()
         }
     }
@@ -213,16 +186,16 @@
     function navigatePrevTab (evt) {
         if (prevTabKey.value) {
             evt.preventDefault();
-            const prevTabButton = el.value.querySelector(`[id="${prevTabKey.value}"]`)
+            const prevTabButton = tabSection.value.querySelector(`[id="${prevTabKey.value}"]`)
             prevTabButton.focus()
         }
     }
 
     function attachKeyboardListeners () {
-        const firstTabEl = el.value.querySelector(`[id="${firstTabKey.value}"]`)
-        const lastTabEl = el.value.querySelector(`[id="${lastTabKey.value}"]`)
+        const firstTabEl = tabSection.value.querySelector(`[id="${firstTabKey.value}"]`)
+        const lastTabEl = tabSection.value.querySelector(`[id="${lastTabKey.value}"]`)
 
-        el.value.addEventListener('keydown', event => {
+        tabSection.value.addEventListener('keydown', event => {
             if (event.keyCode === 36) {
                 event.preventDefault()
                 firstTabEl.focus()
