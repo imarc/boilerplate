@@ -1,8 +1,0 @@
-.logoCloud {
-    @include grid($max-columns: 5, $element: "#{&}__icon");
-
-    &__img {
-        width: 100%;
-        height: auto;
-    }
-}

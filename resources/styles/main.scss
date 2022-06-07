@@ -17,8 +17,8 @@
 @use "atoms/pagination";
 @use "atoms/progress";
 //@use "atoms/table/table.scss";
-//@use "atoms/toggle-button/toggle-button.scss";
-//@use "atoms/utility-nav/utility-nav.scss";
+@use "atoms/checkbox";
+@use "atoms/utility-nav";
 //
 //@use "molecules/accordion/accordion.scss";
 @use "molecules/card";
@@ -27,19 +27,19 @@
 //@use "molecules/search/search.scss";
 @use "molecules/tabs/tabs.scss";
 @use "molecules/testimonial";
-//@use "molecules/tiles/tiles.scss";
+@use "molecules/tiles";
 //
-//@use "organisms/background-video/background-video.scss";
-//@use "organisms/cards/cards.scss";
-//@use "organisms/carousel/carousel.scss";
+@use "organisms/background-video";
+@use "organisms/cards";
+@use "organisms/carousel";
 @use "organisms/sections";
-//@use "organisms/logo-cloud/logo-cloud.scss";
+@use "organisms/logo-cloud";
 //@use "organisms/mega-dropdown/mega-dropdown.scss";
 //@use "organisms/mobile-navigation/mobile-navigation.scss";
 @use "organisms/modal/modal.scss";
 //@use "organisms/primary-nav/primary-nav.scss";
 //@use "organisms/site-footer/site-footer.scss";
 //@use "organisms/site-header/site-header.scss";
-//@use "organisms/team/team.scss";
+@use "organisms/team";
 
 @use "base";

@@ -35,6 +35,7 @@
     "normalize.css": "^8.0.1",
     "postcss": "^8.4.12",
     "sass": "^1.34.0",
+    "swiper": "^8.1.5",
     "vite": "^2.7.13",
     "vite-manifest": "^1.0.0",
     "vue": "^3.2.31"
