@@ -3,6 +3,7 @@
 
 .primaryNav {
     display: none;
+    background: config.$white;
 
     &__list {
         list-style: none;
@@ -12,6 +13,9 @@
 
     &__item {
         margin-bottom: 0;
+
+        --color: #{config.$primary};
+        --color-contrast: #{blackwhite(config.$primary)};
     }
 
     &__link {
