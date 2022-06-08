@@ -6,12 +6,19 @@
 
     display: grid;
     gap: config.$padding;
-    grid-auto-columns: 1fr;
+    //grid-auto-columns: 1fr;
     grid-auto-flow: column;
-    padding: config.$padding;
     width: max-content;
+    grid-template-columns: auto;
+
+    .linkGroups__callout {
+        img {
+            height: 100%;
+        }
+    }
 
     .linkGroups__group {
+        padding: config.$padding;
 
         #{$b}__heading {
             font-weight: bold;
