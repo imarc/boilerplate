@@ -108,19 +108,21 @@ const queryFocusableElements = el => {
 export default function useDirectional (...rootElements) {
     const findTarget = (el, key) => {
         const elements = augmentElementRects(rootElements.map(queryFocusableElements).flat(), el)
-        const filtered = KEY_FILTERS[key] ? KEY_FILTERS[key](elements) : elements
-        return filtered.reduce(
-            (closest, el) => {
-                return el.distance < closest.distance ? el : closest
-            },
-            { distance: Infinity }
-        )
+        if (key in KEY_FILTERS) {
+            return KEY_FILTERS[key](elements).reduce(
+                (closest, el) => {
+                    return el.distance < closest.distance ? el : closest
+                },
+                { distance: Infinity }
+            )
+        }
+        return null
     }
 
     const handler = evt => {
         const newTarget = findTarget(evt.target, evt.key)
 
-        if (newTarget.el) {
+        if (newTarget?.el) {
             evt.preventDefault()
             evt.stopPropagation()
             newTarget.el.focus()
