@@ -14,7 +14,6 @@ import BpDropdownHoverable from '../styles/atoms/dropdown/BpDropdownHoverable.vu
 import BpDropdownLink from '../styles/atoms/dropdown/BpDropdownLink.vue'
 import BpModal from '../styles/organisms/modal/BpModal.vue'
 
-
 import { createApp } from 'vue'
 
 const app = createApp({

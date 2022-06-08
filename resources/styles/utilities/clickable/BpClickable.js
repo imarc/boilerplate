@@ -7,7 +7,7 @@ const BpClickable = function (props, { slots }) {
     const vnodes = slots.default({ click })
 
     const querySelector = selector => {
-        for (let vnode of vnodes) {
+        for (const vnode of vnodes) {
             const el = vnode.el?.querySelector?.(selector)
             if (el) {
                 return el
