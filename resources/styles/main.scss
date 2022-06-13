@@ -17,7 +17,7 @@
 @use "atoms/table";
 @use "atoms/checkbox";
 @use "atoms/utility-nav";
-//
+
 //@use "molecules/accordion/accordion.scss";
 @use "molecules/card";
 @use "molecules/link-groups";
@@ -26,7 +26,7 @@
 //@use "molecules/tabs/tabs.scss";
 @use "molecules/testimonial";
 @use "molecules/tiles";
-//
+
 @use "organisms/background-video";
 @use "organisms/cards";
 @use "organisms/carousel";
@@ -35,7 +35,7 @@
 @use "organisms/mobile-navigation";
 @use "organisms/modal";
 @use "organisms/primary-nav";
-//@use "organisms/site-footer/site-footer.scss";
+@use "organisms/site-footer";
 @use "organisms/site-header";
 @use "organisms/team";
 
