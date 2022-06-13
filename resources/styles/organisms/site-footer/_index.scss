@@ -1,0 +1,46 @@
+@use "/resources/styles/common" as *;
+@use "/resources/styles/config";
+
+.siteFooter {
+    background-color: config.$blue-900;
+    color: config.$white;
+    padding: 2rem 0;
+
+    a {
+        --link-color: #{config.$white};
+    }
+
+    &__container {
+        @include grid;
+        align-items: start;
+    }
+
+    &__links {
+        grid-column: 5 / 11;
+        justify-self: center;
+    }
+
+    &__brand {
+        grid-column: 2 / 5;
+        align-items: center;
+        color: config.$primary;
+        display: flex;
+        gap: config.$thin-h-space;
+        padding: config.$thin-v-space 0;
+    }
+
+    &__socialLinks {
+        grid-column: 11 / 14;
+        justify-self: end;
+        display: flex;
+        gap: config.$thin-h-space;
+    }
+
+    &__utility {
+        grid-column: main;
+        color: config.$gray-300;
+        display: flex;
+        font-size: .875rem;
+        justify-content: space-between;
+    }
+}
