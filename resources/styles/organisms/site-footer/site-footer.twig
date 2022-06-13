@@ -1,5 +1,5 @@
 <footer class="{{ class }} siteFooter">
-    <div class="siteFooter__container container">
+    <div class="siteFooter__container">
 
         <a href="/" class="siteFooter__brand">
             <svg xmlns="http://www.w3.org/2000/svg" class="siteFooter__logo" width="36" height="44" viewBox="3 1 18 22" stroke-width="1" stroke="currentColor" fill="none">
@@ -19,35 +19,37 @@
             <div class="siteFooter__siteName">Boilerplate</div>
         </a>
 
-        <div class="siteFooter__links linkGroups">
-            <div class="linkGroups__group linkGroup">
-                <div class="linkGroup__heading">Maine</div>
-                <ul class="linkGroup__list">
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Seacoast</a></li>
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Parks</a></li>
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Activities</a></li>
-                </ul>
-            </div>
-            <div class="linkGroups__group linkGroup">
-                <div class="linkGroup__heading">Massachusetts</div>
-                <ul class="linkGroup__list -wide">
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Boston</a></li>
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Cambridge</a></li>
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Lowell</a></li>
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Salem</a></li>
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Worcester</a></li>
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Martha's Vineyard</a></li>
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Nantucket</a></li>
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Provincetown</a></li>
-                </ul>
-            </div>
-            <div class="linkGroups__group linkGroup">
-                <div class="linkGroup__heading">New Hampshire</div>
-                <ul class="linkGroup__list">
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Towns</a></li>
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Parks</a></li>
-                    <li class="linkGroup__item"><a class="linkGroup__link" href="#">Activities</a></li>
-                </ul>
+        <div class="siteFooter__links">
+            <div class="linkGroups">
+                <div class="linkGroups__group linkGroup">
+                    <div class="linkGroup__heading">Maine</div>
+                    <ul class="linkGroup__list">
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Seacoast</a></li>
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Parks</a></li>
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Activities</a></li>
+                    </ul>
+                </div>
+                <div class="linkGroups__group linkGroup">
+                    <div class="linkGroup__heading">Massachusetts</div>
+                    <ul class="linkGroup__list -wide">
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Boston</a></li>
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Cambridge</a></li>
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Lowell</a></li>
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Salem</a></li>
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Worcester</a></li>
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Martha's Vineyard</a></li>
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Nantucket</a></li>
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Provincetown</a></li>
+                    </ul>
+                </div>
+                <div class="linkGroups__group linkGroup">
+                    <div class="linkGroup__heading">New Hampshire</div>
+                    <ul class="linkGroup__list">
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Towns</a></li>
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Parks</a></li>
+                        <li class="linkGroup__item"><a class="linkGroup__link" href="#">Activities</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -72,12 +74,12 @@
                 </svg>
             </a>
         </nav>
+        <div class="siteFooter__utility">
+            <div class="siteFooter__copyright">© {{ "now"|date('Y') }} Boilerplate.</div>
+
+            {% render "@utility-nav" %}
+
+        </div>
     </div>
 
-    <div class="siteFooter__utility container">
-        <div class="siteFooter__copyright">© {{ "now"|date('Y') }} Boilerplate.</div>
-
-        {% render "@utility-nav" %}
-
-    </div>
 </footer>
