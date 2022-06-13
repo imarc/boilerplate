@@ -6,22 +6,21 @@
 /// the url with the hash is loaded in the browser.
 ///
 
-@use "/resources/styles/common/_mixins" as mixins;
-@use "/resources/styles/config/colors" as colors;
+@use "/resources/styles/common" as common;
 @use "/resources/styles/config" as config;
 
-@mixin tabs() {
+.tabs {
     $b: &;
 
     &__list {
-        @include mixins.no-bullets;
+        @include common.no-bullets;
         display: flex;
         overflow: hidden;
 
         &::before,
         &::after {
             content: '';
-            border-bottom: 1px solid colors.$gray-300;
+            border-bottom: 1px solid config.$gray-300;
             box-shadow: 0 -0.5px 1.1px -1.1px rgba(0, 0, 0, 0.057), 0 -1.8px 3.6px -3.6px rgba(0, 0, 0, 0.083), 0 -8px 16px -16px rgba(0, 0, 0, 0.14);
             flex-grow: 1;
         }
@@ -29,8 +28,8 @@
 
     &__tab {
         margin: 0;
-        border: 1px solid colors.$gray-100;
-        border-bottom-color: colors.$gray-300;
+        border: 1px solid config.$gray-100;
+        border-bottom-color: config.$gray-300;
         border-radius: 4px 4px 0 0;
 
         & + & {
@@ -47,7 +46,7 @@
 
     &__tab.-active {
         background-color: transparent;
-        border-color: colors.$gray-300;
+        border-color: config.$gray-300;
         border-bottom: none;
         box-shadow: 0 0 1.1px rgba(0, 0, 0, 0.57), 0 0 3.6px rgba(0, 0, 0, 0.083), 0 0 16px rgba(0, 0, 0, 0.14);
         z-index: 1;
@@ -72,7 +71,7 @@
             }
         }
 
-        @include mixins.at(md) {
+        @include common.at(md) {
             display: flex;
             justify-content: space-between;
 
@@ -109,8 +108,4 @@
             }
         }
     }
-}
-
-.tabs {
-    @include tabs;
 }

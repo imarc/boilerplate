@@ -1,5 +1,5 @@
 @use "config";
-@use "common" as *;
+@use "common";
 @use "utilities";
 
 @use "atoms/avatar";
@@ -25,7 +25,7 @@
 //@use "molecules/link-groups/link-groups.scss";
 @use "molecules/messaging";
 //@use "molecules/search/search.scss";
-@use "molecules/tabs/tabs.scss";
+@use "molecules/tabs";
 @use "molecules/testimonial";
 @use "molecules/tiles";
 //
