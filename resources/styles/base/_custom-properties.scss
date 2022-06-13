@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "/resources/styles/config";
 @use "/resources/styles/common" as *;
 
@@ -21,13 +22,22 @@
         --font-size-h4: 1.5rem;
     }
 
-    --duration-fast: config.$fast;
-    --duration-moderate: config.$moderate;
-    --duration-slow: config.$slow;
+    --duration-fast: #{config.$fast};
+    --duration-moderate: #{config.$moderate};
+    --duration-slow: #{config.$slow};
 
     @media (prefers-reduced-motion) {
         --duration-fast: 0;
         --duration-moderate: 0;
         --duration-slow: 0;
+    }
+
+    --column-gap: #{map.get(config.$breakpoints, sm, gap)};
+    @media (min-width: map.get(config.$breakpoints, md, width)) {
+        --column-gap: #{map.get(config.$breakpoints, md, gap)};
+    }
+
+    @media (min-width: map.get(config.$breakpoints, lg, width)) {
+        --column-gap: #{map.get(config.$breakpoints, lg, gap)};
     }
 }
