@@ -38,7 +38,7 @@
 @use "organisms/modal";
 @use "organisms/primary-nav";
 //@use "organisms/site-footer/site-footer.scss";
-//@use "organisms/site-header/site-header.scss";
+@use "organisms/site-header";
 @use "organisms/team";
 
 @use "base";
