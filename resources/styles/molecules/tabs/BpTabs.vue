@@ -1,5 +1,5 @@
 <template>
-    <section :class="`${block}`" ref="itemSection">
+    <section :class="`${block}`" ref="tabSection">
         <nav :class="`${block}__${navElement}`">
             <ul :class="`${block}__${navListElement}`">
                 <li
@@ -9,19 +9,11 @@
                 >
                     <button
                         :id="tab"
-                        :tabindex="isFocusedItem(tab) ? '0' : '-1'"
+                        :tabindex="isActive(tab) ? '0' : '-1'"
                         :class="`${block}__${buttonElement}`"
                         role="button"
                         :aria-selected="`${isActive(tab)}`"
                         :aria-controls="`${tab}-panel`"
-                        @click="selectItem(tab)"
-                        @keyup.enter="selectItem(tab)"
-                        @keyup.space="selectItem(tab)"
-                        @keyup.right="vertical ? null : navigateNextItem($event)"
-                        @keyup.left="vertical ? null : navigatePrevItem($event)"
-                        @keydown.down="vertical ? navigateNextItem($event) : null"
-                        @keydown.up="vertical ? navigatePrevItem($event) : null"
-                        @focus="setFocusItem(tab)"
                         v-text="tabTitle"
                     />
                 </li>
@@ -44,6 +36,10 @@
 </template>
 
 <script setup>
+
+    import { ref } from 'vue'
+
+    const tabSection = ref(null)
 
     import useExpandable from '/resources/js/components/UseExpandable.vue'
 
@@ -103,16 +99,17 @@
         }
     })
 
+    function isActive (tab) {
+        return tab === activeItem.value ? props.activeClass : ''
+    } 
+    function isActiveItem (tab) {
+        return activeItem.value === tab
+    }
+
+
     const { 
-        itemSection, 
-        setFocusItem, 
-        navigateNextItem, 
-        navigatePrevItem, 
-        selectItem,
-        isActive,
-        isActiveItem,
-        isFocusedItem
-    } = useExpandable(props.tabs, props.initialTab, props.wrap, props.setHash, props.activeClass)
+        activeItem, 
+    } = useExpandable(tabSection, props.tabs, props.initialTab, props.setHash, props.wrap, props.vertical)
 
 
 </script>

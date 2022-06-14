@@ -1,43 +1,42 @@
 <script>
 
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
-export default function useExpandable(items, initialItem, wrap = true, setHash = true, activeClass = '') {
+export default function useExpandable(itemSection, items, initialItem, setHash = true, wrap = true, vertical = false) {
 
     const activeItem = ref('')
     const currentFocusItem = ref('')
-    const itemSection = ref(null)
 
-    const itemKeys = Object.keys(items)
-    const firstItemKey = itemKeys[0]
-    const lastItemKey = itemKeys[itemKeys.length - 1]
-    const currentFocusItemIndex = itemKeys.indexOf(currentFocusItem.value)
+    const itemKeys = computed(() => { return Object.keys(items)})
+    const firstItemKey = computed(() => { return itemKeys.value[0] })
+    const lastItemKey = computed(() => { return itemKeys.value[itemKeys.value.length - 1] })
+    const currentFocusItemIndex = computed(() => { return itemKeys.value.indexOf(currentFocusItem.value) })
 
-    const nextItemKey = () => {
-        return currentFocusItem.value === lastItemKey
-            ? (wrap ? firstItemKey : null)
-            : itemKeys[currentFocusItemIndex + 1]
-    }
+    const nextItemKey = computed(() => {
+        return currentFocusItem.value === lastItemKey.value
+            ? (wrap ? firstItemKey.value : null)
+            : itemKeys.value[currentFocusItemIndex.value + 1]
+    })
 
-    const prevItemKey = () => {
-        return currentFocusItemIndex === 0
-            ? (wrap ? lastItemKey : null)
-            : itemKeys[currentFocusItemIndex - 1]
-    }
+    const prevItemKey = computed(() => {
+        return currentFocusItemIndex.value === 0
+            ? (wrap ? lastItemKey.value : null)
+            : itemKeys.value[currentFocusItemIndex.value - 1]
+    })
 
     const navigateNextItem = (evt) => {
-        if (nextItemKey) {
+        if (nextItemKey.value) {
             evt.preventDefault();
-            const nextItemButton = itemSection.value.querySelector(`[id="${nextItemKey}"]`)
-            nextItemButton.focus()
+            const nextItemButton = itemSection.value.querySelector(`[id="${nextItemKey.value}"]`)
+            nextItemButton.click()
         }
     }
 
     const navigatePrevItem = (evt) => {
-        if (prevItemKey) {
+        if (prevItemKey.value) {
             evt.preventDefault();
-            const prevItemButton = itemSection.value.querySelector(`[id="${prevItemKey}"]`)
-            prevItemButton.focus()
+            const prevItemButton = itemSection.value.querySelector(`[id="${prevItemKey.value}"]`)
+            prevItemButton.click()
         }
     }
 
@@ -51,23 +50,63 @@ export default function useExpandable(items, initialItem, wrap = true, setHash =
         }
     }
 
-    const attachKeyboardListeners = () => {
-        const firstItemEl = itemSection.value.querySelector(`[id="${firstItemKey}"]`)
-        const lastItemEl = itemSection.value.querySelector(`[id="${lastItemKey}"]`)
+    const attachEventListeners = () => {
+        const firstItemEl = itemSection.value.querySelector(`[id="${firstItemKey.value}"]`)
+        const lastItemEl = itemSection.value.querySelector(`[id="${lastItemKey.value}"]`)
+
+        itemSection.value.addEventListener('click', event => {
+            event.preventDefault()
+            console.log(event.target)
+            if (event.target.id) {
+                event.target.focus()
+                selectItem(event.target.id)
+            }
+        })
 
         itemSection.value.addEventListener('keydown', event => {
+            console.log(event.keyCode)
+            //Home
             if (event.keyCode === 36) {
                 event.preventDefault()
                 firstItemEl.focus()
-                activeItem.value = firstItemKey
+                activeItem.value = firstItemKey.value
             }
-
+            //End
             if (event.keyCode === 35) {
                 event.preventDefault()
                 lastItemEl.focus()
-                activeItem.value = lastItemKey
+                activeItem.value = lastItemKey.value
+            }
+            //Left - 37
+            if (event.keyCode === 37) {
+                event.preventDefault()
+                if (!vertical) {
+                    navigatePrevItem(event)
+                }
+            }
+            //Right - 39
+            if (event.keyCode === 39) {
+                event.preventDefault()
+                if (!vertical) {
+                    navigateNextItem(event)
+                }
+            }
+            //Up - 38
+            if (event.keyCode === 38) {
+                event.preventDefault()
+                if (vertical) {
+                    navigatePrevItem(event)
+                }
+            }
+            //Down - 40
+            if (event.keyCode === 40) {
+                event.preventDefault()
+                if (vertical) {
+                    navigateNextItem(event)
+                }
             }
         })
+
     }
 
     const setFocusItem = (item) => {
@@ -80,39 +119,20 @@ export default function useExpandable(items, initialItem, wrap = true, setHash =
 
     const selectItem = (item) => {
         activeItem.value = item
+        setFocusItem(item)
         if (setHash) {
             history.replaceState(undefined, undefined, `#${activeItem.value}`)
         }
     }
 
-    const isActive = (item) => {
-        return item === activeItem.value ? activeClass : ''
-    } 
-
-    const isActiveItem = (item) => {
-        return activeItem.value === item
-    }
-
-    const isFocusedItem = (item) => {
-        return currentFocusItem.value === item
-    }
-
     onMounted(() => {
         setInitFocusItem()
         setInitActiveItem()
-        attachKeyboardListeners()
+        attachEventListeners()
     })
     
     return {
         activeItem,
-        itemSection,
-        setFocusItem,
-        navigateNextItem,
-        navigatePrevItem,
-        selectItem,
-        isActive,
-        isActiveItem,
-        isFocusedItem
     }
 }
 
