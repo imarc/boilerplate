@@ -66,7 +66,6 @@ export default function useExpandable (itemSection, items,
         })
 
         unref(itemSection).addEventListener('keydown', event => {
-            console.log(event.keyCode)
             // Home
             if (event.keyCode === 36) {
                 event.preventDefault()
