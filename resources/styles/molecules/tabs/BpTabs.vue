@@ -39,9 +39,9 @@
 
     import { ref } from 'vue'
 
-    const tabSection = ref(null)
+    import useExpandable from '/resources/js/components/UseExpandable.js'
 
-    import useExpandable from '/resources/js/components/UseExpandable.vue'
+    const tabSection = ref(null)
 
     const props = defineProps({
         block: {
@@ -107,9 +107,15 @@
     }
 
 
-    const { 
-        activeItem, 
-    } = useExpandable(tabSection, props.tabs, props.initialTab, props.setHash, props.wrap, props.vertical)
+    const { activeItem } = useExpandable(tabSection, 
+                                            props.tabs, 
+                                            {
+                                                initialItem: props.initialTab,
+                                                setHash: props.setHash,
+                                                wrap: props.wrap,
+                                                vertical: props.vertical
+                                            }
+                                        )
 
 
 </script>
