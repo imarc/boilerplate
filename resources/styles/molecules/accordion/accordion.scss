@@ -31,32 +31,25 @@
 
     &__content {
         border-top: 1px solid config.$gray-100;
-        padding: config.$thin-v-space 0;
         margin: 0 1rem;
-        max-height: 100vh;
-        display: block;
     }
 
     &__icon {
         transition: transform var(--duration-fast) config.$ease-out-quint;
     }
-    
-    // Animated padding to avoid snap when closing accordion 
-    // Animated opacity to avoid text showing when accordiong closing
-    // Animated max-height for open/closing accordion effect
+
     &__transition {
         &-enter-from,
         &-leave-to {
-            max-height: 0;
-            opacity: 0;
-            padding: 0;
+            height: 0 !important; 
+            padding: 0 !important; 
+            transition: height config.$slow config.$entrance-easing;
         }
 
         &-enter-active,
         &-leave-active {
-            transition: opacity .5s;
-            transition: max-height .7s;
-            transition: padding .5s;
+            transition: height config.$slow config.$entrance-easing;
+            overflow: hidden;
         }
     }
 }

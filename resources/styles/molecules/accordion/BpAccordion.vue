@@ -27,7 +27,10 @@
         </div>
         <Transition
             name='accordion__transition'
-            :duration='1000'
+            @enter="startTransition"
+            @before-leave="startTransition"
+            @after-leave="endTransition"
+            duration="1000"
         >
             <div
                 v-if='isOpen'
@@ -46,22 +49,10 @@
 import { ref } from 'vue'
 
 defineProps({
-    block: {
-        type: String,
-        default: 'accordion',
-    },
-    headerElement: {
-        type: String,
-        default: 'header',
-    },
-    contentElement: {
-        type: String,
-        default: 'content',
-    },
-    id: {
-        type: String,
-        default: () => Math.random().toString(36).substr(2),
-    },
+    block: { type: String, default: 'accordion' },
+    headerElement: { type: String, default: 'header' },
+    contentElement: { type: String, default: 'content' },
+    id: { type: String, default: () => Math.random().toString(36).substr(2) },
 })
 
 const isOpen = ref(false)
@@ -69,4 +60,15 @@ const isOpen = ref(false)
 const open = () => {
     isOpen.value = !isOpen.value
 }
+
+const startTransition = (el) => {
+    el.style.height = el.scrollHeight + 'px'
+    el.style.padding = '.5rem 0'
+}
+
+const endTransition = (el) => {
+    el.style.padding = '0'
+    el.style.height = ''
+}
+
 </script>
