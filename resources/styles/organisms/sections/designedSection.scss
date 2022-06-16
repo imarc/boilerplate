@@ -3,45 +3,23 @@
 
 .section {
 
+    .section__item {
+        grid-column: main;
+    }
+
     &.-twoColumn {
 
-        .section__content {
-            display: flex;
-            flex-direction: column;
-        }
-
-        @include at(lg) {
-            .section__content {
-                flex-direction: row;
-            }
+        @include at(md) {
             .section__item {
-                //@include wrap(1, 2);
-
+                grid-column: span 6;
             }
         }
     }
 
     &.-threeColumn {
-        .section__content {
-            display: flex;
-            flex-direction: column;
-        }
-
         @include at(md) {
-            .section__content {
-                flex-direction: row;
-            }
             .section__item {
-                //@include wrap(1, 2);
-            }
-        }
-
-        @include at(lg) {
-            .section__content {
-                flex-direction: row;
-            }
-            .section__item {
-                //@include wrap(1, 3);
+                grid-column: span 4;
             }
         }
     }
