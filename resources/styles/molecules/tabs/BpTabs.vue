@@ -1,5 +1,8 @@
 <template>
-    <section :class="`${block}`" ref="tabSection">
+    <section
+        ref="tabSection"
+        :class="`${block}`"
+    >
         <nav :class="`${block}__${navElement}`">
             <ul :class="`${block}__${navListElement}`">
                 <li
@@ -37,87 +40,83 @@
 
 <script setup>
 
-    import { ref } from 'vue'
+import { ref } from 'vue'
 
-    import useExpandable from '/resources/js/components/UseExpandable.js'
+import useExpandable from '/resources/js/components/UseExpandable.js'
 
-    const tabSection = ref(null)
+const tabSection = ref(null)
 
-    const props = defineProps({
-        block: {
-            type: String, 
-            default: 'tabs'
+const props = defineProps({
+    block: {
+        type: String,
+        default: 'tabs',
+    },
+    navElement: {
+        type: String,
+        default: 'header',
+    },
+    navListElement: {
+        type: String,
+        default: 'list',
+    },
+    tabElement: {
+        type: String,
+        default: 'tab',
+    },
+    buttonElement: {
+        type: String,
+        default: 'button',
+    },
+    panelElement: {
+        type: String,
+        default: 'panel',
+    },
+    activeClass: {
+        type: String,
+        default: '-active',
+    },
+    tabs: {
+        type: Object,
+        required: true,
+    },
+    initialTab: {
+        type: String,
+        default (props) {
+            const [firstTab] = Object.keys(props.tabs)
+            return firstTab
         },
-        navElement: {
-            type: String,
-            default: 'header',
+    },
+    setHash: {
+        type: Boolean,
+        default: true,
+    },
+    vertical: {
+        type: Boolean,
+        default: false,
+    },
+    wrap: {
+        type: Boolean,
+        default (props) {
+            return !props.vertical
         },
-        navListElement: {
-            type: String,
-            default: 'list',
-        },
-        tabElement: {
-            type: String,
-            default: 'tab',
-        },
-        buttonElement: {
-            type: String,
-            default: 'button',
-        },
-        panelElement: {
-            type: String,
-            default: 'panel',
-        },
-        activeClass: {
-            type: String,
-            default: '-active',
-        },
-        tabs: {
-            type: Object,
-            required: true,
-        },
-        initialTab: {
-            type: String,
-            default(props) {
-                var [firstTab] = Object.keys(props.tabs)
-                return firstTab
-            }
-        },
-        setHash: {
-            type: Boolean,
-            default: true,
-        },
-        vertical: {
-            type: Boolean,
-            default: false,
-        },
-        wrap: {
-            type: Boolean,
-            default(props) {
-                return !props.vertical
-            }
-        }
-    })
+    },
+})
 
-    function isActive (tab) {
-        return tab === activeItem.value ? props.activeClass : ''
-    } 
-    function isActiveItem (tab) {
-        return activeItem.value === tab
+function isActive (tab) {
+    return tab === activeItem.value ? props.activeClass : ''
+}
+function isActiveItem (tab) {
+    return activeItem.value === tab
+}
+
+const { activeItem } = useExpandable(tabSection,
+    props.tabs,
+    {
+        initialItem: props.initialTab,
+        setHash: props.setHash,
+        wrap: props.wrap,
+        vertical: props.vertical,
     }
-
-
-    const { activeItem } = useExpandable(tabSection, 
-                                            props.tabs, 
-                                            {
-                                                initialItem: props.initialTab,
-                                                setHash: props.setHash,
-                                                wrap: props.wrap,
-                                                vertical: props.vertical
-                                            }
-                                        )
-
+)
 
 </script>
-
-
