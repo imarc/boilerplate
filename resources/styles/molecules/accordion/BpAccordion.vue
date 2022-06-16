@@ -1,43 +1,43 @@
 <template>
-    <button :class='[block, isOpen ? "-open" : "-closed"]'>
+    <button :class="[block, isOpen ? '-open' : '-closed']">
         <div
-            :id='`${id}-control`'
-            :class='`${block}__${headerElement}`'
-            :aria-expanded='`${isOpen}`'
-            :aria-controls='id'
-            tabindex='0'
-            role='button'
-            @click='open'
-            @keyup.enter='open'
+            :id="`${id}-control`"
+            :class="`${block}__${headerElement}`"
+            :aria-expanded="`${isOpen}`"
+            :aria-controls="id"
+            tabindex="0"
+            role="button"
+            @click="open"
+            @keyup.enter="open"
         >
-            <slot name='heading' />
-            <slot name='icon'>
+            <slot name="heading" />
+            <slot name="icon">
                 <svg
-                    :class='`${block}__icon`'
-                    width='24'
-                    height='24'
-                    viewBox='0 0 24 24'
-                    stroke-width='2'
-                    stroke='currentColor'
-                    fill='none'
+                    :class="`${block}__icon`"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
                 >
-                    <polyline points='6 9 12 15 18 9' />
+                    <polyline points="6 9 12 15 18 9" />
                 </svg>
             </slot>
         </div>
         <Transition
-            name='accordion__transition'
+            name="accordion__transition"
             @enter="startTransition"
             @before-leave="startTransition"
             @after-leave="endTransition"
             duration="1000"
         >
             <div
-                v-if='isOpen'
-                :id='id'
-                ref='content'
-                :class='`${block}__${contentElement}`'
-                :aria-labelledby='`${id}-control`'
+                v-if="isOpen"
+                :id="id"
+                ref="content"
+                :class="`${block}__${contentElement}`"
+                :aria-labelledby="`${id}-control`"
             >
                 <slot />
             </div>
