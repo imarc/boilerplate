@@ -54,28 +54,31 @@ $-row-gap: 1.5rem !default;
 
     &__container {
         grid-column: main;
+    }
 
-        &.-grid {
-            grid-column: main;
-            display: grid;
-            @if $columns % 2 == 0 {
-                grid-template-columns:
-                    [main-start]
-                    repeat(#{math.div($columns, 2)}, minmax(0, var(--grid-max-width-column)))
-                    [center]
-                    repeat(#{math.div($columns, 2)}, minmax(0, var(--grid-max-width-column)))
-                    [main-end];
-            } @else if $columns > 1 {
-                grid-template-columns:
-                    [main-start]
-                    repeat(#{$columns}, minmax(0, var(--grid-max-width-column)))
-                    [main-end];
-            } @else {
-                grid-template-columns:
-                    [main-start]
-                    minmax(0, var(--grid-max-width-column))
-                    [main-end];
-            }
+    &__grid {
+        grid-column: main;
+        display: grid;
+        row-gap: $row-gap;
+        column-gap: var(--grid-column-gap);
+
+        @if $columns % 2 == 0 {
+            grid-template-columns:
+                [main-start]
+                repeat(#{math.div($columns, 2)}, minmax(0, var(--grid-max-width-column)))
+                [center]
+                repeat(#{math.div($columns, 2)}, minmax(0, var(--grid-max-width-column)))
+                [main-end];
+        } @else if $columns > 1 {
+            grid-template-columns:
+                [main-start]
+                repeat(#{$columns}, minmax(0, var(--grid-max-width-column)))
+                [main-end];
+        } @else {
+            grid-template-columns:
+                [main-start]
+                minmax(0, var(--grid-max-width-column))
+                [main-end];
         }
     }
 
