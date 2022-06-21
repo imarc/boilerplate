@@ -9,7 +9,7 @@
             @keyup.enter="open"
         >
             <slot name="heading" />
-            <slot name="icon">
+            <slot :name="`${ iconName }`">
                 <svg
                     :class="`${block}__icon`"
                     width="24"
@@ -45,6 +45,7 @@ import { ref } from 'vue'
 defineProps({
     block: { type: String, default: 'accordion' },
     headerElement: { type: String, default: 'header' },
+    iconName: { type: String, default: 'icon' },
     contentElement: { type: String, default: 'content' },
     id: { type: String, default: () => Math.random().toString(36).substr(2) },
 })
