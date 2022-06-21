@@ -57,7 +57,8 @@
   "eslintConfig": {
     "env": {
       "browser": true,
-      "es6": true
+      "es6": true,
+      "vue/setup-compiler-macros": true
     },
     "extends": [
       "plugin:vue/vue3-recommended",
