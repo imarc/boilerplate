@@ -15,7 +15,6 @@
     $b: &; 
     
     display: block;
-    width: 100%; 
 
     &__header {
         cursor: pointer;
@@ -23,6 +22,7 @@
         justify-content: space-between;
         align-items: center;
         padding: config.$thin-padding;
+        width: 100%; 
     }
 
     &__heading {
@@ -32,6 +32,11 @@
     &__content {
         border-top: 1px solid config.$gray-100;
         margin: 0 1rem;
+        height: auto;
+        padding: .5rem 0;
+
+        transform:scaleY(1); // implicit, but good to specify explicitly
+        transform-origin:top; // keep the top of the element in the same place. this is optional.
     }
 
     &__icon {
@@ -41,14 +46,15 @@
     &__transition {
         &-enter-from,
         &-leave-to {
-            height: 0 !important; 
-            padding: 0 !important; 
-            transition: height config.$slow config.$entrance-easing;
+            height: 0 !important;
+            padding: 0 !important;
+            transform: scaleY(0); 
+            transition: transform config.$slow config.$entrance-easing, height config.$slow config.$entrance-easing, padding config.$slow config.$entrance-easing;
         }
 
         &-enter-active,
         &-leave-active {
-            transition: height config.$slow config.$entrance-easing;
+            transition: transform config.$slow config.$entrance-easing, height config.$slow config.$entrance-easing, padding config.$slow config.$entrance-easing;
             overflow: hidden;
         }
     }

@@ -1,12 +1,10 @@
 <template>
-    <button :class="[block, isOpen ? '-open' : '-closed']">
-        <div
+    <div :class="[block, isOpen ? '-open' : '-closed']">
+        <button
             :id="`${id}-control`"
             :class="`${block}__${headerElement}`"
             :aria-expanded="`${isOpen}`"
             :aria-controls="id"
-            tabindex="0"
-            role="button"
             @click="open"
             @keyup.enter="open"
         >
@@ -24,13 +22,9 @@
                     <polyline points="6 9 12 15 18 9" />
                 </svg>
             </slot>
-        </div>
+        </button>
         <Transition
             name="accordion__transition"
-            @enter="startTransition"
-            @before-leave="startTransition"
-            @after-leave="endTransition"
-            duration="1000"
         >
             <div
                 v-if="isOpen"
@@ -42,7 +36,7 @@
                 <slot />
             </div>
         </Transition>
-    </button>
+    </div>
 </template>
 
 <script setup>
@@ -59,16 +53,6 @@ const isOpen = ref(false)
 
 const open = () => {
     isOpen.value = !isOpen.value
-}
-
-const startTransition = (el) => {
-    el.style.height = el.scrollHeight + 'px'
-    el.style.padding = '.5rem 0'
-}
-
-const endTransition = (el) => {
-    el.style.padding = '0'
-    el.style.height = ''
 }
 
 </script>
