@@ -21,8 +21,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: config.$thin-padding;
-        width: 100%; 
+        padding: config.$padding;
+        width: 100%;
     }
 
     &__heading {
@@ -32,11 +32,9 @@
     &__content {
         border-top: 1px solid config.$gray-100;
         margin: 0 1rem;
-        height: auto;
         padding: .5rem 0;
-
-        transform:scaleY(1); // implicit, but good to specify explicitly
-        transform-origin:top; // keep the top of the element in the same place. this is optional.
+        overflow: hidden;
+        height: 0;
     }
 
     &__icon {
@@ -47,15 +45,12 @@
         &-enter-from,
         &-leave-to {
             height: 0 !important;
-            padding: 0 !important;
-            transform: scaleY(0); 
-            transition: transform config.$slow config.$entrance-easing, height config.$slow config.$entrance-easing, padding config.$slow config.$entrance-easing;
+            transition: height config.$slow config.$entrance-easing;
         }
 
         &-enter-active,
         &-leave-active {
-            transition: transform config.$slow config.$entrance-easing, height config.$slow config.$entrance-easing, padding config.$slow config.$entrance-easing;
-            overflow: hidden;
+            transition: height config.$slow config.$entrance-easing;
         }
     }
 }

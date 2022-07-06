@@ -25,6 +25,9 @@
         </button>
         <Transition
             name="accordion__transition"
+            @enter="startTransition"
+            @after-leave="endTransition"
+            duration="100"
         >
             <div
                 v-if="isOpen"
@@ -54,6 +57,14 @@ const isOpen = ref(false)
 
 const open = () => {
     isOpen.value = !isOpen.value
+}
+
+const startTransition = (el) => {
+    el.style.height = el.scrollHeight + 'px'
+}
+
+const endTransition = (el) => {
+    el.style.height = 0
 }
 
 </script>
