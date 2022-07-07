@@ -8,9 +8,9 @@
             @click="open"
         >
             <slot name="heading" />
-            <slot :name="`${ iconName }`">
+            <slot name="icon">
                 <svg
-                    :class="`${block}__icon`"
+                    :class="`${block}__${iconElement}`"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -50,7 +50,7 @@ import { ref, nextTick } from 'vue'
 defineProps({
     block: { type: String, default: 'accordion' },
     headerElement: { type: String, default: 'header' },
-    iconName: { type: String, default: 'icon' },
+    iconElement: { type: String, default: 'icon' },
     contentElement: { type: String, default: 'content' },
     contentWrapperElement: { type: String, default: 'contentWrapper' },
     id: { type: String, default: () => Math.random().toString(36).substr(2) },
