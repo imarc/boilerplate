@@ -19,7 +19,7 @@
 @use "atoms/checkbox";
 @use "atoms/utility-nav";
 
-//@use "molecules/accordion/accordion.scss";
+@use "molecules/accordion";
 @use "molecules/card";
 @use "molecules/link-groups";
 @use "molecules/messaging";

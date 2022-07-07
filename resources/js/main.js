@@ -4,10 +4,7 @@ import 'lazysizes'
 
 import '../styles/main.scss'
 
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/css'
-
-import BpCarousel from '../styles/organisms/carousel/BpCarousel.vue'
+import BpAccordion from '../styles/molecules/accordion/BpAccordion.vue'
 import BpClickable from '../styles/utilities/clickable/BpClickable.js'
 import BpDirectional from '../styles/utilities/directional/BpDirectional.vue'
 import BpDismissable from '../styles/utilities/dismissable/BpDismissable.vue'
@@ -25,6 +22,7 @@ const app = createApp({
         Swiper,
         SwiperSlide,
 
+        BpAccordion,
         BpCarousel,
         BpClickable,
         BpDirectional,

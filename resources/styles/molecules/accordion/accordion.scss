@@ -7,17 +7,22 @@
 /// Within the outer element class each accordion item requires a div wrapper.
 /// Within the div wrapper there is a .header class and a .content class.
 ///
+@use "/resources/styles/config";
+
 @mixin accordion() {
-    box-shadow: $med-shadow;
+    box-shadow: config.$med-shadow;
     margin-bottom: 1.5rem;
-    $b: &;
+    $b: &; 
+    
+    display: block;
 
     &__header {
         cursor: pointer;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: $thin-padding;
+        padding: config.$padding;
+        width: 100%;
     }
 
     &__heading {
@@ -25,31 +30,30 @@
     }
 
     &__content {
-        border-top: 1px solid $gray-100;
-        padding: $thin-v-space 0;
+        border-top: 1px solid config.$gray-100;
         margin: 0 1rem;
+        padding: .5rem 0;
+    }
+
+    &__contentWrapper {
+        overflow: hidden;
+        height: 0;
     }
 
     &__icon {
-        transition: transform var(--duration-fast) $ease-out-quint;
-    }
-
-    &.-open {
-        #{$b}__icon {
+        transition: transform var(--duration-fast) config.$ease-out-quint;
+        
+        &.-open {
             transform: rotate(-180deg);
         }
     }
 
     &__transition {
-        &-enter,
-        &-leave-to {
-            height: 0 !important;
-        }
-
+        &-enter-from,
         &-enter-active,
-        &-leave-active {
-            transition: height var(--duration-moderate) $entrance-easing;
-            overflow: hidden;
+        &-leave-active,
+        &-leave-to {
+            transition: height config.$slow config.$entrance-easing;
         }
     }
 }
