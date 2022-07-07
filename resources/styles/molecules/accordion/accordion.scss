@@ -44,7 +44,6 @@
     &__transition {
         &-enter-from,
         &-leave-to {
-            height: 0 !important;
             transition: height config.$slow config.$entrance-easing;
         }
 

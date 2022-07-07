@@ -26,7 +26,7 @@
         <Transition
             name="accordion__transition"
             @enter="startTransition"
-            @after-leave="endTransition"
+            @leave="endTransition"
             duration="100"
         >
             <div
