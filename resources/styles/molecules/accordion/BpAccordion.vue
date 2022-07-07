@@ -10,7 +10,7 @@
             <slot name="heading" />
             <slot name="icon">
                 <svg
-                    :class="`${block}__${iconElement}`"
+                    :class="`${block}__${iconElement} ${ isOpen?'-open':'' }`"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"

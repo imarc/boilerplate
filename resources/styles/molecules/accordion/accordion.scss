@@ -42,6 +42,10 @@
 
     &__icon {
         transition: transform var(--duration-fast) config.$ease-out-quint;
+        
+        &.-open {
+            transform: rotate(-180deg);
+        }
     }
 
     &__transition {
