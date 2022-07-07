@@ -1,12 +1,11 @@
 <template>
-    <div :class="[block, isOpen ? '-open' : '-closed']">
+    <div :class="block">
         <button
             :id="`${id}-control`"
             :class="`${block}__${headerElement}`"
             :aria-expanded="`${isOpen}`"
             :aria-controls="id"
             @click="open"
-            @keyup.enter="open"
         >
             <slot name="heading" />
             <slot :name="`${ iconName }`">
@@ -27,44 +26,49 @@
             name="accordion__transition"
             @enter="startTransition"
             @leave="endTransition"
-            duration="100"
         >
             <div
                 v-if="isOpen"
-                :id="id"
-                ref="content"
-                :class="`${block}__${contentElement}`"
-                :aria-labelledby="`${id}-control`"
+                :id="id" 
+                :class="`${block}__${contentWrapperElement}`"
             >
-                <slot />
+                <div
+                    ref="content"
+                    :class="`${block}__${contentElement}`"
+                    :aria-labelledby="`${id}-control`"
+                >
+                    <slot />
+                </div>
             </div>
         </Transition>
     </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 
 defineProps({
     block: { type: String, default: 'accordion' },
     headerElement: { type: String, default: 'header' },
     iconName: { type: String, default: 'icon' },
     contentElement: { type: String, default: 'content' },
+    contentWrapperElement: { type: String, default: 'contentWrapper' },
     id: { type: String, default: () => Math.random().toString(36).substr(2) },
 })
 
 const isOpen = ref(false)
+const content = ref(null)
 
 const open = () => {
     isOpen.value = !isOpen.value
 }
 
-const startTransition = (el) => {
-    el.style.height = el.scrollHeight + 'px'
+const startTransition = async (el) => {
+    await nextTick()
+    el.style.height = content.value.scrollHeight + 'px'
 }
 
 const endTransition = (el) => {
-    el.style.height = 0
+    el.removeAttribute('style')
 }
-
 </script>
