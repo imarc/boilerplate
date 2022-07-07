@@ -13,7 +13,15 @@
             >
                 <slot name="heading" />
                 <slot name="icon">
-                    <svg :class="`${block}__icon`" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none">
+                    <svg
+                        :class="`${block}__icon`"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                    >
                         <polyline points="6 9 12 15 18 9" />
                     </svg>
                 </slot>

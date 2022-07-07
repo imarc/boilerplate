@@ -1,5 +1,5 @@
-import "/node_modules/normalize.css/normalize.css"
-import "/node_modules/mmenu-light/dist/mmenu-light.css"
+import 'normalize.css/normalize.css'
+import 'mmenu-light/dist/mmenu-light.css'
 import 'lazysizes'
 
 import '../styles/main.scss'

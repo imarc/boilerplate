@@ -42,7 +42,7 @@
 
 import { ref } from 'vue'
 
-import useExpandable from '/resources/js/components/UseExpandable.js'
+import useExpandable from '@resources/js/components/UseExpandable.js'
 
 const tabSection = ref(null)
 

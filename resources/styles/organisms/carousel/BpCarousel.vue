@@ -1,5 +1,8 @@
 <template>
-    <swiper navigation v-bind="currentVariant">
+    <swiper
+        navigation
+        v-bind="currentVariant"
+    >
         <slot />
     </swiper>
 </template>
