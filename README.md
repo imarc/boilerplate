@@ -40,8 +40,8 @@ npm init -y
 Once you have a `package.json` file, you can install Boilerplate:
 
 ```
-npm install imarc-boilerplate#vite
-npx imarc-boilerplate#vite
+npm install imarc-boilerplate#next
+npx imarc-boilerplate#next
 ```
 
 The `npx` command automatically copies `fractal.config.js`, `vite.config.js`, and the `resources/` folder out of `node_modules/` into your project for your use. It also updates the npm `scripts` section within your `package.json`.
@@ -86,4 +86,3 @@ To use with Laravel, try out [Laravel Vite](https://laravel-vite.dev/).
 * CSS custom properties
 * Vue 3
 * Cypress (Vitest)
-* Lerna

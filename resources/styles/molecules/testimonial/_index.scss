@@ -2,9 +2,12 @@
 @use "/resources/styles/config";
 
 .testimonial {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    --testimonial-color: var(--color, #{config.$plain-text});
+    --testimonial-color-attribution: var(--color-attribution, #{config.$meta-text});
+    --testimonial-color-punctuation: var(--color-punctuation, #{config.$primary});
+
+    display: grid;
+    grid-template: "quote" "attribution";
 
     &__quote {
         border: 0;
@@ -12,10 +15,11 @@
         max-width: 66.67%;
         margin-left: auto;
         margin-right: auto;
+        color: var(--testimonial-color);
 
         &::after,
         &::before {
-            color: config.$secondary;
+            color: var(--testimonial-color-punctuation);
             content: '”';
             display: inline-block;
             font-size: 400%;
@@ -32,11 +36,11 @@
     }
 
     &__attribution {
-        justify-content: center;
-        max-height: 8rem;
+        justify-self: center;
+        color: var(--testimonial-color-attribution);
 
         @include at(lg) {
-            align-self: flex-end;
+            justify-self: end;
         }
     }
 }

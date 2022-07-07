@@ -1,5 +1,3 @@
-<script>
-
 /**
  * UseLazyEmbed is a composable component that provides a single method,
  * loadEmbed, that takes the encoded contents of an element, decodes and readds
@@ -78,4 +76,3 @@ export default function useLazyEmbed (el) {
 
     return { loadEmbed }
 }
-</script>
