@@ -1,27 +1,19 @@
-///
-/// ACCORDION
-///
-/// ACCORDION requires the accordion.plugin.js file. Call the ACCORDION
-/// function on your outer element (in our example we use an .accordion div).
-/// You can pass in optional plugin options. See the demo page for a list.
-/// Within the outer element class each accordion item requires a div wrapper.
-/// Within the div wrapper there is a .header class and a .content class.
-///
 @use "/resources/styles/config";
 
 @mixin accordion() {
+    $b: &; 
+
     box-shadow: config.$med-shadow;
     margin-bottom: 1.5rem;
-    $b: &; 
     
     display: block;
 
     &__header {
-        cursor: pointer;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: config.$padding;
+        text-align: left;
+        padding: 1rem;
         width: 100%;
     }
 
@@ -41,6 +33,7 @@
     }
 
     &__icon {
+        min-width: 1.5rem;
         transition: transform var(--duration-fast) config.$ease-out-quint;
         
         &.-open {

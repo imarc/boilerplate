@@ -30,6 +30,7 @@
             <div
                 v-if="isOpen"
                 :id="id"
+                ref="contentWrapper"
                 :class="`${block}__${contentWrapperElement}`"
             >
                 <div
@@ -58,6 +59,7 @@ defineProps({
 
 const isOpen = ref(false)
 const content = ref(null)
+const contentWrapper = ref(null)
 
 const open = () => {
     isOpen.value = !isOpen.value
@@ -65,10 +67,22 @@ const open = () => {
 
 const startTransition = async (el) => {
     await nextTick()
-    el.style.height = content.value.scrollHeight + 'px'
+    el.style.height = `${content.value.scrollHeight}px`
 }
 
 const endTransition = (el) => {
     el.removeAttribute('style')
 }
+
+addEventListener('resize', () => {
+    if (!content.value) {
+        return
+    }
+
+    const newHeight = `${content.value.scrollHeight}px`
+
+    requestAnimationFrame(() => {
+        contentWrapper.value.style.height = newHeight
+    })
+})
 </script>
