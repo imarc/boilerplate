@@ -1,6 +1,8 @@
 @use "/resources/styles/config";
 
 .search {
+    $b: &;
+
     margin-bottom: 3rem;
 
     &__field {

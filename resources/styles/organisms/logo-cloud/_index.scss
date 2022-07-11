@@ -3,6 +3,8 @@
 
 
 .logoCloud {
+    $b: &;
+
     @include grid;
 
     &__container {

@@ -35,7 +35,6 @@
 
 <script setup>
 import { ref } from 'vue'
-
 import useOpenable from '@resources/js/components/UseOpenable.vue'
 
 const dropdown = ref(null)

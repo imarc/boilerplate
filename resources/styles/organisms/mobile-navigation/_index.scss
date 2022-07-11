@@ -8,6 +8,8 @@
 }
 
 .mobileNav {
+    $b: &;
+
     &__button {
         display: flex;
         padding: config.$v-space;

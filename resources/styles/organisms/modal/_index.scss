@@ -2,6 +2,8 @@
 @use "/resources/styles/config";
 
 .modal {
+    $b: &;
+
     &__overlay {
         display: flex;
         align-items: center;

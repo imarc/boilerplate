@@ -2,6 +2,8 @@
 @use "/resources/styles/common" as *;
 
 .section {
+    $b: &;
+
     @include grid;
     align-items: center;
     color: #{config.$plain-text};
@@ -58,7 +60,7 @@
         background-color: config.$blue-900;
         color: config.$white;
 
-        .section__background::before {
+        #{$b}__background::before {
             //background: linear-gradient(to right, config.$blue-900 calc(50% - min(#{divide(config.$container, 2)}, 50vw)), transparent);
             bottom: 0;
             content: '';

@@ -5,8 +5,7 @@
 ///
 /// = Tables =
 ///
-
-@mixin table {
+.table {
     border-collapse: collapse;
     border-spacing: 0;
     margin-bottom: 2rem;
@@ -60,9 +59,4 @@
             min-width: var(--column-gap);
         }
     }
-}
-
-.table,
-table {
-    @include table;
 }

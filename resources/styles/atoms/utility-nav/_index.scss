@@ -2,6 +2,8 @@
 @use "/resources/styles/config";
 
 .utilityNav {
+    $b: &;
+
     &__list {
         @include no-bullets;
         display: flex;
@@ -10,19 +12,19 @@
     &__item {
 
         &:last-child {
-            .utilityNav__link {
+            #{$b}__link {
                 padding-right: 0;
             }
         }
 
         & + & {
-            .utilityNav__link {
+            #{$b}__link {
                 border-left: 1px solid config.$border;
             }
         }
     }
 
-    .utilityNav__link {
+    &__link {
         padding: 0 config.$thin-h-space;
     }
 }
