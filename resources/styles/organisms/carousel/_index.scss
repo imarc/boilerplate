@@ -1,6 +1,8 @@
 @use "/resources/styles/config";
 
 .carousel {
+    $b: &;
+
     --swiper-pagination-bullet-inactive-color: white;
     --swiper-pagination-color: #{config.$secondary};
     --swiper-pagination-bullet-height: .875rem;
@@ -14,7 +16,7 @@
     &.-bleedRight {
         overflow: hidden;
 
-        .carousel__carousel {
+        #{$b}__carousel {
             overflow: visible;
         }
     }

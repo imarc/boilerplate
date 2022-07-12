@@ -1,6 +1,8 @@
 @use "/resources/styles/config";
 
 .accented {
+    $b: &;
+
     --accented-color: var(--color, #{config.$primary});
 
     &::after {

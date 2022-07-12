@@ -11,6 +11,7 @@
 
 .backgroundVideo {
     $b: &;
+
     --backgroundVideo-background-color: var(--background-color, rgba(0 0 0 / .5));
     --backgroundVideo-color: var(--color, #{config.$white});
 

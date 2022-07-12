@@ -2,6 +2,8 @@
 @use "/resources/styles/config";
 
 .dropdown {
+    $b: &;
+
     --dropdown-color: var(--color, #{config.$white});
     --dropdown-color-contrast: var(--color-contrast, #{config.$plain-text});
 
@@ -32,7 +34,7 @@
     }
 
     &.-rightEdge {
-        .dropdown__content {
+        #{$b}__content {
             left: auto;
             right: 0;
         }
@@ -41,7 +43,7 @@
     &.-fullWidth {
         position: static;
 
-        .dropdown__content {
+        #{$b}__content {
             left: 0;
             right: 0;
         }

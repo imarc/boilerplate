@@ -2,6 +2,8 @@
 @use "/resources/styles/config";
 
 .siteHeader {
+    $b: &;
+
     box-shadow: config.$low-shadow;
 
     &__container {
