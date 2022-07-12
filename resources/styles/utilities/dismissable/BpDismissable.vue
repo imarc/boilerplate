@@ -6,7 +6,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import useStorage from '/resources/js/components/UseStorage.js'
+import useStorage from '@resources/js/components/UseStorage.js'
 
 const props = defineProps({
     storageKey: {

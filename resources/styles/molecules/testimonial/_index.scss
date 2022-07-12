@@ -2,6 +2,8 @@
 @use "/resources/styles/config";
 
 .testimonial {
+    $b: &;
+
     --testimonial-color: var(--color, #{config.$plain-text});
     --testimonial-color-attribution: var(--color-attribution, #{config.$meta-text});
     --testimonial-color-punctuation: var(--color-punctuation, #{config.$primary});

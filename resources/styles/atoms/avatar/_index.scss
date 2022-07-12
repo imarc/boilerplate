@@ -1,7 +1,8 @@
 @use "/resources/styles/config";
 
-@mixin avatar {
+.avatar {
     $b: &;
+
     display: inline-block;
 
     &__container {
@@ -39,8 +40,4 @@
             justify-self: end;
         }
     }
-}
-
-.avatar {
-    @include avatar;
 }

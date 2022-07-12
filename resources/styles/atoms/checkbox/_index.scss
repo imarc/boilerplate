@@ -7,10 +7,11 @@
 /// --checkbox-color-contrast  Used against --checkbox-color.
 ///
 .checkbox {
+    $b: &;
+
     --checkbox-color: var(--color, #{config.$primary});
     --checkbox-color-contrast: var(--color-contrast, #{blackwhite(config.$primary, config.$plain-text)});
 
-    $b: &;
     display: inline-grid;
     user-select: none;
     padding: config.$thin-padding;

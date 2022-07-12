@@ -6,7 +6,9 @@
 /// instead of its parent list item.
 ///
 
-@mixin dropdown-mega() {
+.mega {
+    $b: &;
+
     position: static;
 
     @include at(lg) {
@@ -37,8 +39,4 @@
             }
         }
     }
-}
-
-.mega {
-    @include dropdown-mega;
 }

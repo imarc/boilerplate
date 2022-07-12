@@ -1,5 +1,5 @@
-import "/node_modules/normalize.css/normalize.css"
-import "/node_modules/mmenu-light/dist/mmenu-light.css"
+import 'normalize.css/normalize.css'
+import 'mmenu-light/dist/mmenu-light.css'
 import 'lazysizes'
 
 import '../styles/main.scss'
@@ -7,6 +7,7 @@ import '../styles/main.scss'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 
+import BpAccordion from '../styles/molecules/accordion/BpAccordion.vue'
 import BpCarousel from '../styles/organisms/carousel/BpCarousel.vue'
 import BpClickable from '../styles/utilities/clickable/BpClickable.js'
 import BpDirectional from '../styles/utilities/directional/BpDirectional.vue'
@@ -25,6 +26,7 @@ const app = createApp({
         Swiper,
         SwiperSlide,
 
+        BpAccordion,
         BpCarousel,
         BpClickable,
         BpDirectional,

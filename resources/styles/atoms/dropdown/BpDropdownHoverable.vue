@@ -38,12 +38,12 @@
 
 <script setup>
 import { ref } from 'vue'
-import useOpenable from '/resources/js/components/UseOpenable.vue'
+import useOpenable from '@resources/js/components/UseOpenable.vue'
 
 const dropdown = ref(null)
 const button = ref(null)
 
-const props = defineProps({
+defineProps({
     delay: { type: Number, default: 0 },
     id: { type: String, required: true },
     label: { type: String, required: true },

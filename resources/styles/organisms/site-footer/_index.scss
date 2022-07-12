@@ -2,6 +2,8 @@
 @use "/resources/styles/config";
 
 .siteFooter {
+    $b: &;
+
     background-color: config.$blue-900;
     color: config.$white;
     padding: 2rem 0;
