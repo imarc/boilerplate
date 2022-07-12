@@ -30,7 +30,7 @@
 
     &__brand {
         align-items: center;
-        color: config.$yellow-100;
+        color: config.$blue-300;
         display: flex;
         gap: config.$thin-h-space;
         padding: config.$thin-v-space 0;
@@ -44,18 +44,21 @@
     &__links {
         display: grid;
         grid-column: main;
-        row-gap: config.$thin-h-space;
+        row-gap: var(--column-gap);
+
+        @include at(md) {
+            column-gap: var(--column-gap);
+            grid-template-columns: repeat(auto-fit, minmax(calc(50% - var(--column-gap)), 1fr));
+        }
 
         @include at(lg) {
-            column-gap: config.$h-space;
-            display: grid;
             grid-column: 5 / 14;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
         }
     }
 
     &__heading {
-        font-weight: bolder;
+        font-weight: 600;
         margin-bottom: 0.75em;
     }
 
