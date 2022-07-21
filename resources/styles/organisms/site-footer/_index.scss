@@ -17,32 +17,60 @@
         align-items: start;
     }
 
-    &__links {
-        grid-column: 5 / 11;
-        justify-self: center;
+
+    &__identity {
+        display: grid;
+        grid-column: main;
+        row-gap: config.$thin-h-space;
+
+        @include at(lg) {
+            grid-column: 2 / 5;
+        }
     }
 
     &__brand {
-        grid-column: 2 / 5;
         align-items: center;
-        color: config.$primary;
+        color: config.$blue-300;
         display: flex;
         gap: config.$thin-h-space;
         padding: config.$thin-v-space 0;
     }
 
     &__socialLinks {
-        grid-column: 11 / 14;
-        justify-self: end;
         display: flex;
         gap: config.$thin-h-space;
     }
 
-    &__utility {
+    &__links {
+        display: grid;
         grid-column: main;
+        row-gap: var(--column-gap);
+
+        @include at(md) {
+            column-gap: var(--column-gap);
+            grid-template-columns: repeat(auto-fit, minmax(calc(50% - var(--column-gap)), 1fr));
+        }
+
+        @include at(lg) {
+            grid-column: 5 / 14;
+            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+        }
+    }
+
+    &__heading {
+        font-weight: 600;
+        margin-bottom: 0.75em;
+    }
+
+    &__list {
+        @include no-bullets;
+    }
+
+    &__utility {
         color: config.$gray-300;
         display: flex;
         font-size: .875rem;
+        grid-column: main;
         justify-content: space-between;
     }
 }
