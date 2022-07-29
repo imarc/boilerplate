@@ -1,0 +1,46 @@
+{% render "@site-header" %}
+
+<main>
+    <section class="layer">
+        <div class="layer__container container">
+            <h1>Resources</h1>
+        </div>
+    </section>
+
+    <section class="layer results">
+        <div class="layer__container container">
+
+            <div>
+                {% render "@search" %}
+            </div>
+
+            <div class="cards">
+                {% for i in 1..10 %}
+                    <div class="cards__card card skeleton">
+                        <div class="card__container">
+                            <div class="card__tag">
+                                <div class="skeleton__line skeleton__line--1-word"></div>
+                            </div>
+                            <div class="card__icon">
+                                <div class="skeleton__image" style="width: 5rem; height: 5rem"></div>
+                            </div>
+                            <h4 class="card__heading">
+                                <div class="skeleton__line skeleton__line--2-words"></div>
+                            </h4>
+                            <div class="card__content">
+                                <div class="skeleton__lines skeleton__lines--5"></div>
+                            </div>
+                            <div class="card__actions -attached">
+                                <div class="card__action skeleton__button button"></div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% render "@pagination" %}
+        </div>
+    </section>
+</main>
+
+{% render "@site-footer" %}
