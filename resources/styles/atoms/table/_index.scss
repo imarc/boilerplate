@@ -1,8 +1,11 @@
+@use "sass:map";
+@use "/resources/styles/common" as *;
+@use "/resources/styles/config";
+
 ///
 /// = Tables =
 ///
-
-@mixin table {
+.table {
     border-collapse: collapse;
     border-spacing: 0;
     margin-bottom: 2rem;
@@ -22,43 +25,38 @@
 
     td,
     th {
-        padding: $padding;
+        padding: config.$padding;
         text-align: left;
         vertical-align: top;
     }
 
     th {
-        background-color: $primary;
-        color: $white;
+        background-color: config.$primary;
+        color: config.$white;
         white-space: nowrap;
     }
 
     tr {
-        border-bottom: 1px solid $border;
-        transition: background-color $fade-easing var(--duration-fast);
+        border-bottom: 1px solid config.$border;
+        transition: background-color config.$fade-easing var(--duration-fast);
     }
 
 
     tr:hover {
-        background-color: $blue-100;
+        background-color: config.$blue-100;
     }
 
     &.-scrollable {
         overflow-x: auto;
-        width: calc(100% + #{$gutter * 2});
+        width: calc(100% + 2 * var(--column-gap));
         display: flex;
-        margin-left: -1 * $gutter;
-        margin-right: -1 * $gutter;
+        margin-left: calc(-1 * var(--column-gap));
+        margin-right: calc(-1 * var(--column-gap));
 
         &::before,
         &::after {
             content: '';
-            min-width: $gutter;
+            min-width: var(--column-gap);
         }
     }
-}
-
-.table,
-table {
-    @include table;
 }

@@ -22,7 +22,6 @@ This project uses the following conventions:
 * [ESLint](https://eslint.org/)
 * [Fractal](https://fractal.build/)
 * [lazysizes](https://github.com/aFarkas/lazysizes)
-* [Lerna](https://lerna.js.org/)
 * [Normalize.css](https://necolas.github.io/normalize.css/)
 * [Sass](https://sass-lang.com/)
 * [Vite](https://vitejs.dev/)

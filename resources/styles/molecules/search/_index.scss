@@ -1,4 +1,8 @@
+@use "/resources/styles/config";
+
 .search {
+    $b: &;
+
     margin-bottom: 3rem;
 
     &__field {
@@ -12,6 +16,6 @@
     }
 
     &__meta {
-        color: $meta-text;
+        color: config.$meta-text;
     }
 }

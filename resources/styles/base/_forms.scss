@@ -5,6 +5,11 @@ button {
     background-color: transparent;
     line-height: inherit;
     padding: 0;
+    cursor: pointer;
+
+    &:disabled {
+        cursor: default;
+    }
 }
 
 label {

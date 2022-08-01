@@ -2,9 +2,13 @@
 @use "/resources/styles/config";
 
 .banner {
+    $b: &;
+
+    @include grid;
+
     background-color: config.$info;
     color: blackwhite(config.$info);
-    padding: config.$padding;
+    padding: config.$v-space 0;
 
     &__container {
         display: flex;
@@ -22,5 +26,4 @@
         height: 1.5rem;
         background-color: transparent;
     }
-
 }

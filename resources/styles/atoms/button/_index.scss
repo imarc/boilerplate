@@ -10,6 +10,8 @@
 ///   --color-hover     Hover color.
 ///
 .button {
+    $b: &;
+
     --button-color: var(--color, #{config.$primary});
     --button-color-contrast: var(--color-contrast, #{blackwhite(config.$primary, config.$plain-text)});
     --button-color-faded: var(--color-faded, #{rgba(config.$primary, .1)});

@@ -2,6 +2,8 @@
 @use "/resources/styles/config";
 
 .eyebrow {
+    $b: &;
+
     --eyebrow-color: var(--color, #{config.$primary});
     --eyebrow-color-contrast: var(--color-contrast, #{blackwhite(config.$primary)});
 

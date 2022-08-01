@@ -5,7 +5,7 @@
 
 @use "/resources/styles/config";
 
-@forward "/packages/boilerplate-grid/lib/grid" with (
+@forward "grid" with (
     $-breakpoints: config.$breakpoints,
     $-columns: config.$columns,
     $-row-gap: config.$row-gap,

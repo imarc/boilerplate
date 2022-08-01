@@ -1,7 +1,8 @@
 ///
 /// visuallyhidden mixin
 ///
-@mixin visuallyhidden {
+.visually-hidden,
+.sr-only {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -10,9 +11,4 @@
     padding: 0;
     position: absolute;
     width: 1px;
-}
-
-.visually-hidden,
-.sr-only {
-    @include visuallyhidden;
 }

@@ -3,6 +3,8 @@
 a,
 .link {
     --link-color: var(--color, #{config.$link});
+    --link-color-hover: var(--color-hover, #{config.$link-hover});
+
     color: var(--link-color);
     cursor: pointer;
     text-decoration: none;
@@ -10,7 +12,7 @@ a,
 
     &:hover,
     &:active {
-        --link-color: var(--color, #{config.$link-hover});
+        color: var(--link-color-hover);
     }
 
     &.-disabled,

@@ -1,7 +1,6 @@
 @use "container/container";
 @use "grid/grid";
 @forward "grid/grid";
-@use "stack/stack";
 @use "visually-hidden/visually-hidden";
 
 [v-cloak] {

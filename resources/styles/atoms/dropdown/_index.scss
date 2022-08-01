@@ -2,6 +2,11 @@
 @use "/resources/styles/config";
 
 .dropdown {
+    $b: &;
+
+    --dropdown-color: var(--color, #{config.$white});
+    --dropdown-color-contrast: var(--color-contrast, #{config.$plain-text});
+
     position: relative;
 
     &__button,
@@ -18,22 +23,18 @@
         width: 1em;
     }
 
-
     &__content {
+        --color: var(--dropdown-color-contrast);
+        --color-hover: #{config.$secondary};
+        background-color: var(--dropdown-color);
+        box-shadow: config.$low-shadow;
+        color: var(--dropdown-color-contrast);
         position: absolute;
         z-index: 1;
     }
 
-    &.-open {
-
-        .dropdown__content {
-            background-color: config.$white;
-            box-shadow: config.$low-shadow;
-        }
-    }
-
     &.-rightEdge {
-        .dropdown__content {
+        #{$b}__content {
             left: auto;
             right: 0;
         }
@@ -42,7 +43,7 @@
     &.-fullWidth {
         position: static;
 
-        .dropdown__content {
+        #{$b}__content {
             left: 0;
             right: 0;
         }
