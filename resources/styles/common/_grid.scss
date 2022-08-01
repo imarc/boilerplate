@@ -57,7 +57,7 @@ $-row-gap: 1.5rem !default;
     }
 
     &__grid {
-        grid-column: main;
+        grid-column: wide;
         display: grid;
         row-gap: $row-gap;
         column-gap: var(--grid-column-gap);

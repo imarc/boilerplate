@@ -21,10 +21,17 @@
     &__identity {
         display: grid;
         grid-column: main;
+        justify-items: center;
         row-gap: config.$thin-h-space;
+        text-align: center;
+
+        @include at(md) {
+            justify-items: start;
+            grid-column: main / 6;
+        }
 
         @include at(lg) {
-            grid-column: 2 / 5;
+            grid-column: main / 5;
         }
     }
 
@@ -33,7 +40,6 @@
         color: config.$blue-300;
         display: flex;
         gap: config.$thin-h-space;
-        padding: config.$thin-v-space 0;
     }
 
     &__socialLinks {
@@ -42,18 +48,18 @@
     }
 
     &__links {
+        column-gap: var(--column-gap);
         display: grid;
         grid-column: main;
+        grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
         row-gap: var(--column-gap);
 
         @include at(md) {
-            column-gap: var(--column-gap);
-            grid-template-columns: repeat(auto-fit, minmax(calc(50% - var(--column-gap)), 1fr));
+            grid-column: 6 / main;
         }
 
         @include at(lg) {
-            grid-column: 5 / 14;
-            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+            grid-column: 5 / main;
         }
     }
 
