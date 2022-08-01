@@ -1,20 +1,23 @@
-
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const prefersReducedMotion = ref(null)
+export const useReducedMotion = () => {
+    if (!matchMedia) { return false }
 
-if (window.matchMedia) {
-    const motionMediaQuery = window.matchMedia('(prefers-reduced-motion)')
+    const prefersReducedMotion = ref(null)
+    const motionMediaQuery = matchMedia('(prefers-reduced-motion)')
 
-    const setReducedMotionPreferences = () =>
-        (prefersReducedMotion.value = motionMediaQuery.matches)
+    const setReducedMotionPreferences = () => {
+        prefersReducedMotion.value = motionMediaQuery.matches
+    }
 
-    onMounted(() => motionMediaQuery.addEventListener('change', setReducedMotionPreferences))
+    onMounted(() => {
+        motionMediaQuery.addEventListener('change', setReducedMotionPreferences)
+        setReducedMotionPreferences()
+    })
+
     onUnmounted(() => motionMediaQuery.removeEventListener('change', setReducedMotionPreferences))
 
-    setReducedMotionPreferences()
-} else {
-    prefersReducedMotion.value = false
+    return prefersReducedMotion
 }
 
 /**
@@ -48,7 +51,3 @@ if (window.matchMedia) {
  *
  * @public
  */
-export function useReducedMotion () {
-    const shouldReduceMotion = ref(prefersReducedMotion.value)
-    return shouldReduceMotion
-}
