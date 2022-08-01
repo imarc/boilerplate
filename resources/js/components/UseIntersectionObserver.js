@@ -16,17 +16,20 @@ import {
 export function useIntersectionObserver (
     elementToWatch,
     callback,
-    outCallback = () => {},
-    once = true,
-    options = {
-        threshold: 1.0,
+    config = {
+        outCallback: () => {},
+        once: true,
+        options: {
+            threshold: 0.1,
+        },
     }
 ) {
     const isIntersecting = ref(false)
-    const observer = ref(null)
+
+    const { outCallback, once, options } = config
 
     // Initiate the observer
-    observer.value = new IntersectionObserver(([entry]) => {
+    const observer = new IntersectionObserver(([entry]) => {
         // If the element to watch is intersecting within the threshold
         if (entry && entry.isIntersecting) {
             // Update the reactive isIntersection
@@ -37,7 +40,7 @@ export function useIntersectionObserver (
 
             // If the callback should only run once, unobserve the element
             if (once) {
-                observer.value.unobserve(entry.target)
+                observer.unobserve(entry.target)
             }
         } else {
             // Update the reactive isIntersection
@@ -49,10 +52,10 @@ export function useIntersectionObserver (
     }, options)
 
     // Observe/unobserve within lifecycle hooks
-    onMounted(() => observer.value.observe(elementToWatch))
-    onUnmounted(() => observer.value.disconnect())
+    onMounted(() => observer.observe(elementToWatch))
+    onUnmounted(() => observer.disconnect())
 
-    // Returns reactive versions of isIntersecting, and the observer itself
+    // Returns reactive version of isIntersecting, and the observer itself
     return {
         isIntersecting,
         observer,
