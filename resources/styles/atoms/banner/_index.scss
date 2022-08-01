@@ -4,9 +4,11 @@
 .banner {
     $b: &;
 
+    @include grid;
+
     background-color: config.$info;
     color: blackwhite(config.$info);
-    padding: config.$padding;
+    padding: config.$v-space 0;
 
     &__container {
         display: flex;

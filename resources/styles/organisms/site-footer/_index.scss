@@ -26,8 +26,9 @@
         text-align: center;
 
         @include at(md) {
-            justify-items: start;
             grid-column: main / 6;
+            justify-items: start;
+            text-align: left;
         }
 
         @include at(lg) {
