@@ -7,7 +7,7 @@
         <div class="section__background">
             {% render "@responsive-image" with { imgClass: "section__backgroundImg" } %}
         </div>
-        <div class="section__container -pull-left container">
+        <div class="section__container -pull-left">
             <header class="section__header">
                 <div class="heading__eyebrow eyebrow">I'm a kicker</div>
                 <h1 class="section__heading">You're reading a headline.</h1>
@@ -34,18 +34,16 @@
 
     <section class="section">
         <div class="section__container">
-            <div class="container">
-                <header class="section__header">
-                    <div class="eyebrow -primary">News &amp; Events</div>
-                    <h2 class="section__heading">In the News</h2>
-                </header>
-            </div>
+            <header class="section__header">
+                <div class="eyebrow -primary">News &amp; Events</div>
+                <h2 class="section__heading">In the News</h2>
+            </header>
             {% render "@carousel--bleed-right" with { class: "-lightGray" } %}
         </div>
     </section>
 
     <section class="section -dark">
-        <div class="section__container container">
+        <div class="section__container">
             <header class="section__header">
                 <h2 class="section__heading">Our Clients</h2>
             </header>
