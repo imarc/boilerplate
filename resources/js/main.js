@@ -21,7 +21,7 @@ import BpTabs from '../styles/molecules/tabs/BpTabs.vue'
 
 import { createApp } from 'vue'
 
-const app = createApp({
+var app = createApp({
     components: {
         Swiper,
         SwiperSlide,
@@ -38,6 +38,12 @@ const app = createApp({
         BpModal,
         BpTabs,
     },
-})
+});
 
-app.mount('#root')
+var doThing = function(thing) {
+  console.log(thing)
+}
+
+doThing('hello');
+
+app.mount('#root');
