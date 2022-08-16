@@ -40,8 +40,8 @@ npm init -y
 Once you have a `package.json` file, you can install Boilerplate:
 
 ```
-npm install imarc-boilerplate#next
-npx imarc-boilerplate#next
+npm install imarc-boilerplate@next
+npx imarc-boilerplate
 ```
 
 The `npx` command automatically copies `fractal.config.js`, `vite.config.js`, and the `resources/` folder out of `node_modules/` into your project for your use. It also updates the npm `scripts` section within your `package.json`.
