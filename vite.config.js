@@ -15,6 +15,9 @@ export default defineConfig(async ({ command }) => {
                 input: 'resources/js/main.js',
             },
         },
+        test: {
+            environment: 'happy-dom',
+        },
         resolve: {
             alias: {
                 vue: 'vue/dist/vue.esm-bundler.js',

@@ -21,7 +21,8 @@
     "prod": "vite build",
     "build": "vite build && fractal build",
     "test": "concurrently -ks first vite \"cypress run\"",
-    "ci": "concurrently -k vite \"cypress open\""
+    "ci": "concurrently -k vite \"cypress open\"",
+    "vitest": "vitest"
   },
   "dependencies": {
     "@frctl/fractal": "^1.5.4",
@@ -43,6 +44,9 @@
   "devDependencies": {
     "@cypress/vite-dev-server": "^2.2.2",
     "@cypress/vue": "^3.1.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/vue": "^6.6.1",
+    "@vue/test-utils": "^2.0.2",
     "cypress": "^10.0.3",
     "eslint": "^8.17.0",
     "eslint-config-standard": "^17.0.0",
@@ -50,7 +54,9 @@
     "eslint-plugin-n": "^15.2.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-vue": "^9.1.0"
+    "eslint-plugin-vue": "^9.1.0",
+    "happy-dom": "^6.0.4",
+    "vitest": "^0.22.1"
   },
   "browserslist": [
     "defaults"
