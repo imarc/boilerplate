@@ -1,4 +1,6 @@
 .categories {
+    $b: &;
+
     display: flex;
     flex-flow: row wrap;
 

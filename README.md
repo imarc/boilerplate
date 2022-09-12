@@ -3,17 +3,17 @@
 This is a front-end development framework that includes a curated set of conventions and libraries, including
 
 * [Sass](https://sass-lang.com) and [Vue](https://vuejs.org/) **components**, built using
-* [Atomic Design](https://atomicdesign.bradfrost.com/) and [ABEM](https://css-tricks.com/abem-useful-adaptation-bem/) **conventions**, integrated with
-* [Laravel Mix](https://laravel-mix.com/)-based **build scripts**,
+* [Atomic Design](https://atomicdesign.bradfrost.com/) and [ABEM](https://css-tricks.com/abem-useful-adaptation-bem/) **conventions**, powered by
+* [Vite](https://vitejs.dev/) for fast builds and hot reloading, and
 * **starter documentation** and a **pattern library** powered by [Fractal](https://fractal.build/) and [Twig](https://github.com/twigjs/twig.js).
 
-### **[View Boilerplate](https://imarc-boilerplate.netlify.app/)**
+This is an *work in progress* branch that replaces Webpack/Mix with Vite. Please give us feedback!
 
 
 Framework, not a Library
 ------------------------
 
-Unlike traditional libraries, the code included within Boilerplate is *scaffolded* into your project so you can adapt it to do your needs. It adds a `fractal.config.js`, `webpack.mix.js`, as well as everything in the `resources/` folder to your project. [Learn more about Boilerplate's structure.](https://imarc-boilerplate.netlify.app/pattern-library/docs/structure.html)
+Unlike traditional libraries, the code included within Boilerplate is *scaffolded* into your project so you can adapt it to do your needs. It adds a `fractal.config.js`, `vite.config.js`, as well as everything in the `resources/` folder to your project. [Learn more about Boilerplate's structure.](https://imarc-boilerplate.netlify.app/pattern-library/docs/structure.html)
 
 Goals
 -----
@@ -40,29 +40,49 @@ npm init -y
 Once you have a `package.json` file, you can install Boilerplate:
 
 ```
-npm install imarc-boilerplate
+npm install imarc-boilerplate@next
 npx imarc-boilerplate
 ```
 
-The `npx` command automatically copies `fractal.config.js`, `webpack.mix.js`, and the `resources/` folder out of `node_modules/` into your project for your use. It also updates the npm `scripts` section within your `package.json`.
+The `npx` command automatically copies `fractal.config.js`, `vite.config.js`, and the `resources/` folder out of `node_modules/` into your project for your use. It also updates the npm `scripts` section within your `package.json`.
 
 
-
-### Using the Build (Laravel Mix)
+### Using the Build (Vite)
 
 After Boilerplate is installed, you can build your front-end files by running the following:
 
-* `npm run dev` will run the the development build (make sourcemaps, don't minify, etc.)
-* `npm run watch` also runs the development build, but it watches for changes to the source files and automatically re-runs the build when they change.
+* `npm run lint` uses eslint to lint your code.
+* `npm run dev` runs Vite's development server and fractal.
 * `npm run prod` will run the production build which is optimized for deployment in production.
+* `npm run preview` runs a Vite development server but serves the files build by `npm run prod` so you can test the production build locally.
 
 ### Using the Pattern Library (Fractal)
 
 Boilerplate includes [Fractal](https://fractal.build/), a pattern library. Within Fractal you can see all the components available within your project. You can [see an example here.](https://imarc-boilerplate.netlify.app/)
 
-* `npm run fractal start` runs Fractal's development server. It has hot reloading and will automatically detect when you add or remove components.
-* `npm run fractal build` has Fractal build a static version of the pattern library, by default into /web/pattern-library/.
+Fractal's development server is automatically started whenever you're running Vite's development server, and is served by default when you run `npm run dev`. Both Vite's hot reloading of compiled code as well as Fractal's automatic detection of new components work together.
 
-You can customize this behavior further by editing either the `webpack.mix.js` or `fractal.config.js` files per the [Laravel Mix](https://laravel-mix.com/) or [Fractal documentation](https://fractal.build/) respectively.
+You can still run `npm run fractal build` to build a static version of the pattern library, however it requires that you have already run `npm run prod` to compile your CSS/JS first.
 
-**While working on components within the pattern library,** you will likely want to run `npm run watch` in one terminal while running `npm run fractal start` in another. The first will watch for source file changes and the second will watch for changes to the twig and compiled files.
+You can customize this behavior further by editing either the `vite.config.js` or `fractal.config.js` files per the [Vite](https://vitejs.dev/) or [Fractal documentation](https://fractal.build/) respectively.
+
+**It's no longer needed to run `npm run watch` and `npm run fractal start` in different terminals at the same time.** Enjoy!
+
+### Using with Craft or Laravel
+
+To use with Craft, try the [Vite plugin](https://plugins.craftcms.com/vite) by nystudio107.
+
+To use with Laravel, try out [Laravel Vite](https://laravel-vite.dev/).
+
+
+### What's New From Boilerplate 5
+
+* Vite
+* Explicit imports (no globbing)
+* Directory structure changes
+* Less mixins
+* Modular Sass: `@use`, `@forwards`, `_index.scss`
+* Grid
+* CSS custom properties
+* Vue 3
+* Cypress (Vitest)

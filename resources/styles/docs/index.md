@@ -6,15 +6,23 @@ order: 1
 This is the **Pattern Library** for your project. It documents the conventions and components used on your project, along with examples of how they're used.
 
 
-## Structure
+## Conventions
 
-The frontend is of this project is built using
+This project uses the following conventions:
 
-* A mobile first approach,
-* of **[Atomic Design](https://atomicdesign.bradfrost.com/)** components (atoms, molecules, organisms, templates, pages),
-* using **[ABEM](https://css-tricks.com/abem-useful-adaptation-bem/)** class names (`.compoentName__elementName -modifierName`).
+* **Mobile first** (`min-width`) breakpoints
+* **[Atomic Design](https://atomicdesign.bradfrost.com/)** components (atoms, molecules, organisms, templates, pages)
+* **[ABEM](https://css-tricks.com/abem-useful-adaptation-bem/)** class naming (`.componentName__elementName -modifierName`)
+* the [**BPM**](https://www.imarc.com/blog/block-property-modifier-a-bem-like-css-custom-properties-methodology) custom property methodology
 
 
-## View the Components
+## Tools
 
-View the components via the sidebar. You can find examples of whole pages under Complete Examples or view individual components.
+* [Cypress](https://www.cypress.io/)
+* [ESLint](https://eslint.org/)
+* [Fractal](https://fractal.build/)
+* [lazysizes](https://github.com/aFarkas/lazysizes)
+* [Normalize.css](https://necolas.github.io/normalize.css/)
+* [Sass](https://sass-lang.com/)
+* [Vite](https://vitejs.dev/)
+* [Vue](https://vuejs.org/)

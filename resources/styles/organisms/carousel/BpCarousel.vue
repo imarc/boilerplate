@@ -1,31 +1,30 @@
 <template>
     <swiper
-        ref="mySwiper"
-        :options="swiperOptions"
-        class="foobar"
+        navigation
+        v-bind="currentVariant"
     >
-        <slot
-            v-for="(_, name) in $slots"
-            :slot="name"
-            :name="name"
-        />
+        <slot />
     </swiper>
 </template>
-<script>
-import { Swiper, directive } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
+<script setup>
+import { computed } from 'vue'
+import { Swiper } from 'swiper/vue'
+import { Keyboard, Navigation, Pagination } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const variants = {
     default: {
         spaceBetween: 40,
         centeredSlides: true,
         pagination: {
-            el: '.swiper-pagination',
+            clickable: true,
         },
     },
     bleedRight: {
         slidesPerView: 1,
-        spaceBetween: 40,
+        spaceBetween: 0,
 
         breakpoints: {
             616: {
@@ -44,33 +43,18 @@ const variants = {
     },
 }
 
-export default {
-    components: {
-        Swiper,
+const currentVariant = computed(() => ({
+    modules: [Keyboard, Navigation, Pagination],
+    keyboard: {
+        enabled: true,
     },
-    directives: {
-        swiper: directive,
+    ...variants[props.variant],
+}))
+
+const props = defineProps({
+    variant: {
+        type: String,
+        default: 'default',
     },
-    props: {
-        variant: {
-            type: String,
-            default: 'default',
-        },
-        swiperOptions: {
-            type: Object,
-            default () {
-                return {
-                    keyboard: {
-                        enabled: true,
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    ...variants[this.variant],
-                }
-            },
-        },
-    },
-}
+})
 </script>
