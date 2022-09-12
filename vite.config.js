@@ -25,7 +25,7 @@ export default defineConfig(async ({ command }) => {
 
     if (command === 'serve') {
         fractal.set('viteServer', true)
-        const server = fractal.web.server({ sync: true, port: 3010 })
+        const server = fractal.web.server({ sync: true, port: 5173 })
         await server.start()
 
         config.server = {
