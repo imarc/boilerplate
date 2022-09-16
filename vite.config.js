@@ -25,10 +25,13 @@ export default defineConfig(async ({ command }) => {
 
     if (command === 'serve') {
         fractal.set('viteServer', true)
-        const server = fractal.web.server({ sync: true, port: 5173 })
+        const server = fractal.web.server({ sync: true })
         await server.start()
 
         config.server = {
+            hmr: {
+                protocol: 'ws',
+            },
             proxy: {
                 '^(?!/(resources|node_modules|@vite|@id|__vite_ping)).*': {
                     target: server.url,
