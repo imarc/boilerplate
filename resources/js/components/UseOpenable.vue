@@ -12,7 +12,7 @@ const TAGS_WITH_DEFAULT_BEHAVIOR = ['A', 'BUTTON', 'IFRAME', 'INPUT', 'TEXTAREA'
  * modals and dropdowns. It provides methods for handling focus, keyboard
  * events, hover and delayed close.
  */
-export default function useOpenable (el, focusOnClose = null) {
+export default function useOpenable (el, focusOnClose = null, isComponent = false) {
     let timeout = null
     const isOpen = ref(false)
 
@@ -39,7 +39,11 @@ export default function useOpenable (el, focusOnClose = null) {
         addEventListener('focusout', checkFocus)
         addEventListener('keydown', checkKeydown)
         nextTick(() => {
-            el.value.addEventListener('mousedown', checkMousedown)
+            if (isComponent) {
+                el.value.$el.addEventListener('mousedown', checkMousedown)
+            } else {
+                el.value.addEventListener('mousedown', checkMousedown)
+            }
         })
     }
 
@@ -56,7 +60,11 @@ export default function useOpenable (el, focusOnClose = null) {
         isOpen.value = false
         removeEventListener('focusout', checkFocus)
         removeEventListener('keydown', checkKeydown)
-        el.value.removeEventListener('mousedown', checkMousedown)
+        if (isComponent) {
+            el.value.$el.removeEventListener('mousedown', checkMousedown)
+        } else {
+            el.value.removeEventListener('mousedown', checkMousedown)
+        }
     }
 
     /**
@@ -78,7 +86,8 @@ export default function useOpenable (el, focusOnClose = null) {
      * component, and if so, closes the component.
      */
     const checkFocus = (event) => {
-        if (isOpen.value && !el.value.contains(event.relatedTarget)) {
+        const element = isComponent ? el.value.$el : el.value
+        if (isOpen.value && !element.contains(event.relatedTarget)) {
             close()
         }
     }
