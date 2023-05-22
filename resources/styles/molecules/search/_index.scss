@@ -6,13 +6,25 @@
     margin-bottom: 3rem;
 
     &__field {
-        display: flex;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 1fr auto;
         margin-bottom: 1rem;
     }
 
     &__input,
     input#{&}__input {
+        border-radius: 2em;
+        grid-area: 1 / 1 / 2 / 2;
         margin: 0;
+        padding-left: 2.5rem;
+    }
+
+    &__icon {
+        align-self: center;
+        color: config.$gray-400;
+        grid-area: 1 / 1 / 2 / 2;
+        margin-left: 1rem;
     }
 
     &__meta {

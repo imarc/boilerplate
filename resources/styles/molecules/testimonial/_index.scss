@@ -4,8 +4,8 @@
 .testimonial {
     $b: &;
 
-    --testimonial-color: var(--color, #{config.$plain-text});
-    --testimonial-color-attribution: var(--color-attribution, #{config.$meta-text});
+    --testimonial-color: var(--color, #{config.$meta-text});
+    --testimonial-color-attribution: var(--color-attribution, #{config.$plain-text});
     --testimonial-color-punctuation: var(--color-punctuation, #{config.$primary});
 
     display: grid;
@@ -24,7 +24,7 @@
             color: var(--testimonial-color-punctuation);
             content: '”';
             display: inline-block;
-            font-size: 400%;
+            font-size: 8em;
             height: 1rem;
             line-height: 0;
             transform: translateY(150%);
@@ -33,7 +33,7 @@
 
         &::before {
             content: '“';
-            text-indent: -2.5rem;
+            text-indent: -5.5rem;
         }
     }
 
