@@ -16,15 +16,10 @@
                 padding-right: 0;
             }
         }
-
-        & + & {
-            #{$b}__link {
-                border-left: 1px solid config.$border;
-            }
-        }
     }
 
     &__link {
         padding: 0 config.$thin-h-space;
+        text-decoration: underline;
     }
 }

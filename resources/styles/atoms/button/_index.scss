@@ -23,7 +23,9 @@
     cursor: pointer;
     display: inline-block;
     font-weight: 700;
-    padding: config.$padding;
+    line-height: 1;
+    padding: 1rem 2rem;
+    border-radius: 4em;
     transition: background-color var(--duration-fast) config.$fade-easing;
 
     &:hover,
@@ -85,5 +87,15 @@
             background-color: var(--button-color);
             color: var(--button-color-contrast);
         }
+    }
+
+    &.-icon {
+        align-items: center;
+        border-radius: 100%;
+        display: inline-grid;
+        height: 3rem;
+        justify-items: center;
+        padding: 0;
+        width: 3rem;
     }
 }

@@ -12,19 +12,19 @@ $row-gap: 1.5rem;
 ///
 $font-family: Arial, sans-serif;
 $font-size: 1rem;
-$line-height: 1.5;
+$line-height: 2;
 
 ///
 /// Heading font stack, line-height
 ///
 $font-family-heading: system-ui, sans-serif;
-$line-height-heading: 1;
+$line-height-heading: 1.125;
 
 ///
 /// Regular padding. Used for components like buttons, cards, and primary nav items.
 ///
-$v-space: 1rem;
-$h-space: 1.5rem;
+$v-space: 1.25rem;
+$h-space: 1.25rem;
 $padding: $v-space $h-space;
 
 ///
@@ -38,11 +38,18 @@ $thin-padding: $thin-v-space $thin-h-space;
 ///
 /// Media Query Breakpoints
 ///
+/// $breakpoints: (
+///     sm: (width:      0, gap: 16px),
+///     md: (width:  625px, gap: 32px),
+///     lg: (width: 1121px, gap: 48px),
+///     xl: (width: 1393px, gap: 48px),
+/// ) !default;
+
 $breakpoints: (
     sm: (width:      0, gap: 16px),
-    md: (width:  625px, gap: 32px),
-    lg: (width: 1121px, gap: 48px),
-    xl: (width: 1393px, gap: 48px),
+    md: (width:  793px, gap: 24px),
+    lg: (width: 1121px, gap: 32px),
+    xl: (width: 1365px, gap: 32px),
 ) !default;
 
 

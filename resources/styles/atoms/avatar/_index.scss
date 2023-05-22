@@ -8,7 +8,6 @@
     &__container {
         display: grid;
         grid: "photo name" 1fr "photo title" 1fr;
-        gap: config.$thin-v-space 0;
     }
 
     &__name {
@@ -26,6 +25,7 @@
     }
 
     &__title {
+        color: config.$gray-400;
         grid-area: title;
         padding: 0 config.$thin-h-space;
     }

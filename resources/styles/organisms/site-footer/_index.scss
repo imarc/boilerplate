@@ -21,6 +21,7 @@
     &__identity {
         display: grid;
         grid-column: main;
+        grid-row: span 2;
         justify-items: center;
         row-gap: config.$thin-h-space;
         text-align: center;
@@ -44,6 +45,7 @@
     }
 
     &__socialLinks {
+        grid-column: span 2;
         display: flex;
         gap: config.$thin-h-space;
     }
@@ -75,9 +77,19 @@
 
     &__utility {
         color: config.$gray-300;
-        display: flex;
+        display: grid;
+        grid-template: auto / auto 1fr;
         font-size: .875rem;
         grid-column: main;
-        justify-content: space-between;
+        grid-row: 2;
+        gap: 1rem;
+
+        @include at(md) {
+            grid-column: 6 / main;
+        }
+
+        @include at(lg) {
+            grid-column: 5 / main;
+        }
     }
 }

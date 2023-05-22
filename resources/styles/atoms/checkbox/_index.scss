@@ -26,12 +26,14 @@
     }
 
     &__checkbox {
-        pointer-events: none;
-        grid-area: checkbox;
+        background: var(--checkbox-color);
         border-radius: .25em;
         border: 2px solid var(--checkbox-color);
         display: inline-block;
+        grid-area: checkbox;
         height: #{config.$line-height * 1em};
+        padding: .25rem;
+        pointer-events: none;
         vertical-align: middle;
         width: #{config.$line-height * 1em};
     }
