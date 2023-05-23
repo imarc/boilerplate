@@ -1,0 +1,14 @@
+@use "/resources/styles/common" as *;
+@use "/resources/styles/config";
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: config.$primary;
+    border: 1px solid;
+    border-radius: .25rem;
+    padding: config.$thin-padding;
+    font-size: .75rem;
+    line-height: 1.5;
+}

@@ -30,6 +30,7 @@
 
     &:hover,
     &:focus {
+        color: var(--button-color-contrast);
         background-color: var(--button-color-hover);
     }
 

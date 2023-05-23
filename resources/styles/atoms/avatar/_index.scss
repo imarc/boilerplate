@@ -40,4 +40,15 @@
             justify-self: end;
         }
     }
+
+    &.-small {
+        #{$b}__name {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        #{$b}__photo {
+            max-height: 4rem;
+        }
+    }
 }

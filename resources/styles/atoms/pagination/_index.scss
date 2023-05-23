@@ -17,15 +17,16 @@
     &__list {
         @include no-bullets;
         display: flex;
-        gap: .5rem;
+        gap: 1rem;
     }
 
     &__link {
+        background-color: config.$gray-100;
         border-radius: .25em;
         color: var(--pagination-color);
         display: block;
         font-weight: bold;
-        padding: config.$thin-padding;
+        padding: config.$thin-v-space config.$h-space;
         position: relative;
         transition: background-color var(--duration-fast) config.$fade-easing,
             color var(--duration-fast) config.$fade-easing;
