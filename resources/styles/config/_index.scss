@@ -12,19 +12,19 @@ $row-gap: 1.5rem;
 ///
 $font-family: Arial, sans-serif;
 $font-size: 1rem;
-$line-height: 1.5;
+$line-height: 2;
 
 ///
 /// Heading font stack, line-height
 ///
 $font-family-heading: system-ui, sans-serif;
-$line-height-heading: 1;
+$line-height-heading: 1.125;
 
 ///
 /// Regular padding. Used for components like buttons, cards, and primary nav items.
 ///
-$v-space: 1rem;
-$h-space: 1.5rem;
+$v-space: 1.25rem;
+$h-space: 1.25rem;
 $padding: $v-space $h-space;
 
 ///
@@ -38,20 +38,27 @@ $thin-padding: $thin-v-space $thin-h-space;
 ///
 /// Media Query Breakpoints
 ///
+/// $breakpoints: (
+///     sm: (width:      0, gap: 16px),
+///     md: (width:  625px, gap: 32px),
+///     lg: (width: 1121px, gap: 48px),
+///     xl: (width: 1393px, gap: 48px),
+/// ) !default;
+
 $breakpoints: (
     sm: (width:      0, gap: 16px),
-    md: (width:  625px, gap: 32px),
-    lg: (width: 1121px, gap: 48px),
-    xl: (width: 1393px, gap: 48px),
+    md: (width:  793px, gap: 24px),
+    lg: (width: 1121px, gap: 32px),
+    xl: (width: 1365px, gap: 32px),
 ) !default;
 
 
 ///
 /// Shadows
 ///
-$low-shadow: 0 0px 0.5px rgba(0, 0, 0, 0.057), 0 0px 1.8px rgba(0, 0, 0, 0.083), 0 0px 8px rgba(0, 0, 0, 0.14);
-$med-shadow: 0 0.5px 1.1px rgba(0, 0, 0, 0.057), 0 1.8px 3.6px rgba(0, 0, 0, 0.083), 0 8px 16px rgba(0, 0, 0, 0.14);
-$high-shadow: 0 1.1px 2.1px rgba(0, 0, 0, 0.057), 0 3.6px 7.1px rgba(0, 0, 0, 0.083), 0 16px 32px rgba(0, 0, 0, 0.14);
+$low-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+$med-shadow: 0px 16px 64px rgba(0, 0, 0, 0.05);
+$high-shadow: 0px 16px 32px rgba(0, 0, 0, 0.1);
 
 
 ///

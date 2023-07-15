@@ -10,8 +10,6 @@
     color: var(--eyebrow-color);
     font-size: 1rem;
     font-weight: bold;
-    margin-bottom: .25rem;
-    text-transform: uppercase;
 
     &.-secondary {
         --eyebrow-color: var(--color, #{config.$secondary});

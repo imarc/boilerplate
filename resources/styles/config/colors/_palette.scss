@@ -1,61 +1,70 @@
 $white: #ffffff !default;
-$gray-100: #d3d3d3 !default;
-$gray-200: #b8b7b7 !default;
-$gray-300: #959595 !default;
-$gray-400: #7f7f7f !default;
-$gray-500: #706f6f !default;
-$gray-600: #595959 !default;
-$gray-700: #494949 !default;
-$gray-800: #373736 !default;
-$gray-900: #1d1c1c !default;
+$gray-50: #f2f2f2 !default;
+$gray-100: #e5e5e5 !default;
+$gray-200: #cccccc !default;
+$gray-300: #b3b3b3 !default;
+$gray-400: #999999 !default;
+$gray-500: #808080 !default;
+$gray-600: #666666 !default;
+$gray-700: #4c4c4c !default;
+$gray-800: #333333 !default;
+$gray-900: #1a1a1a !default;
+$gray-950: #0d0d0d !default;
 $black: #000000 !default;
 
-$red-100: #fac7bf !default;
-$red-200: #fc9f92 !default;
-$red-300: #fc6253 !default;
-$red-400: #f82224 !default;
-$red-500: #d92121 !default;
-$red-600: #a52c24 !default;
-$red-700: #822b22 !default;
-$red-800: #5e251e !default;
-$red-900: #2e1512 !default;
 
-$green-100: #bedbb3 !default;
-$green-200: #8fc678 !default;
-$green-300: #56a731 !default;
-$green-400: #4f8e32 !default;
-$green-500: #497b31 !default;
-$green-600: #3f632d !default;
-$green-700: #365028 !default;
-$green-800: #2a3b21 !default;
-$green-900: #171f13 !default;
+$red-50: #fff3f1 !default; // from design
+$red-100: #fbe3de !default;
+$red-200: #f8c8be !default;
+$red-300: #f4a798 !default;
+$red-400: #ed6f56 !default;
+$red-500: #e53411 !default; // from design
+$red-600: #aa260d !default;
+$red-700: #791b09 !default;
+$red-800: #621607 !default;
+$red-900: #430f05 !default;
 
-$blue-100: #cad3e8 !default;
-$blue-200: #a7b7e1 !default;
-$blue-300: #7792e4 !default;
-$blue-400: #5b79e0 !default;
-$blue-500: #536bbc !default;
-$blue-600: #46578e !default;
-$blue-700: #3b476f !default;
-$blue-800: #2e354f !default;
-$blue-900: #191c26 !default;
+$green-50: #ebffee !default; // from design
+$green-100: #cdf2d3 !default;
+$green-200: #98e4a4 !default;
+$green-300: #28c642 !default; // from design
+$green-400: #23ab39 !default;
+$green-500: #1b872d !default;
+$green-600: #156722 !default;
+$green-700: #0f4818 !default;
+$green-800: #0c3a13 !default;
+$green-900: #08270d !default;
 
-$yellow-100: #ead273 !default;
-$yellow-200: #cbb768 !default;
-$yellow-300: #a4945a !default;
-$yellow-400: #8b7f50 !default;
-$yellow-500: #7a7048 !default;
-$yellow-600: #61593c !default;
-$yellow-700: #4f4933 !default;
-$yellow-800: #3b3727 !default;
-$yellow-900: #1f1c16 !default;
+$blue-50: #ebf8ff !default; // from design
+$blue-100: #d0edfc !default;
+$blue-200: #a0dbf9 !default;
+$blue-300: #66c5f5 !default;
+$blue-400: #1ba9f0 !default; // from design
+$blue-500: #147cb1 !default;
+$blue-600: #0f5f86 !default;
+$blue-700: #0b435e !default;
+$blue-800: #09364c !default;
+$blue-900: #062434 !default;
 
-$aqua-100: #85e5c1 !default;
-$aqua-200: #55cca3 !default;
-$aqua-300: #52a485 !default;
-$aqua-400: #4c8b73 !default;
-$aqua-500: #477a65 !default;
-$aqua-600: #3d6052 !default;
-$aqua-700: #344f43 !default;
-$aqua-800: #293b33 !default;
-$aqua-900: #171e1a !default;
+$yellow-50: #fff8ea !default; // from design
+$yellow-100: #fbe6ba !default;
+$yellow-200: #f8cc76 !default;
+$yellow-300: #f2a60f !default; // from design
+$yellow-400: #c7880c !default;
+$yellow-500: #9d6b0a !default;
+$yellow-600: #775207 !default;
+$yellow-700: #543905 !default;
+$yellow-800: #442e04 !default;
+$yellow-900: #2d1f03 !default;
+
+$purple-50: #f2e5ff !default;
+$purple-100: #e6ccff !default;
+$purple-200: #cc99ff !default;
+$purple-300: #b366ff !default;
+$purple-400: #9933ff !default;
+$purple-500: #8000ff !default;
+$purple-600: #6600cc !default;
+$purple-700: #4d0099 !default;
+$purple-800: #330066 !default;
+$purple-900: #1a0033 !default;
+$purple-950: #0b001a !default;

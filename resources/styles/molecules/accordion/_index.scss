@@ -1,6 +1,7 @@
 @use "/resources/styles/config";
 
 @mixin accordion() {
+    --accordion-color: var(--color, #{config.$primary});
     --accordion-color-hover: var(--color-hover, #{config.$primary-hover});
 
     $b: &;
@@ -14,23 +15,22 @@
         justify-content: space-between;
         align-items: center;
         text-align: left;
-        padding: 1rem;
+        gap: 1rem;
         transition: background-color var(--duration-fast) config.$fade-easing;
         width: 100%;
 
         &:hover {
-            background-color: var(--accordion-color-hover);
+            --accordion-color: var(--accordion-color-hover);
         }
     }
 
     &__heading {
+        padding: 1rem 1.5rem;
         margin-bottom: 0;
     }
 
     &__content {
-        border-top: 1px solid config.$gray-100;
-        margin: 0 1rem;
-        padding: .5rem 0;
+        padding: 0 config.$padding;
     }
 
     &__contentWrapper {
@@ -38,9 +38,17 @@
         height: 0;
     }
 
-    &__icon {
+    &__iconWrapper {
+        display: flex;
+        padding: .75rem;
+        aspect-ratio: 1;
+        align-items: center;
+        justify-content: center;
         flex-shrink: 0;
-        margin-left: 1rem;
+        background: var(--accordion-color);
+    }
+
+    &__icon {
         transition: transform var(--duration-fast) config.$ease-out-quint;
 
         &.-open {

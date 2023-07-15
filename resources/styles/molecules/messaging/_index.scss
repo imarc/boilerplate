@@ -8,11 +8,13 @@
     $b: &;
 
     --messaging-color: var(--color, #{config.$plain-text});
+    --messaging-background-color: var(--background-color, #{config.$gray-100});
     --messaging-color-contrast: var(--color-contrast, #{blackwhite(config.$plain-text)});
-    --messaging-height-icon: var(--height-icon, 1.5rem);
+    --messaging-height-icon: var(--height-icon, 2rem);
 
-    background-color: config.$gray-100;
-    box-shadow: .25rem 0 0 var(--messaging-color) inset, config.$med-shadow;
+    background-color: var(--messaging-background-color);
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px rgba(50, 8, 0, 0.2), 0px 8px 24px #{rgba(config.$plain-text, .1)};
     display: grid;
     gap: config.$h-space;
     grid: "icon content" #{config.$line-height * 1em} "_ content" / auto 1fr;
@@ -20,10 +22,16 @@
     padding: config.$padding;
 
     &__icon {
+        align-items: center;
         align-self: center;
+        aspect-ratio: 1;
+        background-color: var(--messaging-color);
+        border-radius: 4px;
+        color: var(--messaging-color-contrast);
+        display: flex;
         grid-area: icon;
         height: var(--messaging-height-icon);
-        color: var(--messaging-color);
+        justify-content: center;
     }
 
     &__content {
@@ -47,21 +55,29 @@
 
     &.-success {
         --messaging-color: var(--color, #{config.$success});
+        --messaging-background-color: var(--background-color, #{config.$green-50});
         --messaging-color-contrast: var(--color-contrast, #{blackwhite(config.$success)});
+        box-shadow: 0px 1px 1px rgba(50, 8, 0, 0.2), 0px 8px 24px #{rgba(config.$success, .1)};
     }
 
     &.-warning {
         --messaging-color: var(--color, #{config.$warning});
+        --messaging-background-color: var(--background-color, #{config.$yellow-50});
         --messaging-color-contrast: var(--color-contrast, #{blackwhite(config.$warning)});
+        box-shadow: 0px 1px 1px rgba(50, 33, 0, 0.2), 0px 8px 24px #{rgba(config.$warning, .1)};
     }
 
     &.-info {
         --messaging-color: var(--color, #{config.$info});
+        --messaging-background-color: var(--background-color, #{config.$blue-50});
         --messaging-color-contrast: var(--color-contrast, #{blackwhite(config.$info)});
+        box-shadow: 0px 1px 1px rgba(34, 51, 0, 0.2), 0px 8px 24px #{rgba(config.$info, .1)};
     }
 
     &.-error {
         --messaging-color: var(--color, #{config.$error});
+        --messaging-background-color: var(--background-color, #{config.$red-50});
         --messaging-color-contrast: var(--color-contrast, #{blackwhite(config.$error)});
+        box-shadow: 0px 1px 1px rgba(50, 8, 0, 0.2), 0px 8px 24px #{rgba(config.$error, .1)};
     }
 }

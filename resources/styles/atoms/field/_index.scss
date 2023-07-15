@@ -11,19 +11,23 @@
     }
 
     &__input {
-        border: 1px solid config.$border;
+        border: 2px solid config.$border;
+        border-radius: .25rem;
         font-family: config.$font-family;
         margin: 0 0 .5rem;
         padding: config.$thin-padding;
         width: 100%;
+        background-color: config.$gray-50;
     }
 
     &__help {
         color: config.$meta-text;
+        font-size: .75rem;
     }
 
     &__error {
         color: config.$error;
+        font-size: .75rem;
     }
 
     &.-error {
